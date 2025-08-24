@@ -28,8 +28,8 @@ func set_horizontal_velocity(direction: Vector2) -> void:
 			target_stop = -velocity.z
 		to_add.y = target_stop
 	
-	var target_x = clamp(velocity.x + to_add.x, -SPEED, SPEED)
-	var target_z = clamp(velocity.z + to_add.y, -SPEED, SPEED)
+	var target_x: float = clamp(velocity.x + to_add.x, -SPEED, SPEED)
+	var target_z: float = clamp(velocity.z + to_add.y, -SPEED, SPEED)
 	
 	velocity.x = target_x
 	velocity.z = target_z
