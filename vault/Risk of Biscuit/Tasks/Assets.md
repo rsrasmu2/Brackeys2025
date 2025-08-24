@@ -10,6 +10,7 @@ kanban-plugin: board
 - [ ] Ability: Damage Pulse #effect
 - [ ] Sequentially Lighting Up Bay Lights #animation
 - [ ] Lava #texture
+- [ ] Enemy: Blob #model
 
 
 ## Prototyped
