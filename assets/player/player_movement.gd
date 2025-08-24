@@ -3,7 +3,10 @@ extends Node
 
 @export var target: Player 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	direction = direction.rotated(-target.rotation.y)
 	target.set_horizontal_velocity(direction)
+	
+	if Input.is_action_just_pressed("jump"):
+		target.try_jump()

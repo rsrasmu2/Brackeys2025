@@ -29,5 +29,4 @@ func _input(event: InputEvent) -> void:
 		
 	horizontal_rotator.rotate_y(-event.relative.x * mouse_sensitivity)
 	var target_vertical_rotation: float = clamp(vertical_rotator.rotation.x - event.relative.y * mouse_sensitivity, _min_x_rad, _max_x_rad)
-	print(str(vertical_rotator.rotation.x) + " vs " + str(target_vertical_rotation))
 	vertical_rotator.rotation.x = target_vertical_rotation
