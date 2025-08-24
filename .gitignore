@@ -18,3 +18,32 @@ obj/
 
 # Blender:
 *.blend1
+
+
+# Obsidian Stuff
+# to exclude Obsidian workspace settings (including plugin and hotkey configurations)
+vault/Risk of Biscuit/.obsidian/*
+
+# OR only to exclude workspace cache
+vault/Risk of Biscuit/.obsidian/workspace/*
+
+# Exclude plugins
+vault/Risk of Biscuit/.obsidian/plugins/*
+
+# Exclude consultant specific files "personal"
+vault/Risk of Biscuit/05*-*Personal/
+
+# Exclude Day Planner directory placed in vault root
+vault/Risk of Biscuit/Day*Planners/*
+
+# This file is used to keep track of last auto backup/pull
+vault/Risk of Biscuit/.obsidian-git-data
+
+# Exclude Untitled Notes
+vault/Risk of Biscuit/Untitled*
+# Exclude "bad" names
+vault/Risk of Biscuit/null*
+
+# Add below lines to exclude OS settings and caches
+vault/Risk of Biscuit/.trash/
+vault/Risk of Biscuit/.DS_Store
