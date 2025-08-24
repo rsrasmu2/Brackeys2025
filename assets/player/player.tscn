@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=4 format=3 uid="uid://4hdasq5m51u7"]
+
+[ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d6veg"]
+size = Vector3(0.2, 0.2, 0.6)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
 [node name="Player" type="CharacterBody3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67, 1.43, 0)
+
+[node name="GunMesh" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67, -0.523633, -1.04252)
+mesh = SubResource("BoxMesh_d6veg")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_hgb4b")
+
+[node name="MouseRotation" type="Node" parent="." node_paths=PackedStringArray("horizontal_rotator", "vertical_rotator")]
+script = ExtResource("1_d6veg")
+horizontal_rotator = NodePath("..")
+vertical_rotator = NodePath("../Camera3D")
