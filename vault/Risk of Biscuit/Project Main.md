@@ -1,7 +1,9 @@
-## To-Do:
+## Tasks:
 
-- [ ] Audio
-- [ ] [[Assets]]
+- [[Audio]]
+- [[Assets]]
+- [[Programming]]
+
  ---
 # Game Design
 ### Items: 
