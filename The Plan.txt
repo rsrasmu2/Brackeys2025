@@ -1,0 +1,10 @@
+Setting: Tower! Elevator in the center, you gotta kill all the baddies to activate the elevator. Higher levels are harder (duh). Higher levels also get bigger.
+
+Mechanics: First-person shooter. Levels have chests that drop random updrades. When you clear a level, you get one of three powerful upgrades.
+
+Enemy types:
+Melee - Small and swarmy, Big and strong
+Ranged - Ground, flying
+
+Player:
+One gun and one ability
