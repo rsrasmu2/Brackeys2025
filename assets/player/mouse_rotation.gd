@@ -1,12 +1,16 @@
+class_name MouseRotation
 extends Node
 
-@export var mouse_sensitivity: float = 0.005
+@export var mouse_sensitivity: float = 0.003
 
 @export var min_x_rotation: float = -60
 @export var max_x_rotation: float = 60
 
 @export var horizontal_rotator: Node3D
 @export var vertical_rotator: Node3D
+
+@onready var _min_x_rad: float = deg_to_rad(min_x_rotation)
+@onready var _max_x_rad: float = deg_to_rad(max_x_rotation)
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -19,9 +23,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("refocus_game") and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		
+	# Handle mouse movement
 	if event is not InputEventMouseMotion:
 		return
 		
 	horizontal_rotator.rotate_y(-event.relative.x * mouse_sensitivity)
-	var target_vertical_rotation: float = clamp(vertical_rotator.rotation.x - event.relative.y * mouse_sensitivity, min_x_rotation, max_x_rotation)
-	vertical_rotator.rotate_x(target_vertical_rotation - vertical_rotator.rotation.x)
+	var target_vertical_rotation: float = clamp(vertical_rotator.rotation.x - event.relative.y * mouse_sensitivity, _min_x_rad, _max_x_rad)
+	print(str(vertical_rotator.rotation.x) + " vs " + str(target_vertical_rotation))
+	vertical_rotator.rotation.x = target_vertical_rotation
