@@ -16,14 +16,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func set_horizontal_velocity(direction: Vector2) -> void:
-	var to_add = direction * ACCELERATION
+	var to_add: Vector2 = direction * ACCELERATION
 	if to_add.x == 0:
-		var target_stop = STOP_FORCE * -sign(velocity.x)
+		var target_stop: float = STOP_FORCE * -sign(velocity.x)
 		if sign(target_stop) == sign(velocity.x):
 			target_stop = -velocity.x
 		to_add.x = target_stop
 	if to_add.y == 0:
-		var target_stop = STOP_FORCE * -sign(velocity.z)
+		var target_stop: float = STOP_FORCE * -sign(velocity.z)
 		if sign(target_stop) == sign(velocity.z):
 			target_stop = -velocity.z
 		to_add.y = target_stop

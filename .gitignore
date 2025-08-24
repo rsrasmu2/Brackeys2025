@@ -47,3 +47,5 @@ vault/Risk of Biscuit/null*
 # Add below lines to exclude OS settings and caches
 vault/Risk of Biscuit/.trash/
 vault/Risk of Biscuit/.DS_Store
+
+addons/terrain_3d
