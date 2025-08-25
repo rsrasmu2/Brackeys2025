@@ -11,8 +11,15 @@ const GRAVITY: float = 9.8
 var _delta: float = 0
 var _in_air: bool = false
 
-func _process(delta: float):
+func _process(delta: float) -> void:
 	_delta = delta
+	var target_position = Vector3.ZERO # I hate that this can't be null
+	if $Camera3D/RayCast3D.is_colliding():
+		target_position = $Camera3D/RayCast3D.get_collision_point()
+	else:
+		target_position = $Camera3D/RayCast3D.global_position + $Camera3D/RayCast3D.global_basis.z * 100
+	print(target_position)
+	$Camera3D/Gun.set_aim_target(target_position)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -26,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func set_horizontal_velocity(direction: Vector2) -> void:
-	var target_velocity = direction * SPEED
+	var target_velocity: Vector2 = direction * SPEED
 	velocity.x = target_velocity.x
 	velocity.z = target_velocity.y
 

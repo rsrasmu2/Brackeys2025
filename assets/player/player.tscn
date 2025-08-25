@@ -4,24 +4,27 @@
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
 [ext_resource type="Script" uid="uid://saiatjsdyypn" path="res://assets/player/player_movement.gd" id="2_h6syq"]
 [ext_resource type="Texture2D" uid="uid://ceh4xbfgvp1x4" path="res://assets/player/crosshair012.png" id="2_ouxva"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_d6veg"]
-size = Vector3(0.2, 0.2, 0.6)
+[ext_resource type="PackedScene" uid="uid://b4xojb6sb1hqf" path="res://assets/gun/gun.tscn" id="2_toylo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_v2miy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67, 1.43, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0)
 
-[node name="GunMesh" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.67, -0.523633, -1.04252)
-mesh = SubResource("BoxMesh_d6veg")
-skeleton = NodePath("../..")
+[node name="Gun" parent="Camera3D" instance=ExtResource("2_toylo")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.47, -0.32, -0.261)
 
-[node name="TextureRect" type="TextureRect" parent="Camera3D"]
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+target_position = Vector3(0, 0, 100)
+collision_mask = 5
+
+[node name="Crosshair" type="TextureRect" parent="Camera3D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
