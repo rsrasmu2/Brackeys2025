@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpeceg08wwn2n"]
 
-[ext_resource type="Terrain3DMaterial" uid="uid://b86qpvhrw1ava" path="res://assets/environment/new_terrain_3d_material.tres" id="1_xj1eo"]
-[ext_resource type="Terrain3DAssets" uid="uid://dv6h3xcmywlmt" path="res://assets/environment/new_terrain_3d_assets.tres" id="2_llb3a"]
+[ext_resource type="Terrain3DMaterial" uid="uid://b86qpvhrw1ava" path="res://assets/environment/Level 1/new_terrain_3d_material.tres" id="1_xj1eo"]
+[ext_resource type="Terrain3DAssets" uid="uid://dv6h3xcmywlmt" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
 
 [node name="Environment" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://assets/environment"
+data_directory = "res://assets/environment/Level 1"
 material = ExtResource("1_xj1eo")
 assets = ExtResource("2_llb3a")
 show_checkered = true
