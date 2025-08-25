@@ -48,7 +48,6 @@ func _physics_process(delta: float) -> void:
 
 func set_horizontal_velocity(direction: Vector2) -> void:
 	_target_velocity = direction * SPEED
-	print(_target_velocity)
 	var target_velocity: Vector2 = _target_velocity
 	if _is_firing:
 		target_velocity *= FIRING_MULT
