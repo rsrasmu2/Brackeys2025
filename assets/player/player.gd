@@ -10,7 +10,13 @@ const FIRING_MULT: float = 0.7
 
 const GRAVITY: float = 9.8
 
-var is_sprinting: bool = false
+signal is_sprinting_changed(is_sprinting: bool)
+
+var is_sprinting: bool = false:
+	set(value):
+		if is_sprinting != value:
+			is_sprinting = value
+			emit_signal(is_sprinting_changed.get_name(), is_sprinting)
 
 var _delta: float = 0
 var _in_air: bool = false
@@ -19,11 +25,11 @@ var _is_firing: bool = false
 func _process(delta: float) -> void:
 	_delta = delta
 	var target_position: Vector3 = Vector3.ZERO # I hate that this can't be null
-	if $Camera3D/RayCast3D.is_colliding():
-		target_position = $Camera3D/RayCast3D.get_collision_point()
+	if $PlayerCamera/RayCast3D.is_colliding():
+		target_position = $PlayerCamera/RayCast3D.get_collision_point()
 	else:
-		target_position = $Camera3D/RayCast3D.global_position + $Camera3D/RayCast3D.global_basis.z * 100
-	$Camera3D/Gun.set_aim_target(target_position)
+		target_position = $PlayerCamera/RayCast3D.global_position + $PlayerCamera/RayCast3D.global_basis.z * 100
+	$PlayerCamera/Gun.set_aim_target(target_position)
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -37,6 +43,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func set_horizontal_velocity(direction: Vector2) -> void:
+	if direction == Vector2.ZERO:
+		is_sprinting = false
+	
 	var target_velocity: Vector2 = direction * SPEED
 	if _is_firing:
 		target_velocity *= FIRING_MULT
