@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 gdscript/warnings/untyped_declaration=1
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
