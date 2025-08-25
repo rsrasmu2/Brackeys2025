@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 		target_position = $Camera3D/RayCast3D.get_collision_point()
 	else:
 		target_position = $Camera3D/RayCast3D.global_position + $Camera3D/RayCast3D.global_basis.z * 100
-	print(target_position)
 	$Camera3D/Gun.set_aim_target(target_position)
 
 func _physics_process(delta: float) -> void:

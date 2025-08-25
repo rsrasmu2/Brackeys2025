@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 		stop_fire()
 
 func set_aim_target(target_global_position: Vector3) -> void:
-	global_transform = global_transform.looking_at(target_global_position)
+	$GunMesh/BulletSpawner.global_transform = $GunMesh/BulletSpawner.global_transform.looking_at(target_global_position)
 
 func start_fire() -> void:
 	_firing = true
@@ -39,7 +39,7 @@ func fire() -> void:
 		get_tree().root.add_child(bullet)
 		bullet.global_position = $GunMesh/BulletSpawner.global_position
 		bullet.global_rotation = $GunMesh/BulletSpawner.global_rotation
-		bullet.init($GunMesh/BulletSpawner.global_basis.z * bullet_speed)
+		bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed)
 	else:
 		$Timer.stop()
 		
