@@ -24,23 +24,23 @@ func set_aim_target(target_global_position: Vector3) -> void:
 
 func start_fire() -> void:
 	_firing = true
-	if $Timer.time_left == 0:
+	if $Timer.is_stopped():
 		fire()
-	$Timer.start()
+		$Timer.start()
 
 func stop_fire() -> void:
 	_firing = false
 
 func _on_timer_timeout() -> void:
-	fire()
+	if not _firing:
+		$Timer.stop()
+	else:
+		fire()
 
 func fire() -> void:
-	if _firing:
-		var bullet: Bullet = bullet_scene.instantiate()
-		get_tree().root.add_child(bullet)
-		bullet.global_position = $GunMesh/BulletSpawner.global_position
-		bullet.global_rotation = $GunMesh/BulletSpawner.global_rotation
-		bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed, bullet_damage)
-	else:
-		$Timer.stop()
+	var bullet: Bullet = bullet_scene.instantiate()
+	get_tree().root.add_child(bullet)
+	bullet.global_position = $GunMesh/BulletSpawner.global_position
+	bullet.global_rotation = $GunMesh/BulletSpawner.global_rotation
+	bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed, bullet_damage)
 		
