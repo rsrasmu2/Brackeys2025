@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=10 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://ceh4xbfgvp1x4" path="res://assets/player/crosshair012.png" id="2_ouxva"]
 [ext_resource type="Script" uid="uid://131tkdjps5ux" path="res://assets/player/player_camera.gd" id="2_tb4ck"]
 [ext_resource type="PackedScene" uid="uid://b4xojb6sb1hqf" path="res://assets/gun/gun.tscn" id="2_toylo"]
+[ext_resource type="Script" uid="uid://dmneh2j38qw20" path="res://assets/player/ammo.gd" id="5_tb4ck"]
+[ext_resource type="Script" uid="uid://d0gxh32exbwxl" path="res://assets/player/dash.gd" id="8_kwvpd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -27,19 +29,40 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 target_position = Vector3(0, 0, 100)
 collision_mask = 5
 
-[node name="Crosshair" type="TextureRect" parent="PlayerCamera"]
+[node name="UI" type="Control" parent="PlayerCamera"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="TextureRect" parent="PlayerCamera/UI"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ouxva")
+
+[node name="Ammo" type="Label" parent="PlayerCamera/UI" node_paths=PackedStringArray("gun")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "12 / 12"
+script = ExtResource("5_tb4ck")
+gun = NodePath("../../Gun")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -54,5 +77,13 @@ vertical_rotator = NodePath("../PlayerCamera")
 script = ExtResource("2_h6syq")
 target = NodePath("..")
 
+[node name="Dash" type="Node" parent="."]
+script = ExtResource("8_kwvpd")
+
+[node name="Cooldown" type="Timer" parent="Dash"]
+wait_time = 2.0
+
 [connection signal="is_sprinting_changed" from="." to="PlayerCamera" method="_on_player_is_sprinting_changed"]
+[connection signal="ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/Ammo" method="_on_gun_ammo_changed"]
+[connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/Ammo" method="_on_gun_current_ammo_changed"]
 [connection signal="firing_changed" from="PlayerCamera/Gun" to="." method="_on_gun_firing_changed"]
