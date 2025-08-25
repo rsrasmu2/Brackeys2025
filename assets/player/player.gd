@@ -4,21 +4,24 @@ extends CharacterBody3D
 const ACCELERATION: float = 20.0
 const STOP_FORCE: float = 40.0
 const SPEED: float = 5.0
-const JUMP_VELOCITY: float = 5.5;
-const SPRINT_MULT: float = 1.6
+const JUMP_VELOCITY: float = 5.5
 const FIRING_MULT: float = 0.7
 
 const GRAVITY: float = 9.8
 
-signal is_sprinting_changed(is_sprinting: bool)
-
-var is_sprinting: bool = false:
+var current_dash_speed: float = 0:
 	set(value):
-		if is_sprinting != value:
-			is_sprinting = value
-			emit_signal(is_sprinting_changed.get_name(), is_sprinting)
+		if current_dash_speed != value:
+			current_dash_speed = value
+			velocity.x = _target_velocity.x * current_dash_speed
+			velocity.z = _target_velocity.y * current_dash_speed
+	
+var is_dashing: bool:
+	get():
+		return current_dash_speed != 0
 
 var _delta: float = 0
+var _target_velocity: Vector2
 var _in_air: bool = false
 var _is_firing: bool = false
 
@@ -43,16 +46,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func set_horizontal_velocity(direction: Vector2) -> void:
-	if direction == Vector2.ZERO:
-		is_sprinting = false
-	
-	var target_velocity: Vector2 = direction * SPEED
+	_target_velocity = direction * SPEED
+	print(_target_velocity)
+	var target_velocity: Vector2 = _target_velocity
 	if _is_firing:
 		target_velocity *= FIRING_MULT
-	elif is_sprinting:
-		target_velocity *= SPRINT_MULT
-	velocity.x = target_velocity.x
-	velocity.z = target_velocity.y
+	if not is_dashing:
+		velocity.x = target_velocity.x
+		velocity.z = target_velocity.y
 
 func try_jump() -> void:
 	if is_on_floor():
@@ -60,5 +61,3 @@ func try_jump() -> void:
 
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
-	if _is_firing and is_sprinting:
-		is_sprinting = false
