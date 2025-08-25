@@ -1,13 +1,19 @@
 class_name Gun
 extends Node3D
 
+signal firing_changed(is_firing: bool)
+
 const bullet_scene = preload("res://assets/bullet/bullet.tscn")
 @export var cooldown: float = 0.2
 @export var bullet_speed: float = 20.0
 @export var bullet_damage: int = 30
 
 @onready var initial_rotation: Vector3 = self.rotation
-var _firing: bool = false
+var _firing: bool = false:
+	set(value):
+		if _firing != value:
+			_firing = value
+			emit_signal(firing_changed.get_name(), _firing)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -50,3 +50,5 @@ vertical_rotator = NodePath("../Camera3D")
 [node name="PlayerMovement" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_h6syq")
 target = NodePath("..")
+
+[connection signal="firing_changed" from="Camera3D/Gun" to="." method="_on_gun_firing_changed"]
