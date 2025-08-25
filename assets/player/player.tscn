@@ -17,7 +17,7 @@ script = ExtResource("1_v2miy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0)
 
 [node name="Gun" parent="Camera3D" instance=ExtResource("2_toylo")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.47, -0.32, -0.261)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -0.32, -0.261)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
