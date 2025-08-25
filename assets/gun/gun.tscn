@@ -8,9 +8,8 @@ size = Vector3(0.2, 0.2, 0.6)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_danae"]
 albedo_color = Color(0, 0.341176, 1, 1)
 
-[sub_resource type="Animation" id="Animation_danae"]
-resource_name = "reload"
-length = 1.7
+[sub_resource type="Animation" id="Animation_7ybdq"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,10 +17,10 @@ tracks/0/path = NodePath("GunMesh:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.06667, 1.56667, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -0.182), Vector3(0, 0, -0.182), Vector3(0, -0.109581, -0.182113), Vector3(0, 0, -0.182)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,10 +29,10 @@ tracks/1/path = NodePath("GunMesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.38, 1.03333, 1.53333, 1.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.767718, 0.555104, 0.406681), Vector3(0.955343, 0.803591, 0.618216), Vector3(-0.125123, -0.278363, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_nrmjy"]
@@ -63,8 +62,9 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, -0.182), Vector3(-0.265, 0.093, -0.416), Vector3(0, 0, -0.182)]
 }
 
-[sub_resource type="Animation" id="Animation_7ybdq"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_danae"]
+resource_name = "reload"
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,10 +72,10 @@ tracks/0/path = NodePath("GunMesh:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.06667, 1.56667, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, -0.182), Vector3(0, 0, -0.182), Vector3(0, -0.109581, -0.182113), Vector3(0, 0, -0.182)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -84,10 +84,10 @@ tracks/1/path = NodePath("GunMesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.001),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.38, 1.03333, 1.53333, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.767718, 0.555104, 0.406681), Vector3(0.955343, 0.803591, 0.618216), Vector3(-0.125123, -0.278363, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ybdq"]
@@ -102,7 +102,6 @@ script = ExtResource("1_danae")
 bullet_speed = 40.0
 
 [node name="GunMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_d6veg")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_danae")
