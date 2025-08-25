@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cr5r7kt1j1ati"]
+
+[ext_resource type="Script" uid="uid://dxqniy5yhd62o" path="res://assets/enemy/enemy.gd" id="1_4nxta"]
+[ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="1_hx8jw"]
+[ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/enemy/health_bar.tscn" id="3_uu6ev"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4nxta"]
+radius = 0.3
+height = 1.4
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uu6ev"]
+radius = 0.3
+height = 1.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x63uy"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uu6ev"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_4nxta")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_4nxta")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("CapsuleMesh_uu6ev")
+surface_material_override/0 = SubResource("StandardMaterial3D_x63uy")
+
+[node name="Health" parent="." instance=ExtResource("1_hx8jw")]
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_uu6ev")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+texture = SubResource("ViewportTexture_uu6ev")
+health = NodePath("../Health")
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]

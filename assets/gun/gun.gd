@@ -4,6 +4,7 @@ extends Node3D
 const bullet_scene = preload("res://assets/bullet/bullet.tscn")
 @export var cooldown: float = 0.2
 @export var bullet_speed: float = 20.0
+@export var bullet_damage: int = 30
 
 @onready var initial_rotation: Vector3 = self.rotation
 var _firing: bool = false
@@ -39,7 +40,7 @@ func fire() -> void:
 		get_tree().root.add_child(bullet)
 		bullet.global_position = $GunMesh/BulletSpawner.global_position
 		bullet.global_rotation = $GunMesh/BulletSpawner.global_rotation
-		bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed)
+		bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed, bullet_damage)
 	else:
 		$Timer.stop()
 		

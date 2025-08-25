@@ -13,7 +13,7 @@ var _in_air: bool = false
 
 func _process(delta: float) -> void:
 	_delta = delta
-	var target_position = Vector3.ZERO # I hate that this can't be null
+	var target_position: Vector3 = Vector3.ZERO # I hate that this can't be null
 	if $Camera3D/RayCast3D.is_colliding():
 		target_position = $Camera3D/RayCast3D.get_collision_point()
 	else:

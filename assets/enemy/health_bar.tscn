@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpycvx6icpx8o"]
+
+[ext_resource type="Script" uid="uid://dbehmdqbajqc6" path="res://assets/enemy/health_bar.gd" id="1_a50wj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a50wj"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HealthBar" type="Sprite3D"]
+billboard = 1
+texture = SubResource("ViewportTexture_a50wj")
+script = ExtResource("1_a50wj")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(160, 24)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+rounded = true
+show_percentage = false
+metadata/_edit_use_anchors_ = true
