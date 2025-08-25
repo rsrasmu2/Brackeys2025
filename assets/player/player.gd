@@ -5,8 +5,11 @@ const ACCELERATION: float = 20.0
 const STOP_FORCE: float = 40.0
 const SPEED: float = 5.0
 const JUMP_VELOCITY: float = 5.5;
+const SPRINT_MULT: float = 1.6
 
 const GRAVITY: float = 9.8
+
+var is_sprinting: bool = false
 
 var _delta: float = 0
 var _in_air: bool = false
@@ -33,6 +36,8 @@ func _physics_process(delta: float) -> void:
 
 func set_horizontal_velocity(direction: Vector2) -> void:
 	var target_velocity: Vector2 = direction * SPEED
+	if is_sprinting:
+		target_velocity *= SPRINT_MULT
 	velocity.x = target_velocity.x
 	velocity.z = target_velocity.y
 
