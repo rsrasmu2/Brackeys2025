@@ -18,7 +18,6 @@ script = ExtResource("1_v2miy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43, 0)
 fov = 90.0
 script = ExtResource("2_tb4ck")
-_sprint_fov = 82
 
 [node name="Gun" parent="PlayerCamera" instance=ExtResource("2_toylo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -0.32, -0.261)
