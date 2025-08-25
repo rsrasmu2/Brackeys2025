@@ -14,6 +14,7 @@ var current_dash_speed: float = 0:
 		if current_dash_speed != value:
 			current_dash_speed = value
 			velocity.x = _target_velocity.x * current_dash_speed
+			velocity.y = 0
 			velocity.z = _target_velocity.y * current_dash_speed
 	
 var is_dashing: bool:

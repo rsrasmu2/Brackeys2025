@@ -3,7 +3,7 @@ extends Node
 @export var dasher: Player
 
 @export var dash_speed: float = 20
-@export var dash_duration: float = 0.1:
+@export var dash_duration: float = 0.15:
 	set(value):
 		dash_duration = value
 		$DashTimer.wait_time = dash_duration
@@ -42,5 +42,4 @@ func _on_cooldown_timeout() -> void:
 
 
 func _on_dash_timer_timeout() -> void:
-	var tween: Tween = get_tree().create_tween()
-	tween.tween_property(dasher, "current_dash_speed", 0, 0.5).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	dasher.current_dash_speed = 0

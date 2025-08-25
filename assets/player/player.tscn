@@ -79,6 +79,7 @@ target = NodePath("..")
 
 [node name="Dash" parent="." node_paths=PackedStringArray("dasher") instance=ExtResource("8_kwvpd")]
 dasher = NodePath("..")
+dash_speed = 15.0
 
 [connection signal="ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/Ammo" method="_on_gun_ammo_changed"]
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/Ammo" method="_on_gun_current_ammo_changed"]
