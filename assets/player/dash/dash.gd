@@ -25,7 +25,7 @@ func _ready() -> void:
 	$DashTimer.wait_time = dash_duration
 	$Cooldown.wait_time = cooldown
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not $Cooldown.is_stopped():
 		var percent: float = 1.0 - ($Cooldown.time_left / $Cooldown.wait_time)
 		emit_signal(cooldown_changed.get_name(), percent)

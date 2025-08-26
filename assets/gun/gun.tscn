@@ -44,7 +44,7 @@ tracks/0/path = NodePath("GunMesh:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13, 0.5),
+"times": PackedFloat32Array(0.0666667, 0.13, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.397861, 1.75748, -0.480813), Vector3(0, 0, 0)]
