@@ -198,5 +198,6 @@ data_directory = "res://assets/environment/Level 2"
 material = ExtResource("1_w1egl")
 assets = ExtResource("2_bdj47")
 show_checkered = true
+show_grey = true
 top_level = true
 metadata/_edit_lock_ = true
