@@ -26,7 +26,7 @@ radius = 2.0
 [sub_resource type="ViewportTexture" id="ViewportTexture_w3y5l"]
 viewport_path = NodePath("SubViewport")
 
-[node name="StaticBody3D" type="StaticBody3D"]
+[node name="Spawner" type="StaticBody3D"]
 collision_layer = 4
 collision_mask = 30
 script = ExtResource("1_0syc1")

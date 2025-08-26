@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2mhwfeuyt5a1"]
+
+[ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_r0itx"]
+[ext_resource type="PackedScene" uid="uid://c8fycs1l0bok6" path="res://assets/enemy/enemy_blob/Enemy_Blob.glb" id="2_4j6gg"]
+[ext_resource type="Script" uid="uid://qqcg1v1xtr03" path="res://assets/enemy/enemy_blob/blob_movement.gd" id="3_42nhj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uu6ev"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
+
+[node name="EnemyBlob" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_r0itx")]
+animation_player = NodePath("Enemy_Blob/AnimationPlayer")
+
+[node name="HealthBar" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59998, 0)
+texture = SubResource("ViewportTexture_uu6ev")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_42nhj")
+
+[node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
+
+[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
+bones/0/position = Vector3(0, -1.32455e-08, 0)
+bones/0/rotation = Quaternion(0.125152, 0, 0, 0.992138)
+bones/0/scale = Vector3(1.31177, 0.838407, 1.29151)
+bones/1/rotation = Quaternion(0.237661, 0, 0, 0.971348)
+bones/1/scale = Vector3(0.714189, 1.20673, 0.714189)
+
+[node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
+autoplay = "idle"
+
+[node name="BlobMovement" type="Node3D" parent="." index="5" node_paths=PackedStringArray("target", "controller")]
+script = ExtResource("3_42nhj")
+target = NodePath("../EnemyTarget")
+controller = NodePath("..")
+
+[editable path="Enemy_Blob"]
