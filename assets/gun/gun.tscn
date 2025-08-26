@@ -44,10 +44,10 @@ tracks/0/path = NodePath("GunMesh:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.13, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.397861, 1.75748, -0.480813), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(-0.397861, 1.75748, -0.480813), Vector3(-0.341998, 1.51072, -0.413303), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,10 +56,10 @@ tracks/1/path = NodePath("GunMesh:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0699997, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, -0.182), Vector3(-0.265, 0.093, -0.416), Vector3(0, 0, -0.182)]
+"values": [Vector3(0, 0, -0.182), Vector3(-0.265, 0.093, -0.416), Vector3(-0.265, 0.093, -0.416), Vector3(0, 0, -0.182)]
 }
 
 [sub_resource type="Animation" id="Animation_danae"]
