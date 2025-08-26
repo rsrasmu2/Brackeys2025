@@ -23,6 +23,5 @@ func spawn() -> void:
 func _on_timer_timeout() -> void:
 	spawn()
 
-
 func _on_health_died() -> void:
 	queue_free()
