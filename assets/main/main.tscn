@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://brkhre0g3uimc"]
+[gd_scene load_steps=4 format=3 uid="uid://brkhre0g3uimc"]
 
+[ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/game_manager.tscn" id="1_k5mrd"]
 [ext_resource type="PackedScene" uid="uid://dbscgsfbwy7q0" path="res://assets/environment/Level 2/Level 2.tscn" id="1_xch4i"]
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_j84mu"]
 
 [node name="Main" type="Node"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_k5mrd")]
+spawns = Array[Dictionary]([{
+"enemies": [ExtResource("2_j84mu"), ExtResource("2_j84mu")],
+"spawn_mult": 0.7
+}, {
+"enemies": [ExtResource("2_j84mu"), ExtResource("2_j84mu"), ExtResource("2_j84mu")],
+"spawn_mult": 1.0
+}, {
+"enemies": [ExtResource("2_j84mu"), ExtResource("2_j84mu"), ExtResource("2_j84mu"), ExtResource("2_j84mu")],
+"spawn_mult": 1.2
+}])
 
 [node name="Environment_Level2" parent="." instance=ExtResource("1_xch4i")]
