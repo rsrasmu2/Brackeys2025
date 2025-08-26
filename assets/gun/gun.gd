@@ -112,7 +112,7 @@ func _on_reload_finished() -> void:
 		start_fire()
 
 func melee() -> void:
-	if _state == GunState.Reloading or _state == GunState.Meleeing:
+	if _state == GunState.Meleeing:
 		return
 	_state = GunState.Meleeing
 	$Animations.play("melee")
