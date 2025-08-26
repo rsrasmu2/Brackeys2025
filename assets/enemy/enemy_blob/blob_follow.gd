@@ -4,17 +4,29 @@ extends Node3D
 @export var controller: Enemy
 
 const WALK_VELOCITY_Y = 3.0
-const GRAVITY: float = 9.8
 
 var target_position: Vector3
 var speed: float = 4
 var ground_speed: float = 0.5
 
-func _physics_process(delta: float) -> void:
-	if controller.is_on_floor():
-		controller.velocity.y = 0
-	else:
-		controller.velocity.y -= GRAVITY * delta
+@export var animation_player: AnimationPlayer
+
+func _ready() -> void:
+	set_process(false)
+
+func _process(_delta: float) -> void:
+	controller.look_at(target.target.global_position, Vector3.UP, true)
+
+func enter() -> void:
+	set_process(true)
+	animation_player.connect(animation_player.animation_finished.get_name(), _on_animation_finished)
+	animation_player.play("walk")
+
+func exit() -> void:
+	set_process(false)
+	animation_player.disconnect(animation_player.animation_finished.get_name(), _on_animation_finished)
+	controller.velocity.x = 0
+	controller.velocity.z = 0
 
 func begin_walk() -> void:
 	var displacement: Vector3 = target.target.global_position - global_position
@@ -28,3 +40,6 @@ func end_walk() -> void:
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * ground_speed
 	controller.velocity.x = velocity.x
 	controller.velocity.z = velocity.y
+
+func _on_animation_finished(_animation_name: String) -> void:
+	controller.state = controller.EnemyState.Idle

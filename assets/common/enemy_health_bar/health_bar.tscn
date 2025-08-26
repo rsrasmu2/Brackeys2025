@@ -2,19 +2,20 @@
 
 [ext_resource type="Script" uid="uid://dbehmdqbajqc6" path="res://assets/common/enemy_health_bar/health_bar.gd" id="1_a50wj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a50wj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7gvqr"]
 viewport_path = NodePath("SubViewport")
 
 [node name="HealthBar" type="Sprite3D"]
 billboard = 1
-texture = SubResource("ViewportTexture_a50wj")
+texture = SubResource("ViewportTexture_7gvqr")
 script = ExtResource("1_a50wj")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 size = Vector2i(160, 24)
 
 [node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
-self_modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0.124571, 0.0864936, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

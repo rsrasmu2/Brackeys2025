@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		try_jump()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if player.is_on_floor():
 		_remaining_extra_jumps = extra_jumps
 

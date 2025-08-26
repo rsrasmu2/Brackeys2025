@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="4_jeskp"]
 [ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/common/enemy_health_bar/health_bar.tscn" id="5_tc55m"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_uu6ev"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_o0alw"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Enemy" type="CharacterBody3D"]
@@ -19,8 +19,7 @@ script = ExtResource("3_aal2b")
 [node name="Health" parent="." instance=ExtResource("4_jeskp")]
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_tc55m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-texture = SubResource("ViewportTexture_uu6ev")
+texture = SubResource("ViewportTexture_o0alw")
 health = NodePath("../Health")
 size = Vector2(160, 20)
 
