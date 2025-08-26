@@ -164,15 +164,6 @@ light_energy = 2000.0
 omni_range = 96.2682
 omni_attenuation = 1.619
 
-[node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://assets/environment/Level 2"
-material = ExtResource("1_w1egl")
-assets = ExtResource("2_bdj47")
-show_checkered = true
-show_grey = true
-top_level = true
-metadata/_edit_lock_ = true
-
 [node name="Lava" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.1176, 37.703, -6.97024)
 material_override = SubResource("StandardMaterial3D_bdj47")
@@ -183,3 +174,12 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9357, 59.7135, 171.457)
 material_override = SubResource("StandardMaterial3D_e22gm")
 size = Vector3(105.374, 17.3456, 86.5305)
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://assets/environment/Level 2"
+material = ExtResource("1_w1egl")
+assets = ExtResource("2_bdj47")
+show_checkered = true
+show_grey = true
+top_level = true
+metadata/_edit_lock_ = true

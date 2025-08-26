@@ -4,7 +4,6 @@ extends CharacterBody3D
 const ACCELERATION: float = 20.0
 const STOP_FORCE: float = 40.0
 const SPEED: float = 5.0
-const JUMP_VELOCITY: float = 5.5
 const FIRING_MULT: float = 0.7
 
 const GRAVITY: float = 9.8
@@ -54,10 +53,6 @@ func set_horizontal_velocity(direction: Vector2) -> void:
 	if not is_dashing:
 		velocity.x = target_velocity.x
 		velocity.z = target_velocity.y
-
-func try_jump() -> void:
-	if is_on_floor():
-		velocity.y = JUMP_VELOCITY
 
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
