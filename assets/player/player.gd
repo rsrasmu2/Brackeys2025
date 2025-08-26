@@ -61,3 +61,6 @@ func try_jump() -> void:
 
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
+
+func take_damage(amount: int) -> void:
+	$Health.health -= amount

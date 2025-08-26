@@ -2,9 +2,18 @@ class_name Health
 extends Node
 
 signal health_changed(new_health: int)
+signal max_health_changed(new_max_health: int)
 signal died
 
-@export var max_health: int = 100
+@export var max_health: int = 100:
+	set(value):
+		if max_health == value:
+			return
+		max_health = value
+		emit_signal(max_health_changed.get_name(), max_health)
+		if health > max_health:
+			health = max_health
+	
 @export var health: int:
 	set(value):
 		var new_health: int = clamp(value, 0, max_health)
