@@ -15,6 +15,9 @@ func _process(delta: float) -> void:
 		controller.velocity.y -= 9.8 * delta
 	else:
 		controller.velocity.y = 0
+		
+	if target.target == null:
+		return
 	
 	if controller.state == controller.EnemyState.Following:
 		_mid_attack = false
