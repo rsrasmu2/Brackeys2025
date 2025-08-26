@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cj8s23kp4am6v"]
+
+[ext_resource type="Script" uid="uid://cxslio1mj8eel" path="res://assets/spawner/spawner.gd" id="1_0syc1"]
+[ext_resource type="Script" uid="uid://k76m25w2xa5s" path="res://assets/common/health/health.gd" id="2_tsu2u"]
+[ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/common/enemy_health_bar/health_bar.tscn" id="3_ctero"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_npend"]
+radius = 2.0
+height = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0syc1"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0syc1"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tsu2u"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tsu2u"]
+size = Vector3(4, 2, 4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ctero"]
+radius = 2.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_w3y5l"]
+viewport_path = NodePath("SubViewport")
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 4
+collision_mask = 30
+script = ExtResource("1_0syc1")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("SphereMesh_npend")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0syc1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(0.999985, -0.000319695, 0.00546344, 0.000338981, 0.999994, -0.00352461, -0.00546228, 0.00352641, 0.999979, 0, 1, 0)
+mesh = SubResource("BoxMesh_0syc1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_tsu2u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_tsu2u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SphereShape3D_ctero")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_tsu2u")
+max_health = 1000
+metadata/_custom_type_script = "uid://k76m25w2xa5s"
+
+[node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("3_ctero")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.70369, 0)
+texture = SubResource("ViewportTexture_w3y5l")
+health = NodePath("../Health")
+size = Vector2(320, 40)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxqniy5yhd62o" path="res://assets/enemy/enemy.gd" id="1_4nxta"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="1_hx8jw"]
-[ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/enemy/health_bar.tscn" id="3_uu6ev"]
+[ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/common/enemy_health_bar/health_bar.tscn" id="3_uu6ev"]
 [ext_resource type="Script" uid="uid://dwmwlob6qacbf" path="res://assets/enemy/movement.gd" id="4_gxvxc"]
 [ext_resource type="Script" uid="uid://k8it2s8jr2qy" path="res://assets/enemy/melee_attack.gd" id="4_x63uy"]
 [ext_resource type="Script" uid="uid://dhefwn5nr2dpi" path="res://assets/enemy/enemy_target.gd" id="5_0tmw4"]
@@ -287,6 +287,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x63uy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 texture = SubResource("ViewportTexture_uu6ev")
 health = NodePath("../Health")
+size = Vector2(160, 20)
 
 [node name="Movement" type="Node3D" parent="." node_paths=PackedStringArray("controller", "target")]
 script = ExtResource("4_gxvxc")

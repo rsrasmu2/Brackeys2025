@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ded8e20c4hvx3"]
 
-[ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy.tscn" id="2_ih0re"]
+[ext_resource type="PackedScene" uid="uid://cj8s23kp4am6v" path="res://assets/spawner/spawner.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
@@ -73,14 +73,8 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D3/StaticBody3D"]
 shape = SubResource("BoxShape3D_qfl10")
 
-[node name="Enemy" parent="." instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5754, 0, -12.8559)
-
-[node name="Enemy2" parent="." instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6346, -4.76837e-07, -8.64175)
-
-[node name="Enemy3" parent="." instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2128, 0, 15.6446)
-
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_qfl10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)
+
+[node name="Spawner" parent="." instance=ExtResource("2_ih0re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4025, 9.53674e-07, 17.6082)
