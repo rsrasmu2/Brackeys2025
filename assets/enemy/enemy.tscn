@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr5r7kt1j1ati"]
+[gd_scene load_steps=15 format=3 uid="uid://cr5r7kt1j1ati"]
 
 [ext_resource type="Script" uid="uid://dxqniy5yhd62o" path="res://assets/enemy/enemy.gd" id="1_4nxta"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="1_hx8jw"]
@@ -18,6 +18,181 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="ViewportTexture" id="ViewportTexture_uu6ev"]
 viewport_path = NodePath("SubViewport")
 
+[sub_resource type="Animation" id="Animation_uu6ev"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 0.95, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.665, 0), Vector3(0, 0.7, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x63uy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.565, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CapsuleShape3D_4nxta")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthBar:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8, 0)]
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0tmw4"]
+radius = 0.35
+height = 1.2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uu6ev"]
+radius = 0.4
+height = 1.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x63uy"]
+radius = 0.4
+height = 1.9
+
+[sub_resource type="Animation" id="Animation_0tmw4"]
+resource_name = "melee_windup"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.6, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 0.7, 1.2), Vector3(1.18, 0.72, 1.18), Vector3(1.2, 0.7, 1.2), Vector3(1.18, 0.72, 1.18), Vector3(1.2, 0.7, 1.2), Vector3(1.18, 0.72, 1.18), Vector3(1.25, 0.65, 1.25), Vector3(1.3, 1.3, 1.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.6, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.49, 0), Vector3(0, 0.505, 0), Vector3(0, 0.49, 0), Vector3(0, 0.505, 0), Vector3(0, 0.49, 0), Vector3(0, 0.505, 0), Vector3(0, 0.46, 0), Vector3(0, 0.91, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("CapsuleShape3D_4nxta"), SubResource("CapsuleShape3D_0tmw4"), SubResource("CapsuleShape3D_uu6ev"), SubResource("CapsuleShape3D_x63uy")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.6, 0), Vector3(0, 0.55, 0), Vector3(0, 0.9, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HealthBar:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.6, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.8, 0), Vector3(0, 1.4, 0), Vector3(0, 1.4, 0), Vector3(0, 2.2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gxvxc"]
+_data = {
+&"RESET": SubResource("Animation_x63uy"),
+&"idle": SubResource("Animation_uu6ev"),
+&"melee_windup": SubResource("Animation_0tmw4")
+}
+
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 15
@@ -28,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 shape = SubResource("CapsuleShape3D_4nxta")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.565, 0)
 mesh = SubResource("CapsuleMesh_uu6ev")
 surface_material_override/0 = SubResource("StandardMaterial3D_x63uy")
 
@@ -38,5 +213,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x63uy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 texture = SubResource("ViewportTexture_uu6ev")
 health = NodePath("../Health")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gxvxc")
+}
+autoplay = "idle"
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

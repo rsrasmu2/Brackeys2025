@@ -1,7 +1,7 @@
 class_name PlayerMelee
 extends Node
 
-@export var damage: int = 8
+@export var damage: int = 80
 @export var cooldown: float = 1.5
 @export var gun: Gun
 

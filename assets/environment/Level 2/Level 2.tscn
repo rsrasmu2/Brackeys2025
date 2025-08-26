@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbscgsfbwy7q0"]
 
+[ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
 [ext_resource type="Terrain3DMaterial" uid="uid://b1y177mluqlu0" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://b527b6owk1rfp" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
-[ext_resource type="PackedScene" uid="uid://4hdasq5m51u7" path="res://assets/player/player.tscn" id="3_bdj47"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e22gm"]
 
@@ -31,8 +31,8 @@ emission = Color(0.901961, 0.027451, 0, 1)
 
 [node name="Environment_Level2" type="Node3D"]
 
-[node name="Player" parent="." instance=ExtResource("3_bdj47")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 54.0945, -2.31756)
+[node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.07079, 53.5167, -2.53701)
 
 [node name="Lighting" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 266.506, 63.496, -170.43)

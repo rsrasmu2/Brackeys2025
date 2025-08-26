@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://ded8e20c4hvx3"]
 
-[ext_resource type="PackedScene" uid="uid://4hdasq5m51u7" path="res://assets/player/player.tscn" id="1_bgy8f"]
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy.tscn" id="2_ih0re"]
+[ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -48,8 +48,6 @@ collision_mask = 15
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_bgy8f")
 
-[node name="Player" parent="." instance=ExtResource("1_bgy8f")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.910548, -0.286032, 0.298477, 0.191446, 0.931666, 0.308783, -0.366403, -0.224019, 0.903086, 0, 0, 0)
 
@@ -83,3 +81,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6346, -4.76837e-07, -8.64
 
 [node name="Enemy3" parent="." instance=ExtResource("2_ih0re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2128, 0, 15.6446)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_qfl10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)

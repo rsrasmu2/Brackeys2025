@@ -15,7 +15,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_op4fd"]
 radius = 1.5
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_v2miy")

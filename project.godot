@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Brackeys 2025"
-run/main_scene="uid://db8hww7qbdk14"
+run/main_scene="uid://brkhre0g3uimc"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [debug]
@@ -31,6 +31,10 @@ folder_colors={
 "res://assets/main/": "yellow",
 "res://vault/": "purple"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 
