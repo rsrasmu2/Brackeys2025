@@ -1,0 +1,690 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfy8jbs26lqay"]
+
+[ext_resource type="PackedScene" uid="uid://4hdasq5m51u7" path="res://assets/player/player.tscn" id="1_vewhy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vewhy"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_op4v3"]
+sky_material = SubResource("ProceduralSkyMaterial_vewhy")
+
+[sub_resource type="Environment" id="Environment_ek0wn"]
+background_mode = 1
+sky = SubResource("Sky_op4v3")
+tonemap_mode = 2
+
+[node name="Environment_Level3" type="Node3D"]
+
+[node name="Lighting" type="Node3D" parent="."]
+transform = Transform3D(0.910548, -0.286031, 0.298478, 0.191446, 0.931666, 0.308783, -0.366403, -0.224019, 0.903086, 0, 28.424, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = SubResource("Environment_ek0wn")
+
+[node name="DirectionalLight_Sun" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(-0.160397, 0.884398, 0.438307, -0.237677, -0.465596, 0.852485, 0.95801, 0.0325602, 0.284881, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 563.7
+
+[node name="DirectionalLight_Planet" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(-0.867452, -0.0325692, -0.496453, 0.463754, 0.308415, -0.83055, 0.180164, -0.950694, -0.252431, -10.016, 3.14634, -3.28326)
+light_color = Color(0.33, 0.732, 1, 1)
+light_energy = 0.313
+light_angular_distance = 8.74
+light_bake_mode = 1
+shadow_enabled = true
+directional_shadow_max_distance = 563.7
+
+[node name="Player_scale" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.1366, 0)
+size = Vector3(0.2, 1, 0.2)
+
+[node name="Platforms" type="Node3D" parent="."]
+
+[node name="Platform_Large2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 70, 0)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large11" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 15, 0)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large7" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 115, 0, 0)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large9" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 180, -30, 105)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large10" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -180, 5, 170)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large8" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -5, -45, 105)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large3" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -65)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Mega" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115, -5, 170)
+use_collision = true
+size = Vector3(35, 2, 35)
+
+[node name="Platform_Mega_Cutter" type="CSGBox3D" parent="Platforms/Platform_Mega"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 15)
+
+[node name="Platform_Mega2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 80, -80)
+use_collision = true
+size = Vector3(35, 2, 35)
+
+[node name="Platform_Mega_Cutter" type="CSGBox3D" parent="Platforms/Platform_Mega2"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 15)
+
+[node name="Platform_Large5" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155, 40, -115)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large6" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 75, -205)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large_Donut2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75, 30, -65)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large_Cutter" type="CSGBox3D" parent="Platforms/Platform_Large_Donut2"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 25)
+
+[node name="Platform_Large_Donut4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 0, 20, 95)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large_Cutter" type="CSGBox3D" parent="Platforms/Platform_Large_Donut4"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 25)
+
+[node name="Platform_Large_Donut5" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -120, 50, 0)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large_Cutter" type="CSGBox3D" parent="Platforms/Platform_Large_Donut5"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 25)
+
+[node name="Platform_Large_Donut3" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -130, 60, -130)
+use_collision = true
+size = Vector3(25, 2, 35)
+
+[node name="Platform_Large_Cutter" type="CSGBox3D" parent="Platforms/Platform_Large_Donut3"]
+operation = 2
+use_collision = true
+size = Vector3(15, 4, 25)
+
+[node name="Platform_Small" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155, 30, -65)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, -30, 105)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small3" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -35, 170)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small5" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115, -5, 135)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small8" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 20, 135)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small9" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 130)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small10" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 135)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Bridge_10m" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -25)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m23" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -205, 70, 0)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m7" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, -40)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m9" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -75, 50, -130)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m10" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, 50, -130)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m3" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 25)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 40)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m5" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 55)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m8" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 45, -45, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m13" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, -45, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m11" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 15, -45, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m18" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 30, -45, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m6" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 70)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m21" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 120)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m22" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 20, 135)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m27" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -5, -35, 160)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m26" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -105, -5, 135)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m25" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -115, -5, 145)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m2" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35, 25, -65)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m12" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 125, -30, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m19" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 140, -30, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m20" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 155, -30, 105)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m14" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 100, 30, -65)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m15" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 115, 30, -65)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m16" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 130, 30, -65)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Bridge_10m17" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 145, 30, -65)
+use_collision = true
+size = Vector3(5, 2, 15)
+
+[node name="Platform_Ramp15" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 13.5, 19, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp16" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 53.5, 14, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp17" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 68.5, 9, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp18" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 83.5, 4, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp45" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 152.5, 34, -81.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp46" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 152.5, 39, -96.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp34" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -46.5, 49, -127.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp47" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -96.5, 54, -127.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp48" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -111.5, 59, -127.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp35" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -31.5, 44, -127.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp36" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -16.5, 39, -127.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp71" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -132.5, 74, -186.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp72" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -132.5, 69, -171.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp73" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -132.5, 64, -156.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp37" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -47.5, 64, -83.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp38" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -47.5, 59, -98.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp39" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -47.5, 54, -113.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp40" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, -3.5, 79, -82.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp41" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, -18.5, 74, -82.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp42" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -2.62269e-07, 0, 1, 0, 2.62269e-07, 0, -1, -33.5, 69, -82.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp31" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -2.5, 34, -126.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp32" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -2.5, 29, -111.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp33" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, -2.5, 24, -96.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp43" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 26.5, 24, -67.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp44" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 56.5, 29, -67.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp19" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -1, 13.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp20" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -6, 28.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp21" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -11, 43.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp28" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 111.5, -31, 102.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp29" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 96.5, -36, 102.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp30" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, 81.5, -41, 102.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp52" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-4.37118e-08, 0, 1, 0, 1, 0, -1, 0, -4.37118e-08, -2.5, -36, 151.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp53" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-4.37118e-08, 0, 1, 0, 1, 0, -1, 0, -4.37118e-08, -2.5, -41, 136.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp22" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -16, 58.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp23" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -21, 73.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp24" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1.31135e-07, 0, -1, 0, 1, 0, 1, 0, 1.31135e-07, 112.5, -26, 88.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp25" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -96.5, -6, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp26" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -81.5, -11, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp59" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -161.5, 4, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp60" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -146.5, -1, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp27" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -66.5, -16, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp54" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, -53.5, 9, 132.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp57" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, -38.5, 14, 132.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp58" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, -23.5, 19, 132.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp55" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, -68.5, 4, 132.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp56" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(-1, 0, -8.74232e-08, 0, 1, 0, 8.74232e-08, 0, -1, -83.5, -1, 132.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp49" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -51.5, -21, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp50" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -36.5, -26, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp51" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -21.5, -31, 172.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp61" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -101.5, 49, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp62" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -86.5, 44, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp63" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -71.5, 39, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp64" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -56.5, 34, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp67" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -196.5, 69, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp68" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -181.5, 64, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp69" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -166.5, 59, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp70" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -151.5, 54, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp65" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -41.5, 29, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Ramp66" type="CSGPolygon3D" parent="Platforms"]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -26.5, 24, 2.5)
+use_collision = true
+polygon = PackedVector2Array(-1, 0, -1, 2, 14, -3, 14, -5)
+depth = 5.0
+
+[node name="Platform_Small4" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 35, -130)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small6" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50, 50, -130)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Platform_Small7" type="CSGBox3D" parent="Platforms"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50, 65, -80)
+use_collision = true
+size = Vector3(5, 2, 5)
+
+[node name="Player" parent="." instance=ExtResource("1_vewhy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -225, 71.424, 0)

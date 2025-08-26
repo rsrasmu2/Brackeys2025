@@ -1,9 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=7 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="Terrain3DMaterial" uid="uid://b86qpvhrw1ava" path="res://assets/environment/Level 1/new_terrain_3d_material.tres" id="1_xj1eo"]
-[ext_resource type="Terrain3DAssets" uid="uid://dv6h3xcmywlmt" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
+[ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
+[ext_resource type="PackedScene" uid="uid://4hdasq5m51u7" path="res://assets/player/player.tscn" id="3_rdpv1"]
 
-[node name="Environment" type="Node3D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ykeuu"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_x44cq"]
+sky_material = SubResource("ProceduralSkyMaterial_ykeuu")
+
+[sub_resource type="Environment" id="Environment_6w0aq"]
+background_mode = 2
+sky = SubResource("Sky_x44cq")
+tonemap_mode = 4
+fog_enabled = true
+fog_light_color = Color(0.3224, 0.39184, 0.62, 1)
+fog_light_energy = 1.97
+fog_density = 0.0014
+fog_height = -39.24
+fog_height_density = 0.0488
+fog_depth_curve = 0.784584
+fog_depth_begin = 14.0
+fog_depth_end = 266.6
+
+[node name="Environment_Level1" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("3_rdpv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -41.0882, -2.31756)
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.910548, -0.286031, 0.298478, 0.191446, 0.931666, 0.308783, -0.366403, -0.224019, 0.903086, 0, -21.6843, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = SubResource("Environment_6w0aq")
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
 data_directory = "res://assets/environment/Level 1"
@@ -42,15 +75,15 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 102.80
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Walls_Ceiling/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 239.247, 0, -241.866)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 239.247, 0, -251.199)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Walls_Ceiling/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102.9, 0, -241.866)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 102.9, 0, -251.199)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Walls_Ceiling/Walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 375.872, 0, -241.866)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 375.872, 0, -251.199)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Walls_Ceiling/Walls"]
@@ -92,15 +125,15 @@ transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Walls_Ceiling/Ceiling"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -6.28959, 3.03787, -170.385)
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -6.28959, 3.03787, -179.718)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Walls_Ceiling/Ceiling"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -142.636, 3.03787, -170.385)
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -142.636, 3.03787, -179.718)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Walls_Ceiling/Ceiling"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 130.335, 3.03787, -170.385)
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 130.335, 3.03787, -179.718)
 size = Vector3(4.44666, 136.513, 138.778)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Walls_Ceiling/Ceiling"]
@@ -134,7 +167,7 @@ size = Vector3(4.44666, 136.513, 138.778)
 [node name="Pillars" type="Node3D" parent="."]
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Pillars"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -23.9562, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4998, -21.6253, -25.6174)
 radius = 7.34619
 height = 59.1774
 

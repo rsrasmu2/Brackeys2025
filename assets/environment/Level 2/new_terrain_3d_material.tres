@@ -1,0 +1,5 @@
+[gd_resource type="Terrain3DMaterial" format=3 uid="uid://b1y177mluqlu0"]
+
+[resource]
+show_checkered = true
+show_grey = true
