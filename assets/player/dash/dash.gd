@@ -1,5 +1,7 @@
 extends Node
 
+signal cooldown_changed(cooldown: float)
+
 @export var dasher: Player
 
 @export var dash_speed: float = 20
@@ -22,6 +24,11 @@ extends Node
 func _ready() -> void:
 	$DashTimer.wait_time = dash_duration
 	$Cooldown.wait_time = cooldown
+
+func _process(delta: float) -> void:
+	if not $Cooldown.is_stopped():
+		var percent: float = 1.0 - ($Cooldown.time_left / $Cooldown.wait_time)
+		emit_signal(cooldown_changed.get_name(), percent)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("dash") and $Cooldown.is_stopped() and remaining_charges > 0:

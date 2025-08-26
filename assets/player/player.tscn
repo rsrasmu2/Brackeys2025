@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=18 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xojb6sb1hqf" path="res://assets/gun/gun.tscn" id="2_toylo"]
 [ext_resource type="Script" uid="uid://dmneh2j38qw20" path="res://assets/player/ui/ammo.gd" id="5_tb4ck"]
 [ext_resource type="Script" uid="uid://bxa35uh3w2ebm" path="res://assets/player/player_health.gd" id="6_hai6l"]
+[ext_resource type="Script" uid="uid://b7jlf18wqxeuu" path="res://assets/player/dash_cooldown.gd" id="7_vlpqo"]
 [ext_resource type="PackedScene" uid="uid://bajfnk64q8mhi" path="res://assets/player/dash/dash.tscn" id="8_kwvpd"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="9_m2mll"]
 [ext_resource type="Script" uid="uid://c03o3n5qwovd8" path="res://assets/player/melee_attack.gd" id="9_op4fd"]
@@ -80,6 +81,7 @@ _data = {
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
+wall_min_slide_angle = 0.349066
 script = ExtResource("1_v2miy")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
@@ -147,6 +149,15 @@ show_percentage = false
 script = ExtResource("6_hai6l")
 health = NodePath("../../../../../Health")
 
+[node name="DashCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer"]
+self_modulate = Color(0, 1, 1, 1)
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+max_value = 1.0
+value = 1.0
+show_percentage = false
+script = ExtResource("7_vlpqo")
+
 [node name="Label" type="Label" parent="PlayerCamera/UI"]
 visible = false
 self_modulate = Color(1, 0, 0, 1)
@@ -213,3 +224,4 @@ libraries = {
 [connection signal="died" from="Health" to="PlayerMovement" method="set_process" binds= [false]]
 [connection signal="died" from="Health" to="AnimationPlayer" method="play" binds= ["death"]]
 [connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
+[connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
