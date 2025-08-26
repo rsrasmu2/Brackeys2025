@@ -5,6 +5,8 @@ signal health_changed(new_health: int)
 signal max_health_changed(new_max_health: int)
 signal died
 
+var invulnerable: bool = false
+
 @export var max_health: int = 100:
 	set(value):
 		if max_health == value:
@@ -16,6 +18,8 @@ signal died
 	
 @export var health: int:
 	set(value):
+		if invulnerable:
+			return
 		var new_health: int = clamp(value, 0, max_health)
 		if health == new_health:
 			return
