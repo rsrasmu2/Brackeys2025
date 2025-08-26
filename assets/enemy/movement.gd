@@ -18,8 +18,8 @@ func _process(delta: float) -> void:
 	
 	if controller.state == controller.EnemyState.Following:
 		_mid_attack = false
-		var displacement = target.target.global_position - global_position
-		var velocity = Vector2(displacement.x, displacement.z).normalized() * speed
+		var displacement: Vector3 = target.target.global_position - global_position
+		var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 		controller.velocity.x = velocity.x
 		controller.velocity.z = velocity.y
 	elif controller.state == controller.EnemyState.AttackingWindup:
@@ -27,10 +27,10 @@ func _process(delta: float) -> void:
 		controller.velocity.x = 0
 		controller.velocity.z = 0
 	elif controller.state == controller.EnemyState.Attacking:
-		var displacement = target.target.global_position - global_position
+		var displacement: Vector3 = target.target.global_position - global_position
 		if not _mid_attack:
 			_mid_attack = true
-			var velocity = Vector2(displacement.x, displacement.z).normalized() * speed * 2
+			var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed * 2
 			controller.velocity.x = velocity.x
 			controller.velocity.y = 4
 			controller.velocity.z = velocity.y

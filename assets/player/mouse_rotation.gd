@@ -30,3 +30,7 @@ func _input(event: InputEvent) -> void:
 	horizontal_rotator.rotate_y(-event.relative.x * mouse_sensitivity)
 	var target_vertical_rotation: float = clamp(vertical_rotator.rotation.x - event.relative.y * mouse_sensitivity, _min_x_rad, _max_x_rad)
 	vertical_rotator.rotation.x = target_vertical_rotation
+
+func _on_death() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	set_process_input(false)

@@ -20,6 +20,10 @@ func _process(_delta: float) -> void:
 func _on_windup_timer_timeout() -> void:
 	character_controller.state = character_controller.EnemyState.Attacking
 	_damage_dealt = false
+	for body: Node3D in $Area3D.get_overlapping_bodies():
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+			_damage_dealt = true
 	await $"../AnimationPlayer".animation_finished
 	animation_player.play("melee_end")
 	await $"../AnimationPlayer".animation_finished
