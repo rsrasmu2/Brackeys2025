@@ -3,7 +3,7 @@ extends StaticBody3D
 @export var spawn_distance: float = 4.0
 
 const ENEMY_SCENES: Dictionary = {
-	0: preload("res://assets/enemy/enemy.tscn")
+	0: preload("res://assets/enemy/enemy_blob/enemy_blob.tscn")
 }
 
 func _ready() -> void:
