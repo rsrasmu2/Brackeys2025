@@ -10,8 +10,6 @@ kanban-plugin: board
 - [ ] *Ability:* Damage Pulse #effect
 - [ ] *Lvl 1:* Cave Flora #model #texture
 - [ ] *Lvl 1:* Cave Boulders #model #texture
-- [ ] *Lvl1:* Add Nav Mesh #model
-- [ ] *Lvl2:* Add Nav Mesh #model
 - [ ] *Lvl 2:* Hardened Lava Flow #model #texture
 - [ ] *Lvl 2:* Obsidian Chunks #model #texture
 - [ ] *Lvl 3:* Platforms #model #texture
@@ -24,6 +22,7 @@ kanban-plugin: board
 - [ ] *UI:* Player Healthbar #texture
 - [ ] *UI:* Dash #texture
 - [ ] *Enemy:* Death Animations #animation
+- [ ] *Enemy:* Spawn Animations #animation
 
 
 ## Prototyped
@@ -31,6 +30,8 @@ kanban-plugin: board
 - [ ] *Lvl 2:* Adjust ground height below lava to keep camera above lava #model
 - [ ] *Lvl 1:* Pillars #model #texture
 - [ ] *Lvl 2:* Lava Surface #texture
+- [ ] *Lvl1:* Add Nav Mesh #model
+- [ ] *Lvl2:* Add Nav Mesh #model
 
 
 ## Needs Animation
