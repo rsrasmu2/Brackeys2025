@@ -2,8 +2,11 @@ class_name PlayerMelee
 extends Node
 
 @export var damage: int = 80
-@export var cooldown: float = 1.5
+@export var cooldown: float = 0.6
 @export var gun: Gun
+
+func _ready() -> void:
+	$Timer.wait_time = cooldown
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("melee"):
