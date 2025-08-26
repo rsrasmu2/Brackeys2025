@@ -6,24 +6,41 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Player Weapon #model
-- [ ] Ability: Damage Pulse #effect
-- [ ] Sequentially Lighting Up Bay Lights #animation
-- [ ] Lava #texture
-- [ ] Enemy: Blob #model #animation
-- [ ] Hardened Lava Flow #model
+- [ ] Player Gun #model #texture
+- [ ] *Ability:* Damage Pulse #effect
+- [ ] *Lvl 1:* Cave Flora #model #texture
+- [ ] *Lvl 1:* Cave Boulders #model #texture
+- [ ] *Lvl1:* Add Nav Mesh #model
+- [ ] *Lvl2:* Add Nav Mesh #model
+- [ ] *Lvl 2:* Hardened Lava Flow #model #texture
+- [ ] *Lvl 2:* Obsidian Chunks #model #texture
+- [ ] *Lvl 3:* Platforms #model #texture
+- [ ] *Lvl 3:* Bridge #model #texture
+- [ ] *Lvl 3:* Ramp #model #texture
+- [ ] *Enemy:* Blocky Boi #model #texture #animation
+- [ ] *Enemy:* Angel of Death #model #animation #texture
+- [ ] *UI:* Enemy Healthbar #texture
+- [ ] *UI:* Crosshair #texture
+- [ ] *UI:* Player Healthbar #texture
+- [ ] *UI:* Dash #texture
+- [ ] *Enemy:* Death Animations #animation
 
 
 ## Prototyped
+
+- [ ] *Lvl 2:* Adjust ground height below lava to keep camera above lava #model
+- [ ] *Lvl 1:* Pillars #model #texture
+- [ ] *Lvl 2:* Lava Surface #texture
+
+
+## Needs Animation
 
 
 
 ## Needs Texturing/Shading
 
-
-
-## Needs Animation
-
+- [ ] *Enemy:* Pillar #model #texture
+- [ ] *Enemy:* Blob #model #animation
 
 
 ## Completed
