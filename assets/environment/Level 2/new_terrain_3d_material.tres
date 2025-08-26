@@ -43,4 +43,3 @@ _shader_parameters = {
 &"vertical_projection": true
 }
 show_checkered = true
-show_grey = true
