@@ -1,4 +1,4 @@
-class_name Target
+class_name EnemyTarget
 extends Node
 
 var target: Player:
