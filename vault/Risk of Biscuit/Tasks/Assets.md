@@ -23,6 +23,9 @@ kanban-plugin: board
 - [ ] *UI:* Dash #texture
 - [ ] *Enemy:* Death Animations #animation
 - [ ] *Enemy:* Spawn Animations #animation
+- [ ] Shield Animations #animation
+- [ ] Spawner Model #model #texture #animation
+- [ ] Teleporter #model #texture #animation
 
 
 ## Prototyped
