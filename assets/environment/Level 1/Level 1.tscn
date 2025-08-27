@@ -288,13 +288,13 @@ transform = Transform3D(-0.0766793, -4.7173e-09, 0.544773, -3.29658e-09, 0.55014
 transform = Transform3D(0.0478665, 2.18e-08, -0.551216, 7.16451e-10, 0.55329, 2.19442e-08, 0.551216, -2.61222e-09, 0.0478665, 22.8015, -40.2441, 160.985)
 
 [node name="Pillar_base14" parent="Pillars/Meshes" instance=ExtResource("4_x44cq")]
-transform = Transform3D(-0.200118, 0, -0.74685, 0, 0.773196, 0, 0.74685, 0, -0.200118, -105.439, -36.8657, -66.6708)
+transform = Transform3D(-0.200118, 0, -0.74685, 0, 0.773196, 0, 0.74685, 0, -0.200118, -105.439, -40.2075, -66.6708)
 
 [node name="Pillar_base15" parent="Pillars/Meshes" instance=ExtResource("4_x44cq")]
 transform = Transform3D(-0.0846354, -6.48604e-08, -0.741917, -2.65291e-15, -0.746728, 6.52811e-08, -0.741917, 7.39904e-09, 0.0846354, -105.439, 3.55253, -66.6708)
 
 [node name="Pillar_column14" parent="Pillars/Meshes" instance=ExtResource("5_6w0aq")]
-transform = Transform3D(0.69828, 0, 0.569605, 0, 0.901136, 0, -0.569605, 0, 0.69828, -104.641, -12.8278, -65.6178)
+transform = Transform3D(0.69828, 0, 0.569605, 0, 0.901136, 0, -0.569605, 0, 0.69828, -104.641, -12.6728, -65.6178)
 
 [node name="Ceiling2" parent="." instance=ExtResource("6_6w0aq")]
 
