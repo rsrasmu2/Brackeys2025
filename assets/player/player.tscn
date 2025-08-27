@@ -200,7 +200,7 @@ script = ExtResource("6_hai6l")
 health = NodePath("../../../../../Health")
 
 [node name="DashCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer"]
-self_modulate = Color(0, 1, 1, 1)
+self_modulate = Color(0.866667, 1, 1, 1)
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 max_value = 1.0

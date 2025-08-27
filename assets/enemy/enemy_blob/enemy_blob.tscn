@@ -19,13 +19,18 @@ state_nodes = {
 }
 
 [node name="HealthBar" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44215, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57337, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625121, -0.088591)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
+
+[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
+bones/0/position = Vector3(0, 0.210859, 0)
+bones/0/rotation = Quaternion(-0.195481, 0, 0, 0.980708)
+bones/1/rotation = Quaternion(-0.206888, 0, 0, 0.978365)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
@@ -35,10 +40,11 @@ script = ExtResource("3_p4dtg")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 
-[node name="BlobFollow" type="Node3D" parent="." index="6" node_paths=PackedStringArray("target", "controller", "animation_player")]
+[node name="BlobFollow" type="Node3D" parent="." index="6" node_paths=PackedStringArray("target", "controller", "hurtbox", "animation_player")]
 script = ExtResource("3_42nhj")
 target = NodePath("../EnemyTarget")
 controller = NodePath("..")
+hurtbox = NodePath("../BlobAttack")
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
 [node name="BlobJump" type="Node3D" parent="." index="7"]

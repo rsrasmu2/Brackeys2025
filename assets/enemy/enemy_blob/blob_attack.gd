@@ -16,12 +16,11 @@ func exit() -> void:
 	animation_player.disconnect(animation_player.animation_finished.get_name(), _on_animation_finished)
 
 func enable_hurtbox() -> void:
-	print("Enabling")
+	connect("body_entered", _on_area_3d_body_entered)
 	monitoring = true
 	await get_tree().physics_frame
 	var bodies: Array = get_overlapping_bodies()
 	if len(bodies) > 0:
-		print("Target hit")
 		for body: Node3D in bodies:
 			if body.has_method("take_damage"):
 				body.take_damage(damage)
@@ -29,7 +28,7 @@ func enable_hurtbox() -> void:
 		return
 
 func disable_hurtbox() -> void:
-	print("Disabling Hurtboxes")
+	disconnect("body_entered", _on_area_3d_body_entered)
 	monitoring = false
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

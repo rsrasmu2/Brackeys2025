@@ -2,6 +2,8 @@ extends Node3D
 
 @export var target: EnemyTarget
 @export var controller: Enemy
+@export var collision_damage: int = 15
+@export var hurtbox: Area3D
 
 const WALK_VELOCITY_Y = 3.0
 
@@ -43,3 +45,21 @@ func end_walk() -> void:
 
 func _on_animation_finished(_animation_name: String) -> void:
 	controller.state = controller.EnemyState.Idle
+
+func enable_damaging() -> void:
+	hurtbox.connect("body_entered", _on_hurtbox_entered)
+	hurtbox.monitoring = true
+	await get_tree().physics_frame
+	var bodies = hurtbox.get_overlapping_bodies()
+	for body in bodies:
+		if body.has_method("take_damage"):
+			body.take_damage(collision_damage)
+		hurtbox.monitoring = false
+	
+func disable_damaging() -> void:
+	hurtbox.disconnect("body_entered", _on_hurtbox_entered)
+	hurtbox.monitoring = false
+
+func _on_hurtbox_entered(body: Node3D) -> void:
+	if body.has_method("take_damage"):
+		body.take_damage(collision_damage)
