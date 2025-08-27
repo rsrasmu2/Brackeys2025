@@ -1,9 +1,11 @@
-[gd_resource type="Terrain3DAssets" load_steps=6 format=3 uid="uid://bnvwa0a6amk01"]
+[gd_resource type="Terrain3DAssets" load_steps=10 format=3 uid="uid://bnvwa0a6amk01"]
 
 [ext_resource type="Texture2D" uid="uid://cldkukxqbw115" path="res://assets/environment/Level 1/textures/sand_albedo_height.png" id="1_iy7sl"]
+[ext_resource type="PackedScene" uid="uid://dyjcuq7lhanrw" path="res://assets/environment/Level 1/decoration/Cave_shrub.glb" id="1_lwacr"]
 [ext_resource type="Texture2D" uid="uid://b37mmksigm5g0" path="res://assets/environment/Level 1/textures/sand_normal_roughness.png" id="2_lwacr"]
+[ext_resource type="PackedScene" uid="uid://dq5j204aahlkg" path="res://assets/environment/Level 1/decoration/Cave_debris_flower.glb" id="2_s5d6x"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgfkq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5d6x"]
 transparency = 4
 cull_mode = 2
 vertex_color_use_as_albedo = true
@@ -16,7 +18,25 @@ distance_fade_max_distance = 96.0
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_7ilsx"]
 generated_type = 1
 height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_rgfkq")
+material_override = SubResource("StandardMaterial3D_s5d6x")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_lwacr"]
+name = "Cave_shrub"
+id = 1
+scene_file = ExtResource("1_lwacr")
+density = 2.81
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_s5d6x"]
+name = "Cave_debris_flower"
+id = 2
+scene_file = ExtResource("2_s5d6x")
+density = 1.185
 last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
@@ -30,5 +50,5 @@ roughness = 0.919
 uv_scale = 0.115
 
 [resource]
-mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7ilsx")])
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_7ilsx"), SubResource("Terrain3DMeshAsset_lwacr"), SubResource("Terrain3DMeshAsset_s5d6x")])
 texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_s5d6x")])

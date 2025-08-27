@@ -34,11 +34,14 @@
 - [ ] Burn
 - [ ] HP Regen
 - [ ] Damage Pulse
-- [ ] 
+- [ ] Mag Size
+- [ ] Reload Speed
+- [ ] Melee Damage
 ### Unique Power-ups:
 - [ ] Projectile Size/Explosion
-- [ ] Arcing: 
+- [ ] Arcing: Damage arcs to nearby enemies
 - [ ] Spike Shield: Deletes enemy projectiles; damages enemies on melee hit
+- [ ] Shotgun Blast
 
 --- 
 # Enemies
