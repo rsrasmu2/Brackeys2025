@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://blrh806e5yssb"]
+
+[ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_red0b"]
+[ext_resource type="PackedScene" uid="uid://ksrtlxdhhtvb" path="res://assets/enemy/enemy_pillar/Enemy_Pillar.glb" id="2_n7fcf"]
+[ext_resource type="Script" uid="uid://c57rja73wx5tf" path="res://assets/enemy/enemy_pillar/pillar_idle.gd" id="3_5qy18"]
+[ext_resource type="Script" uid="uid://da5q7hn5atihn" path="res://assets/enemy/enemy_pillar/pillar_follow.gd" id="4_5qy18"]
+[ext_resource type="Script" uid="uid://cwrysv1cwpwav" path="res://assets/enemy/enemy_pillar/pillar_attack.gd" id="4_n7fcf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5qy18"]
+height = 6.0
+radius = 0.47168
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5qy18"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5qy18"]
+size = Vector3(1, 6, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sicnd"]
+size = Vector3(0.985, 5, 0.813)
+
+[node name="EnemyPillar" node_paths=PackedStringArray("state_nodes") instance=ExtResource("1_red0b")]
+state_nodes = {
+0: NodePath("PillarIdle"),
+1: NodePath("PillarFollow"),
+3: NodePath("PillarAttack")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 3, 0.410694)
+shape = SubResource("CylinderShape3D_5qy18")
+
+[node name="Health" parent="." index="2"]
+max_health = 250
+
+[node name="HealthBar" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.78036, 0.40316)
+texture = SubResource("ViewportTexture_5qy18")
+
+[node name="Enemy_Pillar" parent="." index="4" instance=ExtResource("2_n7fcf")]
+
+[node name="PillarIdle" type="Node3D" parent="." index="5" node_paths=PackedStringArray("controller", "target")]
+script = ExtResource("3_5qy18")
+controller = NodePath("..")
+target = NodePath("../EnemyTarget")
+
+[node name="PillarFollow" type="Node3D" parent="." index="6" node_paths=PackedStringArray("controller", "target")]
+script = ExtResource("4_5qy18")
+controller = NodePath("..")
+target = NodePath("../EnemyTarget")
+
+[node name="PillarAttack" type="Area3D" parent="." index="7" node_paths=PackedStringArray("controller", "target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.183784)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_n7fcf")
+controller = NodePath("..")
+target = NodePath("../EnemyTarget")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="PillarAttack" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13819, 0.430124)
+shape = SubResource("BoxShape3D_5qy18")
+
+[node name="WaitTimer" type="Timer" parent="PillarAttack" index="1"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer" type="Timer" parent="PillarAttack" index="2"]
+wait_time = 1.5
+one_shot = true
+
+[node name="GroundDetection" type="Area3D" parent="." index="8"]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006, 3.5, 0.411511)
+shape = SubResource("BoxShape3D_sicnd")
+
+[connection signal="body_entered" from="PillarAttack" to="PillarAttack" method="_on_body_entered"]
+[connection signal="body_entered" from="GroundDetection" to="PillarAttack" method="_on_ground_detection_body_entered"]

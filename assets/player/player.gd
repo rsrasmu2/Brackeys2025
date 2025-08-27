@@ -68,5 +68,6 @@ func take_damage(amount: int, knockback_amount: Vector3) -> void:
 	$Knockback.add_knockback(knockback_amount)
 
 func _on_health_died() -> void:
+	$CollisionShape3D.disabled = true
 	set_process(false)
 	set_physics_process(false)
