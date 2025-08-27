@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2mhwfeuyt5a1"]
+[gd_scene load_steps=10 format=3 uid="uid://d2mhwfeuyt5a1"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_r0itx"]
 [ext_resource type="PackedScene" uid="uid://c8fycs1l0bok6" path="res://assets/enemy/enemy_blob/Enemy_Blob.glb" id="2_4j6gg"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="3_bib1n"]
 [ext_resource type="Script" uid="uid://dcyh6jb1gxxbo" path="res://assets/enemy/enemy_blob/blob_idle.gd" id="3_p4dtg"]
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bib1n"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
 
@@ -22,6 +25,7 @@ knockback_node = NodePath("Knockback")
 
 [node name="HealthBar" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57337, 0)
+texture = SubResource("ViewportTexture_bib1n")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625121, -0.088591)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ded8e20c4hvx3"]
 
-[ext_resource type="PackedScene" uid="uid://cj8s23kp4am6v" path="res://assets/spawner/spawner.tscn" id="2_ih0re"]
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
@@ -76,8 +76,10 @@ shape = SubResource("BoxShape3D_qfl10")
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_qfl10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)
 
-[node name="Spawner" parent="." instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4971, -0.880503, 16.9214)
-
-[node name="Spawner2" parent="." instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7433, 0.00771924, -13.7454)
+[node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0475, 0, -5.66754)
+state_nodes = {
+0: NodePath("PillarIdle"),
+1: NodePath("PillarFollow"),
+3: NodePath("PillarAttack")
+}
