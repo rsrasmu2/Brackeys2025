@@ -90,7 +90,7 @@ func fire() -> void:
 	get_tree().root.add_child(bullet)
 	bullet.global_position = $GunMesh/BulletSpawner.global_position
 	bullet.global_rotation = $GunMesh/BulletSpawner.global_rotation
-	bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed, bullet_damage)
+	bullet.init(-$GunMesh/BulletSpawner.global_basis.z * bullet_speed, bullet_damage, 0)
 	current_ammo -= 1
 	
 func reload() -> void:
