@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://blrh806e5yssb"]
+[gd_scene load_steps=12 format=3 uid="uid://blrh806e5yssb"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_red0b"]
 [ext_resource type="PackedScene" uid="uid://ksrtlxdhhtvb" path="res://assets/enemy/enemy_pillar/Enemy_Pillar.glb" id="2_n7fcf"]
 [ext_resource type="Script" uid="uid://c57rja73wx5tf" path="res://assets/enemy/enemy_pillar/pillar_idle.gd" id="3_5qy18"]
 [ext_resource type="Script" uid="uid://da5q7hn5atihn" path="res://assets/enemy/enemy_pillar/pillar_follow.gd" id="4_5qy18"]
 [ext_resource type="Script" uid="uid://cwrysv1cwpwav" path="res://assets/enemy/enemy_pillar/pillar_attack.gd" id="4_n7fcf"]
+[ext_resource type="Script" uid="uid://jgmelc3l8nm4" path="res://assets/enemy/enemy_pillar/ground_detection.gd" id="6_sicnd"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5qy18"]
 height = 6.0
@@ -17,7 +18,10 @@ viewport_path = NodePath("SubViewport")
 size = Vector3(1, 6, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sicnd"]
-size = Vector3(0.985, 4.5, 0.813)
+size = Vector3(0.985, 6, 0.920174)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vdavr"]
+size = Vector3(0.920166, 0.496948, 0.571671)
 
 [node name="EnemyPillar" node_paths=PackedStringArray("state_nodes") instance=ExtResource("1_red0b")]
 state_nodes = {
@@ -56,7 +60,9 @@ one_shot = true
 [node name="PillarAttack" type="Area3D" parent="." index="7" node_paths=PackedStringArray("controller", "target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.183784)
 collision_layer = 4
-collision_mask = 2
+collision_mask = 6
+monitoring = false
+monitorable = false
 script = ExtResource("4_n7fcf")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
@@ -73,11 +79,23 @@ one_shot = true
 wait_time = 1.5
 one_shot = true
 
-[node name="GroundDetection" type="Area3D" parent="." index="8"]
+[node name="GroundDetection" type="Area3D" parent="." index="8" node_paths=PackedStringArray("controller")]
 collision_layer = 4
+monitorable = false
+script = ExtResource("6_sicnd")
+controller = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDetection" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006, 3.8, 0.335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006, 3, 0.415149)
 shape = SubResource("BoxShape3D_sicnd")
+
+[node name="EndDetection" type="Area3D" parent="." index="9"]
+collision_layer = 4
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndDetection" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 5.77015, 0.128103)
+shape = SubResource("BoxShape3D_vdavr")
 
 [connection signal="body_entered" from="PillarAttack" to="PillarAttack" method="_on_body_entered"]
