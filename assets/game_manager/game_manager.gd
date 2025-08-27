@@ -26,14 +26,14 @@ func _on_spawn_timer_timeout() -> void:
 	for enemy_to_spawn: Resource in enemies_to_spawn["enemies"]:
 		var enemy: Enemy = enemy_to_spawn.instantiate()
 		get_tree().root.add_child(enemy)
-		var range = randf_range(spawn_distance_min, spawn_distance_max)
-		var origin = _player.global_position + Vector3.FORWARD.rotated(Vector3.UP, randf() * 2.0 * PI) * range
+		var distance := randf_range(spawn_distance_min, spawn_distance_max)
+		var origin := _player.global_position + Vector3.FORWARD.rotated(Vector3.UP, randf() * 2.0 * PI) * distance
 		origin.y += 50
-		var space_state = get_world_3d().direct_space_state
-		var end = origin + Vector3.DOWN * 100.0
-		var query = PhysicsRayQueryParameters3D.create(origin, end)
+		var space_state := get_world_3d().direct_space_state
+		var end := origin + Vector3.DOWN * 100.0
+		var query := PhysicsRayQueryParameters3D.create(origin, end)
 		query.collide_with_bodies = true
-		var result = space_state.intersect_ray(query)
+		var result := space_state.intersect_ray(query)
 		if not result.is_empty():
 			enemy.global_position = result["position"]
 			enemy.look_at(_player.global_position, Vector3.UP, true)
