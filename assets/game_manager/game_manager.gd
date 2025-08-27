@@ -35,7 +35,7 @@ func _on_spawn_timer_timeout() -> void:
 		query.collide_with_bodies = true
 		var result := space_state.intersect_ray(query)
 		if not result.is_empty():
-			enemy.global_position = result["position"]
+			enemy.global_position = result["position"] + Vector3.UP * 1.0
 			enemy.look_at(_player.global_position, Vector3.UP, true)
 	spawn_timer_multiplier = enemies_to_spawn["spawn_mult"]
 	start_spawn_timer()

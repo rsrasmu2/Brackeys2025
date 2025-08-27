@@ -18,11 +18,13 @@ func enter() -> void:
 	controller.look_at(target.target.global_position)
 	end_basis = controller.basis
 	current_rotation = rotation_rate * 2 * PI
+	$"../GroundDetection".connect("body_entered", _on_ground_detection_body_entered)
 	$"../GroundDetection".monitoring = true
 	set_physics_process(true)
 
 func exit() -> void:
 	monitoring = false
+	$"../GroundDetection".disconnect("body_entered", _on_ground_detection_body_entered)
 	$"../GroundDetection".monitoring = false
 	set_physics_process(false)
 
