@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = target_velocity.x
 	velocity.z = target_velocity.z
 	velocity += knockback
+	
 	move_and_slide()
 
 func take_damage(amount: int, knockback_amount: Vector3) -> void: 
