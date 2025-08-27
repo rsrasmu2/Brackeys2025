@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var controller: Enemy
+@export var controller: EnemyPillar
 @export var target: EnemyTarget
 
 @export var distance_to_follow: float = 50.0

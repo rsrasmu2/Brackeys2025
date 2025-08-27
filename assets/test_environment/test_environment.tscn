@@ -77,7 +77,7 @@ shape = SubResource("BoxShape3D_qfl10")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)
 
 [node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00294, 0.000351155, -41.212)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691208, -1.90735e-06, -14.8809)
 state_nodes = {
 0: NodePath("PillarIdle"),
 1: NodePath("PillarFollow"),

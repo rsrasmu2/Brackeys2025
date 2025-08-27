@@ -24,7 +24,7 @@ func start_spawn_timer() -> void:
 func _on_spawn_timer_timeout() -> void:
 	var enemies_to_spawn: Dictionary = spawns[randi() % len(spawns)]
 	for enemy_to_spawn: Resource in enemies_to_spawn["enemies"]:
-		var enemy: Enemy = enemy_to_spawn.instantiate()
+		var enemy: Node3D = enemy_to_spawn.instantiate()
 		get_tree().root.add_child(enemy)
 		var distance := randf_range(spawn_distance_min, spawn_distance_max)
 		var origin := _player.global_position + Vector3.FORWARD.rotated(Vector3.UP, randf() * 2.0 * PI) * distance

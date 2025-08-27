@@ -1,9 +1,9 @@
 extends Area3D
 
-@export var controller: Enemy
+@export var controller: EnemyPillar
 @export var target: EnemyTarget
 @export var damage: int = 40
-@export var knockback: float = 25
+@export var knockback: float = 20
 @export var rotation_rate: float = -0.8
 @export var recovery_rate: float = 0.01
 
