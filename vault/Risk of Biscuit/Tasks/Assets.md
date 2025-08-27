@@ -21,7 +21,6 @@ kanban-plugin: board
 - [ ] *UI:* Player Healthbar #texture
 - [ ] *UI:* Dash #texture
 - [ ] Shield Animations #animation
-- [ ] Spawner Model #model #texture #animation
 - [ ] Teleporter #model #texture #animation
 
 
@@ -42,6 +41,7 @@ kanban-plugin: board
 - [ ] *Enemy:* Angel of Death #model #animation #texture
 - [ ] *Enemy:* Pillar #model #texture
 - [ ] *Enemy:* Blob #model #animation #texture
+- [ ] Spawner Model #model #texture #animation
 
 
 ## Completed
