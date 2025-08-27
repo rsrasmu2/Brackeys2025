@@ -4,8 +4,12 @@ extends CharacterBody3D
 signal state_changed(new_state: EnemyState)
 
 @export var state_nodes: Dictionary[EnemyState, Node3D]
+@export var knockback_node: Knockback
 
 const GRAVITY: float = 9.8
+
+var target_velocity: Vector3 = Vector3.ZERO
+var knockback: Vector3 = Vector3.ZERO
 
 var _target_states: Array = []
 
@@ -35,16 +39,23 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not gravity_enabled:
-		velocity.y = 0
-	elif velocity.y < 0 and is_on_floor():
-		velocity.y = 0
+		target_velocity.y = 0
+	elif target_velocity.y < 0 and is_on_floor():
+		target_velocity.y = 0
 	else:
-		velocity.y -= GRAVITY * delta
-		
+		target_velocity.y -= GRAVITY * delta
+	
+	velocity = target_velocity
+	velocity.x = target_velocity.x
+	velocity.z = target_velocity.z
+	velocity += knockback
+	
 	move_and_slide()
 
-func take_damage(amount: int) -> void: 
+func take_damage(amount: int, knockback_amount: Vector3) -> void: 
 	$Health.health -= amount
+	if knockback_node:
+		knockback_node.add_knockback(knockback_amount)
 
 func _on_health_died() -> void:
 	queue_free()

@@ -1,7 +1,8 @@
 class_name PlayerMelee
-extends Node
+extends Node3D
 
 @export var damage: int = 80
+@export var knockback: float = 5
 @export var cooldown: float = 0.6
 @export var gun: Gun
 
@@ -17,5 +18,8 @@ func melee() -> void:
 		gun.melee()
 		for body: Node3D in $MeleeAttackArea.get_overlapping_bodies():
 			if body.has_method("take_damage"):
-				body.take_damage(damage)
+				var displacement := (body.global_position - global_position)
+				displacement.y = 0.5
+				var direction := displacement.normalized()
+				body.take_damage(damage, direction * knockback)
 		$Timer.start()

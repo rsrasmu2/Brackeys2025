@@ -12,9 +12,6 @@ var current_dash_speed: float = 0:
 	set(value):
 		if current_dash_speed != value:
 			current_dash_speed = value
-			velocity.x = _target_velocity.x * current_dash_speed
-			velocity.y = 0
-			velocity.z = _target_velocity.y * current_dash_speed
 	
 var is_dashing: bool:
 	get():
@@ -24,6 +21,9 @@ var _delta: float = 0
 var _target_velocity: Vector2
 var _in_air: bool = false
 var _is_firing: bool = false
+
+var gravity_effect: float = 0
+var knockback: Vector3 = Vector3.ZERO
 
 func _process(delta: float) -> void:
 	_delta = delta
@@ -38,24 +38,35 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if !is_on_floor():
 		_in_air = true
-		velocity.y -= GRAVITY * delta
+		if not is_dashing:
+			gravity_effect = GRAVITY
+		else:
+			gravity_effect = 0
+			velocity.y = 0
 	elif _in_air && is_on_floor():
 		_in_air = false
+		gravity_effect = 0
 		velocity.y = 0
-		
+	
+	velocity.x = _target_velocity.x * (1 + current_dash_speed)
+	velocity.y -= gravity_effect * delta
+	velocity.z = _target_velocity.y * (1 + current_dash_speed)
+	velocity += knockback
+	
 	move_and_slide()
 
 func set_horizontal_velocity(direction: Vector2) -> void:
 	_target_velocity = direction * SPEED
-	var target_velocity: Vector2 = _target_velocity
 	if _is_firing:
-		target_velocity *= FIRING_MULT
-	if not is_dashing:
-		velocity.x = target_velocity.x
-		velocity.z = target_velocity.y
+		_target_velocity *= FIRING_MULT
 
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int, knockback_amount: Vector3) -> void:
 	$Health.health -= amount
+	$Knockback.add_knockback(knockback_amount)
+
+func _on_health_died() -> void:
+	set_process(false)
+	set_physics_process(false)
