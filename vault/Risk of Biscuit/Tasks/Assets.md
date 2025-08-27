@@ -16,21 +16,16 @@ kanban-plugin: board
 - [ ] *Lvl 3:* Bridge #model #texture
 - [ ] *Lvl 3:* Ramp #model #texture
 - [ ] *Enemy:* Blocky Boi #model #texture #animation
-- [ ] *Enemy:* Angel of Death #model #animation #texture
 - [ ] *UI:* Enemy Healthbar #texture
 - [ ] *UI:* Crosshair #texture
 - [ ] *UI:* Player Healthbar #texture
 - [ ] *UI:* Dash #texture
-- [ ] *Enemy:* Death Animations #animation
-- [ ] *Enemy:* Spawn Animations #animation
 - [ ] Shield Animations #animation
-- [ ] Spawner Model #model #texture #animation
 - [ ] Teleporter #model #texture #animation
 
 
 ## Prototyped
 
-- [ ] *Lvl 2:* Adjust ground height below lava to keep camera above lava #model
 - [ ] *Lvl 1:* Pillars #model #texture
 - [ ] *Lvl 2:* Lava Surface #texture
 - [ ] *Lvl1:* Add Nav Mesh #model
@@ -43,12 +38,17 @@ kanban-plugin: board
 
 ## Needs Texturing/Shading
 
+- [ ] *Enemy:* Angel of Death #model #animation #texture
 - [ ] *Enemy:* Pillar #model #texture
-- [ ] *Enemy:* Blob #model #animation
+- [ ] *Enemy:* Blob #model #animation #texture
+- [ ] Spawner Model #model #texture #animation
 
 
 ## Completed
 
+- [ ] *Enemy:* Spawn Animations #animation
+- [ ] *Enemy:* Death Animations #animation
+- [ ] *Lvl 2:* Adjust ground height below lava to keep camera above lava #model
 
 
 
