@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ded8e20c4hvx3"]
+[gd_scene load_steps=38 format=3 uid="uid://ded8e20c4hvx3"]
 
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://giqxhay0evxr" path="res://assets/powerups/bullet_size_powerup.tscn" id="15_m0jkg"]
 [ext_resource type="PackedScene" uid="uid://tfd2a580ll" path="res://assets/powerups/dash_cooldown_powerup.tscn" id="22_g03wp"]
 [ext_resource type="PackedScene" uid="uid://dkhe464ncfm3" path="res://assets/powerups/dash_speed_powerup.tscn" id="23_0qchq"]
+[ext_resource type="PackedScene" uid="uid://cdhcmvavgclnj" path="res://assets/powerups/pickup_range_powerup.tscn" id="26_68s2h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -222,6 +223,11 @@ powerup = ExtResource("9_lrxaf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66887, 0.625283, 13.8797)
 text = "Mag Size"
 powerup = ExtResource("10_lckps")
+
+[node name="PowerupPickup24" parent="." instance=ExtResource("3_qfl10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66887, 0.625283, 22.2178)
+text = "Pickup Range"
+powerup = ExtResource("26_68s2h")
 
 [node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0857, 3.09715e-07, -27.9399)

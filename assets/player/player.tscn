@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=44 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://di3dc2u037stm" path="res://assets/powerups/melee_knockback_powerup.tscn" id="30_iblef"]
 [ext_resource type="PackedScene" uid="uid://d4m1q4gjjcqp3" path="res://assets/powerups/melee_speed_powerup.tscn" id="31_qyqrj"]
 [ext_resource type="PackedScene" uid="uid://bmnsucck51f1f" path="res://assets/powerups/reload_speed_powerup.tscn" id="32_qtr3g"]
+[ext_resource type="PackedScene" uid="uid://cdhcmvavgclnj" path="res://assets/powerups/pickup_range_powerup.tscn" id="34_evyxp"]
 [ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
@@ -364,7 +365,7 @@ body = NodePath("..")
 
 [node name="Experience" type="Node" parent="."]
 script = ExtResource("17_u5y8p")
-level_up_powerups = Array[PackedScene]([ExtResource("18_uvut3"), ExtResource("19_eedlp"), ExtResource("20_khrko"), ExtResource("21_evyxp"), ExtResource("22_ksgbb"), ExtResource("23_tktwm"), ExtResource("24_ea4fx"), ExtResource("25_iol0l"), ExtResource("26_0yxml"), ExtResource("27_3iv7w"), ExtResource("28_t54tc"), ExtResource("29_8d5av"), ExtResource("30_iblef"), ExtResource("31_qyqrj"), ExtResource("32_qtr3g")])
+level_up_powerups = Array[PackedScene]([ExtResource("18_uvut3"), ExtResource("19_eedlp"), ExtResource("20_khrko"), ExtResource("21_evyxp"), ExtResource("22_ksgbb"), ExtResource("23_tktwm"), ExtResource("24_ea4fx"), ExtResource("25_iol0l"), ExtResource("26_0yxml"), ExtResource("27_3iv7w"), ExtResource("28_t54tc"), ExtResource("29_8d5av"), ExtResource("30_iblef"), ExtResource("31_qyqrj"), ExtResource("32_qtr3g"), ExtResource("34_evyxp")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

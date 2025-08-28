@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdhcmvavgclnj"]
+
+[ext_resource type="Script" uid="uid://cw5w8gdkspeh" path="res://assets/powerups/pickup_range_powerup.gd" id="1_n8b76"]
+
+[node name="PickupRangePowerup" type="Node"]
+script = ExtResource("1_n8b76")
