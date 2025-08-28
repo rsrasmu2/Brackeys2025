@@ -28,5 +28,10 @@ var invulnerable: bool = false
 		if health == 0:
 			emit_signal(died.get_name())
 
+@export var regen: float = 2
+
 func _ready() -> void:
 	health = max_health
+
+func _on_timer_timeout() -> void:
+	health = round(health + regen)

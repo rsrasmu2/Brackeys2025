@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=43 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -35,6 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://di3dc2u037stm" path="res://assets/powerups/melee_knockback_powerup.tscn" id="30_iblef"]
 [ext_resource type="PackedScene" uid="uid://d4m1q4gjjcqp3" path="res://assets/powerups/melee_speed_powerup.tscn" id="31_qyqrj"]
 [ext_resource type="PackedScene" uid="uid://bmnsucck51f1f" path="res://assets/powerups/reload_speed_powerup.tscn" id="32_qtr3g"]
+[ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -149,6 +150,9 @@ _data = {
 &"RESET": SubResource("Animation_vlpqo"),
 &"death": SubResource("Animation_hai6l")
 }
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eedlp"]
+radius = 3.0
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
@@ -377,6 +381,15 @@ player = NodePath("..")
 [node name="Timer" type="Timer" parent="FootstepAudio"]
 wait_time = 0.35
 
+[node name="OrbPickup" type="Area3D" parent="." node_paths=PackedStringArray("experience")]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("36_khrko")
+experience = NodePath("../Experience")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OrbPickup"]
+shape = SubResource("SphereShape3D_eedlp")
+
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
 [connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
@@ -390,3 +403,4 @@ wait_time = 0.35
 [connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
 [connection signal="level_up" from="Experience" to="." method="_on_experience_level_up"]
 [connection signal="timeout" from="FootstepAudio/Timer" to="FootstepAudio" method="_on_timer_timeout"]
+[connection signal="area_entered" from="OrbPickup" to="OrbPickup" method="_on_area_entered"]
