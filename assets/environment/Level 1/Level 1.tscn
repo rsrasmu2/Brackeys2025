@@ -660,25 +660,27 @@ transform = Transform3D(1.68691, 0, 4.35566, 0, 4.67092, 0, -4.35566, 0, 1.68691
 [node name="Cave_vine3" parent="Vines" instance=ExtResource("7_2r83h")]
 transform = Transform3D(-3.36936, 0, 3.23494, 0, 4.67092, 0, -3.23494, 0, -3.36936, 23.9442, 71.9126, -122.987)
 
-[node name="SpawnerSpawner" parent="." instance=ExtResource("8_2jk75")]
+[node name="Spawners" type="Node3D" parent="."]
+
+[node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.101, -13.2138, 106.032)
 
-[node name="SpawnerSpawner2" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.859, -38.5403, -125.118)
 
-[node name="SpawnerSpawner3" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner3" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.741, -37.7431, -177.591)
 
-[node name="SpawnerSpawner4" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner4" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.803, -40.3133, -50.2965)
 
-[node name="SpawnerSpawner5" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner5" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.567, -27.054, 105.466)
 
-[node name="SpawnerSpawner6" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5091, -22.0741, 169.135)
 
-[node name="SpawnerSpawner7" parent="." instance=ExtResource("8_2jk75")]
+[node name="SpawnerSpawner7" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2857, -33.2774, 135.407)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
