@@ -23,6 +23,8 @@ func _on_hit(body: Node3D, bullet: Bullet) -> void:
 		var collision: Node3D = collisions[rand_index]["collider"]
 		if collision == body:
 			collisions.remove_at(rand_index)
+			if collisions.size() == 0:
+				return
 			rand_index = randi() % collisions.size()
 			collision = collisions[rand_index]["collider"]
 		if collision.has_method("take_damage"):
