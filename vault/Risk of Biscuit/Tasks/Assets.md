@@ -22,6 +22,7 @@ kanban-plugin: board
 - [ ] *UI:* Dash #texture
 - [ ] Shield Animations #animation
 - [ ] Teleporter #model #texture #animation
+- [ ] Power Up Icons #model #textures
 
 
 ## Prototyped
