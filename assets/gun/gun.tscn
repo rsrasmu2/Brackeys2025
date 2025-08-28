@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4xojb6sb1hqf"]
+[gd_scene load_steps=11 format=3 uid="uid://b4xojb6sb1hqf"]
 
 [ext_resource type="Script" uid="uid://cnwk5jgcw7ohq" path="res://assets/gun/gun.gd" id="1_danae"]
+[ext_resource type="AudioStream" uid="uid://vbrkdpe3hak1" path="res://assets/gun/audio/laserSmall_000.ogg" id="2_nrmjy"]
+[ext_resource type="Script" uid="uid://c7ichshympetk" path="res://assets/gun/fire_audio.gd" id="3_40bau"]
+[ext_resource type="AudioStream" uid="uid://g0rtfmhdovhd" path="res://assets/gun/audio/impactSoft_medium_000.ogg" id="4_7ybdq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d6veg"]
 size = Vector3(0.2, 0.2, 0.6)
@@ -116,5 +119,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_7ybdq")
 }
 
+[node name="FireAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nrmjy")
+volume_db = -25.0
+script = ExtResource("3_40bau")
+
+[node name="HitAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7ybdq")
+volume_db = -18.0
+max_polyphony = 3
+
+[connection signal="fired" from="." to="FireAudio" method="_on_gun_fired"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_timer_timeout"]
 [connection signal="animation_finished" from="Animations" to="." method="_on_animations_animation_finished"]

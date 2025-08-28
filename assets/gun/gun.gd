@@ -95,6 +95,7 @@ func fire() -> void:
 	bullet.global_position = bullet_spawner.global_position
 	bullet.global_rotation = bullet_spawner.global_rotation
 	bullet.init(-bullet_spawner.global_basis.z * bullet_speed, bullet_damage, 0)
+	bullet.connect("hit", _on_bullet_hit)
 	current_ammo -= 1
 	emit_signal(fired.get_name(), bullet)
 
@@ -131,3 +132,8 @@ func _on_animations_animation_finished(anim_name: StringName) -> void:
 		_state = GunState.Idle
 		if _fire_held:
 			start_fire()
+
+func _on_bullet_hit(body: Node3D) -> void:
+	if body.has_method("take_damage"):
+		$HitAudio.pitch_scale = randf_range(1.2, 1.5)
+		$HitAudio.play()
