@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=6 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vewhy"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+[ext_resource type="Material" uid="uid://dawkoxgb7ivul" path="res://assets/environment/Level 3/hdri_sky.tres" id="2_ek0wn"]
+[ext_resource type="PackedScene" uid="uid://cdvqk586bhteo" path="res://assets/environment/Level 3/Platform_rectangle.glb" id="2_op4v3"]
 
 [sub_resource type="Sky" id="Sky_op4v3"]
-sky_material = SubResource("ProceduralSkyMaterial_vewhy")
+sky_material = ExtResource("2_ek0wn")
 
 [sub_resource type="Environment" id="Environment_ek0wn"]
-background_mode = 1
+background_mode = 2
+background_energy_multiplier = 4.1
 sky = SubResource("Sky_op4v3")
+sky_rotation = Vector3(1.41372, 0, 0)
+ambient_light_source = 3
 tonemap_mode = 2
 
 [node name="Environment_Level3" type="Node3D"]
@@ -32,7 +33,7 @@ directional_shadow_max_distance = 563.7
 
 [node name="DirectionalLight_Planet" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(-0.867452, -0.0325692, -0.496453, 0.463754, 0.308415, -0.83055, 0.180164, -0.950694, -0.252431, -10.016, 3.14634, -3.28326)
-light_color = Color(0.33, 0.732, 1, 1)
+light_color = Color(0.905882, 0.6, 0.517647, 1)
 light_energy = 0.313
 light_angular_distance = 8.74
 light_bake_mode = 1
@@ -47,11 +48,6 @@ size = Vector3(0.2, 1, 0.2)
 
 [node name="Platform_Large2" type="CSGBox3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
-use_collision = true
-size = Vector3(25, 2, 35)
-
-[node name="Platform_Large4" type="CSGBox3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 70, 0)
 use_collision = true
 size = Vector3(25, 2, 35)
 
@@ -688,3 +684,6 @@ size = Vector3(5, 2, 5)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -50, 65, -80)
 use_collision = true
 size = Vector3(5, 2, 5)
+
+[node name="Platform_rectangle" parent="Platforms" instance=ExtResource("2_op4v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 69, 0)

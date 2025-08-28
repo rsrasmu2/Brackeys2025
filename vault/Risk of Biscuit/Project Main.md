@@ -33,7 +33,6 @@
 - [ ] Rate of Fire
 - [ ] Burn
 - [ ] HP Regen
-- [ ] Damage Pulse
 - [ ] Mag Size
 - [ ] Reload Speed
 - [ ] Melee Damage
@@ -42,6 +41,7 @@
 - [ ] Arcing: Damage arcs to nearby enemies
 - [ ] Spike Shield: Deletes enemy projectiles; damages enemies on melee hit
 - [ ] Shotgun Blast
+- [ ] Damage Pulse
 
 --- 
 # Enemies
