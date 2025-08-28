@@ -8,8 +8,6 @@ kanban-plugin: board
 
 - [ ] Player Gun #model #texture
 - [ ] *Ability:* Damage Pulse #effect
-- [ ] *Lvl 1:* Cave Flora #model #texture
-- [ ] *Lvl 1:* Cave Boulders #model #texture
 - [ ] *Lvl 2:* Hardened Lava Flow #model #texture
 - [ ] *Lvl 2:* Obsidian Chunks #model #texture
 - [ ] *Lvl 3:* Platforms #model #texture
@@ -27,10 +25,7 @@ kanban-plugin: board
 
 ## Prototyped
 
-- [ ] *Lvl 1:* Pillars #model #texture
 - [ ] *Lvl 2:* Lava Surface #texture
-- [ ] *Lvl1:* Add Nav Mesh #model
-- [ ] *Lvl2:* Add Nav Mesh #model
 
 
 ## Needs Animation
@@ -39,7 +34,6 @@ kanban-plugin: board
 
 ## Needs Texturing/Shading
 
-- [ ] *Enemy:* Angel of Death #model #animation #texture
 - [ ] *Enemy:* Pillar #model #texture
 - [ ] *Enemy:* Blob #model #animation #texture
 - [ ] Spawner Model #model #texture #animation
@@ -50,6 +44,12 @@ kanban-plugin: board
 - [ ] *Enemy:* Spawn Animations #animation
 - [ ] *Enemy:* Death Animations #animation
 - [ ] *Lvl 2:* Adjust ground height below lava to keep camera above lava #model
+- [ ] *Lvl 1:* Cave Flora #model #texture
+- [ ] *Lvl 1:* Cave Boulders #model #texture
+- [ ] *Lvl1:* Add Nav Mesh #model
+- [ ] *Lvl2:* Add Nav Mesh #model
+- [ ] *Lvl 1:* Pillars #model #texture
+- [ ] *Enemy:* Angel of Death #model #animation #texture
 
 
 
