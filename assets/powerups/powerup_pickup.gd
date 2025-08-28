@@ -1,12 +1,16 @@
+class_name PowerupPickup
 extends Area3D
 
-@export var text: String
-@export var powerup: Resource
+@export var powerups: Array[PackedScene]
 
-func _ready() -> void:
-	$Label3D.text = text
-
-func _on_body_entered(body: Node3D) -> void:
-	if body.has_method("add_powerup"):
-		body.add_powerup(powerup.instantiate())
-		queue_free()
+func pickup(player: Player) -> void:
+	var to_pick: Array[PackedScene] = []
+	var indices: Array[int] = []
+	for i: int in range(3):
+		var index: int = randi() % powerups.size()
+		while indices.has(index):
+			index = randi() % powerups.size()
+		to_pick.push_back(powerups[index])
+		indices.push_back(index)
+	player.select_powerup(to_pick)
+	queue_free()

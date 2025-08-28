@@ -1,5 +1,8 @@
 extends Node
 
+const NAME: String = "Bullet Size"
+const DESCRIPTION: String = "Increases the size of your bullets."
+
 const BULLET_SIZE_EFFECT_SCENE := preload("res://assets/bullet/effects/bullet_size_effect.tscn")
 
 func apply(player: Player) -> void:

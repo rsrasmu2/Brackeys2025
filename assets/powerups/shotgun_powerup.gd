@@ -6,6 +6,9 @@ extends Node
 @export var extra_bullet_damage: int = 10
 @export var extra_bullet_knockback: float = 0
 
+const NAME: String = "Shotgun"
+const DESCRIPTION: String = "Every 4 seconds, your next shot will fire 4 additional bullets."
+
 const BULLET_SCENE := preload("res://assets/bullet/bullet.tscn")
 
 @onready var _max_spread: float = deg_to_rad(max_spread_degrees)

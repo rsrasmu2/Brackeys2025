@@ -1,5 +1,8 @@
 extends Area3D
 
+const NAME: String = "Damage Aura"
+const DESCRIPTION: String = "Every three seconds, deal damage to all nearby enemies."
+
 @export var damage: float = 20
 @export var cooldown: float = 3
 

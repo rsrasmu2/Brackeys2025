@@ -1,5 +1,8 @@
 extends Node
 
+const NAME: String = "Arcing"
+const DESCRIPTION: String = "Shooting an enemy causes lightning to chain across up to three nearby enemies."
+
 const ARCING_EFFECT_SCENE := preload("res://assets/bullet/effects/arcing_effect.tscn")
 
 func apply(player: Player) -> void:

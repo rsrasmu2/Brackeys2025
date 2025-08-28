@@ -20,6 +20,9 @@ state_nodes = {
 }
 knockback_node = NodePath("Knockback")
 
+[node name="Health" parent="." index="1"]
+regen = 1.0
+
 [node name="HealthBar" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69453, 0)
 

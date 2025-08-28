@@ -1,6 +1,9 @@
 extends Node
 
-@export var mult: float = 2.0
+const NAME: String = "Bullet Damage"
+const DESCRIPTION: String = "Your bullets deal 10% more damage."
+
+@export var mult: float = 1.1
 
 func apply(player: Player) -> void:
 	player.get_node("PlayerCamera/Gun").connect("fired", _on_fired)

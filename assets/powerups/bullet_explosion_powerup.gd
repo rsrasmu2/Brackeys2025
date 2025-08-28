@@ -1,5 +1,8 @@
 extends Node
 
+const NAME: String = "Exploding"
+const DESCRIPTION: String = "Your bullets explode on impact, dealing damage to all nearby enemies."
+
 const EXPLOSION_EFFECT_SCENE := preload("res://assets/bullet/effects/bullet_explosion_effect.tscn")
 
 func apply(player: Player) -> void:

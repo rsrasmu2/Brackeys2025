@@ -1,24 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://brkhre0g3uimc"]
+[gd_scene load_steps=2 format=3 uid="uid://brkhre0g3uimc"]
 
-[ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/game_manager.tscn" id="1_k5mrd"]
-[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_j84mu"]
-[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_yti63"]
 [ext_resource type="PackedScene" uid="uid://bpeceg08wwn2n" path="res://assets/environment/Level 1/Level 1.tscn" id="4_yti63"]
-[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="5_yti63"]
 
 [node name="Main" type="Node"]
 
-[node name="GameManager" parent="." instance=ExtResource("1_k5mrd")]
-spawns = Array[Dictionary]([{
-"enemies": [ExtResource("2_yti63"), ExtResource("2_yti63")],
-"spawn_mult": 0.7
-}, {
-"enemies": [ExtResource("2_yti63"), ExtResource("2_j84mu"), ExtResource("2_j84mu")],
-"spawn_mult": 1.0
-}])
-
 [node name="Environment_Level1" parent="." instance=ExtResource("4_yti63")]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_yti63")
-volume_db = -20.0

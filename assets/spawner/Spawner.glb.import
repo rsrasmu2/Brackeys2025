@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bknd2oos52i0d"
-path="res://.godot/imported/Enemy_Pillar.glb-e28d1e7c16e04b6c1bc9db84ff123c45.scn"
+path="res://.godot/imported/Spawner.glb-a42c443c0bbf0c23de6d2796d7ff95da.scn"
 
 [deps]
 
-source_file="res://assets/spawner/Enemy_Pillar.glb"
-dest_files=["res://.godot/imported/Enemy_Pillar.glb-e28d1e7c16e04b6c1bc9db84ff123c45.scn"]
+source_file="res://assets/spawner/Spawner.glb"
+dest_files=["res://.godot/imported/Spawner.glb-a42c443c0bbf0c23de6d2796d7ff95da.scn"]
 
 [params]
 

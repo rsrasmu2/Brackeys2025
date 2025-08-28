@@ -6,6 +6,16 @@ kanban-plugin: board
 
 ## SFX
 
+- [ ] Jump
+- [ ] Land
+- [ ] Dash
+- [ ] Reload Start
+- [ ] Reload Complete
+- [ ] Double Jump
+- [ ] Enemy Move
+- [ ] Enemy Spawn
+- [ ] Enemy Die
+- [ ] Enemy Attack
 
 
 ## Music/Ambience

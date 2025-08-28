@@ -1,5 +1,8 @@
 extends AnimatableBody3D
 
+const NAME: String = "Shield"
+const DESCRIPTION: String = "You gain a shield that rotates around you, preventing damage and knocking back enemies that hit it."
+
 @export var speed_degrees: float = 2
 @export var retaliatory_knockback: float = 5
 

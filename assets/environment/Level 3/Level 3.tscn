@@ -1,8 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=14 format=3 uid="uid://cfy8jbs26lqay"]
 
+[ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
 [ext_resource type="Material" uid="uid://dawkoxgb7ivul" path="res://assets/environment/Level 3/hdri_sky.tres" id="2_ek0wn"]
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_ilv2s"]
 [ext_resource type="PackedScene" uid="uid://cdvqk586bhteo" path="res://assets/environment/Level 3/Platform_rectangle.glb" id="2_op4v3"]
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_4kwxg"]
+[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="7_ilv2s"]
+
+[sub_resource type="Resource" id="Resource_26yi2"]
+script = ExtResource("2_4kwxg")
+enemies = Array[Resource]([ExtResource("2_ilv2s"), ExtResource("2_ilv2s"), ExtResource("2_ilv2s"), ExtResource("2_ilv2s")])
+spawn_chance = 0.0
+spawn_mult = 0.8
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_6hq74"]
+script = ExtResource("2_4kwxg")
+enemies = Array[Resource]([ExtResource("3_4kwxg"), ExtResource("2_ilv2s"), ExtResource("2_ilv2s")])
+spawn_chance = 0.0
+spawn_mult = 1.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_6onxq"]
+script = ExtResource("2_4kwxg")
+enemies = Array[Resource]([ExtResource("3_4kwxg"), ExtResource("3_4kwxg")])
+spawn_chance = 0.0
+spawn_mult = 1.2
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
 
 [sub_resource type="Sky" id="Sky_op4v3"]
 sky_material = ExtResource("2_ek0wn")
@@ -16,6 +42,9 @@ ambient_light_source = 3
 tonemap_mode = 2
 
 [node name="Environment_Level3" type="Node3D"]
+
+[node name="LevelManager" parent="." instance=ExtResource("1_jgoy7")]
+spawns = Array[ExtResource("2_4kwxg")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq")])
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_op4v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -224.82, 71, -0.0455205)
@@ -687,3 +716,7 @@ size = Vector3(5, 2, 5)
 
 [node name="Platform_rectangle" parent="Platforms" instance=ExtResource("2_op4v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -225, 69, 0)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ilv2s")
+volume_db = -20.0

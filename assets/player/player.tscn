@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=44 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -9,11 +9,34 @@
 [ext_resource type="Script" uid="uid://dmneh2j38qw20" path="res://assets/player/ui/ammo.gd" id="5_tb4ck"]
 [ext_resource type="Script" uid="uid://bxa35uh3w2ebm" path="res://assets/player/player_health.gd" id="6_hai6l"]
 [ext_resource type="Script" uid="uid://b7jlf18wqxeuu" path="res://assets/player/dash_cooldown.gd" id="7_vlpqo"]
+[ext_resource type="PackedScene" uid="uid://bhn4indokfq4u" path="res://assets/player/ui/powerup_ui_element.tscn" id="8_4t7cd"]
+[ext_resource type="Script" uid="uid://rvgxv3xcsa5w" path="res://assets/player/ui/powerup_selection_panel.gd" id="8_apuko"]
+[ext_resource type="Script" uid="uid://dvvy8pu8opy5k" path="res://assets/player/ui/experience.gd" id="8_eedlp"]
 [ext_resource type="PackedScene" uid="uid://bajfnk64q8mhi" path="res://assets/player/dash/dash.tscn" id="8_kwvpd"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="9_m2mll"]
 [ext_resource type="Script" uid="uid://c03o3n5qwovd8" path="res://assets/player/melee_attack.gd" id="9_op4fd"]
 [ext_resource type="Script" uid="uid://bs4jrpmg0ja0w" path="res://assets/player/player_jump.gd" id="12_0eov8"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="14_g7aau"]
+[ext_resource type="AudioStream" uid="uid://dftkvc3ibxmev" path="res://assets/player/audio/footstep_concrete_001.ogg" id="15_d61i2"]
+[ext_resource type="Script" uid="uid://vc8mtki3rrxx" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
+[ext_resource type="Script" uid="uid://dge4ynit4megq" path="res://assets/player/experience.gd" id="17_u5y8p"]
+[ext_resource type="PackedScene" uid="uid://b8n63oj5ksfgy" path="res://assets/powerups/bullet_damage_powerup.tscn" id="18_uvut3"]
+[ext_resource type="PackedScene" uid="uid://dr5yq6eeaxiju" path="res://assets/powerups/bullet_knockback_powerup.tscn" id="19_eedlp"]
+[ext_resource type="PackedScene" uid="uid://crulthhr8iagk" path="res://assets/powerups/bullet_speed_powerup.tscn" id="20_khrko"]
+[ext_resource type="PackedScene" uid="uid://cmtkom4cj4hm1" path="res://assets/powerups/dash_charges_powerup.tscn" id="21_evyxp"]
+[ext_resource type="PackedScene" uid="uid://tfd2a580ll" path="res://assets/powerups/dash_cooldown_powerup.tscn" id="22_ksgbb"]
+[ext_resource type="PackedScene" uid="uid://dkhe464ncfm3" path="res://assets/powerups/dash_speed_powerup.tscn" id="23_tktwm"]
+[ext_resource type="PackedScene" uid="uid://dxubv6xprfr4k" path="res://assets/powerups/extra_jump_powerup.tscn" id="24_ea4fx"]
+[ext_resource type="PackedScene" uid="uid://bmo0eaexpv1sn" path="res://assets/powerups/fire_rate_powerup.tscn" id="25_iol0l"]
+[ext_resource type="PackedScene" uid="uid://d00t4utk53el4" path="res://assets/powerups/health_regen_powerup.tscn" id="26_0yxml"]
+[ext_resource type="PackedScene" uid="uid://d3ehhcm21uxfb" path="res://assets/powerups/increased_speed_powerup.tscn" id="27_3iv7w"]
+[ext_resource type="PackedScene" uid="uid://d2cpicrsuruma" path="res://assets/powerups/magazine_size_powerup.tscn" id="28_t54tc"]
+[ext_resource type="PackedScene" uid="uid://dies4tto6dfmi" path="res://assets/powerups/melee_damage_powerup.tscn" id="29_8d5av"]
+[ext_resource type="PackedScene" uid="uid://di3dc2u037stm" path="res://assets/powerups/melee_knockback_powerup.tscn" id="30_iblef"]
+[ext_resource type="PackedScene" uid="uid://d4m1q4gjjcqp3" path="res://assets/powerups/melee_speed_powerup.tscn" id="31_qyqrj"]
+[ext_resource type="PackedScene" uid="uid://bmnsucck51f1f" path="res://assets/powerups/reload_speed_powerup.tscn" id="32_qtr3g"]
+[ext_resource type="PackedScene" uid="uid://cdhcmvavgclnj" path="res://assets/powerups/pickup_range_powerup.tscn" id="34_evyxp"]
+[ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -129,6 +152,9 @@ _data = {
 &"death": SubResource("Animation_hai6l")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_eedlp"]
+radius = 3.0
+
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
@@ -208,6 +234,15 @@ value = 1.0
 show_percentage = false
 script = ExtResource("7_vlpqo")
 
+[node name="Experience" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("experience")]
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+max_value = 1.0
+show_percentage = false
+script = ExtResource("8_eedlp")
+experience = NodePath("../../../../../Experience")
+
 [node name="Label" type="Label" parent="PlayerCamera/UI"]
 visible = false
 self_modulate = Color(1, 0, 0, 1)
@@ -230,6 +265,56 @@ text = "GG you dead :("
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="PowerupSelectionPanel" type="Panel" parent="PlayerCamera/UI" node_paths=PackedStringArray("player")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_apuko")
+player = NodePath("../../..")
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerCamera/UI/PowerupSelectionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Up!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 200
+
+[node name="PowerupElements" type="HBoxContainer" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="PowerupUIElement" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer/MarginContainer/PowerupElements" instance=ExtResource("8_4t7cd")]
+layout_mode = 2
+
+[node name="PowerupUIElement2" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer/MarginContainer/PowerupElements" instance=ExtResource("8_4t7cd")]
+layout_mode = 2
+
+[node name="PowerupUIElement3" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer/MarginContainer/PowerupElements" instance=ExtResource("8_4t7cd")]
+layout_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -278,10 +363,34 @@ body = NodePath("..")
 
 [node name="StatusEffects" type="Node" parent="."]
 
+[node name="Experience" type="Node" parent="."]
+script = ExtResource("17_u5y8p")
+level_up_powerups = Array[PackedScene]([ExtResource("18_uvut3"), ExtResource("19_eedlp"), ExtResource("20_khrko"), ExtResource("21_evyxp"), ExtResource("22_ksgbb"), ExtResource("23_tktwm"), ExtResource("24_ea4fx"), ExtResource("25_iol0l"), ExtResource("26_0yxml"), ExtResource("27_3iv7w"), ExtResource("28_t54tc"), ExtResource("29_8d5av"), ExtResource("30_iblef"), ExtResource("31_qyqrj"), ExtResource("32_qtr3g"), ExtResource("34_evyxp")])
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_vlpqo")
 }
+
+[node name="FootstepAudio" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
+stream = ExtResource("15_d61i2")
+volume_db = -35.0
+parameters/looping = false
+script = ExtResource("16_yx3jh")
+player = NodePath("..")
+
+[node name="Timer" type="Timer" parent="FootstepAudio"]
+wait_time = 0.35
+
+[node name="OrbPickup" type="Area3D" parent="." node_paths=PackedStringArray("player", "experience")]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("36_khrko")
+player = NodePath("..")
+experience = NodePath("../Experience")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OrbPickup"]
+shape = SubResource("SphereShape3D_eedlp")
 
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
 [connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
@@ -293,3 +402,7 @@ libraries = {
 [connection signal="died" from="Health" to="AnimationPlayer" method="play" binds= ["death"]]
 [connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
 [connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
+[connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
+[connection signal="level_up" from="Experience" to="." method="_on_experience_level_up"]
+[connection signal="timeout" from="FootstepAudio/Timer" to="FootstepAudio" method="_on_timer_timeout"]
+[connection signal="area_entered" from="OrbPickup" to="OrbPickup" method="_on_area_entered"]
