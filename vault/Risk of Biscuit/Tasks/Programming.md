@@ -6,9 +6,6 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Add Angel of Death enemy
-- [ ] Add Level up
-- [ ] Spawners drop powerups
 - [ ] Place Spawners on maps
 - [ ] Destroy all spawners to unlock teleporter
 - [ ] Teleporter wave
@@ -18,12 +15,15 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] Add Angel of Death enemy
 - [ ] Make Powerups!
 - [ ] Add SFX
 
 
 ## Prototyped
 
+- [ ] Add Level up
+- [ ] Spawners drop powerups
 
 
 ## Completed

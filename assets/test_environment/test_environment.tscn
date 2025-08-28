@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://ded8e20c4hvx3"]
+[gd_scene load_steps=16 format=3 uid="uid://ded8e20c4hvx3"]
 
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
 [ext_resource type="PackedScene" uid="uid://ccsjeq106k15c" path="res://assets/powerups/test_powerup_pickup.tscn" id="3_qfl10"]
+[ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_ytvyt"]
 [ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="15_agx3f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
@@ -219,4 +220,12 @@ state_nodes = {
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
 3: NodePath("BlobAttack")
+}
+
+[node name="EnemyAngel" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("5_ytvyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6369, 0, 30.019)
+state_nodes = {
+0: NodePath("AngelIdle"),
+1: NodePath("AngelFollow"),
+3: NodePath("AngelAttack")
 }

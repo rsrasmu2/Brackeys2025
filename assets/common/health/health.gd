@@ -16,7 +16,7 @@ var invulnerable: bool = false
 		if health > max_health:
 			health = max_health
 	
-@export var health: int:
+var health: int:
 	set(value):
 		if invulnerable:
 			return
