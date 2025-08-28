@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://ddiywreycf66w"]
+
+[ext_resource type="Texture2D" uid="uid://cp8qe4l7tu48q" path="res://assets/environment/Level 3/Platform_2k_emissive.png" id="1_eg7w8"]
+[ext_resource type="Texture2D" uid="uid://cpddwfx426cbd" path="res://assets/environment/Level 3/Platform_2k_albedo.png" id="1_giy3w"]
+[ext_resource type="Texture2D" uid="uid://djvoec1daki7s" path="res://assets/environment/Level 3/Platform_2k_normal.png" id="2_giy3w"]
+[ext_resource type="Texture2D" uid="uid://bji8furgbn7y5" path="res://assets/environment/Level 3/Platform_2k_roughness.png" id="3_ugimw"]
+
+[resource]
+albedo_texture = ExtResource("1_giy3w")
+roughness_texture = ExtResource("3_ugimw")
+emission_enabled = true
+emission_texture = ExtResource("1_eg7w8")
+normal_enabled = true
+normal_texture = ExtResource("2_giy3w")

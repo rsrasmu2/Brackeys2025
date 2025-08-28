@@ -34,17 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Chrome": {
+"Greeble": {
+"use_external/enabled": true,
+"use_external/path": "uid://ddiywreycf66w"
+},
+"Material": {
 "use_external/enabled": true,
 "use_external/path": "uid://c5g407ck5c7jy"
-},
-"Dark": {
-"use_external/enabled": true,
-"use_external/path": "uid://kbaloimly7hj"
-},
-"Material_1.Walkway 2": {
-"use_external/enabled": true,
-"use_external/path": "uid://7qq63k3t0uri"
 }
 }
 }
