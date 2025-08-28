@@ -79,3 +79,16 @@ func _on_health_died() -> void:
 	$CollisionShape3D.disabled = true
 	set_process(false)
 	set_physics_process(false)
+
+func _on_experience_level_up(_level: int) -> void:
+	$PlayerCamera/Gun.reset_firing()
+	get_tree().paused = true
+	var powerups: Array[PackedScene] = []
+	var indices: Array[int] = []
+	for i: int in range(3):
+		var index: int = randi() % $Experience.level_up_powerups.size()
+		while indices.has(index):
+			index = randi() % $Experience.level_up_powerups.size()
+		powerups.push_back($Experience.level_up_powerups[index])
+		indices.push_back(index)
+	$PlayerCamera/UI/PowerupSelectionPanel.show_powerups(powerups)

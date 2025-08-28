@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 @export var player: Player
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if player.is_on_floor() and $Timer.is_stopped() and player._target_velocity.length_squared() > 0.1:
 		pitch_scale = randf_range(0.8, 1.2)
 		play()

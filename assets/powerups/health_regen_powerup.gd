@@ -1,7 +1,10 @@
 extends Node
 
-@export var heal_amount: int = 10
-@export var tick_rate: float = 2.0
+const NAME: String = "Health Regeneration"
+const DESCRIPTION: String = "You regenerate an additional 2 health per second."
+
+@export var heal_amount: int = 2
+@export var tick_rate: float = 1.0
 var _health: Health
 
 func _ready() -> void:

@@ -1,5 +1,8 @@
 extends Node
 
+const NAME: String = "Bullet Speed"
+const DESCRIPTION: String = "Increases the speed of your bullets."
+
 @export var mult: float = 2.0
 
 func apply(player: Player) -> void:

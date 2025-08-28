@@ -4,6 +4,8 @@ extends StaticBody3D
 @export var spawn_distance_min: float = 5.0
 @export var spawn_distance_max: float = 15.0
 
+@export var experience: int = 100
+
 var _spawned: bool = false
 
 var _player: Player:

@@ -1,5 +1,8 @@
 extends Node
 
+const NAME: String = "Bullet Knockback"
+const DESCRIPTION: String = "Adds a slight knockback to your bullets."
+
 @export var amount: float = 2
 
 func apply(player: Player) -> void:

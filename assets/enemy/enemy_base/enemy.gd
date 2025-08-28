@@ -6,12 +6,16 @@ signal state_changed(new_state: EnemyState)
 @export var state_nodes: Dictionary[EnemyState, Node3D]
 @export var knockback_node: Knockback
 
+@export var experience: int = 20
+
 const GRAVITY: float = 9.8
 
 var target_velocity: Vector3 = Vector3.ZERO
 var knockback: Vector3 = Vector3.ZERO
 
 var _target_states: Array = []
+
+const EXP_SCENE := preload("res://assets/experience/exp_orb.tscn")
 
 enum EnemyState { Idle, Following, Jumping, Attacking }
 @onready var state: EnemyState = EnemyState.Idle:
@@ -62,4 +66,8 @@ func add_status_effect(effect: Node) -> void:
 	effect.apply(self)
 
 func _on_health_died() -> void:
+	var orb := EXP_SCENE.instantiate()
+	orb.init(experience)
+	get_tree().root.add_child(orb)
+	orb.global_transform = global_transform
 	queue_free()

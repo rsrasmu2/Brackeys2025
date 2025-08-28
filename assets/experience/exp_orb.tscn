@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://beggyhxa64jpu"]
+
+[ext_resource type="Script" uid="uid://dhbgpm3rvivbf" path="res://assets/experience/exp_orb.gd" id="1_j3i2g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bkxm8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2m0c"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0.756863, 1, 0.756863, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_y1c1y"]
+material = SubResource("StandardMaterial3D_n2m0c")
+radius = 0.1
+height = 0.2
+
+[node name="ExpOrb" type="Area3D"]
+collision_layer = 32
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_j3i2g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+shape = SubResource("SphereShape3D_bkxm8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+mesh = SubResource("SphereMesh_y1c1y")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
