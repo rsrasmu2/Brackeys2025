@@ -132,7 +132,6 @@ _data = {
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
-wall_min_slide_angle = 0.349066
 script = ExtResource("1_v2miy")
 
 [node name="PlayerCamera" type="Camera3D" parent="."]
@@ -272,10 +271,12 @@ player = NodePath("..")
 dasher = NodePath("..")
 dash_speed = 15.0
 
-[node name="Powerups" type="Node" parent="."]
+[node name="Powerups" type="Node3D" parent="."]
 
 [node name="Knockback" parent="." node_paths=PackedStringArray("body") instance=ExtResource("14_g7aau")]
 body = NodePath("..")
+
+[node name="StatusEffects" type="Node" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -283,6 +284,7 @@ libraries = {
 }
 
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
+[connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="died" from="Health" to="MouseRotation" method="_on_death"]
 [connection signal="died" from="Health" to="PlayerCamera/Gun" method="set_process_input" binds= [false]]

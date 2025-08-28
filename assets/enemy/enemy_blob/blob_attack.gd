@@ -27,7 +27,7 @@ func enable_hurtbox() -> void:
 				var displacement := (body.global_position - global_position)
 				displacement.y = 0.5
 				var direction := displacement.normalized()
-				body.take_damage(damage, direction * knockback)
+				body.take_damage(damage, direction * knockback, controller)
 		disable_hurtbox()
 		return
 
@@ -39,7 +39,7 @@ func disable_hurtbox() -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):
 		var direction := (body.global_position - global_position).normalized()
-		body.take_damage(damage, direction * knockback)
+		body.take_damage(damage, direction * knockback, controller)
 	set_deferred("monitoring", false)
 
 func _on_animation_finished(_animation_name: String) -> void:

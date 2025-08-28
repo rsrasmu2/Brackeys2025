@@ -8,15 +8,13 @@ extends Node3D
 var end_forward: Vector3
 var current_rotation: float = 0
 
-var _target_forward: Vector3
-
 func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	controller.rotate_object_local(Vector3.RIGHT, current_rotation * delta)
 
-func _on_end_detected(body: Node3D) -> void:
+func _on_end_detected(_body: Node3D) -> void:
 	$"../EndDetection".set_deferred("monitoring", false)
 	$"../GroundDetection".set_deferred("monitoring", false)
 	set_physics_process(false)
@@ -25,7 +23,7 @@ func _on_end_detected(body: Node3D) -> void:
 	await $WaitTimer.timeout
 	
 	var t := controller.global_transform
-	var b := t.basis.rotated(t.basis.z, PI)
+	var b := t.basis.rotated(t.basis.z.normalized(), PI)
 	var new_t := Transform3D(b, t.origin - b.y * 6.0)
 	controller.global_transform = new_t
 	controller.reset_physics_interpolation()
@@ -33,8 +31,8 @@ func _on_end_detected(body: Node3D) -> void:
 	$WaitTimer.start()
 	await $WaitTimer.timeout
 	
-	var start_forward = -controller.basis.z
-	var tween = create_tween()
+	var start_forward := -controller.basis.z
+	var tween := create_tween()
 	tween.tween_method(slerp_forward.bind(start_forward, end_forward), 0.0, 1.0, 1.0)
 	await tween.finished
 	

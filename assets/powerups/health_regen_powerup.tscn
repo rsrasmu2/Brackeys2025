@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d00t4utk53el4"]
+
+[ext_resource type="Script" uid="uid://fnxskmk43c2g" path="res://assets/powerups/health_regen_powerup.gd" id="1_st6vo"]
+
+[node name="HealthRegenPowerup" type="Node"]
+script = ExtResource("1_st6vo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -57,7 +57,7 @@ func enable_damaging() -> void:
 			var displacement := (body.global_position - global_position)
 			displacement.y = 0.5
 			var direction := displacement.normalized()
-			body.take_damage(collision_damage, direction * collision_knockback)
+			body.take_damage(collision_damage, direction * collision_knockback, controller)
 		hurtbox.monitoring = false
 	
 func disable_damaging() -> void:
@@ -66,4 +66,4 @@ func disable_damaging() -> void:
 
 func _on_hurtbox_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):
-		body.take_damage(collision_damage, global_basis.z)
+		body.take_damage(collision_damage, global_basis.z, controller)

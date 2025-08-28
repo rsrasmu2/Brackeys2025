@@ -3,7 +3,6 @@ extends CharacterBody3D
 
 const ACCELERATION: float = 20.0
 const STOP_FORCE: float = 40.0
-const SPEED: float = 5.0
 const FIRING_MULT: float = 0.7
 
 const GRAVITY: float = 9.8
@@ -55,17 +54,26 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func add_powerup(powerup: Node) -> void:
+	$Powerups.add_child(powerup)
+	if powerup.has_method("apply"):
+		powerup.apply(self)
+
 func set_horizontal_velocity(direction: Vector2) -> void:
-	_target_velocity = direction * SPEED
+	_target_velocity = direction
 	if _is_firing:
 		_target_velocity *= FIRING_MULT
 
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
 
-func take_damage(amount: int, knockback_amount: Vector3) -> void:
+func take_damage(amount: int, knockback_amount: Vector3, _source: Node) -> void:
 	$Health.health -= amount
 	$Knockback.add_knockback(knockback_amount)
+
+func add_status_effect(effect: Node) -> void:
+	$StatusEffects.add_child(effect)
+	effect.apply(self)
 
 func _on_health_died() -> void:
 	$CollisionShape3D.disabled = true

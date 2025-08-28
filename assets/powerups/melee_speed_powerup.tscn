@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4m1q4gjjcqp3"]
+
+[ext_resource type="Script" uid="uid://bcvjs063cqmwf" path="res://assets/powerups/melee_speed_powerup.gd" id="1_y2wu7"]
+
+[node name="MeleeSpeedPowerup" type="Node"]
+script = ExtResource("1_y2wu7")

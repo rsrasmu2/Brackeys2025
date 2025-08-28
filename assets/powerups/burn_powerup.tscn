@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://lqoo5nks02mj"]
+
+[ext_resource type="Script" uid="uid://y7pwkkb8bbj8" path="res://assets/powerups/burn_powerup.gd" id="1_k13pa"]
+
+[node name="BurnPowerup" type="Node"]
+script = ExtResource("1_k13pa")

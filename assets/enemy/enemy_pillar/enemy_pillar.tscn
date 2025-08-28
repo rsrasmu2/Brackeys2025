@@ -14,7 +14,7 @@
 height = 6.0
 radius = 0.47168
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5qy18"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xmv3r"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5qy18"]
@@ -49,7 +49,7 @@ max_health = 250
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_aj476")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.78036, 0.40316)
-texture = SubResource("ViewportTexture_5qy18")
+texture = SubResource("ViewportTexture_xmv3r")
 health = NodePath("../Health")
 size = Vector2(160, 20)
 
@@ -110,4 +110,7 @@ monitorable = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 5.77015, 0.128103)
 shape = SubResource("BoxShape3D_vdavr")
 
+[node name="StatusEffects" type="Node" parent="."]
+
+[connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="body_entered" from="PillarAttack" to="PillarAttack" method="_on_body_entered"]

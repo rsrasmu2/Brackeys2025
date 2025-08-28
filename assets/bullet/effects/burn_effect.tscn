@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dc7bolwncqki"]
+
+[ext_resource type="Script" uid="uid://cih205y6h1eag" path="res://assets/bullet/effects/burn_effect.gd" id="1_e0ogk"]
+
+[node name="BurnEffect" type="Node"]
+script = ExtResource("1_e0ogk")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxubv6xprfr4k"]
+
+[ext_resource type="Script" uid="uid://bccei4fmbam7n" path="res://assets/powerups/extra_jump_powerup.gd" id="1_5b8t4"]
+
+[node name="ExtraJumpPowerup" type="Node"]
+script = ExtResource("1_5b8t4")

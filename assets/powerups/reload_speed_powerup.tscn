@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnsucck51f1f"]
+
+[ext_resource type="Script" uid="uid://dhmi8ftyn3mud" path="res://assets/powerups/reload_speed_powerup.gd" id="1_vqoyp"]
+
+[node name="ReloadSpeedPowerup" type="Node"]
+script = ExtResource("1_vqoyp")

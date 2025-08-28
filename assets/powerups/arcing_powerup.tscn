@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g0k73xb2c6oa"]
+
+[ext_resource type="Script" uid="uid://ctsxh4n5x0e15" path="res://assets/powerups/arcing_powerup.gd" id="1_g35oe"]
+
+[node name="ArcingPowerup" type="Node"]
+script = ExtResource("1_g35oe")

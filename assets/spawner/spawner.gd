@@ -12,7 +12,7 @@ var _player: Player:
 			_player = get_tree().get_first_node_in_group("Player")
 		return _player
 
-func take_damage(amount: int, _knockback: Vector3) -> void:
+func take_damage(amount: int, _knockback: Vector3, _source: Node) -> void:
 	$Health.health -= amount
 
 func _on_health_died() -> void:

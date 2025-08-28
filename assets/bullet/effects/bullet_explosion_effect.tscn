@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crpkqe7g3ji6h"]
+
+[ext_resource type="Script" uid="uid://bcd00dc5qgarr" path="res://assets/bullet/effects/bullet_explosion_effect.gd" id="1_nmgc7"]
+
+[node name="BulletExplosionEffect" type="Node3D"]
+script = ExtResource("1_nmgc7")

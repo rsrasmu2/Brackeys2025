@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	if target.target == null:
 		return
 	
-	var dist = global_position.distance_squared_to(target.target.global_position)
+	var dist := global_position.distance_squared_to(target.target.global_position)
 	if dist <= _sqr_attack_distance:
 		controller.state = controller.EnemyState.Attacking
 	elif dist <= _sqr_follow_distance:

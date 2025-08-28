@@ -6,8 +6,13 @@ extends Node3D
 @export var cooldown: float = 0.6
 @export var gun: Gun
 
+var speed_mult: float = 1.0:
+	set(value):
+		speed_mult = value
+		$Timer.wait_time = cooldown / speed_mult
+
 func _ready() -> void:
-	$Timer.wait_time = cooldown
+	$Timer.wait_time = cooldown / speed_mult
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("melee"):
@@ -21,5 +26,5 @@ func melee() -> void:
 				var displacement := (body.global_position - global_position)
 				displacement.y = 0.5
 				var direction := displacement.normalized()
-				body.take_damage(damage, direction * knockback)
+				body.take_damage(damage, direction * knockback, owner)
 		$Timer.start()
