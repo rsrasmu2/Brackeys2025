@@ -1,6 +1,6 @@
 extends Node3D
 
-const SPAWNER_SCENE := preload("res://assets/spawner/spawner_spawner.tscn")
+const SPAWNER_SCENE := preload("res://assets/spawner/spawner.tscn")
 
 func activate() -> void:
 	var spawner := SPAWNER_SCENE.instantiate()

@@ -669,6 +669,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.859, -38.5403, -125.118)
 [node name="SpawnerSpawner3" parent="." instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.741, -37.7431, -177.591)
 
+[node name="SpawnerSpawner4" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.803, -40.3133, -50.2965)
+
+[node name="SpawnerSpawner5" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.567, -27.054, 105.466)
+
+[node name="SpawnerSpawner6" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5091, -22.0741, 169.135)
+
+[node name="SpawnerSpawner7" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2857, -33.2774, 135.407)
+
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cvc5m")
 volume_db = -20.0

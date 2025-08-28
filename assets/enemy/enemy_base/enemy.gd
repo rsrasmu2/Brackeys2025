@@ -15,7 +15,7 @@ var knockback: Vector3 = Vector3.ZERO
 
 var _target_states: Array = []
 
-const EXP_SCENE := preload("res://assets/experience/exp_orb.tscn")
+const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
 
 enum EnemyState { Idle, Following, Jumping, Attacking }
 @onready var state: EnemyState = EnemyState.Idle:

@@ -382,10 +382,11 @@ player = NodePath("..")
 [node name="Timer" type="Timer" parent="FootstepAudio"]
 wait_time = 0.35
 
-[node name="OrbPickup" type="Area3D" parent="." node_paths=PackedStringArray("experience")]
+[node name="OrbPickup" type="Area3D" parent="." node_paths=PackedStringArray("player", "experience")]
 collision_layer = 2
 collision_mask = 32
 script = ExtResource("36_khrko")
+player = NodePath("..")
 experience = NodePath("../Experience")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OrbPickup"]

@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	if len(get_overlapping_bodies()) > 1:
 		controller.rotate(controller.basis.x, 0.1 * PI)
 		return
-	controller.rotate(controller.basis.x, current_rotation * delta)
+	controller.rotate(controller.basis.x.normalized(), current_rotation * delta)
 
 
 func _on_end_detected(_body: Node3D) -> void:

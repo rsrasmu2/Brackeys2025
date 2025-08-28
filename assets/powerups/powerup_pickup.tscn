@@ -1,37 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccsjeq106k15c"]
+[gd_scene load_steps=11 format=3 uid="uid://ck4b7fmawr1v3"]
 
-[ext_resource type="Script" uid="uid://biytwwb4leabe" path="res://assets/powerups/powerup_pickup.gd" id="1_tdvek"]
+[ext_resource type="Script" uid="uid://chqchsv44v0f4" path="res://assets/powerups/powerup_pickup.gd" id="1_tdvek"]
+[ext_resource type="PackedScene" uid="uid://g0k73xb2c6oa" path="res://assets/powerups/arcing_powerup.tscn" id="2_6xhu1"]
+[ext_resource type="PackedScene" uid="uid://yje122cgdgem" path="res://assets/powerups/bullet_explosion_powerup.tscn" id="3_6skqj"]
+[ext_resource type="PackedScene" uid="uid://lqoo5nks02mj" path="res://assets/powerups/burn_powerup.tscn" id="4_pmgp2"]
+[ext_resource type="PackedScene" uid="uid://cbgpltiunvpct" path="res://assets/powerups/damage_aura_powerup.tscn" id="5_q8bly"]
+[ext_resource type="PackedScene" uid="uid://xqblsbwphupc" path="res://assets/powerups/shield_powerup.tscn" id="6_fq7r8"]
+[ext_resource type="PackedScene" uid="uid://bkfsj4dh3koma" path="res://assets/powerups/shotgun_powerup.tscn" id="7_7wm7v"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_s7h43"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_tdvek"]
-radius = 0.2
-height = 0.4
+[sub_resource type="SphereShape3D" id="SphereShape3D_tdvek"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ju6jt"]
-albedo_color = Color(0, 1, 0, 1)
+albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
-emission = Color(0.336608, 0.336608, 0.336608, 1)
+emission = Color(1, 0.634996, 0.636217, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_15116"]
+material = SubResource("StandardMaterial3D_ju6jt")
 
 [node name="PowerupPickup" type="Area3D"]
 collision_layer = 32
-collision_mask = 2
-monitorable = false
+collision_mask = 0
+monitoring = false
 script = ExtResource("1_tdvek")
+powerups = Array[PackedScene]([ExtResource("2_6xhu1"), ExtResource("3_6skqj"), ExtResource("4_pmgp2"), ExtResource("5_q8bly"), ExtResource("6_fq7r8"), ExtResource("7_7wm7v")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_s7h43")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_tdvek")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("SphereMesh_tdvek")
-surface_material_override/0 = SubResource("StandardMaterial3D_ju6jt")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-light_color = Color(0.560713, 1, 0.52922, 1)
-
-[node name="Label3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37593, 0)
-billboard = 2
-text = "Test"
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("SphereMesh_15116")
