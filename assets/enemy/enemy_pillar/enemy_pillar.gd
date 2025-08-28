@@ -28,7 +28,7 @@ func _process(_delta: float) -> void:
 	if len(_target_states) == 0:
 		return
 
-func take_damage(amount: int, _knockback_amount: Vector3, _source: Node3D) -> void: 
+func take_damage(amount: int, _knockback_amount: Vector3, _source: Node) -> void: 
 	$Health.health -= amount
 
 func add_status_effect(effect: Node) -> void:

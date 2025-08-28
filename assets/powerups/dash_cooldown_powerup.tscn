@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tfd2a580ll"]
+
+[ext_resource type="Script" uid="uid://dmdbpnxwrium0" path="res://assets/powerups/dash_cooldown_powerup.gd" id="1_yxnv7"]
+
+[node name="DashCooldownPowerup" type="Node"]
+script = ExtResource("1_yxnv7")

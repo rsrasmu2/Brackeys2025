@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmtkom4cj4hm1"]
+
+[ext_resource type="Script" uid="uid://bcfns0u67gdnt" path="res://assets/powerups/dash_charges_powerup.gd" id="1_p8qhf"]
+
+[node name="DashChargesPowerup" type="Node"]
+script = ExtResource("1_p8qhf")

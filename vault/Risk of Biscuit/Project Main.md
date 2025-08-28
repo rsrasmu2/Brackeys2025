@@ -37,6 +37,14 @@
 - [x] Mag Size
 - [x] Reload Speed
 - [x] Melee Damage
+- [x] Melee Speed
+- [x] Melee Knockback
+- [x] Dash Charges
+- [x] Dash Speed
+- [x] Dash Cooldown
+- [x] Bullet Damage
+- [x] Bullet Knockback
+- [x] Bullet Speed
 ### Unique Power-ups:
 - [x] Projectile Size/Explosion
 - [x] Arcing: Damage arcs to nearby enemies

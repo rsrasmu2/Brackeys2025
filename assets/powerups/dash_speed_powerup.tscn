@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkhe464ncfm3"]
+
+[ext_resource type="Script" uid="uid://dsyofe2oo7m54" path="res://assets/powerups/dash_speed_powerup.gd" id="1_uqgu4"]
+
+[node name="DashSpeedPowerup" type="Node"]
+script = ExtResource("1_uqgu4")

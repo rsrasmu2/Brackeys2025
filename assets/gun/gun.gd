@@ -22,7 +22,7 @@ const bullet_scene = preload("res://assets/bullet/bullet.tscn")
 		cooldown = value
 		$FireTimer.wait_time = cooldown
 
-@export var bullet_speed: float = 20.0
+@export var bullet_speed: float = 60.0
 @export var bullet_damage: int = 30
 @export var max_ammo: int = 16:
 	set(value):

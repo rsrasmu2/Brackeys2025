@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://giqxhay0evxr"]
 
-[ext_resource type="Script" uid="uid://ckuy6gsxhtpe8" path="res://assets/powerups/projectile_size_powerup.gd" id="1_sb4ed"]
+[ext_resource type="Script" uid="uid://ckuy6gsxhtpe8" path="res://assets/powerups/bullet_size_powerup.gd" id="1_sb4ed"]
 
 [node name="ProjectileSizePowerup" type="Node"]
 script = ExtResource("1_sb4ed")

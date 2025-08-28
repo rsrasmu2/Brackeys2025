@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://di3dc2u037stm"]
+
+[ext_resource type="Script" uid="uid://b3xor87kclg5i" path="res://assets/powerups/melee_knockback_powerup.gd" id="1_o5kyj"]
+
+[node name="MeleeKnockbackPowerup" type="Node"]
+script = ExtResource("1_o5kyj")

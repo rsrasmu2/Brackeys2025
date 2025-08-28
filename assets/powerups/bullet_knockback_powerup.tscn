@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr5yq6eeaxiju"]
+
+[ext_resource type="Script" uid="uid://cwovv1xuvljp7" path="res://assets/powerups/bullet_knockback_powerup.gd" id="1_nwh61"]
+
+[node name="BulletKnockbackPowerup" type="Node"]
+script = ExtResource("1_nwh61")

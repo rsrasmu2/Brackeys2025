@@ -22,7 +22,7 @@ func add_effect(effect: Node) -> void:
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	emit_signal(hit.get_name(), body)
 	if body.has_method("take_damage"):
-		body.take_damage(damage, basis.z * knockback, self)
+		body.take_damage(damage, -basis.z * knockback, self)
 	queue_free()
 
 func _on_despawn_timer_timeout() -> void:

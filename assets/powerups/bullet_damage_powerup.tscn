@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8n63oj5ksfgy"]
+
+[ext_resource type="Script" uid="uid://bsfx4wqd4vjjn" path="res://assets/powerups/bullet_damage_powerup.gd" id="1_oinlg"]
+
+[node name="BulletDamagePowerup" type="Node"]
+script = ExtResource("1_oinlg")

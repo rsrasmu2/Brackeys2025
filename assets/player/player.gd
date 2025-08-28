@@ -67,7 +67,7 @@ func set_horizontal_velocity(direction: Vector2) -> void:
 func _on_gun_firing_changed(is_firing: bool) -> void:
 	_is_firing = is_firing
 
-func take_damage(amount: int, knockback_amount: Vector3, _source: Node3D) -> void:
+func take_damage(amount: int, knockback_amount: Vector3, _source: Node) -> void:
 	$Health.health -= amount
 	$Knockback.add_knockback(knockback_amount)
 
