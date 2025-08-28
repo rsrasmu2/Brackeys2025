@@ -42,14 +42,14 @@ func _physics_process(delta: float) -> void:
 	controller.rotate(controller.basis.x, current_rotation * delta)
 
 
-func _on_end_detected(body: Node3D) -> void:
+func _on_end_detected(_body: Node3D) -> void:
 	_returning = true
 	$"../EndDetection".set_deferred("monitoring", false)
 	set_deferred("monitoring", false)
 	$WaitTimer.start()
 	await $WaitTimer.timeout
-	var tween = create_tween()
-	var start_forward = -controller.basis.z
+	var tween := create_tween()
+	var start_forward := -controller.basis.z
 	tween.tween_method(slerp_forward.bind(start_forward, end_forward), 0.0, 1.0, 2.0)
 	await tween.finished
 	$Timer.start()
@@ -66,11 +66,11 @@ func _on_body_entered(body: Node3D) -> void:
 	var displacement := (body.global_position - global_position)
 	displacement.y = 0
 	var direction := displacement.normalized()
-	body.take_damage(0, displacement * knockback)
+	body.take_damage(0, direction * knockback, controller)
 	
 	if _damage_dealt:
 		return
 		
 	if body.collision_layer == 2 and body.has_method("take_damage"):
-		body.take_damage(damage, Vector3.ZERO)
+		body.take_damage(damage, Vector3.ZERO, controller)
 		_damage_dealt = true

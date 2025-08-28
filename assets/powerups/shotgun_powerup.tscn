@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkfsj4dh3koma"]
+
+[ext_resource type="Script" uid="uid://c4yty7c8g477r" path="res://assets/powerups/shotgun_powerup.gd" id="1_y4quh"]
+
+[node name="ShotgunPowerup" type="Node"]
+script = ExtResource("1_y4quh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true

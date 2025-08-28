@@ -28,20 +28,20 @@
 - 
 
 ### Power-ups: 
-- [ ] Double Jumps
-- [ ] Movement Speed
-- [ ] Rate of Fire
-- [ ] Burn
-- [ ] HP Regen
-- [ ] Damage Pulse
-- [ ] Mag Size
-- [ ] Reload Speed
-- [ ] Melee Damage
+- [x] Double Jumps
+- [x] Movement Speed
+- [x] Rate of Fire
+- [x] Burn
+- [x] HP Regen
+- [x] Damage Pulse
+- [x] Mag Size
+- [x] Reload Speed
+- [x] Melee Damage
 ### Unique Power-ups:
-- [ ] Projectile Size/Explosion
-- [ ] Arcing: Damage arcs to nearby enemies
-- [ ] Spike Shield: Deletes enemy projectiles; damages enemies on melee hit
-- [ ] Shotgun Blast
+- [x] Projectile Size/Explosion
+- [x] Arcing: Damage arcs to nearby enemies
+- [x] Spike Shield: Deletes enemy projectiles; damages enemies on melee hit
+- [x] Shotgun Blast
 
 --- 
 # Enemies

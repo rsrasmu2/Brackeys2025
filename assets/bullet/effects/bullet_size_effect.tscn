@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjuniour2onkw"]
+
+[ext_resource type="Script" uid="uid://hldg8b4ecoo3" path="res://assets/bullet/effects/bullet_size_effect.gd" id="1_y70fa"]
+
+[node name="BulletSizeEffect" type="Node"]
+script = ExtResource("1_y70fa")

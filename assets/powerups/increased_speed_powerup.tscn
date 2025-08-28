@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3ehhcm21uxfb"]
+
+[ext_resource type="Script" uid="uid://c1bh531p1m0oq" path="res://assets/powerups/increased_speed_powerup.gd" id="1_hwdc2"]
+
+[node name="IncreasedSpeedPowerup" type="Node"]
+script = ExtResource("1_hwdc2")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yxcke5ngfn8d"]
+
+[ext_resource type="Script" uid="uid://53d4kgtxje0q" path="res://assets/bullet/effects/arcing_effect.gd" id="1_2f2dd"]
+
+[node name="ArcingEffect" type="Node3D"]
+script = ExtResource("1_2f2dd")

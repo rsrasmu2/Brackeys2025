@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://xqblsbwphupc"]
+
+[ext_resource type="Script" uid="uid://dlb7m2crr4a0f" path="res://assets/powerups/shield_powerup.gd" id="1_30fxp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptijy"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eg57f"]
+transparency = 1
+albedo_color = Color(0.0313726, 0.266667, 1, 0.172549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_54du6"]
+material = SubResource("StandardMaterial3D_eg57f")
+size = Vector3(0.5, 0.5, 0.1)
+
+[node name="ShieldPowerup" type="AnimatableBody3D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_30fxp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1)
+shape = SubResource("BoxShape3D_ptijy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1)
+mesh = SubResource("BoxMesh_54du6")

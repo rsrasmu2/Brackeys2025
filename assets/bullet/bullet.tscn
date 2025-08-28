@@ -22,11 +22,11 @@ script = ExtResource("1_a4s3u")
 mesh = SubResource("SphereMesh_c0gqx")
 surface_material_override/0 = SubResource("StandardMaterial3D_a4s3u")
 
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+[node name="Area3D" type="Area3D" parent="."]
 collision_layer = 8
 collision_mask = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_adgrp")
 
 [node name="DespawnTimer" type="Timer" parent="."]
@@ -34,6 +34,8 @@ wait_time = 8.0
 one_shot = true
 autostart = true
 
-[connection signal="area_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="Effects" type="Node3D" parent="."]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

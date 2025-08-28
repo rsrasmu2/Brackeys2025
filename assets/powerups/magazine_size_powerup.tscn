@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2cpicrsuruma"]
+
+[ext_resource type="Script" uid="uid://buxt8g8f6fwpi" path="res://assets/powerups/magazine_size_powerup.gd" id="1_d6uvh"]
+
+[node name="MagazineSizePowerup" type="Node"]
+script = ExtResource("1_d6uvh")

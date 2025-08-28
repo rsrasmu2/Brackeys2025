@@ -23,4 +23,6 @@ texture = SubResource("ViewportTexture_o0alw")
 health = NodePath("../Health")
 size = Vector2(160, 20)
 
+[node name="StatusEffects" type="Node" parent="."]
+
 [connection signal="died" from="Health" to="." method="_on_health_died"]

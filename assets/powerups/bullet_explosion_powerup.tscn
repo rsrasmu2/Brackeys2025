@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://yje122cgdgem"]
+
+[ext_resource type="Script" uid="uid://ckvg3lxiy13t4" path="res://assets/powerups/bullet_explosion_powerup.gd" id="1_87ojg"]
+
+[node name="BulletExplosionPowerup" type="Node"]
+script = ExtResource("1_87ojg")

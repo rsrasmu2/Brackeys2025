@@ -52,10 +52,14 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func take_damage(amount: int, knockback_amount: Vector3) -> void: 
+func take_damage(amount: int, knockback_amount: Vector3, _source: Node3D) -> void: 
 	$Health.health -= amount
 	if knockback_node:
 		knockback_node.add_knockback(knockback_amount)
+
+func add_status_effect(effect: Node) -> void:
+	$StatusEffects.add_child(effect)
+	effect.apply(self)
 
 func _on_health_died() -> void:
 	queue_free()

@@ -2,7 +2,7 @@ extends Area3D
 
 @export var controller: EnemyPillar
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if not monitoring:
 		return
 	if len(get_overlapping_bodies()) > 0:

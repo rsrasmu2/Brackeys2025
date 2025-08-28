@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dies4tto6dfmi"]
+
+[ext_resource type="Script" uid="uid://f3lhtsi32f4f" path="res://assets/powerups/melee_damage_powerup.gd" id="1_khcrb"]
+
+[node name="MeleeDamagePowerup" type="Node"]
+script = ExtResource("1_khcrb")
