@@ -1,12 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=17 format=3 uid="uid://bpeceg08wwn2n"]
 
+[ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/game_manager.tscn" id="1_tjxkh"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_ykeuu"]
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_cvc5m"]
 [ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cfjfy34eyp06i" path="res://assets/environment/Level 1/textures/new_terrain_3d_material.tres" id="2_x44cq"]
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_26yi2"]
 [ext_resource type="PackedScene" uid="uid://dqdfxdmatjm7j" path="res://assets/environment/Level 1/decoration/Pillar_base.glb" id="4_x44cq"]
 [ext_resource type="PackedScene" uid="uid://dfmfluhd67s3e" path="res://assets/environment/Level 1/decoration/Pillar_column.glb" id="5_6w0aq"]
 [ext_resource type="PackedScene" uid="uid://tu575tgxxu23" path="res://assets/environment/Level 1/decoration/Ceiling.glb" id="6_6w0aq"]
 [ext_resource type="PackedScene" uid="uid://bi24jhs15gc30" path="res://assets/environment/Level 1/decoration/Cave_vine.glb" id="7_2r83h"]
+[ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="8_2jk75"]
+[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="12_cvc5m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ykeuu"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -37,6 +42,18 @@ agent_max_climb = 0.5
 agent_max_slope = 60.0
 
 [node name="Environment_Level1" type="Node3D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_tjxkh")]
+spawns = Array[Dictionary]([{
+"enemies": [ExtResource("2_cvc5m"), ExtResource("2_cvc5m"), ExtResource("2_cvc5m"), ExtResource("2_cvc5m")],
+"spawn_mult": 0.8
+}, {
+"enemies": [ExtResource("3_26yi2"), ExtResource("2_cvc5m"), ExtResource("2_cvc5m")],
+"spawn_mult": 1.0
+}, {
+"enemies": [ExtResource("3_26yi2"), ExtResource("3_26yi2")],
+"spawn_mult": 1.2
+}])
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_ykeuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62863, -45.5277, 28.889)
@@ -629,3 +646,16 @@ transform = Transform3D(1.68691, 0, 4.35566, 0, 4.67092, 0, -4.35566, 0, 1.68691
 
 [node name="Cave_vine3" parent="Vines" instance=ExtResource("7_2r83h")]
 transform = Transform3D(-3.36936, 0, 3.23494, 0, 4.67092, 0, -3.23494, 0, -3.36936, 23.9442, 71.9126, -122.987)
+
+[node name="SpawnerSpawner" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.101, -13.2138, 106.032)
+
+[node name="SpawnerSpawner2" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.859, -38.5403, -125.118)
+
+[node name="SpawnerSpawner3" parent="." instance=ExtResource("8_2jk75")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.741, -37.7431, -177.591)
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cvc5m")
+volume_db = -20.0

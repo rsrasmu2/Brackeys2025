@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drplbfisq6nnh"]
+
+[ext_resource type="Script" uid="uid://wg43kd55y2e8" path="res://assets/spawner/spawner_spawner.gd" id="1_el158"]
+[ext_resource type="PackedScene" uid="uid://bknd2oos52i0d" path="res://assets/spawner/Spawner.glb" id="2_1xyk5"]
+
+[node name="SpawnerSpawner" type="Node3D" groups=["SpawnerSpawners"]]
+script = ExtResource("1_el158")
+
+[node name="Spawner" parent="." instance=ExtResource("2_1xyk5")]

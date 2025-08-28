@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=14 format=3 uid="uid://dbscgsfbwy7q0"]
 
+[ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/game_manager.tscn" id="1_3lvef"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
-[ext_resource type="PackedScene" uid="uid://cj8s23kp4am6v" path="res://assets/spawner/spawner.tscn" id="1_e22gm"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cuol02y274fmn" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://ba62silxu8xlu" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
 [ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_boe6w"]
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_5tnw1"]
+[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="7_5tnw1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e22gm"]
 
@@ -41,9 +43,17 @@ detail_sample_max_error = 0.5
 
 [node name="Environment_Level2" type="Node3D"]
 
-[node name="Spawner" parent="." instance=ExtResource("1_e22gm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1324, 49.4282, -55.7536)
-enemies = Array[PackedScene]([ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w")])
+[node name="GameManager" parent="." instance=ExtResource("1_3lvef")]
+spawns = Array[Dictionary]([{
+"enemies": [ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w"), ExtResource("2_boe6w")],
+"spawn_mult": 0.8
+}, {
+"enemies": [ExtResource("3_5tnw1"), ExtResource("2_boe6w"), ExtResource("2_boe6w")],
+"spawn_mult": 1.0
+}, {
+"enemies": [ExtResource("3_5tnw1"), ExtResource("3_5tnw1")],
+"spawn_mult": 1.2
+}])
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04691, 53.5167, -1.80717)
@@ -207,3 +217,7 @@ show_checkered = true
 show_grey = true
 top_level = true
 metadata/_edit_lock_ = true
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5tnw1")
+volume_db = -20.0

@@ -3,6 +3,8 @@ extends Node3D
 
 @export var spawns: Array[Dictionary]
 
+@export var spawners_to_keep: int = 3
+
 @export var spawn_distance_min: float = 8.0
 @export var spawn_distance_max: float = 25.0
 
@@ -15,6 +17,21 @@ var _player: Player:
 		if _player == null:
 			_player = get_tree().get_first_node_in_group("Player")
 		return _player
+
+func _ready() -> void:
+	start_level()
+
+func start_level() -> void:
+	var spawners := get_tree().get_nodes_in_group("SpawnerSpawners")
+	for _i: int in range(spawners_to_keep):
+		if spawners.size() == 0:
+			return
+		var index := randi() % spawners.size()
+		var spawner_spawner := spawners[index]
+		spawner_spawner.activate()
+		spawners.remove_at(index)
+	for spawner: Node in spawners:
+		spawner.remove()
 
 func start_spawn_timer() -> void:
 	$SpawnTimer.wait_time = randf_range(spawn_timer_min, spawn_timer_max) * spawn_timer_multiplier
