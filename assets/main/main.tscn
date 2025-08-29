@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://brkhre0g3uimc"]
 
-[ext_resource type="PackedScene" uid="uid://bpeceg08wwn2n" path="res://assets/environment/Level 1/Level 1.tscn" id="1_xch4i"]
+[ext_resource type="PackedScene" uid="uid://dbscgsfbwy7q0" path="res://assets/environment/Level 2/Level 2.tscn" id="1_xch4i"]
 
 [node name="Main" type="Node"]
 
-[node name="Environment_Level1" parent="." instance=ExtResource("1_xch4i")]
+[node name="Environment_Level2" parent="." instance=ExtResource("1_xch4i")]

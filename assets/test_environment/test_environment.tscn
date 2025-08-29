@@ -79,14 +79,6 @@ shape = SubResource("BoxShape3D_qfl10")
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_qfl10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)
 
-[node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691208, -1.90735e-06, -14.8809)
-state_nodes = {
-0: null,
-1: null,
-3: null
-}
-
 [node name="PowerupPickup" parent="." instance=ExtResource("3_qfl10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, -2.90736)
 
@@ -228,4 +220,12 @@ state_nodes = {
 0: NodePath("AngelIdle"),
 1: NodePath("AngelFollow"),
 3: NodePath("AngelAttack")
+}
+
+[node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328115, 0.383605, -15.74)
+state_nodes = {
+0: NodePath("PillarIdle"),
+1: NodePath("PillarFollow"),
+3: NodePath("PillarAttack")
 }
