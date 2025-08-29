@@ -108,6 +108,7 @@ melee={
 3d_physics/layer_4="Bullet"
 3d_physics/layer_5="PlayerHurtbox"
 3d_physics/layer_6="PowerupPickup"
+3d_physics/layer_7="EnemyBullet"
 
 [physics]
 

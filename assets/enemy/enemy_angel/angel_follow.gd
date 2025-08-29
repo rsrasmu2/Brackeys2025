@@ -11,12 +11,9 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(_delta: float) -> void:
-	var look_target := target.target.global_position
-	look_target.y = global_position.y
-	controller.look_at(look_target, Vector3.UP, true)
 	$"../AngelModel".look_at(target.target.global_position)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var displacement: Vector3 = target.target.global_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 	controller.target_velocity.x = velocity.x
