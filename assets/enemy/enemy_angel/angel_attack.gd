@@ -19,7 +19,7 @@ func exit() -> void:
 
 func fired() -> void:
 	for spawn_point: Node3D in fire_spawn_points:
-		var laser = LASER_SCENE.instantiate()
+		var laser := LASER_SCENE.instantiate()
 		get_tree().root.add_child(laser)
 		laser.global_transform = spawn_point.global_transform
 		laser.init(50, damage, controller)
