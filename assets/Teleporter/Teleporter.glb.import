@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bknd2oos52i0d"
-path="res://.godot/imported/Spawner.glb-a42c443c0bbf0c23de6d2796d7ff95da.scn"
+uid="uid://gjawgs72y2up"
+path="res://.godot/imported/Teleporter.glb-97bed31d0c031c75d947388f2ac21dc1.scn"
 
 [deps]
 
-source_file="res://assets/spawner/Spawner.glb"
-dest_files=["res://.godot/imported/Spawner.glb-a42c443c0bbf0c23de6d2796d7ff95da.scn"]
+source_file="res://assets/Teleporter/Teleporter.glb"
+dest_files=["res://.godot/imported/Teleporter.glb-97bed31d0c031c75d947388f2ac21dc1.scn"]
 
 [params]
 
@@ -34,7 +34,11 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"White": {
+"Emission": {
+"use_external/enabled": true,
+"use_external/path": "uid://cpim1hx2vlnk"
+},
+"Material": {
 "use_external/enabled": true,
 "use_external/path": "uid://c1tbcf4376yd0"
 }
