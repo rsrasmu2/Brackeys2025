@@ -25,7 +25,11 @@ func _physics_process(delta: float) -> void:
 			if not node is Node3D:
 				continue
 			node.global_position -= displacement
-		controller.global_position += displacement + Vector3.UP * 0.02
+		var vertical_displacement = Vector3.UP * 0.1
+		controller.global_position += displacement + vertical_displacement
+		$"../MeshOrigin/Enemy_Pillar".global_position -= vertical_displacement
 	else:
 		grav -= 9.8 * delta
 		controller.global_position += Vector3.UP * grav * delta
+		$"../MeshOrigin/Enemy_Pillar".position = lerp($"../MeshOrigin/Enemy_Pillar".position, Vector3.UP * 3, delta)
+		

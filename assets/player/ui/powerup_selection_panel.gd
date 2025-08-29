@@ -14,7 +14,6 @@ func show_powerups(powerups: Array[PackedScene]) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_powerup_selected(powerup: Node, element: Node) -> void:
-	print("Selected")
 	player.add_powerup(powerup)
 	for e: PowerupUiElement in %PowerupElements.get_children():
 		if e != element:

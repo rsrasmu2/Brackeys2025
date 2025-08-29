@@ -1,10 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ded8e20c4hvx3"]
+[gd_scene load_steps=14 format=3 uid="uid://ded8e20c4hvx3"]
 
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
-[ext_resource type="PackedScene" uid="uid://c7o6kr3uv3wn7" path="res://assets/powerups/test_powerup_pickup.tscn" id="3_qfl10"]
-[ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_ytvyt"]
-[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="15_agx3f"]
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="3_qfl10"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -79,153 +77,64 @@ shape = SubResource("BoxShape3D_qfl10")
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_qfl10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.385006)
 
-[node name="PowerupPickup" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, -2.90736)
-
-[node name="PowerupPickup17" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, -6.6795)
-
-[node name="PowerupPickup18" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, -10.9359)
-
-[node name="PowerupPickup19" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9899, 0.625283, -16.0099)
-
-[node name="PowerupPickup20" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.01894, 0.625283, -16.0099)
-
-[node name="PowerupPickup21" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3006, 0.625283, -16.0099)
-
-[node name="PowerupPickup2" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, 1.20927)
-
-[node name="PowerupPickup3" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, 7.77993)
-
-[node name="PowerupPickup4" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7397, 0.625283, 13.8797)
-
-[node name="PowerupPickup5" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2153, 0.625283, 13.8797)
-
-[node name="PowerupPickup8" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0664, 0.625283, 13.8797)
-
-[node name="PowerupPickup9" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0025, 0.625283, 8.22988)
-
-[node name="PowerupPickup10" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0025, 0.625283, 1.05022)
-
-[node name="PowerupPickup11" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0025, 0.625283, -4.44989)
-
-[node name="PowerupPickup12" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0025, 0.625283, -9.75333)
-
-[node name="PowerupPickup13" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5486, 0.625283, -9.75333)
-
-[node name="PowerupPickup14" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15025, 0.625283, -9.75333)
-
-[node name="PowerupPickup15" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15025, 0.625283, -14.9655)
-
-[node name="PowerupPickup16" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7376, 0.625283, -14.9655)
-
-[node name="PowerupPickup22" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7376, 0.625283, -14.9655)
-
-[node name="PowerupPickup23" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0969, 0.625283, -14.9655)
-
-[node name="PowerupPickup6" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394396, 0.625283, 13.8797)
-
-[node name="PowerupPickup7" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66887, 0.625283, 13.8797)
-
-[node name="PowerupPickup24" parent="." instance=ExtResource("3_qfl10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66887, 0.625283, 22.2178)
-
-[node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0857, 3.09715e-07, -27.9399)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8718, 3.09715e-07, -36.5552)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9697, 3.09715e-07, -34.5689)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.6232, 3.09715e-07, -28.7582)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3757, 3.09715e-07, -28.1263)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.4274, 3.09715e-07, -37.1553)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyBlob7" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6537, 4.12441e-06, -42.4767)
-state_nodes = {
-0: null,
-1: null,
-2: null,
-3: null
-}
-
-[node name="EnemyAngel" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("5_ytvyt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6369, 0, 30.019)
-state_nodes = {
-0: NodePath("AngelIdle"),
-1: NodePath("AngelFollow"),
-3: NodePath("AngelAttack")
-}
-
 [node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.328115, 0.383605, -15.74)
+transform = Transform3D(-0.732044, 0, 0.681258, 0, 1, 0, -0.681258, 0, -0.732044, 0.328115, 0.383605, -15.74)
 state_nodes = {
 0: NodePath("PillarIdle"),
 1: NodePath("PillarFollow"),
 3: NodePath("PillarAttack")
+}
+
+[node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.6759, 1.23886e-07, 6.8462)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.8227, -1.14533e-07, 9.31856)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.9315, -1.14533e-07, 8.27391)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.48, 1.23886e-07, 9.76393)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -17.2063, 1.23886e-07, 10.0429)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.3323, -1.14533e-07, 13.5104)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
 }

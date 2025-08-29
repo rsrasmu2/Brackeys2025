@@ -4,70 +4,78 @@ extends Node3D
 @export var target: EnemyTarget
 
 @export var rotation_rate: float = 120
-@export var facing_speed: float = 60
+@export var facing_speed: float = 180
+
+@export var distance_to_attack: float = 7.0
+var _sqr_attack_distance: float = distance_to_attack * distance_to_attack
 
 var _facing: bool = false
-@onready var _to_test: Node3D = $"../EndDetectionBottom"
+@onready var _to_test: Node3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom"
+@onready var _mesh: Node3D = $"../MeshOrigin/Enemy_Pillar"
+
+@onready var _top: Area3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionTop"
+@onready var _bottom: Area3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom"
+
+var _detections: int = 0
 
 func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	if _facing:
-		var up_angle: float = _to_test.global_basis.y.signed_angle_to(Vector3.DOWN, $"../MeshOrigin/Enemy_Pillar".basis.x)
-		print(up_angle)
+		var up_angle: float = _to_test.global_basis.y.signed_angle_to(Vector3.UP, _to_test.global_basis.x)
 		if abs(up_angle) < 0.05:
-			var target_pos: Vector3 = target.target.global_transform.origin
-			target_pos.y = $"../MeshOrigin/Enemy_Pillar".global_position.y
-			
-			var desired_x: Transform3D = $"../MeshOrigin/Enemy_Pillar".global_transform.looking_at(target_pos, Vector3.UP)
-			var from: Quaternion = $"../MeshOrigin/Enemy_Pillar".global_transform.basis.get_rotation_quaternion()
-			var to: Quaternion = desired_x.basis.get_rotation_quaternion()
-			
-			var angle := from.angle_to(to) - PI
-			if abs(angle) <= 0.05:
-				$"../MeshOrigin/Enemy_Pillar".rotate_object_local(Vector3.UP, angle)
-				_facing = false
-				controller.rotate_object_local($"../MeshOrigin/Enemy_Pillar".basis.x, deg_to_rad(rotation_rate) * delta)
-				return
-			
+			var displacement = target.target.global_position - _to_test.global_position
+			displacement.y = 0
+			var direction = displacement.normalized()
+			var angle: float = (-_to_test.global_basis.z).signed_angle_to(direction, _to_test.global_basis.y)
+			var abs_angle = abs(angle)
 			var max_step := deg_to_rad(facing_speed) * delta
-			var t: float = min(1.0, max_step / angle)
-			t = min(t, angle)
-			$"../MeshOrigin/Enemy_Pillar".rotate_object_local(_to_test.global_basis.y, t)
+			var t: float = min(1.0, max_step / abs_angle)
+			t = min(t, abs_angle) * sign(angle)
+			if abs_angle <= abs(t):
+				_mesh.rotate_object_local(_to_test.basis.y, angle)
+				_facing = false
+				if _detections > 1:
+					controller.state = controller.EnemyState.Idle
+				return
+			_mesh.rotate_object_local(_to_test.basis.y, t)
 		else:
-			var speed: float = deg_to_rad(rotation_rate) * delta * sign(up_angle)
+			var speed: float = deg_to_rad(rotation_rate) * delta
 			if abs(up_angle) < abs(speed):
 				speed = up_angle
-			controller.rotate_object_local($"../MeshOrigin/Enemy_Pillar".basis.x, speed)
+			controller.rotate_object_local(-_mesh.basis.x, speed)
 	else:
-		controller.rotate_object_local($"../MeshOrigin/Enemy_Pillar".basis.x, deg_to_rad(rotation_rate) * delta)
+		controller.rotate_object_local(-_mesh.basis.x, deg_to_rad(rotation_rate) * delta)
 
 func _on_end_top_detected(_body: Node3D) -> void:
-	$"../EndDetectionTop".set_deferred("monitoring", false)
-	$"../EndDetectionBottom".set_deferred("monitoring", true)
+	_detections += 1
+	_top.set_deferred("monitoring", false)
+	_bottom.set_deferred("monitoring", true)
 	_facing = true
-	_to_test = $"../EndDetectionTop"
+	_to_test = _top
 
 func _on_end_bottom_detected(_body: Node3D) -> void:
-	$"../EndDetectionTop".set_deferred("monitoring", true)
-	$"../EndDetectionBottom".set_deferred("monitoring", false)
+	_detections += 1
+	_top.set_deferred("monitoring", true)
+	_bottom.set_deferred("monitoring", false)
 	_facing = true
-	_to_test = $"../EndDetectionBottom"
+	_to_test = _bottom
 
 func enter() -> void:
+	_detections = 0
 	_facing = true
 	set_physics_process(true)
-	$"../EndDetectionTop".connect("body_entered", _on_end_top_detected)
-	$"../EndDetectionBottom".connect("body_entered", _on_end_bottom_detected)
-	$"../EndDetectionTop".monitoring = true
-	$"../EndDetectionBottom".monitoring = true
+	_top.connect("body_entered", _on_end_top_detected)
+	_bottom.connect("body_entered", _on_end_bottom_detected)
+	_top.monitoring = true
+	_bottom.monitoring = true
 	
 
 func exit() -> void:
 	_facing = false
 	set_physics_process(false)
-	$"../EndDetectionTop".monitoring = false
-	$"../EndDetectionBottom".monitoring = false
-	$"../EndDetectionTop".disconnect("body_entered", _on_end_top_detected)
-	$"../EndDetectionBottom".disconnect("body_entered", _on_end_bottom_detected)
+	_top.monitoring = false
+	_bottom.monitoring = false
+	_top.disconnect("body_entered", _on_end_top_detected)
+	_bottom.disconnect("body_entered", _on_end_bottom_detected)

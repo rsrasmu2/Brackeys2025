@@ -6,11 +6,12 @@ extends Node3D
 @export var collision_knockback: float = 0.5
 @export var hurtbox: Area3D
 
-const WALK_VELOCITY_Y = 3.0
+@export var y_min: float = 4.0
+@export var y_max: float = 7.0
 
 var target_position: Vector3
 var speed: float = 4
-var ground_speed: float = 0.5
+var ground_speed: float = 0.1
 
 @export var animation_player: AnimationPlayer
 
@@ -35,7 +36,7 @@ func begin_walk() -> void:
 	var displacement: Vector3 = target.target.global_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 	controller.target_velocity.x = velocity.x
-	controller.target_velocity.y = WALK_VELOCITY_Y
+	controller.target_velocity.y = randf_range(y_min, y_max)
 	controller.target_velocity.z = velocity.y
 
 func end_walk() -> void:
