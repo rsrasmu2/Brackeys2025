@@ -3,7 +3,7 @@ extends Node3D
 @export var controller: Enemy
 @export var target: EnemyTarget
 
-@export var distance_to_attack: float = 16.0
+@export var distance_to_attack: float = 30.0
 var _sqr_attack_distance: float = distance_to_attack * distance_to_attack
 
 func _ready() -> void:
@@ -19,7 +19,9 @@ func _process(_delta: float) -> void:
 		controller.state = controller.EnemyState.Following
 
 func enter() -> void:
+	print("Entering Idle")
 	set_process(true)
 
 func exit() -> void:
+	print("Exiting Idle")
 	set_process(false)
