@@ -1,5 +1,25 @@
 [gd_resource type="Terrain3DMaterial" format=3 uid="uid://cuol02y274fmn"]
 
 [resource]
+_shader_parameters = {
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"flat_terrain_normals": false,
+&"general": null,
+&"macro_variation": true,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"mipmaps": null,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": null,
+&"projection_threshold": 0.8,
+&"vertical_projection": true
+}
 show_checkered = true
 show_grey = true

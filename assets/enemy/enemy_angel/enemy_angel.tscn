@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_v2tsu"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="2_ke1of"]
 [ext_resource type="PackedScene" uid="uid://h8df2c3052i7" path="res://assets/enemy/enemy_angel/enemy_angel.glb" id="3_qfy34"]
-[ext_resource type="Script" path="res://assets/enemy/enemy_angel/angel_mesh_collider.gd" id="3_tbwcw"]
+[ext_resource type="Script" uid="uid://cgmvpepbvwkg7" path="res://assets/enemy/enemy_angel/angel_mesh_collider.gd" id="3_tbwcw"]
 [ext_resource type="Script" uid="uid://65ego4s4fviu" path="res://assets/enemy/enemy_angel/angel_idle.gd" id="5_fid57"]
 [ext_resource type="Script" uid="uid://bpfhwmfa6q8ns" path="res://assets/enemy/enemy_angel/angel_follow.gd" id="6_4rwrm"]
 [ext_resource type="Script" uid="uid://bcubg6txs3dms" path="res://assets/enemy/enemy_angel/angel_attack.gd" id="7_qfy34"]
