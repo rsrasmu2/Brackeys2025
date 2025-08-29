@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
+radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nfcq"]
+radius = 1.0
 
 [node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_r0itx")]
 state_nodes = {
@@ -31,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
