@@ -82,9 +82,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.329531, 2.38419e-07, 0.3850
 [node name="EnemyPillar" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("2_ih0re")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.691208, -1.90735e-06, -14.8809)
 state_nodes = {
-0: NodePath("PillarIdle"),
-1: NodePath("PillarFollow"),
-3: NodePath("PillarAttack")
+0: null,
+1: null,
+3: null
 }
 
 [node name="PowerupPickup" parent="." instance=ExtResource("3_qfl10")]
