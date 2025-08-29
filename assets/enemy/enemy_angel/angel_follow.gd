@@ -12,6 +12,7 @@ var speed: float = 4
 
 func _ready() -> void:
 	set_process(false)
+	set_physics_process(false)
 
 func _process(_delta: float) -> void:
 	$"../AngelModel".look_at(target.target.global_position)
@@ -23,11 +24,13 @@ func _physics_process(_delta: float) -> void:
 	controller.target_velocity.z = velocity.y
 
 func enter() -> void:
+	set_physics_process(true)
 	set_process(true)
 	animation_player.connect("animation_finished", _on_animation_finished)
 	animation_player.play("run_start")
 
 func exit() -> void:
+	set_physics_process(false)
 	set_process(false)
 	animation_player.disconnect("animation_finished", _on_animation_finished)
 	controller.target_velocity.x = 0

@@ -11,6 +11,9 @@ kanban-plugin: board
 - [ ] Teleporter wave
 - [ ] Transition levels
 - [ ] Fix Pillar Enemy :(
+- [ ] Lava Damage
+- [ ] Scale difficulty over time
+- [ ] Spawn/Death animations
 
 
 ## In Progress
