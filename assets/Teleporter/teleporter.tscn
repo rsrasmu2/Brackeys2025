@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dsc2wp5snegqx"]
 
-[ext_resource type="Script" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
+[ext_resource type="Script" uid="uid://bj16gs2irfmm7" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
 [ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="1_t231b"]
 [ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_27mgd"]
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_rcu8r"]

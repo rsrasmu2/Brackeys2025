@@ -9,4 +9,4 @@ albedo_texture = ExtResource("1_c2enm")
 metallic_specular = 0.0
 emission_enabled = true
 emission_texture = ExtResource("1_c2enm")
-uv1_scale = Vector3(1, 20, 1)
+uv1_scale = Vector3(1, 25, 1)
