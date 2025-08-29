@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://blrh806e5yssb"]
+[gd_scene load_steps=15 format=3 uid="uid://blrh806e5yssb"]
 
 [ext_resource type="PackedScene" uid="uid://ksrtlxdhhtvb" path="res://assets/enemy/enemy_pillar/Enemy_Pillar.glb" id="2_n7fcf"]
 [ext_resource type="Script" uid="uid://bdbn4rfa0b3c3" path="res://assets/enemy/enemy_pillar/enemy_pillar.gd" id="2_vdavr"]
@@ -18,10 +18,13 @@ radius = 0.47168
 size = Vector3(1, 6, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sicnd"]
-size = Vector3(0.985, 6, 0.920174)
+size = Vector3(0.985, 6.08594, 0.99622)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vdavr"]
-size = Vector3(0.920166, 0.496948, 0.571671)
+[sub_resource type="SphereShape3D" id="SphereShape3D_xmv3r"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_04hg2"]
+radius = 0.2
 
 [node name="EnemyPillar" type="AnimatableBody3D" node_paths=PackedStringArray("state_nodes")]
 collision_layer = 4
@@ -34,8 +37,13 @@ state_nodes = {
 3: NodePath("PillarAttack")
 }
 
+[node name="MeshOrigin" type="Node3D" parent="."]
+
+[node name="Enemy_Pillar" parent="MeshOrigin" instance=ExtResource("2_n7fcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 shape = SubResource("CylinderShape3D_5qy18")
 
 [node name="EnemyTarget" type="Node" parent="."]
@@ -46,19 +54,18 @@ max_health = 250
 regen = 1.0
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_aj476")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.78036, 0.40316)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.40316)
 health = NodePath("../Health")
 size = Vector2(160, 20)
 
-[node name="Enemy_Pillar" parent="." instance=ExtResource("2_n7fcf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.41232)
-
 [node name="PillarIdle" type="Node3D" parent="." node_paths=PackedStringArray("controller", "target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("3_5qy18")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 
 [node name="PillarFollow" type="Node3D" parent="." node_paths=PackedStringArray("controller", "target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 script = ExtResource("4_5qy18")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
@@ -70,7 +77,7 @@ one_shot = true
 [node name="StatusEffects" type="Node" parent="."]
 
 [node name="PillarAttack" type="Area3D" parent="." node_paths=PackedStringArray("controller", "target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.41232)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 collision_layer = 4
 collision_mask = 6
 monitoring = false
@@ -80,7 +87,7 @@ controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PillarAttack"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13819, 0.355335)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.132092)
 shape = SubResource("BoxShape3D_5qy18")
 
 [node name="WaitTimer" type="Timer" parent="PillarAttack"]
@@ -92,35 +99,33 @@ wait_time = 1.5
 one_shot = true
 
 [node name="GroundDetection" type="Area3D" parent="." node_paths=PackedStringArray("controller")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.41232)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 collision_layer = 4
 monitorable = false
 script = ExtResource("6_sicnd")
 controller = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GroundDetection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006, 3, 0.418401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00292969, -0.0215185)
 shape = SubResource("BoxShape3D_sicnd")
 
 [node name="EndDetectionTop" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.41232)
-collision_layer = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+collision_layer = 0
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndDetectionTop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 5.77015, 0.212647)
-shape = SubResource("BoxShape3D_vdavr")
+shape = SubResource("SphereShape3D_xmv3r")
 
 [node name="EndDetectionBottom" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.41232)
-collision_layer = 4
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 0
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndDetectionBottom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0150146, 0.262702, 0.641442)
-shape = SubResource("BoxShape3D_vdavr")
+shape = SubResource("SphereShape3D_04hg2")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="body_entered" from="PillarAttack" to="PillarAttack" method="_on_body_entered"]
