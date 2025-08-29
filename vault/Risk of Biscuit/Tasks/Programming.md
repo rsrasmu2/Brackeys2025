@@ -12,11 +12,11 @@ kanban-plugin: board
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
 - [ ] Spawn/Death animations
+- [ ] Fix Space
 
 
 ## In Progress
 
-- [ ] Add Angel of Death enemy
 - [ ] Make Powerups!
 - [ ] Add SFX
 - [ ] Place Spawners on maps
@@ -30,6 +30,7 @@ kanban-plugin: board
 
 ## Completed
 
+- [ ] Add Angel of Death enemy
 - [ ] Fix Pillar Enemy :(
 - [ ] Fix blobs
 

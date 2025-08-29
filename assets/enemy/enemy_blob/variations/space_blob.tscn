@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://4s23v0rxxqs7"]
+
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="1_v6q3m"]
+[ext_resource type="Material" uid="uid://bd2ee2ttoksnx" path="res://assets/enemy/enemy_blob/Materials/material_blob_alien.tres" id="2_aor62"]
+
+[node name="SpaceBlob" node_paths=PackedStringArray("state_nodes", "mesh") instance=ExtResource("1_v6q3m")]
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+material = ExtResource("2_aor62")
+mesh = NodePath("Enemy_Blob/Armature_Blob/Skeleton3D/Cube")
+
+[editable path="Enemy_Blob"]
