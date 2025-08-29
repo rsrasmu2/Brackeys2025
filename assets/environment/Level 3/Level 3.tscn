@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=20 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://fldjeerkan62" path="res://assets/environment/Level 3/Platform_ramp.glb" id="10_mtatn"]
 [ext_resource type="PackedScene" uid="uid://duaxmey1w7bhw" path="res://assets/environment/Level 3/Platform_rectangle_donut.glb" id="11_h61ey"]
 [ext_resource type="PackedScene" uid="uid://d4e5qdvu7qbax" path="res://assets/environment/Level 3/Platform_square_donut.glb" id="13_adsbt"]
+[ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="14_227j0"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_4kwxg")
@@ -95,6 +96,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115, -
 
 [node name="Platform_rectangle10" parent="Platforms" instance=ExtResource("2_op4v3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 155, 39, -110)
+
+[node name="Platform_rectangle11" parent="Platforms" instance=ExtResource("2_op4v3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 80, 79, -80)
 
 [node name="Platform_rectangle5" parent="Platforms" instance=ExtResource("2_op4v3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 180, -31, 105)
@@ -222,6 +226,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, -10, 19,
 
 [node name="Platform_bridge12" parent="." instance=ExtResource("8_kf84u")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 100, 29, -65)
+
+[node name="Platform_bridge25" parent="." instance=ExtResource("8_kf84u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 40, 79, -80)
+
+[node name="Platform_bridge26" parent="." instance=ExtResource("8_kf84u")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 55, 79, -80)
 
 [node name="Platform_bridge13" parent="." instance=ExtResource("8_kf84u")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, -1, 0, -1.31134e-07, 115, 29, -65)
@@ -353,7 +363,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -205, 
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75, 29, -65)
 
 [node name="Platform_rectangle_donut2" parent="." instance=ExtResource("11_h61ey")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 19, 95)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 19, 95)
 
 [node name="Platform_square_small" parent="." instance=ExtResource("9_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155, 29, -65)
@@ -420,3 +430,27 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75, 4
 
 [node name="Platform_square_donut2" parent="." instance=ExtResource("13_adsbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 79, -80)
+
+[node name="SpawnerSpawner" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -44, 105)
+
+[node name="SpawnerSpawner3" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181, -29, 105)
+
+[node name="SpawnerSpawner4" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 1, 0)
+
+[node name="SpawnerSpawner5" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 155, 41, -110)
+
+[node name="SpawnerSpawner8" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 81, -80)
+
+[node name="SpawnerSpawner6" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21, -65)
+
+[node name="SpawnerSpawner7" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -130, 76, -205)
+
+[node name="SpawnerSpawner2" parent="." instance=ExtResource("14_227j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -174, 6, 170)
