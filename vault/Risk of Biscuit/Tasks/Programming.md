@@ -20,7 +20,6 @@ kanban-plugin: board
 - [ ] Make Powerups!
 - [ ] Add SFX
 - [ ] Place Spawners on maps
-- [ ] Fix blobs
 
 
 ## Prototyped
@@ -32,6 +31,7 @@ kanban-plugin: board
 ## Completed
 
 - [ ] Fix Pillar Enemy :(
+- [ ] Fix blobs
 
 
 
