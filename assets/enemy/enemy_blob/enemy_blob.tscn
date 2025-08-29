@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c8fycs1l0bok6" path="res://assets/enemy/enemy_blob/Enemy_Blob.glb" id="2_4j6gg"]
 [ext_resource type="Script" uid="uid://qqcg1v1xtr03" path="res://assets/enemy/enemy_blob/blob_follow.gd" id="3_42nhj"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="3_bib1n"]
-[ext_resource type="Script" path="res://assets/enemy/enemy_blob/blob_idle.gd" id="3_p4dtg"]
+[ext_resource type="Script" uid="uid://dcyh6jb1gxxbo" path="res://assets/enemy/enemy_blob/blob_idle.gd" id="3_p4dtg"]
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]

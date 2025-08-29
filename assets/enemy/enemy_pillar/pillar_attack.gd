@@ -4,57 +4,70 @@ extends Area3D
 @export var target: EnemyTarget
 @export var damage: int = 40
 @export var knockback: float = 20
-@export var rotation_rate: float = -0.8
-@export var recovery_rate: float = 0.01
+@export var rotation_rate: float = 360
+@export var recovery_rate: float = 60
+@export var facing_speed: float = 180
 
-var current_rotation: float = 0
-var end_forward: Vector3
+var _return_angle: float = 0
 
 var _damage_dealt: bool = false
 var _returning: bool = false
+var _starting_sign: float = 0
+
+@onready var _mesh: Node3D = $"../MeshOrigin/Enemy_Pillar"
+@onready var _smash_area: Area3D = $"../MeshOrigin/Enemy_Pillar/SmashTopPosition/SmashDetection"
+var _bottom: Area3D
 
 func _ready() -> void:
 	set_physics_process(false)
 
 func enter() -> void:
+	if $"../MeshOrigin/Enemy_Pillar/EndDetectionTop".global_position.y > $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom".global_position.y:
+		_bottom = $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom"
+		_smash_area.reparent($"../MeshOrigin/Enemy_Pillar/SmashTopPosition", false)
+	else:
+		_bottom = $"../MeshOrigin/Enemy_Pillar/EndDetectionTop"
+		_smash_area.reparent($"../MeshOrigin/Enemy_Pillar/SmashBottomPosition", false)
 	_returning = false
 	_damage_dealt = false
-	controller.look_at(target.target.global_position)
+	_return_angle = 0
 	monitoring = true
-	end_forward = -controller.basis.z
-	current_rotation = rotation_rate * 2 * PI
-	$"../EndDetection".monitoring = true
-	$"../EndDetection".connect("body_entered", _on_end_detected)
+	_smash_area.monitoring = true
+	_smash_area.connect("body_entered", _on_end_detected)
 	set_physics_process(true)
 
 func exit() -> void:
 	monitoring = false
-	$"../EndDetection".monitoring = false
-	$"../EndDetection".disconnect("body_entered", _on_end_detected)
+	_smash_area.monitoring = false
+	_smash_area.disconnect("body_entered", _on_end_detected)
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
 	if _returning:
+		var up_angle: float = _bottom.global_basis.y.signed_angle_to(Vector3.UP, _bottom.global_basis.x)
+		var speed: float = deg_to_rad(recovery_rate) * delta * sign(up_angle)
+		if sign(up_angle) != _starting_sign:
+			controller.state = controller.EnemyState.Idle
+			return
+		if abs(up_angle) < abs(speed):
+			speed = up_angle
+		controller.rotate_object_local(_mesh.basis.x, speed)
+		if abs(up_angle) <= abs(speed):
+			controller.state = controller.EnemyState.Idle
 		return
 	if len(get_overlapping_bodies()) > 1:
-		controller.rotate(controller.basis.x, 0.1 * PI)
 		return
-	controller.rotate(controller.basis.x.normalized(), current_rotation * delta)
+	var angle = deg_to_rad(rotation_rate) * delta
+	controller.rotate_object_local(-_mesh.basis.x, angle)
+	_return_angle -= angle
 
 
 func _on_end_detected(_body: Node3D) -> void:
-	_returning = true
-	$"../EndDetection".set_deferred("monitoring", false)
+	_starting_sign = sign(_bottom.global_basis.y.signed_angle_to(Vector3.UP, _bottom.global_basis.x))
+	_smash_area.set_deferred("monitoring", false)
 	set_deferred("monitoring", false)
 	$WaitTimer.start()
-	await $WaitTimer.timeout
-	var tween := create_tween()
-	var start_forward := -controller.basis.z
-	tween.tween_method(slerp_forward.bind(start_forward, end_forward), 0.0, 1.0, 2.0)
-	await tween.finished
-	$Timer.start()
-	await $Timer.timeout
-	controller.state = controller.EnemyState.Idle
+	_returning = true
 
 func slerp_forward(weight: float, from: Vector3, to: Vector3) -> void:
 	controller.look_at(controller.global_position + from.slerp(to, weight))
