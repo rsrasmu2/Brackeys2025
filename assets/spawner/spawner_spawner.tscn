@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drplbfisq6nnh"]
 
-[ext_resource type="Script" path="res://assets/spawner/spawner_spawner.gd" id="1_el158"]
+[ext_resource type="Script" uid="uid://wg43kd55y2e8" path="res://assets/spawner/spawner_spawner.gd" id="1_el158"]
 [ext_resource type="PackedScene" uid="uid://bknd2oos52i0d" path="res://assets/spawner/Spawner.glb" id="2_1xyk5"]
 
 [node name="SpawnerSpawner" type="Node3D" groups=["SpawnerSpawners"]]
@@ -12,6 +12,5 @@ script = ExtResource("1_el158")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 light_color = Color(0.644591, 0.876072, 0.888111, 1)
 light_energy = 16.0
-light_size = 0.81
 shadow_enabled = true
 omni_range = 18.1083

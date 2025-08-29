@@ -5,3 +5,10 @@
 [node name="Teleporter" type="StaticBody3D"]
 
 [node name="Teleporter2" parent="." instance=ExtResource("1_t231b")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80043, 0)
+light_color = Color(0.670642, 0.893085, 0.890729, 1)
+light_energy = 11.035
+shadow_enabled = true
+omni_range = 38.3033

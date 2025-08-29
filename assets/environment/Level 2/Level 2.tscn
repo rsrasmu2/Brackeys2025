@@ -12,7 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://d304rtgoep6vk" path="res://assets/environment/Level 2/volcano-loop_0.wav" id="9_j3q2o"]
 [ext_resource type="AudioStream" uid="uid://baej6venx1o2t" path="res://assets/environment/Level 2/volcano-loop_1.wav" id="10_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="10_j3q2o"]
-[ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="13_7718q"]
+[ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="13_7718q"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_roteo")
@@ -268,5 +268,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.238, 50.338, -124.936)
 [node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7602, 57.5279, -178.918)
 
-[node name="Teleporter2" parent="." instance=ExtResource("13_7718q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.686, 51.512, 57.1371)
+[node name="Teleporter" parent="." instance=ExtResource("13_7718q")]
+transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422, 49.0396, -71.2416)
