@@ -18,13 +18,6 @@ script = ExtResource("1_el158")
 
 [node name="Spawner" parent="." instance=ExtResource("2_1xyk5")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-light_color = Color(0.644591, 0.876072, 0.888111, 1)
-light_energy = 16.0
-shadow_enabled = true
-omni_range = 18.1083
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28.2979, 0)
 mesh = SubResource("CylinderMesh_o22gw")
