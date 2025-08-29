@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=24 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_ykeuu"]
 [ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="2_cvc5m"]
 [ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
-[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
+[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cfjfy34eyp06i" path="res://assets/environment/Level 1/textures/new_terrain_3d_material.tres" id="2_x44cq"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_26yi2"]
 [ext_resource type="PackedScene" uid="uid://dqdfxdmatjm7j" path="res://assets/environment/Level 1/decoration/Pillar_base.glb" id="4_x44cq"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bi24jhs15gc30" path="res://assets/environment/Level 1/decoration/Cave_vine.glb" id="7_2r83h"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="8_2jk75"]
 [ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="12_cvc5m"]
+[ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="14_6onxq"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_tjxkh")
@@ -671,25 +672,25 @@ transform = Transform3D(-3.36936, 0, 3.23494, 0, 4.67092, 0, -3.23494, 0, -3.369
 [node name="Spawners" type="Node3D" parent="."]
 
 [node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.101, -13.2138, 106.032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.421, -13.8748, 126.318)
 
 [node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.859, -38.5403, -125.118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.973, -32.6216, -134.043)
 
 [node name="SpawnerSpawner3" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.741, -37.7431, -177.591)
-
-[node name="SpawnerSpawner4" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.803, -40.3133, -50.2965)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7589, -33.8947, -137.199)
 
 [node name="SpawnerSpawner5" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 174.567, -27.054, 105.466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.79, -18.245, 136.277)
 
 [node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5091, -22.0741, 169.135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.24, -34.1256, -12.5186)
 
 [node name="SpawnerSpawner7" parent="Spawners" instance=ExtResource("8_2jk75")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2857, -33.2774, 135.407)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9159, -35.2321, 130.415)
+
+[node name="Teleporter2" parent="Spawners" instance=ExtResource("14_6onxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6743, -49.1377, 14.0717)
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cvc5m")
