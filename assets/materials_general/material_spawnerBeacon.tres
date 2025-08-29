@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dwh5h8p5ro8nw"]
+
+[ext_resource type="Texture2D" uid="uid://cwd3kvd0trn58" path="res://assets/materials_general/spawner_emission_emission.png" id="1_c2enm"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("1_c2enm")
+metallic_specular = 0.0
+emission_enabled = true
+emission_energy_multiplier = 3.0
+emission_texture = ExtResource("1_c2enm")
+uv1_scale = Vector3(1, 20, 1)

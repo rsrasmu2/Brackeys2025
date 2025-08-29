@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://drplbfisq6nnh"]
+[gd_scene load_steps=5 format=3 uid="uid://drplbfisq6nnh"]
 
 [ext_resource type="Script" uid="uid://wg43kd55y2e8" path="res://assets/spawner/spawner_spawner.gd" id="1_el158"]
 [ext_resource type="PackedScene" uid="uid://bknd2oos52i0d" path="res://assets/spawner/Spawner.glb" id="2_1xyk5"]
+[ext_resource type="Material" uid="uid://dwh5h8p5ro8nw" path="res://assets/materials_general/material_spawnerBeacon.tres" id="3_1xyk5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o22gw"]
+material = ExtResource("3_1xyk5")
+top_radius = 1.62
+bottom_radius = 0.44
+height = 50.0
+radial_segments = 32
+cap_top = false
+cap_bottom = false
 
 [node name="SpawnerSpawner" type="Node3D" groups=["SpawnerSpawners"]]
 script = ExtResource("1_el158")
@@ -14,3 +24,7 @@ light_color = Color(0.644591, 0.876072, 0.888111, 1)
 light_energy = 16.0
 shadow_enabled = true
 omni_range = 18.1083
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28.2979, 0)
+mesh = SubResource("CylinderMesh_o22gw")
