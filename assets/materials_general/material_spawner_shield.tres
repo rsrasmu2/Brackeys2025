@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://gj2siavd88u3"]
+
+[ext_resource type="Texture2D" uid="uid://bmg10vxe1q5uw" path="res://assets/materials_general/spawner_shield_basecolor.png" id="1_etmva"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_etmva")
+emission_enabled = true
+emission_texture = ExtResource("1_etmva")
+uv1_scale = Vector3(0.075, 0.075, 0.075)
+uv1_triplanar = true

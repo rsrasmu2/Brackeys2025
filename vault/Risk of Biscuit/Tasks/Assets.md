@@ -15,10 +15,8 @@ kanban-plugin: board
 - [ ] *UI:* Player Healthbar #texture
 - [ ] *UI:* Dash #texture
 - [ ] Shield Animations #animation
-- [ ] Teleporter #model #texture #animation
 - [ ] Power Up Icons #model #textures
 - [ ] Electric graphic for arcing ability #texture
-- [ ] *Lvl 2:* Lava Surface #texture
 - [ ] *Lvl 1-3:* General Particle Effects #particles
 
 
@@ -51,6 +49,8 @@ kanban-plugin: board
 - [ ] *Lvl 3:* Platforms #model #texture
 - [ ] *Lvl 3:* Bridge #model #texture
 - [ ] *Lvl 3:* Ramp #model #texture
+- [ ] Teleporter #model #texture #animation
+- [ ] *Lvl 2:* Lava Surface #texture
 
 
 
