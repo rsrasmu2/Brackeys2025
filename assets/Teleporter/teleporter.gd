@@ -33,14 +33,18 @@ func _ready() -> void:
 	set_process(false)
 
 func _input(event: InputEvent) -> void:
-	if _activatable and event.is_action_pressed("activate"):
-		_begin()
-		$Area3D.monitoring = false
-		_activatable = false
-		_player.display_prompt("")
+	if event.is_action_pressed("activate"):
+		if _activatable:
+			_begin()
+			$Area3D.monitoring = false
+			_activatable = false
+			_player.display_prompt("")
+		elif _finished:
+			emit_signal(teleporter_completed.get_name())
+		
 
-func _process(delta: float) -> void:
-	_player.timer_label.text = str(ceil($Timer.wait_time))
+func _process(_delta: float) -> void:
+	_player.timer_label.text = str(ceil($Timer.time_left))
 
 func _begin() -> void:
 	_began = true
@@ -86,6 +90,6 @@ func _on_timer_timeout() -> void:
 	$WaveCooldown.stop()
 	_player.timer_label.text = ""
 
-func _on_area_3d_body_exited(body: Node3D) -> void:
+func _on_area_3d_body_exited(_body: Node3D) -> void:
 	_activatable = false
 	_player.display_prompt("")
