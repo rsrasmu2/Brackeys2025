@@ -154,64 +154,64 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.66887, 0.625283, 22.2178)
 [node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0857, 3.09715e-07, -27.9399)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.8718, 3.09715e-07, -36.5552)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.9697, 3.09715e-07, -34.5689)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.6232, 3.09715e-07, -28.7582)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.3757, 3.09715e-07, -28.1263)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.4274, 3.09715e-07, -37.1553)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyBlob7" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("15_agx3f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.6537, 4.12441e-06, -42.4767)
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: null,
+1: null,
+2: null,
+3: null
 }
 
 [node name="EnemyAngel" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("5_ytvyt")]

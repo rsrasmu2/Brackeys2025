@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dqeybiqoe356p"]
+
+[ext_resource type="Texture2D" uid="uid://dsem4ixmk163g" path="res://assets/enemy/enemy_blob/Materials/blob_egg_albedo.png" id="1_2dpgp"]
+[ext_resource type="Texture2D" uid="uid://2yta7effc7bg" path="res://assets/enemy/enemy_blob/Materials/blob_egg_emission.png" id="2_2dpgp"]
+[ext_resource type="Texture2D" uid="uid://deqxye4ttbmgd" path="res://assets/enemy/enemy_blob/Materials/blob_egg_normal.png" id="3_3qowo"]
+[ext_resource type="Texture2D" uid="uid://vxlgb6mhfs1t" path="res://assets/enemy/enemy_blob/Materials/blob_egg_roughness.png" id="4_7s8y5"]
+
+[resource]
+albedo_texture = ExtResource("1_2dpgp")
+roughness_texture = ExtResource("4_7s8y5")
+roughness_texture_channel = 4
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = ExtResource("2_2dpgp")
+normal_enabled = true
+normal_scale = -1.0
+normal_texture = ExtResource("3_3qowo")
