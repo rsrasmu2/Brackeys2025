@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5j1emi08g0ma"]
+
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="1_a5t7h"]
+[ext_resource type="Material" uid="uid://dqeybiqoe356p" path="res://assets/enemy/enemy_blob/Materials/material_blob_egg.tres" id="2_k40am"]
+
+[node name="CaveBlob" node_paths=PackedStringArray("state_nodes", "mesh") instance=ExtResource("1_a5t7h")]
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+material = ExtResource("2_k40am")
+mesh = NodePath("Enemy_Blob/Armature_Blob/Skeleton3D/Cube")
+
+[editable path="Enemy_Blob"]

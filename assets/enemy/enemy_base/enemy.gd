@@ -5,6 +5,8 @@ signal state_changed(new_state: EnemyState)
 
 @export var state_nodes: Dictionary[EnemyState, Node3D]
 @export var knockback_node: Knockback
+@export var material: StandardMaterial3D
+@export var mesh: MeshInstance3D
 
 @export var experience: int = 20
 
@@ -34,6 +36,8 @@ enum EnemyState { Idle, Following, Jumping, Attacking }
 var gravity_enabled: bool = true
 
 func _ready() -> void:
+	if mesh:
+		mesh.mesh.surface_set_material(0, material)
 	state_nodes[state].enter()
 
 func _process(_delta: float) -> void:
