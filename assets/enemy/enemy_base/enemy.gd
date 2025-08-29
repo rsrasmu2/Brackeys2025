@@ -15,6 +15,8 @@ const GRAVITY: float = 9.8
 var target_velocity: Vector3 = Vector3.ZERO
 var knockback: Vector3 = Vector3.ZERO
 
+var drop_exp: bool = true
+
 var _target_states: Array = []
 
 const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
@@ -70,8 +72,9 @@ func add_status_effect(effect: Node) -> void:
 	effect.apply(self)
 
 func _on_health_died() -> void:
-	var orb := EXP_SCENE.instantiate()
-	orb.init(experience)
-	get_tree().root.add_child(orb)
-	orb.global_transform = global_transform
+	if drop_exp:
+		var orb := EXP_SCENE.instantiate()
+		orb.init(experience)
+		get_tree().root.add_child(orb)
+		orb.global_transform = global_transform
 	queue_free()

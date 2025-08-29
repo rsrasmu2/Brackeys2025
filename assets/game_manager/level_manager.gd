@@ -12,6 +12,14 @@ extends Node3D
 @export var spawn_timer_max: float = 10.0
 @export var spawn_timer_multiplier: float = 1.0
 
+@export var teleporter: Teleporter
+
+@onready var _spawners_remaining: int = self.spawners_to_keep
+
+var _level_finished: bool = false
+
+signal level_finished
+
 var _player: Player:
 	get():
 		if _player == null:
@@ -19,6 +27,7 @@ var _player: Player:
 		return _player
 
 func _ready() -> void:
+	teleporter.connect("teleporter_completed", _on_teleporter_completed)
 	start_level()
 
 func start_level() -> void:
@@ -28,7 +37,8 @@ func start_level() -> void:
 			return
 		var index := randi() % spawners.size()
 		var spawner_spawner := spawners[index]
-		spawner_spawner.activate()
+		var spawner: Spawner = spawner_spawner.activate()
+		spawner.connect("destroyed", _on_spawner_destroyed)
 		spawners.remove_at(index)
 	for spawner: Node in spawners:
 		spawner.remove()
@@ -56,3 +66,24 @@ func _on_spawn_timer_timeout() -> void:
 			enemy.look_at(_player.global_position, Vector3.UP, true)
 	spawn_timer_multiplier = enemies_to_spawn.spawn_mult
 	start_spawn_timer()
+
+func _destroy_enemies() -> void:
+	for enemy in get_tree().get_nodes_in_group("Enemies"):
+		enemy.drop_exp = false
+		enemy.get_node("Health").health = 0
+
+func _on_teleporter_completed() -> void:
+	$SpawnTimer.stop()
+	_destroy_enemies()
+	$LevelFinishDelay.start()
+
+
+func _on_level_finish_delay_timeout() -> void:
+	_level_finished = true
+	_player.display_prompt("Press 'E' to continue")
+	emit_signal(level_finished.get_name())
+
+func _on_spawner_destroyed() -> void:
+	_spawners_remaining -= 1
+	if _spawners_remaining == 0:
+		teleporter.active = true

@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		return
 	if len(get_overlapping_bodies()) > 1:
 		return
-	var angle = deg_to_rad(rotation_rate) * delta
+	var angle := deg_to_rad(rotation_rate) * delta
 	controller.rotate_object_local(-_mesh.basis.x, angle)
 	_return_angle -= angle
 

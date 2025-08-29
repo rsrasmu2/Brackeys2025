@@ -7,6 +7,7 @@ signal state_changed(new_state: EnemyState)
 @export var experience: int = 50
 
 var _target_states: Array = []
+var drop_exp: bool = true
 
 const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
 
@@ -39,8 +40,9 @@ func add_status_effect(effect: Node) -> void:
 	effect.apply(self)
 
 func _on_health_died() -> void:
-	var orb := EXP_SCENE.instantiate()
-	orb.init(experience)
-	get_tree().root.add_child(orb)
-	orb.global_position = global_position
+	if drop_exp:
+		var orb := EXP_SCENE.instantiate()
+		orb.init(experience)
+		get_tree().root.add_child(orb)
+		orb.global_position = global_position
 	queue_free()

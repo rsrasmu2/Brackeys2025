@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=25 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
+[ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/Level.gd" id="1_46jxp"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cuol02y274fmn" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://ba62silxu8xlu" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
@@ -71,10 +72,14 @@ agent_max_climb = 0.5
 agent_max_slope = 60.0
 detail_sample_max_error = 0.5
 
-[node name="Environment_Level2" type="Node3D"]
+[node name="Environment_Level2" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
+script = ExtResource("1_46jxp")
+level_manager = NodePath("LevelManager")
+player_spawn = NodePath("PlayerSpawn")
 
-[node name="LevelManager" parent="." instance=ExtResource("1_3lvef")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("1_3lvef")]
 spawns = Array[ExtResource("2_roteo")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_j3q2o")])
+teleporter = NodePath("../Teleporter")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04691, 53.5167, -1.80717)
@@ -270,3 +275,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7602, 57.5279, -178.918)
 
 [node name="Teleporter" parent="." instance=ExtResource("13_7718q")]
 transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422, 49.0396, -71.2416)
+spawn_data = null
+spawn_distance_min = null
+spawn_distance_max = null
+experience = null
+wave_cooldown = null
+wave_cooldown_mult = null

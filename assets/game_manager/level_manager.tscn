@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cck2kiod3smak" path="res://assets/game_manager/level_manager.gd" id="1_dsvfm"]
 
-[node name="GameManager" type="Node3D"]
+[node name="LevelManager" type="Node3D"]
 script = ExtResource("1_dsvfm")
 
 [node name="SpawnTimer" type="Timer" parent="."]
@@ -10,4 +10,8 @@ wait_time = 0.1
 one_shot = true
 autostart = true
 
+[node name="LevelFinishDelay" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="LevelFinishDelay" to="." method="_on_level_finish_delay_timeout"]

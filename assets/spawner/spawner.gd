@@ -1,3 +1,4 @@
+class_name Spawner
 extends StaticBody3D
 
 @export var spawn_data: Array[SpawnData]
@@ -5,6 +6,8 @@ extends StaticBody3D
 @export var spawn_distance_max: float = 15.0
 
 @export var experience: int = 100
+
+signal destroyed
 
 const POWERUP_PICKUP_SCENE = preload("res://assets/powerups/powerup_pickup.tscn")
 
@@ -23,6 +26,7 @@ func _on_health_died() -> void:
 	var powerup := POWERUP_PICKUP_SCENE.instantiate()
 	get_tree().root.add_child(powerup)
 	powerup.global_position = global_position
+	emit_signal(destroyed.get_name())
 	queue_free()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:

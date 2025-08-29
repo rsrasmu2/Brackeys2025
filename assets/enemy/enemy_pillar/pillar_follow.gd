@@ -6,9 +6,6 @@ extends Node3D
 @export var rotation_rate: float = 120
 @export var facing_speed: float = 180
 
-@export var distance_to_attack: float = 7.0
-var _sqr_attack_distance: float = distance_to_attack * distance_to_attack
-
 var _facing: bool = false
 @onready var _to_test: Node3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom"
 @onready var _mesh: Node3D = $"../MeshOrigin/Enemy_Pillar"
@@ -25,11 +22,11 @@ func _physics_process(delta: float) -> void:
 	if _facing:
 		var up_angle: float = _to_test.global_basis.y.signed_angle_to(Vector3.UP, _to_test.global_basis.x)
 		if abs(up_angle) < 0.05:
-			var displacement = target.target.global_position - _to_test.global_position
+			var displacement := target.target.global_position - _to_test.global_position
 			displacement.y = 0
-			var direction = displacement.normalized()
+			var direction := displacement.normalized()
 			var angle: float = (-_to_test.global_basis.z).signed_angle_to(direction, _to_test.global_basis.y)
-			var abs_angle = abs(angle)
+			var abs_angle: float= abs(angle)
 			var max_step := deg_to_rad(facing_speed) * delta
 			var t: float = min(1.0, max_step / abs_angle)
 			t = min(t, abs_angle) * sign(angle)
