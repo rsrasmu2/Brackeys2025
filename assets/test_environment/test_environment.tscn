@@ -86,7 +86,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.6759, 1.23886e-07, 6.8462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7545, 1.09627e-06, -0.505619)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -95,7 +95,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.8227, -1.14533e-07, 9.31856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7649, 6.1943e-07, 2.71298)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -104,7 +104,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.9315, -1.14533e-07, 8.27391)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82692, 6.1943e-07, 2.79117)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -113,7 +113,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.48, 1.23886e-07, 9.76393)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6641, 6.1943e-07, -2.36358)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -122,7 +122,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -17.2063, 1.23886e-07, 10.0429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.86345, 6.1943e-07, -1.85273)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -131,7 +131,7 @@ state_nodes = {
 }
 
 [node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.3323, -1.14533e-07, 13.5104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0634, 1.09627e-06, 9.13359)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),

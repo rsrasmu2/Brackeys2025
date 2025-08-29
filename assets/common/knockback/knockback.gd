@@ -8,9 +8,11 @@ var direction: Vector3 = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	if direction.length_squared() == 0:
+		body.knockback = Vector3.ZERO
 		return
 	if direction.length_squared() < 0.05:
 		direction = Vector3.ZERO
+		body.knockback = Vector3.ZERO
 		return
 	body.knockback = direction
 	direction.y = 0

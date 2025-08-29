@@ -8,10 +8,8 @@
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
-radius = 1.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nfcq"]
-radius = 1.0
 
 [node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_r0itx")]
 state_nodes = {
@@ -29,11 +27,16 @@ regen = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69453, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55966, 0.362)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
+bones/0/rotation = Quaternion(0.256117, 0, 0, 0.966646)
+bones/0/scale = Vector3(1, 1.55157, 1)
+bones/1/rotation = Quaternion(0.332683, 0, 0, 0.943039)
+bones/1/scale = Vector3(0.505098, 1.95091, 0.505098)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
@@ -70,7 +73,7 @@ knockback = 10.0
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BlobAttack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65237, 0.663823)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11098, 0.499233)
 shape = SubResource("SphereShape3D_5nfcq")
 
 [connection signal="state_changed" from="." to="BlobFollow" method="_on_enemy_blob_state_changed"]
