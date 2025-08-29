@@ -56,6 +56,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","tag-colors":[{"tagKey":"#effect","color":"rgba(137, 250, 209, 1)","backgroundColor":""},{"tagKey":"#model","color":"rgba(217, 131, 41, 1)","backgroundColor":""},{"tagKey":"#animation","color":"rgba(238, 137, 250, 1)","backgroundColor":""},{"tagKey":"#texture","color":"rgba(157, 253, 0, 1)","backgroundColor":""}],"list-collapse":[false,null,false]}
+{"kanban-plugin":"board","tag-colors":[{"tagKey":"#effect","color":"rgba(137, 250, 209, 1)","backgroundColor":""},{"tagKey":"#model","color":"rgba(217, 131, 41, 1)","backgroundColor":""},{"tagKey":"#animation","color":"rgba(238, 137, 250, 1)","backgroundColor":""},{"tagKey":"#texture","color":"rgba(157, 253, 0, 1)","backgroundColor":""},{"tagKey":"#coding","color":"rgba(234, 77, 137, 1)","backgroundColor":""}],"list-collapse":[false,null,false]}
 ```
 %%
