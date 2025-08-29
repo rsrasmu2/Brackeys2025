@@ -5,14 +5,36 @@ extends Node3D
 
 @export var rotation_rate: float = -0.4
 
+@export var facing_speed: float = 3
+
 var end_forward: Vector3
 var current_rotation: float = 0
+
+var _facing: bool = false
 
 func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
-	controller.rotate_object_local(Vector3.RIGHT, current_rotation * delta)
+	if _facing:
+		var target_pos: Vector3 = target.target.global_transform.origin
+		target_pos.y = global_position.y
+		var desired_x: Transform3D = global_transform.looking_at(target_pos, Vector3.UP)
+		var from: Quaternion = global_transform.basis.get_rotation_quaternion()
+		var to: Quaternion = desired_x.basis.get_rotation_quaternion()
+		
+		var angle := from.angle_to(to)
+		if angle <= PI / 32.0:
+			_facing = false
+			controller.rotate_object_local(Vector3.RIGHT, current_rotation * delta)
+			return
+		
+		var max_step := deg_to_rad(facing_speed) * delta
+		var t: float = min(1.0, max_step / angle)
+		var new: Quaternion = from.slerp(to, t)
+		global_transform.basis = Basis(new)
+	else:
+		controller.rotate_object_local(Vector3.RIGHT, current_rotation * delta)
 
 func _on_end_detected(_body: Node3D) -> void:
 	$"../EndDetection".set_deferred("monitoring", false)
@@ -22,27 +44,10 @@ func _on_end_detected(_body: Node3D) -> void:
 	$WaitTimer.start()
 	await $WaitTimer.timeout
 	
-	var t := controller.global_transform
-	var b := t.basis.rotated(t.basis.z.normalized(), PI)
-	var new_t := Transform3D(b, t.origin - b.y * 6.0)
-	controller.global_transform = new_t
-	controller.reset_physics_interpolation()
-	
-	$WaitTimer.start()
-	await $WaitTimer.timeout
-	
-	var start_forward := -controller.basis.z
-	var tween := create_tween()
-	tween.tween_method(slerp_forward.bind(start_forward, end_forward), 0.0, 1.0, 1.0)
-	await tween.finished
-	
-	controller.rotate_y(PI)
-	$WaitTimer.start()
-	await $WaitTimer.timeout
-	
 	controller.state = controller.EnemyState.Idle
 
 func enter() -> void:
+	_facing = true
 	controller.look_at(target.target.global_position)
 	set_physics_process(true)
 	current_rotation = rotation_rate * 2 * PI
@@ -52,6 +57,7 @@ func enter() -> void:
 	
 
 func exit() -> void:
+	_facing = false
 	set_physics_process(false)
 	$"../EndDetection".monitoring = false
 	$"../EndDetection".disconnect("body_entered", _on_end_detected)
