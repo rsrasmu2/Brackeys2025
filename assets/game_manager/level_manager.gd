@@ -27,8 +27,15 @@ var _player: Player:
 		return _player
 
 func _ready() -> void:
+	set_process_input(false)
 	teleporter.connect("teleporter_completed", _on_teleporter_completed)
 	start_level()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("activate"):
+		_player.display_prompt("")
+		emit_signal(level_finished.get_name())
+		set_process_input(false)
 
 func start_level() -> void:
 	var spawners := get_tree().get_nodes_in_group("SpawnerSpawners")
@@ -76,12 +83,10 @@ func _on_teleporter_completed() -> void:
 	$SpawnTimer.stop()
 	_destroy_enemies()
 	$LevelFinishDelay.start()
-
-
-func _on_level_finish_delay_timeout() -> void:
+	await $LevelFinishDelay.timeout
 	_level_finished = true
 	_player.display_prompt("Press 'E' to continue")
-	emit_signal(level_finished.get_name())
+	set_process_input(true)
 
 func _on_spawner_destroyed() -> void:
 	_spawners_remaining -= 1

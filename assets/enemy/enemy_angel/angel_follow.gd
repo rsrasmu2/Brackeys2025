@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var direction := (target.target.global_position - global_position).normalized()
 	var slerped: Vector3 = (-$"../AngelModel".global_basis.z).slerp(direction, delta * rotation_speed)
-	if slerped.length_squared() <= 0.05:
+	if slerped == Vector3.UP or slerped.length_squared() < 0.3:
 		return
 	$"../AngelModel".look_at($"../AngelModel".global_position + slerped)
 

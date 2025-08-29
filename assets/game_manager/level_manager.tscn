@@ -12,6 +12,6 @@ autostart = true
 
 [node name="LevelFinishDelay" type="Timer" parent="."]
 wait_time = 1.5
+one_shot = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
-[connection signal="timeout" from="LevelFinishDelay" to="." method="_on_level_finish_delay_timeout"]

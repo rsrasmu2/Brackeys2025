@@ -18,5 +18,8 @@ func _on_timer_timeout() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.has_method("take_damage"):
-		body.take_damage(_damage, Vector3.ZERO, _source)
+		if is_instance_valid(_source):
+			body.take_damage(_damage, Vector3.ZERO, _source)
+		else:
+			body.take_damage(_damage, Vector3.ZERO, self)
 	queue_free()

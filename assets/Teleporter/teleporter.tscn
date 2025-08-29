@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://dsc2wp5snegqx"]
 
-[ext_resource type="Script" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
+[ext_resource type="Script" uid="uid://bj16gs2irfmm7" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
 [ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="1_t231b"]
-[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_27mgd"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_27mgd"]
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_rcu8r"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="4_02c12"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_18tl8"]
@@ -77,7 +77,7 @@ shape = SubResource("ConcavePolygonShape3D_vk07j")
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 10.0
 one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]
