@@ -7,6 +7,7 @@ var speed: float = 4
 
 @export var attack_range: float = 40
 @export var animation_player: AnimationPlayer
+@export var rotation_speed: float = 3
 
 @onready var _sqr_attack_range: float = attack_range * attack_range
 
@@ -14,8 +15,10 @@ func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
 
-func _process(_delta: float) -> void:
-	$"../AngelModel".look_at(target.target.global_position)
+func _process(delta: float) -> void:
+	var direction := (target.target.global_position - global_position).normalized()
+	var slerped: Vector3 = (-$"../AngelModel".global_basis.z).slerp(direction, delta * rotation_speed)
+	$"../AngelModel".look_at($"../AngelModel".global_position + slerped)
 
 func _physics_process(_delta: float) -> void:
 	var displacement: Vector3 = target.target.global_position - global_position
