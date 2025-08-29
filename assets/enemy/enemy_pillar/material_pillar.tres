@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://yj2fpbf0kvrq"]
+
+[ext_resource type="Texture2D" uid="uid://dhinqnmpjqw2h" path="res://assets/enemy/enemy_pillar/Pillar_testUDIMs_Diffuse.1001.png" id="1_62k14"]
+[ext_resource type="Texture2D" uid="uid://exadwebo7igv" path="res://assets/enemy/enemy_pillar/Pillar_testUDIMs_AO.1001.png" id="2_che6j"]
+[ext_resource type="Texture2D" uid="uid://dnaeqbt1smxlb" path="res://assets/enemy/enemy_pillar/Pillar_testUDIMs_Emission.1001.png" id="3_htekr"]
+[ext_resource type="Texture2D" uid="uid://b4swpnf1boo0" path="res://assets/enemy/enemy_pillar/Pillar_testUDIMs_Normals_base.1001.png" id="4_rds5j"]
+[ext_resource type="Texture2D" uid="uid://ckqyf3r5tf7mk" path="res://assets/enemy/enemy_pillar/Pillar_testUDIMs_Roughness.1001.png" id="5_w1xbc"]
+
+[resource]
+albedo_texture = ExtResource("1_62k14")
+roughness_texture = ExtResource("5_w1xbc")
+emission_enabled = true
+emission_texture = ExtResource("3_htekr")
+normal_enabled = true
+normal_texture = ExtResource("4_rds5j")
+ao_enabled = true
+ao_texture = ExtResource("2_che6j")
