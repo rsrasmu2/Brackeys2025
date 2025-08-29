@@ -7,7 +7,7 @@
 material = ExtResource("1_qlnoq")
 top_radius = 1.62
 bottom_radius = 0.44
-height = 50.0
+height = 100.0
 radial_segments = 32
 cap_top = false
 cap_bottom = false
