@@ -7,12 +7,8 @@ kanban-plugin: board
 ## Not Started
 
 - [ ] Player Gun #model #texture
-- [ ] *Ability:* Damage Pulse #effect
 - [ ] *Lvl 2:* Hardened Lava Flow #model #texture
 - [ ] *Lvl 2:* Obsidian Chunks #model #texture
-- [ ] *Lvl 3:* Platforms #model #texture
-- [ ] *Lvl 3:* Bridge #model #texture
-- [ ] *Lvl 3:* Ramp #model #texture
 - [ ] *Enemy:* Blocky Boi #model #texture #animation
 - [ ] *UI:* Enemy Healthbar #texture
 - [ ] *UI:* Crosshair #texture
@@ -21,11 +17,12 @@ kanban-plugin: board
 - [ ] Shield Animations #animation
 - [ ] Teleporter #model #texture #animation
 - [ ] Power Up Icons #model #textures
+- [ ] Electric graphic for arcing ability #texture
+- [ ] *Lvl 2:* Lava Surface #texture
 
 
 ## Prototyped
 
-- [ ] *Lvl 2:* Lava Surface #texture
 
 
 ## Needs Animation
@@ -50,6 +47,9 @@ kanban-plugin: board
 - [ ] *Lvl2:* Add Nav Mesh #model
 - [ ] *Lvl 1:* Pillars #model #texture
 - [ ] *Enemy:* Angel of Death #model #animation #texture
+- [ ] *Lvl 3:* Platforms #model #texture
+- [ ] *Lvl 3:* Bridge #model #texture
+- [ ] *Lvl 3:* Ramp #model #texture
 
 
 
