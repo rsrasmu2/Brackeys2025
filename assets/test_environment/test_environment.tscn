@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ded8e20c4hvx3"]
+[gd_scene load_steps=14 format=3 uid="uid://ded8e20c4hvx3"]
 
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_ih0re"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="2_qfl10"]
+[ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="3_qfl10"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bgy8f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -82,4 +83,58 @@ state_nodes = {
 0: NodePath("PillarIdle"),
 1: NodePath("PillarFollow"),
 3: NodePath("PillarAttack")
+}
+
+[node name="EnemyBlob" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.6759, 1.23886e-07, 6.8462)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -20.8227, -1.14533e-07, 9.31856)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.9315, -1.14533e-07, 8.27391)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -19.48, 1.23886e-07, 9.76393)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -17.2063, 1.23886e-07, 10.0429)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
+}
+
+[node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -18.3323, -1.14533e-07, 13.5104)
+state_nodes = {
+0: NodePath("BlobIdle"),
+1: NodePath("BlobFollow"),
+2: NodePath("BlobJump"),
+3: NodePath("BlobAttack")
 }

@@ -6,6 +6,9 @@ extends Node3D
 @export var distance_to_attack: float = 1.5
 var _sqr_attack_distance: float = distance_to_attack * distance_to_attack
 
+var _min_delay: float = 0.1
+var _max_delay: float = 0.8
+
 func _ready() -> void:
 	set_process(false)
 
@@ -19,6 +22,9 @@ func _process(_delta: float) -> void:
 		controller.state = controller.EnemyState.Following
 
 func enter() -> void:
+	$Timer.wait_time = randf_range(_min_delay, _max_delay)
+	$Timer.start()
+	await $Timer.timeout
 	set_process(true)
 
 func exit() -> void:

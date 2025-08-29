@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsc2wp5snegqx"]
+
+[ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="1_t231b"]
+
+[node name="Teleporter" type="StaticBody3D"]
+
+[node name="Teleporter2" parent="." instance=ExtResource("1_t231b")]

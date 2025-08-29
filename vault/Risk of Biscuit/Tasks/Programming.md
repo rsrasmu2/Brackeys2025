@@ -6,11 +6,9 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Place Spawners on maps
 - [ ] Destroy all spawners to unlock teleporter
 - [ ] Teleporter wave
 - [ ] Transition levels
-- [ ] Fix Pillar Enemy :(
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
 - [ ] Spawn/Death animations
@@ -21,6 +19,8 @@ kanban-plugin: board
 - [ ] Add Angel of Death enemy
 - [ ] Make Powerups!
 - [ ] Add SFX
+- [ ] Place Spawners on maps
+- [ ] Fix blobs
 
 
 ## Prototyped
@@ -31,6 +31,7 @@ kanban-plugin: board
 
 ## Completed
 
+- [ ] Fix Pillar Enemy :(
 
 
 
