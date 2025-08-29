@@ -1,5 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=25 format=3 uid="uid://bpeceg08wwn2n"]
 
+[ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/Level.gd" id="1_6bo4w"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_ykeuu"]
 [ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
@@ -72,10 +73,14 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_max_climb = 0.5
 agent_max_slope = 60.0
 
-[node name="Environment_Level1" type="Node3D"]
+[node name="Environment_Level1" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
+script = ExtResource("1_6bo4w")
+level_manager = NodePath("LevelManager")
+player_spawn = NodePath("PlayerSpawn")
 
-[node name="LevelManager" parent="." instance=ExtResource("1_tjxkh")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("1_tjxkh")]
 spawns = Array[ExtResource("2_tjxkh")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_6bo4w")])
+teleporter = NodePath("../Spawners/Teleporter")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_ykeuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62863, -45.5277, 28.889)
@@ -691,6 +696,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9159, -35.2321, 130.415)
 
 [node name="Teleporter" parent="Spawners" instance=ExtResource("14_6onxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.674, -49.138, 14.072)
+spawn_data = null
+spawn_distance_min = null
+spawn_distance_max = null
+experience = null
+wave_cooldown = null
+wave_cooldown_mult = null
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_cvc5m")

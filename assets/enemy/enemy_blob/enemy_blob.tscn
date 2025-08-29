@@ -12,6 +12,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nfcq"]
 
 [node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_r0itx")]
+collision_mask = 143
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),

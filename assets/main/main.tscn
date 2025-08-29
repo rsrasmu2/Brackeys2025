@@ -1,7 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://brkhre0g3uimc"]
+[gd_scene load_steps=5 format=3 uid="uid://brkhre0g3uimc"]
 
+[ext_resource type="Script" uid="uid://j2q13hrflso4" path="res://assets/main/main.gd" id="1_lv126"]
 [ext_resource type="PackedScene" uid="uid://bpeceg08wwn2n" path="res://assets/environment/Level 1/Level 1.tscn" id="1_xch4i"]
+[ext_resource type="PackedScene" uid="uid://dbscgsfbwy7q0" path="res://assets/environment/Level 2/Level 2.tscn" id="3_j84mu"]
+[ext_resource type="PackedScene" uid="uid://cfy8jbs26lqay" path="res://assets/environment/Level 3/Level 3.tscn" id="4_yti63"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_lv126")
+levels = Array[PackedScene]([ExtResource("1_xch4i"), ExtResource("3_j84mu"), ExtResource("4_yti63")])
 
-[node name="Environment_Level1" parent="." instance=ExtResource("1_xch4i")]
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You win :)"

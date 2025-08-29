@@ -1,5 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=24 format=3 uid="uid://cfy8jbs26lqay"]
 
+[ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/Level.gd" id="1_adsbt"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
 [ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
@@ -56,10 +57,14 @@ sky_rotation = Vector3(1.41372, 0, 0)
 ambient_light_source = 3
 tonemap_mode = 2
 
-[node name="Environment_Level3" type="Node3D"]
+[node name="Environment_Level3" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
+script = ExtResource("1_adsbt")
+level_manager = NodePath("LevelManager")
+player_spawn = NodePath("PlayerSpawn")
 
-[node name="LevelManager" parent="." instance=ExtResource("1_jgoy7")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("1_jgoy7")]
 spawns = Array[ExtResource("2_4kwxg")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_2ixkr")])
+teleporter = NodePath("../Teleporter")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_op4v3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -224.82, 71, -0.0455205)
@@ -464,3 +469,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169, 50, 65)
 
 [node name="Teleporter" parent="." instance=ExtResource("15_mtatn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
+spawn_data = null
+spawn_distance_min = null
+spawn_distance_max = null
+experience = null
+wave_cooldown = null
+wave_cooldown_mult = null

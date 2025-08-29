@@ -24,6 +24,8 @@ var _is_firing: bool = false
 var gravity_effect: float = 0
 var knockback: Vector3 = Vector3.ZERO
 
+@onready var timer_label: Label = $PlayerCamera/UI/TimerLabel
+
 func _process(delta: float) -> void:
 	_delta = delta
 	var target_position: Vector3 = Vector3.ZERO # I hate that this can't be null
@@ -95,3 +97,6 @@ func select_powerup(powerups: Array[PackedScene]) -> void:
 	$PlayerCamera/Gun.reset_firing()
 	get_tree().paused = true
 	$PlayerCamera/UI/PowerupSelectionPanel.show_powerups(powerups)
+
+func display_prompt(text: String) -> void:
+	$PlayerCamera/UI/TeleporterPrompt.text = text

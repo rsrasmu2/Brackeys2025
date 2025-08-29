@@ -28,7 +28,7 @@ size = Vector3(1, 6, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sicnd"]
 size = Vector3(0.985, 6.08594, 0.99622)
 
-[node name="EnemyPillar" type="AnimatableBody3D" node_paths=PackedStringArray("state_nodes")]
+[node name="EnemyPillar" type="AnimatableBody3D" node_paths=PackedStringArray("state_nodes") groups=["Enemies"]]
 collision_layer = 4
 collision_mask = 14
 sync_to_physics = false

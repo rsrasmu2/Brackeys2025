@@ -42,6 +42,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "uid://c1tbcf4376yd0"
 }
+},
+"nodes": {
+"PATH:Teleporter/Teleporter": {
+"import/skip_import": true
+}
 }
 }
 gltf/naming_version=1

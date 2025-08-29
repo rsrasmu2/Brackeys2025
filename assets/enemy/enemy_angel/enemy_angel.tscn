@@ -15,7 +15,7 @@ points = PackedVector3Array(3.5, 1, -0.15, 1, -1.35, -0.55, -1, -1.35, -0.55, -3
 
 [node name="EnemyAngel" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_v2tsu")]
 collision_layer = 0
-collision_mask = 1
+collision_mask = 129
 state_nodes = {
 0: NodePath("AngelIdle"),
 1: NodePath("AngelFollow"),
