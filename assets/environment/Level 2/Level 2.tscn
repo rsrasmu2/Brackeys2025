@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
-[ext_resource type="Script" path="res://assets/environment/Level.gd" id="1_46jxp"]
+[ext_resource type="Script" path="res://assets/environment/level.gd" id="1_46jxp"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cuol02y274fmn" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://ba62silxu8xlu" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
@@ -275,9 +275,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7602, 57.5279, -178.918)
 
 [node name="Teleporter" parent="." instance=ExtResource("13_7718q")]
 transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422, 49.0396, -71.2416)
-spawn_data = null
-spawn_distance_min = null
-spawn_distance_max = null
-experience = null
-wave_cooldown = null
-wave_cooldown_mult = null
