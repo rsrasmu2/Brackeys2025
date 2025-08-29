@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://6bml8sfklpnp"]
+
+[ext_resource type="Material" uid="uid://dwh5h8p5ro8nw" path="res://assets/materials_general/material_spawnerBeacon.tres" id="1_qlnoq"]
+[ext_resource type="Script" uid="uid://b321ctwiep1rp" path="res://assets/spawner/beacon.gd" id="2_ipykv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o22gw"]
+material = ExtResource("1_qlnoq")
+top_radius = 1.62
+bottom_radius = 0.44
+height = 50.0
+radial_segments = 32
+cap_top = false
+cap_bottom = false
+
+[node name="Beacon" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_o22gw")
+script = ExtResource("2_ipykv")
