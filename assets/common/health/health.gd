@@ -16,11 +16,11 @@ var invulnerable: bool = false
 		if health > max_health:
 			health = max_health
 	
-var health: int:
+var health: float:
 	set(value):
 		if invulnerable:
 			return
-		var new_health: int = clamp(value, 0, max_health)
+		var new_health: float = clamp(value, 0, max_health)
 		if health == new_health:
 			return
 		health = new_health

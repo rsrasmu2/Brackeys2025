@@ -5,10 +5,10 @@ extends Node3D
 
 var speed: float = 4
 
-@export var attack_range: float = 25
+@export var attack_range: float = 40
 @export var animation_player: AnimationPlayer
 
-@onready var _sqr_attack_range = attack_range * attack_range
+@onready var _sqr_attack_range: float = attack_range * attack_range
 
 func _ready() -> void:
 	set_process(false)
@@ -23,13 +23,11 @@ func _physics_process(_delta: float) -> void:
 	controller.target_velocity.z = velocity.y
 
 func enter() -> void:
-	print("Entering Follow")
 	set_process(true)
 	animation_player.connect("animation_finished", _on_animation_finished)
 	animation_player.play("run_start")
 
 func exit() -> void:
-	print("Exiting Follow")
 	set_process(false)
 	animation_player.disconnect("animation_finished", _on_animation_finished)
 	controller.target_velocity.x = 0
