@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=21 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://duaxmey1w7bhw" path="res://assets/environment/Level 3/Platform_rectangle_donut.glb" id="11_h61ey"]
 [ext_resource type="PackedScene" uid="uid://d4e5qdvu7qbax" path="res://assets/environment/Level 3/Platform_square_donut.glb" id="13_adsbt"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="14_227j0"]
+[ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="15_mtatn"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_4kwxg")
@@ -53,7 +54,7 @@ tonemap_mode = 2
 spawns = Array[ExtResource("2_4kwxg")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq")])
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_op4v3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -224.82, 71, -0.0455205)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -224.82, 71, -0.0455205)
 
 [node name="Lighting" type="Node3D" parent="."]
 transform = Transform3D(0.910548, -0.286031, 0.298478, 0.191446, 0.931666, 0.308783, -0.366403, -0.224019, 0.903086, 0, 28.424, 0)
@@ -456,3 +457,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 120, -310)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169, 50, 65)
 
 [node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("14_227j0")]
+
+[node name="Teleporter" parent="." instance=ExtResource("15_mtatn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
