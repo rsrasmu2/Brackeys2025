@@ -6,8 +6,8 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_o22gw"]
 material = ExtResource("3_1xyk5")
-top_radius = 0.347
-bottom_radius = 0.347
+top_radius = 1.62
+bottom_radius = 0.44
 height = 50.0
 radial_segments = 32
 cap_top = false

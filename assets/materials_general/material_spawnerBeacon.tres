@@ -10,4 +10,4 @@ metallic_specular = 0.0
 emission_enabled = true
 emission_energy_multiplier = 3.0
 emission_texture = ExtResource("1_c2enm")
-uv1_scale = Vector3(1, 50, 1)
+uv1_scale = Vector3(1, 20, 1)
