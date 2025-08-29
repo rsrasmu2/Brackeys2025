@@ -12,6 +12,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nfcq"]
 
 [node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_r0itx")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
@@ -31,11 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794322, -0.208392)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
-
-[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
-bones/0/position = Vector3(0, 0.514673, 0)
-bones/0/rotation = Quaternion(-0.346461, 0, 0, 0.938065)
-bones/1/rotation = Quaternion(-0.293998, 0, 0, 0.955806)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
