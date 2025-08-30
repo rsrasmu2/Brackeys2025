@@ -7,5 +7,5 @@ extends Node3D
 signal loaded
 
 func _ready() -> void:
-	get_tree().process_frame
+	await get_tree().process_frame
 	emit_signal(loaded.get_name())
