@@ -1,7 +1,7 @@
 extends Control
 
-@export var _distance = 30
-@export var _speed = 0.05
+@export var _distance: float = 30
+@export var _speed: float = 0.05
 @export var _return_rate: float = 5
 
 var _tween: Tween

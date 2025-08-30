@@ -111,6 +111,8 @@ max_pitch = 1.3
 script = ExtResource("12_5fb4d")
 controller = NodePath("..")
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="15"]
+
 [connection signal="state_changed" from="." to="BlobFollow" method="_on_enemy_blob_state_changed"]
 [connection signal="landed" from="BlobGroundDetection" to="MoveSound" method="play_pitched"]
 

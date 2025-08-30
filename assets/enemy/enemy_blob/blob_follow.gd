@@ -13,36 +13,45 @@ var target_position: Vector3
 var speed: float = 10
 var ground_speed: float = 0.2
 
+var pathfinding_position: Vector3
+
 @export var animation_player: AnimationPlayer
 
 func _ready() -> void:
+	set_physics_process(false)
 	set_process(false)
 
 func _process(_delta: float) -> void:
-	if controller.global_position == target.target.global_position:
+	if controller.global_position.distance_squared_to(pathfinding_position) < 0.2:
 		return
-	controller.look_at(target.target.global_position, Vector3.UP, true)
+	controller.look_at(pathfinding_position, Vector3.UP, true)
+
+func _physics_process(_delta: float) -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	pathfinding_position = $"../NavigationAgent3D".get_next_path_position()
 
 func enter() -> void:
+	set_physics_process(true)
 	set_process(true)
 	animation_player.connect(animation_player.animation_finished.get_name(), _on_animation_finished)
 	animation_player.play("walk")
 
 func exit() -> void:
+	set_physics_process(false)
 	set_process(false)
 	animation_player.disconnect(animation_player.animation_finished.get_name(), _on_animation_finished)
 	controller.target_velocity.x = 0
 	controller.target_velocity.z = 0
 
 func begin_walk() -> void:
-	var displacement: Vector3 = target.target.global_position - global_position
+	var displacement: Vector3 = pathfinding_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 	controller.target_velocity.x = velocity.x
 	controller.target_velocity.y = randf_range(y_min, y_max)
 	controller.target_velocity.z = velocity.y
 
 func end_walk() -> void:
-	var displacement: Vector3 = target.target.global_position - global_position
+	var displacement: Vector3 = pathfinding_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * ground_speed
 	controller.target_velocity.x = velocity.x
 	controller.target_velocity.z = velocity.y

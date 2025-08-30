@@ -13,8 +13,8 @@ func apply(bullet: Bullet) -> void:
 	bullet.connect("hit", _on_hit.bind(bullet))
 
 func _on_hit(body: Node3D, bullet: Bullet) -> void:
-	var previous_position = body.global_position
-	var query_transform = bullet.transform
+	var previous_position := body.global_position
+	var query_transform := bullet.transform
 	var space := get_world_3d().direct_space_state
 	var shape := SphereShape3D.new()
 	shape.radius = radius
@@ -40,7 +40,7 @@ func _on_hit(body: Node3D, bullet: Bullet) -> void:
 				params.exclude.push_back(collisions[rand_index]["rid"])
 				current_damage *= damage_falloff
 				if previous_position != Vector3.ZERO and previous_position.distance_squared_to(collision.global_position) > 0.2:
-					var arc = ARC_SCENE.instantiate()
+					var arc := ARC_SCENE.instantiate()
 					get_tree().root.add_child(arc)
 					arc.init(previous_position, collision.global_position)
 				previous_position = collision.global_position

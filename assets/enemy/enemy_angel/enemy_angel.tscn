@@ -185,4 +185,6 @@ stream = ExtResource("12_7nuoa")
 volume_db = -10.0
 autoplay = true
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="14"]
+
 [editable path="AngelModel"]

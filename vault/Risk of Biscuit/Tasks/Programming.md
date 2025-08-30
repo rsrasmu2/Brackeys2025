@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Fix Space
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
 - [ ] Pillars can push you through world
@@ -18,6 +17,7 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] Fix Space
 
 
 ## Prototyped
