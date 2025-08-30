@@ -1,21 +1,21 @@
-[gd_scene load_steps=27 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=32 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_46jxp"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cuol02y274fmn" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://ba62silxu8xlu" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
-[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_roteo"]
+[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_roteo"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_5tnw1"]
 [ext_resource type="PackedScene" uid="uid://i40e8cctvc4h" path="res://assets/enemy/enemy_blob/variations/lava_blob.tscn" id="3_7718q"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_7cvne"]
 [ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/textures/material_lava.tres" id="7_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="7_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/audio/volcano-loop_00.wav" id="8_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/audio/volcano-loop_11.wav" id="9_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/music/volcano-loop_00.wav" id="8_lf7xx"]
+[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/music/volcano-loop_11.wav" id="9_wsxtn"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="10_j3q2o"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="13_7718q"]
-[ext_resource type="AudioStream" uid="uid://bgwcvrf2xgxlv" path="res://assets/environment/Level 2/audio/Torch Loop.ogg" id="16_wsxtn"]
+[ext_resource type="Texture2D" uid="uid://b6np17i27k30a" path="res://assets/environment/Level 2/textures/smoke/T_smoke_flipbook.png" id="16_wsxtn"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_roteo")
@@ -54,6 +54,8 @@ sky_material = SubResource("ProceduralSkyMaterial_e22gm")
 background_mode = 2
 sky = SubResource("Sky_boe6w")
 tonemap_mode = 4
+glow_enabled = true
+glow_intensity = 0.88
 fog_enabled = true
 fog_light_color = Color(0.356257, 0.31333, 0.27577, 1)
 fog_density = 0.001
@@ -73,6 +75,46 @@ agent_height = 2.5
 agent_max_climb = 0.5
 agent_max_slope = 60.0
 detail_sample_max_error = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niqym"]
+transparency = 1
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("16_wsxtn")
+billboard_mode = 3
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_wsxtn"]
+offsets = PackedFloat32Array(0, 0.218182, 0.409091, 0.645455, 1)
+colors = PackedColorArray(2, 2, 2, 1, 3, 0, 0, 1, 2, 2, 0, 1, 0.360182, 0.0698863, 0.0978361, 1, 0.203179, 0.0609722, 0.00696074, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_niqym"]
+gradient = SubResource("Gradient_wsxtn")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gakve"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -180.0
+angle_max = 180.0
+direction = Vector3(0, 1, 0)
+spread = 8.675
+initial_velocity_min = 1.8
+initial_velocity_max = 2.3
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_min = 6.0
+scale_max = 8.0
+color = Color(1, 0.369242, 0.143375, 1)
+color_ramp = SubResource("GradientTexture1D_niqym")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_bqaky"]
+size = Vector2(4, 4)
 
 [node name="Environment_Level2" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
 script = ExtResource("1_46jxp")
@@ -271,95 +313,244 @@ transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422,
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04691, 53.5167, -1.80717)
 
-[node name="LavaAudio" type="Node3D" parent="."]
+[node name="Particle_Effects" type="Node3D" parent="."]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.7879, 44.2673, -2.43771)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 6.5
-autoplay = true
+[node name="VFX_Smoke_1" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 47, 45)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.7175, 44.2673, -5.8607)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 3.45
-autoplay = true
+[node name="VFX_Smoke_20" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 47, -44)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.642, 44.2673, -18.8555)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 1.75
-autoplay = true
+[node name="VFX_Smoke_4" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63, 47, 120)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.784, 44.2673, 68.0039)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 3.45
-autoplay = true
+[node name="VFX_Smoke_5" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 47, 127)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.224, 44.2673, 16.5032)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 1.7
-autoplay = true
+[node name="VFX_Smoke_6" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214, 47, 145)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.186, 44.2673, -120.32)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 3.85
-autoplay = true
+[node name="VFX_Smoke_7" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 47, 58)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D9" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6365, 44.2673, -129.928)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 3.9
-autoplay = true
+[node name="VFX_Smoke_8" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164, 47, 80)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D10" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4725, 44.2673, -224.09)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 4.95
-autoplay = true
+[node name="VFX_Smoke_9" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 189, 47, 17)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D11" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305.658, 44.2673, -154.861)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 14.2
-autoplay = true
+[node name="VFX_Smoke_10" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146, 47, -19)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D12" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.748, 44.2673, 25.3428)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 9.15
-autoplay = true
+[node name="VFX_Smoke_11" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 47, -13)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D13" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.757, 44.6685, 117.967)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 10.55
-autoplay = true
+[node name="VFX_Smoke_12" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 47, -7)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.8876, 49.3495, 124.44)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 4.45
-autoplay = true
+[node name="VFX_Smoke_13" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44, 47, -127)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
 
-[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="LavaAudio"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.8138, 49.3495, 157.258)
-stream = ExtResource("16_wsxtn")
-volume_db = -5.0
-unit_size = 4.45
-autoplay = true
+[node name="VFX_Smoke_14" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 137, 47, -116)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_16" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 239, 47, -40)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_17" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 283, 47, -160)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_18" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352, 47, 66)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_19" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 298, 47, 116)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_15" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61, 47, -222)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_2" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 69, 162)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="VFX_Smoke_3" type="GPUParticles3D" parent="Particle_Effects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92, 69, 136)
+material_override = SubResource("StandardMaterial3D_niqym")
+amount = 30
+lifetime = 10.0
+speed_scale = 0.8
+explosiveness = 0.16
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gakve")
+draw_pass_1 = SubResource("QuadMesh_bqaky")
