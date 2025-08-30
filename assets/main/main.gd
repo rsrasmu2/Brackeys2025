@@ -6,12 +6,10 @@ extends Node3D
 var current_level: Level
 var current_level_index: int
 
-var _player: Player
+@onready var _player: Player = $Player
 
 func _ready() -> void:
 	current_level_index = start_from_level
-	_player = load("res://assets/player/player.tscn").instantiate()
-	add_child(_player)
 	load_level(current_level_index)
 
 func load_level(index: int) -> void:
