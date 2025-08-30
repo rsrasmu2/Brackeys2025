@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=55 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dkhe464ncfm3" path="res://assets/powerups/dash_speed_powerup.tscn" id="23_tktwm"]
 [ext_resource type="PackedScene" uid="uid://dxubv6xprfr4k" path="res://assets/powerups/extra_jump_powerup.tscn" id="24_ea4fx"]
 [ext_resource type="PackedScene" uid="uid://bmo0eaexpv1sn" path="res://assets/powerups/fire_rate_powerup.tscn" id="25_iol0l"]
+[ext_resource type="Script" uid="uid://bfqbpusb4fn4e" path="res://assets/player/powerups.gd" id="25_o3cdd"]
 [ext_resource type="PackedScene" uid="uid://d00t4utk53el4" path="res://assets/powerups/health_regen_powerup.tscn" id="26_0yxml"]
 [ext_resource type="PackedScene" uid="uid://d3ehhcm21uxfb" path="res://assets/powerups/increased_speed_powerup.tscn" id="27_3iv7w"]
 [ext_resource type="PackedScene" uid="uid://d2cpicrsuruma" path="res://assets/powerups/magazine_size_powerup.tscn" id="28_t54tc"]
@@ -498,7 +499,9 @@ stream = ExtResource("22_iblef")
 volume_db = -20.0
 script = ExtResource("39_ea4fx")
 
-[node name="Powerups" type="Node3D" parent="."]
+[node name="Powerups" type="Node3D" parent="." node_paths=PackedStringArray("controller")]
+script = ExtResource("25_o3cdd")
+controller = NodePath("..")
 
 [node name="Knockback" parent="." node_paths=PackedStringArray("body") instance=ExtResource("14_g7aau")]
 body = NodePath("..")

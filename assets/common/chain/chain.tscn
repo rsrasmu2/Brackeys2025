@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccyngnik62adl"]
+
+[ext_resource type="Script" uid="uid://lim5885iw7a7" path="res://assets/common/chain/chain.gd" id="1_6eipy"]
+[ext_resource type="Material" uid="uid://c6dajw0r85tr5" path="res://assets/powerups/textures/material_arc.tres" id="2_u5wbk"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dbe7v"]
+material = ExtResource("2_u5wbk")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.0
+cap_top = false
+cap_bottom = false
+
+[node name="Chain" type="Node3D"]
+script = ExtResource("1_6eipy")
+y_speed = 3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_dbe7v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
