@@ -91,7 +91,9 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 
 [node name="EnemyBlob2" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
@@ -100,7 +102,9 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 
 [node name="EnemyBlob3" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
@@ -109,7 +113,9 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 
 [node name="EnemyBlob4" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
@@ -118,7 +124,9 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 
 [node name="EnemyBlob5" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
@@ -127,7 +135,9 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 
 [node name="EnemyBlob6" parent="." node_paths=PackedStringArray("state_nodes") instance=ExtResource("3_qfl10")]
@@ -136,5 +146,7 @@ state_nodes = {
 0: NodePath("BlobIdle"),
 1: NodePath("BlobFollow"),
 2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+3: NodePath("BlobAttack"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }

@@ -1,27 +1,92 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm6r8yjnur5mb"]
+[gd_scene load_steps=15 format=3 uid="uid://cm6r8yjnur5mb"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_v2tsu"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="2_ke1of"]
 [ext_resource type="PackedScene" uid="uid://h8df2c3052i7" path="res://assets/enemy/enemy_angel/enemy_angel.glb" id="3_qfy34"]
 [ext_resource type="Script" uid="uid://cgmvpepbvwkg7" path="res://assets/enemy/enemy_angel/angel_mesh_collider.gd" id="3_tbwcw"]
 [ext_resource type="Script" uid="uid://65ego4s4fviu" path="res://assets/enemy/enemy_angel/angel_idle.gd" id="5_fid57"]
+[ext_resource type="Script" uid="uid://delipb3pkk4cn" path="res://assets/enemy/enemy_angel/angel_spawn.gd" id="5_qbuly"]
 [ext_resource type="Script" uid="uid://bpfhwmfa6q8ns" path="res://assets/enemy/enemy_angel/angel_follow.gd" id="6_4rwrm"]
 [ext_resource type="Script" uid="uid://bcubg6txs3dms" path="res://assets/enemy/enemy_angel/angel_attack.gd" id="7_qfy34"]
+[ext_resource type="Script" uid="uid://bw06ku8lbh30" path="res://assets/enemy/enemy_angel/angel_death.gd" id="9_yrg8j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v2tsu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v2tsu"]
 points = PackedVector3Array(3.5, 1, -0.15, 1, -1.35, -0.55, -1, -1.35, -0.55, -3.5, 1, -0.15, -2.3, 1.95, -0.15, -0.55, 2.4, -0.55, 0.55, 2.4, -0.55, 2.3, 1.95, -0.15, 3.5, 1, 0.25, 1, -1.35, 0.25, -1, -1.35, 0.25, -2.3, 1.95, 0.25, -3.5, 1, 0.25, -0.55, 2.4, 0.25, 0.55, 2.4, 0.25, 2.3, 1.95, 0.25)
 
-[node name="EnemyAngel" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_v2tsu")]
+[sub_resource type="Animation" id="Animation_0xjo8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AngelModel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AngelModel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.00223759, 1.01058, -0.726985)]
+}
+
+[sub_resource type="Animation" id="Animation_yrg8j"]
+resource_name = "dying"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AngelModel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 8, 0), Vector3(-3.24985, 3.14805, -3.25223), Vector3(-8.03764, -4, -8.04352)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AngelModel:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.566667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.000904721, 0.408608, -0.293941), Vector3(0.00223759, 1.01058, -0.726985)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_37qml"]
+_data = {
+&"RESET": SubResource("Animation_0xjo8"),
+&"dying": SubResource("Animation_yrg8j")
+}
+
+[node name="EnemyAngel" node_paths=PackedStringArray("state_nodes", "knockback_node", "animation_player") instance=ExtResource("1_v2tsu")]
 collision_layer = 0
 collision_mask = 129
 state_nodes = {
-0: NodePath("AngelIdle"),
-1: NodePath("AngelFollow"),
-3: NodePath("AngelAttack")
+0: NodePath("AngelSpawn"),
+1: NodePath("AngelIdle"),
+2: NodePath("AngelFollow"),
+4: NodePath("AngelAttack"),
+5: NodePath("AngelDeath")
 }
 knockback_node = NodePath("Knockback")
+animation_player = NodePath("AngelModel/AnimationPlayer")
 
 [node name="GroundCollider" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -33,29 +98,23 @@ regen = 1.0
 
 [node name="HealthBar" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
+change_visibility = null
 size = Vector2(320, 35)
 
 [node name="Knockback" parent="." index="5" node_paths=PackedStringArray("body") instance=ExtResource("2_ke1of")]
 body = NodePath("..")
 
 [node name="AngelModel" parent="." index="6" instance=ExtResource("3_qfy34")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+transform = Transform3D(0.39577, 0.354575, 0.847138, -0.664618, 0.74718, -0.00223759, -0.633758, -0.562138, 0.531368, 0, -4, 0)
 
 [node name="Skeleton3D" parent="AngelModel/Armature_Angel of Death" index="0"]
-bones/2/position = Vector3(7.40796e-08, 1.95221e-07, -2.20315e-08)
-bones/2/rotation = Quaternion(0.00646634, -0.00016488, 0.00938158, 0.999935)
-bones/3/position = Vector3(0.00360489, 0.474847, -0.00190081)
-bones/3/rotation = Quaternion(0.00709584, -6.92917e-05, 0.0110771, 0.999913)
-bones/4/position = Vector3(0.00588706, 0.949572, -0.00303117)
-bones/4/rotation = Quaternion(0.00722696, 9.638e-05, 0.0123988, 0.999897)
+bones/0/position = Vector3(0, -0.999082, 4.36713e-08)
+bones/0/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/3/rotation = Quaternion(0.00709584, -6.92959e-05, 0.0110771, 0.999914)
+bones/4/rotation = Quaternion(0.00722696, 9.63823e-05, 0.0123988, 0.999897)
 bones/6/rotation = Quaternion(-0.316169, -0.269938, 0.772064, 0.480717)
-bones/8/position = Vector3(-7.19408e-08, 2.10277e-07, -3.67396e-08)
-bones/8/rotation = Quaternion(0.00646634, 0.00016488, -0.00938158, 0.999935)
-bones/9/position = Vector3(-0.00360489, 0.474847, -0.00190081)
-bones/9/rotation = Quaternion(0.00709584, 6.92917e-05, -0.0110771, 0.999913)
-bones/10/position = Vector3(-0.00588706, 0.949572, -0.00303117)
-bones/10/rotation = Quaternion(0.00722696, -9.638e-05, -0.0123988, 0.999897)
-bones/11/rotation = Quaternion(0.00595231, -0.000225749, -0.0118284, 0.999912)
+bones/9/rotation = Quaternion(0.00709584, 6.92959e-05, -0.0110771, 0.999914)
+bones/10/rotation = Quaternion(0.00722696, -9.63823e-05, -0.0123988, 0.999897)
 bones/12/rotation = Quaternion(0.316169, -0.269938, 0.772064, -0.480717)
 
 [node name="AngelMeshCollider" type="AnimatableBody3D" parent="AngelModel" index="2" node_paths=PackedStringArray("controller")]
@@ -74,21 +133,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8, 1, -1)
 [node name="FireSpawn2" type="Node3D" parent="AngelModel" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8, 1, -1)
 
-[node name="AngelIdle" type="Node3D" parent="." index="7" node_paths=PackedStringArray("controller", "target")]
+[node name="AngelSpawn" type="Node3D" parent="." index="7" node_paths=PackedStringArray("controller", "animation_player")]
+script = ExtResource("5_qbuly")
+controller = NodePath("..")
+animation_player = NodePath("../AngelModel/AnimationPlayer")
+
+[node name="AngelIdle" type="Node3D" parent="." index="8" node_paths=PackedStringArray("controller", "target")]
 script = ExtResource("5_fid57")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 
-[node name="AngelFollow" type="Node3D" parent="." index="8" node_paths=PackedStringArray("target", "controller", "animation_player")]
+[node name="AngelFollow" type="Node3D" parent="." index="9" node_paths=PackedStringArray("target", "controller", "animation_player")]
 script = ExtResource("6_4rwrm")
 target = NodePath("../EnemyTarget")
 controller = NodePath("..")
 animation_player = NodePath("../AngelModel/AnimationPlayer")
 
-[node name="AngelAttack" type="Node3D" parent="." index="9" node_paths=PackedStringArray("controller", "target", "fire_spawn_points")]
+[node name="AngelAttack" type="Node3D" parent="." index="10" node_paths=PackedStringArray("controller", "target", "fire_spawn_points")]
 script = ExtResource("7_qfy34")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 fire_spawn_points = [NodePath("../AngelModel/FireSpawn"), NodePath("../AngelModel/FireSpawn2")]
+
+[node name="AngelDeath" type="Node3D" parent="." index="11" node_paths=PackedStringArray("controller", "animation_player", "health_bar")]
+script = ExtResource("9_yrg8j")
+controller = NodePath("..")
+animation_player = NodePath("../DeathAnimation")
+health_bar = NodePath("../HealthBar")
+
+[node name="DeathAnimation" type="AnimationPlayer" parent="." index="12"]
+libraries = {
+&"": SubResource("AnimationLibrary_37qml")
+}
 
 [editable path="AngelModel"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blrh806e5yssb"]
+[gd_scene load_steps=18 format=3 uid="uid://blrh806e5yssb"]
 
 [ext_resource type="PackedScene" uid="uid://ksrtlxdhhtvb" path="res://assets/enemy/enemy_pillar/Enemy_Pillar.glb" id="2_n7fcf"]
 [ext_resource type="Script" uid="uid://bdbn4rfa0b3c3" path="res://assets/enemy/enemy_pillar/enemy_pillar.gd" id="2_vdavr"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://da5q7hn5atihn" path="res://assets/enemy/enemy_pillar/pillar_follow.gd" id="4_5qy18"]
 [ext_resource type="PackedScene" uid="uid://bpycvx6icpx8o" path="res://assets/common/enemy_health_bar/health_bar.tscn" id="4_aj476"]
 [ext_resource type="Script" uid="uid://cwrysv1cwpwav" path="res://assets/enemy/enemy_pillar/pillar_attack.gd" id="4_n7fcf"]
+[ext_resource type="Script" uid="uid://dumdgk7lba3l4" path="res://assets/enemy/enemy_pillar/pillar_spawn.gd" id="6_aj476"]
 [ext_resource type="Script" uid="uid://jgmelc3l8nm4" path="res://assets/enemy/enemy_pillar/ground_detection.gd" id="6_sicnd"]
+[ext_resource type="Script" uid="uid://bvmg3ld141obr" path="res://assets/enemy/enemy_pillar/pillar_death.gd" id="10_2rw61"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xmv3r"]
 radius = 0.3
@@ -34,9 +36,11 @@ collision_mask = 14
 sync_to_physics = false
 script = ExtResource("2_vdavr")
 state_nodes = {
-0: NodePath("PillarIdle"),
-1: NodePath("PillarFollow"),
-3: NodePath("PillarAttack")
+0: NodePath("PillarSpawn"),
+1: NodePath("PillarIdle"),
+2: NodePath("PillarFollow"),
+4: NodePath("PillarAttack"),
+5: NodePath("PillarDeath")
 }
 
 [node name="MeshOrigin" type="Node3D" parent="."]
@@ -66,6 +70,7 @@ shape = SubResource("SphereShape3D_04hg2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.59317, -0.433062)
 
 [node name="SmashDetection" type="Area3D" parent="MeshOrigin/Enemy_Pillar/SmashTopPosition"]
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshOrigin/Enemy_Pillar/SmashTopPosition/SmashDetection"]
@@ -87,8 +92,13 @@ regen = 1.0
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_aj476")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.91303, 0.40316)
+change_visibility = null
 health = NodePath("../Health")
 size = Vector2(160, 20)
+
+[node name="PillarSpawn" type="Node3D" parent="." node_paths=PackedStringArray("controller")]
+script = ExtResource("6_aj476")
+controller = NodePath("..")
 
 [node name="PillarIdle" type="Node3D" parent="." node_paths=PackedStringArray("controller", "target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
@@ -128,6 +138,15 @@ one_shot = true
 
 [node name="Timer" type="Timer" parent="PillarAttack"]
 wait_time = 1.5
+one_shot = true
+
+[node name="PillarDeath" type="Node3D" parent="." node_paths=PackedStringArray("controller", "health_bar")]
+script = ExtResource("10_2rw61")
+controller = NodePath("..")
+health_bar = NodePath("../HealthBar")
+
+[node name="Timer" type="Timer" parent="PillarDeath"]
+wait_time = 0.6
 one_shot = true
 
 [node name="GroundDetection" type="Area3D" parent="." node_paths=PackedStringArray("controller")]
