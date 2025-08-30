@@ -53,6 +53,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 		if not result.is_empty():
 			enemy.global_position = result["position"]
 			enemy.look_at(_player.global_position, Vector3.UP, true)
+			enemy.spawn()
 
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:

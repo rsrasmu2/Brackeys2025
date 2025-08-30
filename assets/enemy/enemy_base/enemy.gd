@@ -37,7 +37,7 @@ enum EnemyState { Spawning, Idle, Following, Jumping, Attacking, Dying }
 
 var gravity_enabled: bool = true
 
-func _ready() -> void:
+func spawn() -> void:
 	state_nodes[state].enter()
 
 func _process(_delta: float) -> void:

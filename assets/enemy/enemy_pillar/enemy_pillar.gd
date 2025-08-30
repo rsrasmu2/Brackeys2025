@@ -11,8 +11,8 @@ var drop_exp: bool = true
 
 const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
 
-enum EnemyState { Idle, Following, Jumping, Attacking }
-@onready var state: EnemyState = EnemyState.Idle:
+enum EnemyState { Spawning, Idle, Following, Jumping, Attacking, Dying }
+@onready var state: EnemyState = EnemyState.Spawning:
 	set(value):
 		if state == value:
 			return
@@ -25,7 +25,7 @@ enum EnemyState { Idle, Following, Jumping, Attacking }
 			state_node.enter()
 		emit_signal(state_changed.get_name(), state)
 
-func _ready() -> void:
+func spawn() -> void:
 	state_nodes[state].enter()
 
 func _process(_delta: float) -> void:
@@ -45,4 +45,4 @@ func _on_health_died() -> void:
 		orb.init(experience)
 		get_tree().root.add_child(orb)
 		orb.global_position = global_position
-	queue_free()
+	state = EnemyState.Dying

@@ -78,6 +78,7 @@ func _on_spawn_timer_timeout() -> void:
 		if not result.is_empty():
 			enemy.global_position = result["position"] + Vector3.UP * 1.0
 			enemy.look_at(_player.global_position, Vector3.UP, true)
+			enemy.spawn()
 	spawn_timer_multiplier = enemies_to_spawn.spawn_mult
 	start_spawn_timer()
 
