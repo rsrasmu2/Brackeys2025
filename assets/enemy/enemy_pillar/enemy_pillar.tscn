@@ -135,6 +135,7 @@ monitorable = false
 script = ExtResource("4_n7fcf")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
+damage = 20
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="PillarAttack"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.132092)

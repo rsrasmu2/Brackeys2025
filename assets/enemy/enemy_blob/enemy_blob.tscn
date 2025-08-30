@@ -86,6 +86,7 @@ monitoring = false
 script = ExtResource("4_5nfcq")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
+damage = 10
 knockback = 10.0
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
