@@ -6,22 +6,21 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Player Gun #model #texture
-- [ ] *Lvl 2:* Hardened Lava Flow #model #texture
 - [ ] *Lvl 2:* Obsidian Chunks #model #texture
+- [ ] *Lvl 2:* Hardened Lava Flow #model #texture
+- [ ] *Lvl 1-3:* General Particle Effects #particles
 - [ ] *Enemy:* Blocky Boi #model #texture #animation
 - [ ] *UI:* Enemy Healthbar #texture
 - [ ] *UI:* Crosshair #texture
 - [ ] *UI:* Player Healthbar #texture
 - [ ] *UI:* Dash #texture
 - [ ] Shield Animations #animation
-- [ ] Power Up Icons #model #textures
 - [ ] Electric graphic for arcing ability #texture
-- [ ] *Lvl 1-3:* General Particle Effects #particles
 
 
 ## Prototyped
 
+- [ ] Player Gun #model #texture
 
 
 ## Needs Animation

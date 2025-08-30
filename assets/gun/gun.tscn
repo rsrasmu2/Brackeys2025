@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnwk5jgcw7ohq" path="res://assets/gun/gun.gd" id="1_danae"]
 [ext_resource type="AudioStream" uid="uid://vbrkdpe3hak1" path="res://assets/gun/audio/laserSmall_000.ogg" id="2_nrmjy"]
-[ext_resource type="Script" uid="uid://c7ichshympetk" path="res://assets/gun/fire_audio.gd" id="3_40bau"]
+[ext_resource type="Script" path="res://assets/gun/fire_audio.gd" id="3_40bau"]
 [ext_resource type="AudioStream" uid="uid://g0rtfmhdovhd" path="res://assets/gun/audio/impactSoft_medium_000.ogg" id="4_7ybdq"]
 [ext_resource type="PackedScene" uid="uid://bsd0pjrvu51lx" path="res://assets/gun/weapon.glb" id="5_idm4r"]
 

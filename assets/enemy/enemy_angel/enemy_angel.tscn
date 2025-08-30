@@ -98,7 +98,7 @@ regen = 1.0
 
 [node name="HealthBar" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
-change_visibility = null
+change_visibility = true
 size = Vector2(320, 35)
 
 [node name="Knockback" parent="." index="5" node_paths=PackedStringArray("body") instance=ExtResource("2_ke1of")]
