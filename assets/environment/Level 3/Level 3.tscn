@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_adsbt"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
-[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
+[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
 [ext_resource type="Material" uid="uid://dawkoxgb7ivul" path="res://assets/environment/Level 3/hdri_sky.tres" id="2_ek0wn"]
 [ext_resource type="PackedScene" uid="uid://cdvqk586bhteo" path="res://assets/environment/Level 3/Platform_rectangle.glb" id="2_op4v3"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_4kwxg"]
@@ -60,6 +60,7 @@ sky = SubResource("Sky_op4v3")
 sky_rotation = Vector3(1.41372, 0, 0)
 ambient_light_source = 3
 tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc2d3"]
 size = Vector3(1000, 50, 1000)
