@@ -209,6 +209,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_0yxml")
+_distance = 15.0
 
 [node name="Crosshair" type="TextureRect" parent="PlayerCamera/UI/Crosshair"]
 layout_mode = 0
