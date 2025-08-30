@@ -5,6 +5,7 @@ signal max_ammo_changed(ammo: int)
 signal current_ammo_changed(current_ammo: int)
 signal started_reloading
 signal finished_reloading
+signal bullet_hit
 
 signal fired(bullet: Bullet)
 
@@ -149,3 +150,4 @@ func _on_bullet_hit(body: Node3D) -> void:
 	if body.has_method("take_damage"):
 		$HitAudio.pitch_scale = randf_range(1.2, 1.5)
 		$HitAudio.play()
+		emit_signal(bullet_hit.get_name())
