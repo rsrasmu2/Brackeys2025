@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_ykeuu"]
 [ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
-[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
+[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cfjfy34eyp06i" path="res://assets/environment/Level 1/textures/new_terrain_3d_material.tres" id="2_x44cq"]
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_6onxq"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_26yi2"]
