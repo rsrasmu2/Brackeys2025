@@ -5,8 +5,7 @@ signal state_changed(new_state: EnemyState)
 
 @export var state_nodes: Dictionary[EnemyState, Node3D]
 @export var knockback_node: Knockback
-@export var material: StandardMaterial3D
-@export var mesh: MeshInstance3D
+@export var animation_player: AnimationPlayer
 
 @export var experience: int = 20
 
@@ -15,20 +14,21 @@ const GRAVITY: float = 9.8
 var target_velocity: Vector3 = Vector3.ZERO
 var knockback: Vector3 = Vector3.ZERO
 
+var invulnerable: bool = true
+
 var drop_exp: bool = true
 
 var _target_states: Array = []
 
 const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
 
-enum EnemyState { Idle, Following, Jumping, Attacking }
-@onready var state: EnemyState = EnemyState.Idle:
+enum EnemyState { Spawning, Idle, Following, Jumping, Attacking, Dying }
+@onready var state: EnemyState = EnemyState.Spawning:
 	set(value):
-		if state == value:
-			return
 		var state_node: Node3D = state_nodes[state]
 		if state_node and state_node.has_method("exit"):
 			state_node.exit()
+			animation_player.stop()
 		state = value
 		state_node = state_nodes[state]
 		if state_node and state_node.has_method("enter"):
@@ -38,14 +38,11 @@ enum EnemyState { Idle, Following, Jumping, Attacking }
 var gravity_enabled: bool = true
 
 func _ready() -> void:
-	if mesh:
-		mesh.mesh.surface_set_material(0, material)
 	state_nodes[state].enter()
 
 func _process(_delta: float) -> void:
 	if len(_target_states) == 0:
 		return
-	
 
 func _physics_process(delta: float) -> void:
 	if not gravity_enabled:
@@ -62,7 +59,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func un_invulnerable() -> void:
+	invulnerable = false
+
 func take_damage(amount: int, knockback_amount: Vector3, _source: Node) -> void: 
+	if invulnerable:
+		return
 	$Health.health -= amount
 	if knockback_node:
 		knockback_node.add_knockback(knockback_amount)
@@ -77,4 +79,5 @@ func _on_health_died() -> void:
 		orb.init(experience)
 		get_tree().root.add_child(orb)
 		orb.global_transform = global_transform
-	queue_free()
+	invulnerable = true
+	state = EnemyState.Dying

@@ -19,6 +19,7 @@ func _process(_delta: float) -> void:
 		controller.state = controller.EnemyState.Following
 
 func enter() -> void:
+	$"../AngelModel/AnimationPlayer".play("idle")
 	set_process(true)
 
 func exit() -> void:

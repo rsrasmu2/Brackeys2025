@@ -3,14 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://d2mhwfeuyt5a1" path="res://assets/enemy/enemy_blob/enemy_blob.tscn" id="1_v6q3m"]
 [ext_resource type="Material" uid="uid://bd2ee2ttoksnx" path="res://assets/enemy/enemy_blob/Materials/material_blob_alien.tres" id="2_aor62"]
 
-[node name="SpaceBlob" node_paths=PackedStringArray("state_nodes", "mesh") instance=ExtResource("1_v6q3m")]
+[node name="SpaceBlob" node_paths=PackedStringArray("state_nodes") instance=ExtResource("1_v6q3m")]
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: NodePath("BlobSpawning"),
+1: NodePath("BlobIdle"),
+2: NodePath("BlobFollow"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
-material = ExtResource("2_aor62")
-mesh = NodePath("Enemy_Blob/Armature_Blob/Skeleton3D/Cube")
+
+[node name="Cube" parent="Enemy_Blob/Armature_Blob/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_aor62")
 
 [editable path="Enemy_Blob"]

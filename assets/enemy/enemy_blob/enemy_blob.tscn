@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2mhwfeuyt5a1"]
+[gd_scene load_steps=11 format=3 uid="uid://d2mhwfeuyt5a1"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_r0itx"]
 [ext_resource type="PackedScene" uid="uid://c8fycs1l0bok6" path="res://assets/enemy/enemy_blob/Enemy_Blob.glb" id="2_4j6gg"]
@@ -6,20 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="3_bib1n"]
 [ext_resource type="Script" uid="uid://dcyh6jb1gxxbo" path="res://assets/enemy/enemy_blob/blob_idle.gd" id="3_p4dtg"]
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
+[ext_resource type="Script" uid="uid://twxjxx60d3pi" path="res://assets/enemy/enemy_blob/blob_spawning.gd" id="7_vqauu"]
+[ext_resource type="Script" uid="uid://bgpihxlm5sapg" path="res://assets/enemy/enemy_blob/blob_dying.gd" id="8_8wwsy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5nfcq"]
 
-[node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node") instance=ExtResource("1_r0itx")]
+[node name="EnemyBlob" node_paths=PackedStringArray("state_nodes", "knockback_node", "animation_player") instance=ExtResource("1_r0itx")]
 collision_mask = 143
 state_nodes = {
-0: NodePath("BlobIdle"),
-1: NodePath("BlobFollow"),
-2: NodePath("BlobJump"),
-3: NodePath("BlobAttack")
+0: NodePath("BlobSpawning"),
+1: NodePath("BlobIdle"),
+2: NodePath("BlobFollow"),
+4: NodePath("BlobAttack"),
+5: NodePath("BlobDying")
 }
 knockback_node = NodePath("Knockback")
+animation_player = NodePath("Enemy_Blob/AnimationPlayer")
 
 [node name="Health" parent="." index="1"]
 regen = 1.0
@@ -28,16 +32,10 @@ regen = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69453, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55966, 0.362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
-
-[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
-bones/0/rotation = Quaternion(0.256117, 0, 0, 0.966646)
-bones/0/scale = Vector3(1, 1.55157, 1)
-bones/1/rotation = Quaternion(0.332683, 0, 0, 0.943039)
-bones/1/scale = Vector3(0.505098, 1.95091, 0.505098)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
@@ -45,7 +43,12 @@ autoplay = "idle"
 [node name="Knockback" parent="." index="5" node_paths=PackedStringArray("body") instance=ExtResource("3_bib1n")]
 body = NodePath("..")
 
-[node name="BlobIdle" type="Node3D" parent="." index="6" node_paths=PackedStringArray("controller", "target")]
+[node name="BlobSpawning" type="Node3D" parent="." index="6" node_paths=PackedStringArray("controller", "animation_player")]
+script = ExtResource("7_vqauu")
+controller = NodePath("..")
+animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
+
+[node name="BlobIdle" type="Node3D" parent="." index="7" node_paths=PackedStringArray("controller", "target")]
 script = ExtResource("3_p4dtg")
 controller = NodePath("..")
 target = NodePath("../EnemyTarget")
@@ -53,7 +56,7 @@ target = NodePath("../EnemyTarget")
 [node name="Timer" type="Timer" parent="BlobIdle" index="0"]
 one_shot = true
 
-[node name="BlobFollow" type="Node3D" parent="." index="7" node_paths=PackedStringArray("target", "controller", "hurtbox", "animation_player")]
+[node name="BlobFollow" type="Node3D" parent="." index="8" node_paths=PackedStringArray("target", "controller", "hurtbox", "animation_player")]
 script = ExtResource("3_42nhj")
 target = NodePath("../EnemyTarget")
 controller = NodePath("..")
@@ -61,9 +64,9 @@ collision_knockback = 5.0
 hurtbox = NodePath("../BlobAttack")
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
-[node name="BlobJump" type="Node3D" parent="." index="8"]
+[node name="BlobJump" type="Node3D" parent="." index="9"]
 
-[node name="BlobAttack" type="Area3D" parent="." index="9" node_paths=PackedStringArray("controller", "target", "animation_player")]
+[node name="BlobAttack" type="Area3D" parent="." index="10" node_paths=PackedStringArray("controller", "target", "animation_player")]
 collision_layer = 4
 collision_mask = 2
 monitoring = false
@@ -74,8 +77,14 @@ knockback = 10.0
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BlobAttack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11098, 0.499233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0657, 0.623727)
 shape = SubResource("SphereShape3D_5nfcq")
+
+[node name="BlobDying" type="Node3D" parent="." index="12" node_paths=PackedStringArray("controller", "animation_player", "health_bar")]
+script = ExtResource("8_8wwsy")
+controller = NodePath("..")
+animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
+health_bar = NodePath("../HealthBar")
 
 [connection signal="state_changed" from="." to="BlobFollow" method="_on_enemy_blob_state_changed"]
 

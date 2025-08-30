@@ -29,11 +29,11 @@ stereo = true
 [node name="BgmPlayer" type="Node"]
 process_mode = 3
 script = ExtResource("1_6xipf")
+autoplay = false
 
 [node name="Beginning" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_l2wqm")
 volume_db = -20.0
-autoplay = true
 
 [node name="BaseLoop" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_83q4h")
