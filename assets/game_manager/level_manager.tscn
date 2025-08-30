@@ -6,12 +6,16 @@
 script = ExtResource("1_dsvfm")
 
 [node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="LevelFinishDelay" type="Timer" parent="."]
 wait_time = 1.5
+one_shot = true
+
+[node name="LevelTransitionTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

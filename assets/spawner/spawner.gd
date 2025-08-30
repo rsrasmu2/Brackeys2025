@@ -7,6 +7,8 @@ extends StaticBody3D
 
 @export var experience: int = 100
 
+signal entered
+signal exited
 signal destroyed
 
 const POWERUP_PICKUP_SCENE = preload("res://assets/powerups/powerup_pickup.tscn")
@@ -30,6 +32,7 @@ func _on_health_died() -> void:
 	queue_free()
 
 func _on_area_3d_body_entered(_body: Node3D) -> void:
+	emit_signal(entered.get_name())
 	$ForceField.visible = false
 	$ForceField/StaticBody3D/CollisionShape3D.disabled = true
 	if _spawned:
@@ -53,5 +56,6 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:
+	emit_signal(exited.get_name())
 	$ForceField.visible = true
 	$ForceField/StaticBody3D/CollisionShape3D.disabled = false

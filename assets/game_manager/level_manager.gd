@@ -1,3 +1,4 @@
+
 class_name LevelManager
 extends Node3D
 
@@ -13,6 +14,7 @@ extends Node3D
 @export var spawn_timer_multiplier: float = 1.0
 
 @export var teleporter: Teleporter
+@export var bgm: BgmPlayer
 
 @onready var _spawners_remaining: int = self.spawners_to_keep
 
@@ -28,14 +30,17 @@ var _player: Player:
 
 func _ready() -> void:
 	set_process_input(false)
+	teleporter.connect("teleporter_activated", _on_teleporter_activated)
 	teleporter.connect("teleporter_completed", _on_teleporter_completed)
 	start_level()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("activate"):
 		_player.display_prompt("")
-		emit_signal(level_finished.get_name())
+		bgm.fade_bgm()
 		set_process_input(false)
+		await $LevelTransitionTimer
+		emit_signal(level_finished.get_name())
 
 func start_level() -> void:
 	var spawners := get_tree().get_nodes_in_group("SpawnerSpawners")
@@ -45,6 +50,8 @@ func start_level() -> void:
 		var index := randi() % spawners.size()
 		var spawner_spawner := spawners[index]
 		var spawner: Spawner = spawner_spawner.activate()
+		spawner.connect("entered", _on_spawner_entered)
+		spawner.connect("exited", _on_spawner_exited)
 		spawner.connect("destroyed", _on_spawner_destroyed)
 		spawners.remove_at(index)
 	for spawner: Node in spawners:
@@ -53,7 +60,6 @@ func start_level() -> void:
 func start_spawn_timer() -> void:
 	$SpawnTimer.wait_time = randf_range(spawn_timer_min, spawn_timer_max) * spawn_timer_multiplier
 	$SpawnTimer.start()
-
 
 func _on_spawn_timer_timeout() -> void:
 	var enemies_to_spawn := spawns[randi() % len(spawns)]
@@ -79,7 +85,11 @@ func _destroy_enemies() -> void:
 		enemy.drop_exp = false
 		enemy.get_node("Health").health = 0
 
+func _on_teleporter_activated() -> void:
+	bgm.set_intensity(2)
+
 func _on_teleporter_completed() -> void:
+	bgm.set_intensity(0)
 	$SpawnTimer.stop()
 	_destroy_enemies()
 	$LevelFinishDelay.start()
@@ -89,6 +99,13 @@ func _on_teleporter_completed() -> void:
 	set_process_input(true)
 
 func _on_spawner_destroyed() -> void:
+	bgm.set_intensity(0)
 	_spawners_remaining -= 1
 	if _spawners_remaining == 0:
 		teleporter.active = true
+
+func _on_spawner_entered() -> void:
+	bgm.set_intensity(1)
+	
+func _on_spawner_exited() -> void:
+	bgm.set_intensity(0)

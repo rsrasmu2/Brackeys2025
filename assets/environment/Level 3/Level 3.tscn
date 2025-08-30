@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=26 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_adsbt"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_4kwxg"]
 [ext_resource type="PackedScene" uid="uid://4s23v0rxxqs7" path="res://assets/enemy/enemy_blob/variations/space_blob.tscn" id="3_h61ey"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_adsbt"]
-[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="7_ilv2s"]
 [ext_resource type="PackedScene" uid="uid://bbrsdvh3s3pr4" path="res://assets/environment/Level 3/Platform_bridge.glb" id="8_kf84u"]
 [ext_resource type="PackedScene" uid="uid://0xscaj7vmigb" path="res://assets/environment/Level 3/Platform_square_small.glb" id="9_227j0"]
 [ext_resource type="PackedScene" uid="uid://fldjeerkan62" path="res://assets/environment/Level 3/Platform_ramp.glb" id="10_mtatn"]
@@ -17,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://d4e5qdvu7qbax" path="res://assets/environment/Level 3/Platform_square_donut.glb" id="13_adsbt"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="14_227j0"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="15_mtatn"]
+[ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="17_pkkug"]
+[ext_resource type="AudioStream" uid="uid://dhwvkv75ijq7y" path="res://assets/environment/Level 3/music/Space-loop_beginning.wav" id="18_mnc8p"]
+[ext_resource type="AudioStream" uid="uid://c22ejshiken6g" path="res://assets/environment/Level 3/music/Space-loop_0.wav" id="19_vc2d3"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_4kwxg")
@@ -62,9 +64,10 @@ script = ExtResource("1_adsbt")
 level_manager = NodePath("LevelManager")
 player_spawn = NodePath("PlayerSpawn")
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("1_jgoy7")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter", "bgm") instance=ExtResource("1_jgoy7")]
 spawns = Array[ExtResource("2_4kwxg")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_2ixkr")])
 teleporter = NodePath("../Teleporter")
+bgm = NodePath("../BgmPlayer")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_op4v3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -224.82, 71, -0.0455205)
@@ -437,10 +440,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -75, 4
 [node name="Platform_square_donut2" parent="Platforms" instance=ExtResource("13_adsbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 79, -80)
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ilv2s")
-volume_db = -20.0
-
 [node name="Spawners" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -44, 105)
 
@@ -469,3 +468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169, 50, 65)
 
 [node name="Teleporter" parent="." instance=ExtResource("15_mtatn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
+
+[node name="BgmPlayer" parent="." instance=ExtResource("17_pkkug")]
+beginning = ExtResource("18_mnc8p")
+base_loop = ExtResource("19_vc2d3")

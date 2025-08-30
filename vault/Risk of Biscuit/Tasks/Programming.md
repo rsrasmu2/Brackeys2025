@@ -13,6 +13,7 @@ kanban-plugin: board
 - [ ] Scale difficulty over time
 - [ ] Spawn/Death animations
 - [ ] Fix Space
+- [ ] Pillars can push you through world
 
 
 ## In Progress

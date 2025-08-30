@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsc2wp5snegqx"]
+[gd_scene load_steps=16 format=3 uid="uid://dsc2wp5snegqx"]
 
 [ext_resource type="Script" uid="uid://bj16gs2irfmm7" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
 [ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="1_t231b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_rcu8r"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="4_02c12"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_18tl8"]
+[ext_resource type="PackedScene" uid="uid://6bml8sfklpnp" path="res://assets/spawner/beacon.tscn" id="7_rcu8r"]
 
 [sub_resource type="Resource" id="Resource_m3mbd"]
 script = ExtResource("2_27mgd")
@@ -87,6 +88,24 @@ monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_klco0")
+
+[node name="Beacons" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0008564, 66.3155, -0.723925)
+visible = false
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Beacons"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0008564, -24.6434, 0.723925)
+light_color = Color(0.91, 0.66794, 0.2184, 1)
+light_energy = 250.0
+shadow_enabled = true
+omni_range = 158.0
+
+[node name="Beacon" parent="Beacons" instance=ExtResource("7_rcu8r")]
+skeleton = NodePath("../..")
+
+[node name="Beacon2" parent="Beacons" instance=ExtResource("7_rcu8r")]
+skeleton = NodePath("../..")
+speed = 1.0
 
 [connection signal="timeout" from="WaveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

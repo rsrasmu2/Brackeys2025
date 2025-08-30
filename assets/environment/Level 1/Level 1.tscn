@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=28 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_6bo4w"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
@@ -14,8 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://tu575tgxxu23" path="res://assets/environment/Level 1/decoration/Ceiling.glb" id="6_6w0aq"]
 [ext_resource type="PackedScene" uid="uid://bi24jhs15gc30" path="res://assets/environment/Level 1/decoration/Cave_vine.glb" id="7_2r83h"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="8_2jk75"]
-[ext_resource type="AudioStream" uid="uid://cnl8nptb78pnf" path="res://assets/environment/Level 1/CAVERN2.wav" id="12_cvc5m"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="14_6onxq"]
+[ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="16_6bo4w"]
+[ext_resource type="AudioStream" uid="uid://cxisdflgo80ru" path="res://assets/environment/Level 1/music/Cavern-loop_beginning.wav" id="16_prlg3"]
+[ext_resource type="AudioStream" uid="uid://ckncu0c8qfwye" path="res://assets/environment/Level 1/music/Cavern-loop_0.wav" id="17_rggl3"]
+[ext_resource type="AudioStream" uid="uid://d4h4cpuuedjr2" path="res://assets/environment/Level 1/music/Cavern-loop_1.wav" id="18_gppu0"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_tjxkh")
@@ -78,9 +81,10 @@ script = ExtResource("1_6bo4w")
 level_manager = NodePath("LevelManager")
 player_spawn = NodePath("PlayerSpawn")
 
-[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter") instance=ExtResource("1_tjxkh")]
+[node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter", "bgm") instance=ExtResource("1_tjxkh")]
 spawns = Array[ExtResource("2_tjxkh")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_6bo4w")])
 teleporter = NodePath("../Spawners/Teleporter")
+bgm = NodePath("../BgmPlayer")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_ykeuu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.62863, -45.5277, 28.889)
@@ -697,6 +701,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9159, -35.2321, 130.415)
 [node name="Teleporter" parent="Spawners" instance=ExtResource("14_6onxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.674, -49.138, 14.072)
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_cvc5m")
-volume_db = -20.0
+[node name="BgmPlayer" parent="." instance=ExtResource("16_6bo4w")]
+beginning = ExtResource("16_prlg3")
+base_loop = ExtResource("17_rggl3")
+intensity_1_loop = ExtResource("18_gppu0")

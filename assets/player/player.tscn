@@ -369,7 +369,7 @@ script = ExtResource("2_h6syq")
 target = NodePath("..")
 
 [node name="Health" parent="." instance=ExtResource("9_m2mll")]
-max_health = 10000
+regen = 1.0
 
 [node name="PlayerJump" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("12_0eov8")

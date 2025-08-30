@@ -4,15 +4,17 @@ extends Node
 @export var levels: Array[PackedScene]
 
 var current_level: Level
-@onready var current_level_index: int = self.start_from_level
+var current_level_index: int
 
-var _player: Player:
-	get():
-		if _player == null:
-			_player = get_tree().get_first_node_in_group("Player")
-		return _player
+const PLAYER_SCENE := preload("res://assets/player/player.tscn")
+
+var _player: Player
 
 func _ready() -> void:
+	current_level_index = start_from_level
+	await get_tree().root.ready
+	_player = PLAYER_SCENE.instantiate()
+	get_tree().root.add_child(_player)
 	start_level(current_level_index)
 
 func start_level(index: int) -> void:
@@ -21,16 +23,12 @@ func start_level(index: int) -> void:
 	current_level = levels[index].instantiate()
 	current_level.connect("loaded", _on_level_loaded)
 	add_child(current_level)
-	print("Hmmmm")
 
 func _on_level_loaded() -> void:
-	print("Loaded")
 	current_level.level_manager.connect("level_finished", _on_level_finished)
-	print("CurrentLevel Connected")
-	print(str(current_level.level_manager.level_finished.get_connections()))
+	_player.global_transform = current_level.player_spawn.global_transform
 
 func _on_level_finished() -> void:
-	print("????")
 	current_level_index += 1
 	if current_level_index < levels.size():
 		start_level(current_level_index)

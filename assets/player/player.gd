@@ -11,7 +11,7 @@ var current_dash_speed: float = 0:
 	set(value):
 		if current_dash_speed != value:
 			current_dash_speed = value
-	
+
 var is_dashing: bool:
 	get():
 		return current_dash_speed != 0

@@ -9,12 +9,14 @@ extends StaticBody3D
 @export var wave_cooldown: float = 15
 @export var wave_cooldown_mult: float = 0.9
 
-signal teleporter_completed()
+signal teleporter_activated
+signal teleporter_completed
 
 var active: bool = false:
 	set(value):
 		active = value
 		$Area3D.monitoring = active
+		$Beacons.visible = active
 		set_process_input(active)
 
 var _began: bool = false
@@ -39,6 +41,8 @@ func _input(event: InputEvent) -> void:
 			$Area3D.monitoring = false
 			_activatable = false
 			_player.display_prompt("")
+			$Beacons.queue_free()
+			emit_signal(teleporter_activated.get_name())
 		elif _finished:
 			emit_signal(teleporter_completed.get_name())
 		
