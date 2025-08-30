@@ -6,22 +6,24 @@ kanban-plugin: board
 
 ## Not Started
 
+- [ ] Fix Space
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
 - [ ] Pillars can push you through world
 - [ ] Spawner Blobs
 - [ ] Death is funky
+- [ ] Add Arc effect
+- [ ] Add Explosion effect
 
 
 ## In Progress
 
-- [ ] Make Powerups!
-- [ ] Add SFX
-- [ ] Fix Space
 
 
 ## Prototyped
 
+- [ ] Make Powerups!
+- [ ] Add SFX
 
 
 ## Completed

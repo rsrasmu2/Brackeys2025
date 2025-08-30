@@ -120,7 +120,8 @@ one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PillarFollow"]
 stream = ExtResource("9_hvrbm")
-volume_db = -15.0
+volume_db = -12.0
+unit_size = 20.0
 script = ExtResource("13_ch78y")
 
 [node name="StatusEffects" type="Node" parent="."]
