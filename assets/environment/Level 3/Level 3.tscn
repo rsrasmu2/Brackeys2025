@@ -484,6 +484,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("20_mnc8p")
+damage = 20
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killbox"]
 shape = SubResource("BoxShape3D_vc2d3")
