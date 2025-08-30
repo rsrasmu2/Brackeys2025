@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] *Lvl 2:* Obsidian Chunks #model #texture
 - [ ] *Lvl 2:* Hardened Lava Flow #model #texture
 - [ ] *Lvl 1-3:* General Particle Effects #particles
 - [ ] *Enemy:* Blocky Boi #model #texture #animation
@@ -50,6 +49,7 @@ kanban-plugin: board
 - [ ] *Lvl 3:* Ramp #model #texture
 - [ ] Teleporter #model #texture #animation
 - [ ] *Lvl 2:* Lava Surface #texture
+- [ ] *Lvl 2:* Obsidian Chunks #model #texture
 
 
 
