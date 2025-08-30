@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2mhwfeuyt5a1"]
+[gd_scene load_steps=15 format=3 uid="uid://d2mhwfeuyt5a1"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_r0itx"]
 [ext_resource type="PackedScene" uid="uid://c8fycs1l0bok6" path="res://assets/enemy/enemy_blob/Enemy_Blob.glb" id="2_4j6gg"]
@@ -6,8 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="3_bib1n"]
 [ext_resource type="Script" uid="uid://dcyh6jb1gxxbo" path="res://assets/enemy/enemy_blob/blob_idle.gd" id="3_p4dtg"]
 [ext_resource type="Script" uid="uid://cmt115g776ke7" path="res://assets/enemy/enemy_blob/blob_attack.gd" id="4_5nfcq"]
+[ext_resource type="AudioStream" uid="uid://d4exwy1j8mud" path="res://assets/enemy/enemy_blob/audio/Jellybeast_1.ogg" id="5_nj4cj"]
 [ext_resource type="Script" uid="uid://twxjxx60d3pi" path="res://assets/enemy/enemy_blob/blob_spawning.gd" id="7_vqauu"]
+[ext_resource type="AudioStream" uid="uid://c6sq4br384cdj" path="res://assets/enemy/enemy_blob/audio/Splat3.ogg" id="7_xgi1f"]
 [ext_resource type="Script" uid="uid://bgpihxlm5sapg" path="res://assets/enemy/enemy_blob/blob_dying.gd" id="8_8wwsy"]
+[ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="8_nj4cj"]
+[ext_resource type="Script" uid="uid://b7gx5o4wn0iqq" path="res://assets/enemy/enemy_blob/blob_ground_detection.gd" id="12_5fb4d"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_42nhj"]
 
@@ -30,13 +34,16 @@ regen = 1.0
 
 [node name="HealthBar" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69453, 0)
-change_visibility = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_42nhj")
 
 [node name="Enemy_Blob" parent="." index="4" instance=ExtResource("2_4j6gg")]
+
+[node name="Skeleton3D" parent="Enemy_Blob/Armature_Blob" index="0"]
+bones/0/position = Vector3(0, -2.05692, 0)
+bones/0/scale = Vector3(0.489799, 1.52803, 0.489799)
 
 [node name="AnimationPlayer" parent="Enemy_Blob" index="1"]
 autoplay = "idle"
@@ -48,6 +55,11 @@ body = NodePath("..")
 script = ExtResource("7_vqauu")
 controller = NodePath("..")
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="BlobSpawning" index="0"]
+stream = ExtResource("5_nj4cj")
+volume_db = -20.0
+script = ExtResource("8_nj4cj")
 
 [node name="BlobIdle" type="Node3D" parent="." index="7" node_paths=PackedStringArray("controller", "target")]
 script = ExtResource("3_p4dtg")
@@ -78,7 +90,7 @@ knockback = 10.0
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BlobAttack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11098, 0.499233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16057, 0.0690292)
 shape = SubResource("SphereShape3D_5nfcq")
 
 [node name="BlobDying" type="Node3D" parent="." index="12" node_paths=PackedStringArray("controller", "animation_player", "health_bar")]
@@ -87,6 +99,18 @@ controller = NodePath("..")
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 health_bar = NodePath("../HealthBar")
 
+[node name="MoveSound" type="AudioStreamPlayer3D" parent="." index="13"]
+stream = ExtResource("7_xgi1f")
+volume_db = -20.0
+script = ExtResource("8_nj4cj")
+min_pitch = 0.7
+max_pitch = 1.3
+
+[node name="BlobGroundDetection" type="Node" parent="." index="14" node_paths=PackedStringArray("controller")]
+script = ExtResource("12_5fb4d")
+controller = NodePath("..")
+
 [connection signal="state_changed" from="." to="BlobFollow" method="_on_enemy_blob_state_changed"]
+[connection signal="landed" from="BlobGroundDetection" to="MoveSound" method="play_pitched"]
 
 [editable path="Enemy_Blob"]

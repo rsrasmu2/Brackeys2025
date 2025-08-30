@@ -19,6 +19,8 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(_delta: float) -> void:
+	if controller.global_position == target.target.global_position:
+		return
 	controller.look_at(target.target.global_position, Vector3.UP, true)
 
 func enter() -> void:

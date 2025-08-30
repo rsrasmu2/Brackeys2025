@@ -24,6 +24,10 @@ var _player: Player:
 func take_damage(amount: int, _knockback: Vector3, _source: Node) -> void:
 	$Health.health -= amount
 
+func add_status_effect(effect: Node) -> void:
+	$StatusEffects.add_child(effect)
+	effect.apply(self)
+
 func _on_health_died() -> void:
 	var powerup := POWERUP_PICKUP_SCENE.instantiate()
 	get_tree().root.add_child(powerup)

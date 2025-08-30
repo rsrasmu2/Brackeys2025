@@ -1,7 +1,7 @@
 extends Node
 
-const NAME: String = "Dash Speed"
-const DESCRIPTION: String = "Increases your dash speed by 20%."
+const NAME: String = "Dash Distance"
+const DESCRIPTION: String = "Increases your dash distance by 20%."
 
 @export var mult: float = 1.2
 

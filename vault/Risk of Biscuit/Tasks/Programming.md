@@ -9,6 +9,8 @@ kanban-plugin: board
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
 - [ ] Pillars can push you through world
+- [ ] Spawner Blobs
+- [ ] Death is funky
 
 
 ## In Progress
