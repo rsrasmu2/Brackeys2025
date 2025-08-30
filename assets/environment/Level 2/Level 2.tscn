@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_5tnw1"]
 [ext_resource type="PackedScene" uid="uid://i40e8cctvc4h" path="res://assets/enemy/enemy_blob/variations/lava_blob.tscn" id="3_7718q"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_7cvne"]
-[ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/material_lava.tres" id="7_j1wc1"]
+[ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/textures/material_lava.tres" id="7_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="7_lf7xx"]
 [ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/audio/volcano-loop_00.wav" id="8_lf7xx"]
 [ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/audio/volcano-loop_11.wav" id="9_wsxtn"]
@@ -242,8 +242,6 @@ navigation_mesh = SubResource("NavigationMesh_bdj47")
 data_directory = "res://assets/environment/Level 2"
 material = ExtResource("1_w1egl")
 assets = ExtResource("2_bdj47")
-show_checkered = true
-show_grey = true
 top_level = true
 metadata/_edit_lock_ = true
 
