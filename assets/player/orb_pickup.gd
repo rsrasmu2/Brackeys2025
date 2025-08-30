@@ -4,7 +4,7 @@ extends Area3D
 @export var player: Player
 @export var experience: Experience
 
-@export var pickup_range: float = 4:
+@export var pickup_range: float = 6:
 	set(value):
 		pickup_range = value
 		var shape := SphereShape3D.new()

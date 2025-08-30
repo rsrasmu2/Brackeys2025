@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=54 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bajfnk64q8mhi" path="res://assets/player/dash/dash.tscn" id="8_kwvpd"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="9_m2mll"]
 [ext_resource type="PackedScene" uid="uid://b2s561k6oqkbv" path="res://assets/player/melee/player_melee.tscn" id="11_evyxp"]
+[ext_resource type="Script" uid="uid://yc4i1ujwhio0" path="res://assets/player/grenade_cooldown.gd" id="11_qtr3g"]
 [ext_resource type="Script" uid="uid://bs4jrpmg0ja0w" path="res://assets/player/player_jump.gd" id="12_0eov8"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="14_g7aau"]
 [ext_resource type="AudioStream" uid="uid://dftkvc3ibxmev" path="res://assets/player/audio/footstep_concrete_001.ogg" id="15_d61i2"]
@@ -46,6 +47,7 @@
 [ext_resource type="Script" uid="uid://dq7v65xnv6mge" path="res://assets/common/audio/pitch_randomizer.gd" id="39_ea4fx"]
 [ext_resource type="AudioStream" uid="uid://cmxn0qfuwcgtt" path="res://assets/player/audio/Retro PickUp Coin 04.ogg" id="40_iol0l"]
 [ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="41_0yxml"]
+[ext_resource type="Script" uid="uid://c361crpoy3us" path="res://assets/player/player_grenade.gd" id="47_qyqrj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -173,6 +175,15 @@ script = ExtResource("2_tb4ck")
 
 [node name="Gun" parent="PlayerCamera" instance=ExtResource("2_toylo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47, -0.32, -0.261)
+
+[node name="PlayerGrenade" type="Node3D" parent="PlayerCamera" node_paths=PackedStringArray("controller")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0)
+script = ExtResource("47_qyqrj")
+controller = NodePath("../..")
+
+[node name="Cooldown" type="Timer" parent="PlayerCamera/PlayerGrenade"]
+wait_time = 4.0
+one_shot = true
 
 [node name="RayCast3D" type="RayCast3D" parent="PlayerCamera"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
@@ -309,25 +320,28 @@ grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayerCamera/UI/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerCamera/UI/MarginContainer"]
 layout_mode = 2
 
-[node name="Ammo" type="Label" parent="PlayerCamera/UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("gun")]
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerCamera/UI/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Ammo" type="Label" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("gun")]
 layout_mode = 2
 text = "12 / 12"
 script = ExtResource("5_tb4ck")
-gun = NodePath("../../../../Gun")
+gun = NodePath("../../../../../Gun")
 
-[node name="PlayerHealth" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("health")]
+[node name="PlayerHealth" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("health")]
 self_modulate = Color(1, 0, 0, 1)
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 value = 100.0
 show_percentage = false
 script = ExtResource("6_hai6l")
-health = NodePath("../../../../../Health")
+health = NodePath("../../../../../../Health")
 
-[node name="DashCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer"]
+[node name="DashCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer"]
 self_modulate = Color(0.866667, 1, 1, 1)
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
@@ -336,14 +350,25 @@ value = 1.0
 show_percentage = false
 script = ExtResource("7_vlpqo")
 
-[node name="Experience" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/VBoxContainer" node_paths=PackedStringArray("experience")]
+[node name="Experience" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("experience")]
 self_modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 max_value = 1.0
 show_percentage = false
 script = ExtResource("8_eedlp")
-experience = NodePath("../../../../../Experience")
+experience = NodePath("../../../../../../Experience")
+
+[node name="GrenadeCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer" node_paths=PackedStringArray("player_grenade_timer")]
+modulate = Color(0, 1, 1, 1)
+custom_minimum_size = Vector2(10, 68)
+layout_mode = 2
+size_flags_vertical = 8
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("11_qtr3g")
+player_grenade_timer = NodePath("../../../../PlayerGrenade/Cooldown")
 
 [node name="Label" type="Label" parent="PlayerCamera/UI"]
 visible = false
@@ -524,9 +549,9 @@ max_polyphony = 3
 script = ExtResource("41_0yxml")
 
 [connection signal="bullet_hit" from="PlayerCamera/Gun" to="PlayerCamera/UI/Crosshair/HitMarker" method="hit"]
-[connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
+[connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
 [connection signal="fired" from="PlayerCamera/Gun" to="PlayerCamera/UI/Crosshair" method="fire"]
-[connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
+[connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
 [connection signal="timeout" from="PlayerCamera/UI/Crosshair/HitMarker/Timer" to="PlayerCamera/UI/Crosshair/HitMarker" method="_on_timer_timeout"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="died" from="Health" to="PlayerCamera/Gun" method="set_process_input"]
@@ -534,11 +559,11 @@ script = ExtResource("41_0yxml")
 [connection signal="died" from="Health" to="PlayerCamera/UI/Label" method="set_visible" binds= [true]]
 [connection signal="died" from="Health" to="PlayerMovement" method="set_process" binds= [false]]
 [connection signal="died" from="Health" to="AnimationPlayer" method="play" binds= ["death"]]
-[connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
-[connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
+[connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
+[connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
 [connection signal="dash_ended" from="Dash" to="PlayerCamera" method="_on_dash_dash_ended"]
 [connection signal="dash_started" from="Dash" to="PlayerCamera" method="_on_dash_dash_started"]
-[connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
+[connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
 [connection signal="level_up" from="Experience" to="." method="_on_experience_level_up"]
 [connection signal="timeout" from="FootstepAudio/Timer" to="FootstepAudio" method="_on_timer_timeout"]
 [connection signal="area_entered" from="OrbPickup" to="OrbPickup" method="_on_area_entered"]
