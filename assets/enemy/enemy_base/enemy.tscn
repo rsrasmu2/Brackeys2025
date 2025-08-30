@@ -16,6 +16,7 @@ script = ExtResource("3_aal2b")
 [node name="Health" parent="." instance=ExtResource("4_jeskp")]
 
 [node name="HealthBar" parent="." node_paths=PackedStringArray("health") instance=ExtResource("5_tc55m")]
+change_visibility = null
 health = NodePath("../Health")
 size = Vector2(160, 20)
 

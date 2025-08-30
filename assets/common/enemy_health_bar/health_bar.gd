@@ -2,6 +2,8 @@
 class_name HealthBar
 extends Node3D
 
+@export var change_visibility: bool = true
+
 @export var health: Health
 @export var size: Vector2:
 	set(value):
@@ -14,8 +16,10 @@ func _ready() -> void:
 	$SubViewport/ProgressBar.max_value = health.max_health
 	$SubViewport/ProgressBar.value = health.health
 	health.connect(health.health_changed.get_name(), _on_health_changed)
-	visible = false
+	if change_visibility:
+		visible = false
 
 func _on_health_changed(new_value: int) -> void:
 	$SubViewport/ProgressBar.value = new_value
-	visible = true
+	if change_visibility:
+		visible = true

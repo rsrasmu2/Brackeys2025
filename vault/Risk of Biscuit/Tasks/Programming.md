@@ -8,7 +8,6 @@ kanban-plugin: board
 
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
-- [ ] Fix Space
 - [ ] Pillars can push you through world
 
 
@@ -16,13 +15,11 @@ kanban-plugin: board
 
 - [ ] Make Powerups!
 - [ ] Add SFX
-- [ ] Place Spawners on maps
+- [ ] Fix Space
 
 
 ## Prototyped
 
-- [ ] Add Level up
-- [ ] Spawners drop powerups
 
 
 ## Completed
@@ -32,8 +29,11 @@ kanban-plugin: board
 - [ ] Spawn/Death animations
 - [ ] Teleporter wave
 - [ ] Transition levels
+- [ ] Add Level up
 - [ ] Fix Pillar Enemy :(
+- [ ] Spawners drop powerups
 - [ ] Fix blobs
+- [ ] Place Spawners on maps
 
 
 

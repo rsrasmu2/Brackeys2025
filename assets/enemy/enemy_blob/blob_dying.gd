@@ -6,6 +6,7 @@ extends Node3D
 
 func enter() -> void:
 	animation_player.play("death")
+	health_bar.change_visibility = false
 	health_bar.visible = false
 	await animation_player.animation_finished
 	controller.queue_free()
