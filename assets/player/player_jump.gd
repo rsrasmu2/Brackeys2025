@@ -18,6 +18,7 @@ func _physics_process(_delta: float) -> void:
 func try_jump() -> void:
 	if player.is_on_floor():
 		player.velocity.y = jump_velocity
+		$JumpAudio.play_pitched()
 	elif _remaining_extra_jumps > 0:
 		_remaining_extra_jumps -= 1
 		player.velocity.y = jump_velocity

@@ -12,5 +12,5 @@ func pickup(player: Player) -> void:
 			index = randi() % powerups.size()
 		to_pick.push_back(powerups[index])
 		indices.push_back(index)
-	player.select_powerup(to_pick)
+	player.select_powerup(to_pick, "Choose a Power")
 	queue_free()

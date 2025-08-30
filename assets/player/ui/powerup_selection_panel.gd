@@ -7,7 +7,8 @@ func _ready() -> void:
 		element.connect("powerup_selected", _on_powerup_selected.bind(element))
 	visible = false
 
-func show_powerups(powerups: Array[PackedScene]) -> void:
+func show_powerups(powerups: Array[PackedScene], label_text: String) -> void:
+	$MarginContainer/VBoxContainer/Label.text = label_text
 	for i: int in range(%PowerupElements.get_child_count()):
 		%PowerupElements.get_child(i).set_powerup(powerups[i])
 	visible = true

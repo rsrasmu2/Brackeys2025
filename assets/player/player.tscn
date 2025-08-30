@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=52 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -6,24 +6,29 @@
 [ext_resource type="Texture2D" uid="uid://ceh4xbfgvp1x4" path="res://assets/player/ui/crosshair012.png" id="2_ouxva"]
 [ext_resource type="Script" uid="uid://131tkdjps5ux" path="res://assets/player/player_camera.gd" id="2_tb4ck"]
 [ext_resource type="PackedScene" uid="uid://b4xojb6sb1hqf" path="res://assets/gun/gun.tscn" id="2_toylo"]
+[ext_resource type="Script" uid="uid://uqibdw6vaw5b" path="res://assets/player/ui/crosshair.gd" id="4_0yxml"]
 [ext_resource type="Script" uid="uid://dmneh2j38qw20" path="res://assets/player/ui/ammo.gd" id="5_tb4ck"]
-[ext_resource type="Script" path="res://assets/player/player_health.gd" id="6_hai6l"]
+[ext_resource type="Script" uid="uid://bn8peteyrn1tn" path="res://assets/player/ui/hit_marker.gd" id="6_3iv7w"]
+[ext_resource type="Script" uid="uid://bxa35uh3w2ebm" path="res://assets/player/player_health.gd" id="6_hai6l"]
 [ext_resource type="Script" uid="uid://b7jlf18wqxeuu" path="res://assets/player/dash_cooldown.gd" id="7_vlpqo"]
 [ext_resource type="PackedScene" uid="uid://bhn4indokfq4u" path="res://assets/player/ui/powerup_ui_element.tscn" id="8_4t7cd"]
 [ext_resource type="Script" uid="uid://rvgxv3xcsa5w" path="res://assets/player/ui/powerup_selection_panel.gd" id="8_apuko"]
-[ext_resource type="Script" path="res://assets/player/ui/experience.gd" id="8_eedlp"]
+[ext_resource type="Script" uid="uid://dvvy8pu8opy5k" path="res://assets/player/ui/experience.gd" id="8_eedlp"]
 [ext_resource type="PackedScene" uid="uid://bajfnk64q8mhi" path="res://assets/player/dash/dash.tscn" id="8_kwvpd"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="9_m2mll"]
 [ext_resource type="PackedScene" uid="uid://b2s561k6oqkbv" path="res://assets/player/melee/player_melee.tscn" id="11_evyxp"]
 [ext_resource type="Script" uid="uid://bs4jrpmg0ja0w" path="res://assets/player/player_jump.gd" id="12_0eov8"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="14_g7aau"]
 [ext_resource type="AudioStream" uid="uid://dftkvc3ibxmev" path="res://assets/player/audio/footstep_concrete_001.ogg" id="15_d61i2"]
-[ext_resource type="Script" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
+[ext_resource type="Script" uid="uid://vc8mtki3rrxx" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
 [ext_resource type="Script" uid="uid://dge4ynit4megq" path="res://assets/player/experience.gd" id="17_u5y8p"]
+[ext_resource type="AudioStream" uid="uid://eicg3t1aar51" path="res://assets/player/audio/Footsteps_DirtyGround_Jump_Land_01.ogg" id="18_8d5av"]
 [ext_resource type="PackedScene" uid="uid://b8n63oj5ksfgy" path="res://assets/powerups/bullet_damage_powerup.tscn" id="18_uvut3"]
 [ext_resource type="PackedScene" uid="uid://dr5yq6eeaxiju" path="res://assets/powerups/bullet_knockback_powerup.tscn" id="19_eedlp"]
+[ext_resource type="AudioStream" uid="uid://hvxu2v83x1t8" path="res://assets/player/audio/Footsteps_DirtyGround_Run_01.ogg" id="20_iblef"]
 [ext_resource type="PackedScene" uid="uid://crulthhr8iagk" path="res://assets/powerups/bullet_speed_powerup.tscn" id="20_khrko"]
 [ext_resource type="PackedScene" uid="uid://cmtkom4cj4hm1" path="res://assets/powerups/dash_charges_powerup.tscn" id="21_evyxp"]
+[ext_resource type="AudioStream" uid="uid://cfn0b01gyojor" path="res://assets/player/audio/SWSH_Heavy Slower Whoosh Big Stick 01_GENE CHABAN_NONE.ogg" id="22_iblef"]
 [ext_resource type="PackedScene" uid="uid://tfd2a580ll" path="res://assets/powerups/dash_cooldown_powerup.tscn" id="22_ksgbb"]
 [ext_resource type="PackedScene" uid="uid://dkhe464ncfm3" path="res://assets/powerups/dash_speed_powerup.tscn" id="23_tktwm"]
 [ext_resource type="PackedScene" uid="uid://dxubv6xprfr4k" path="res://assets/powerups/extra_jump_powerup.tscn" id="24_ea4fx"]
@@ -39,6 +44,8 @@
 [ext_resource type="AudioStream" uid="uid://c3yq4obkncifg" path="res://assets/player/audio/Special Collectible 9-1.wav" id="35_tktwm"]
 [ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
 [ext_resource type="Script" uid="uid://dq7v65xnv6mge" path="res://assets/common/audio/pitch_randomizer.gd" id="39_ea4fx"]
+[ext_resource type="AudioStream" uid="uid://cmxn0qfuwcgtt" path="res://assets/player/audio/Retro PickUp Coin 04.ogg" id="40_iol0l"]
+[ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="41_0yxml"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -192,20 +199,104 @@ offset_bottom = 183.0
 grow_horizontal = 2
 horizontal_alignment = 1
 
-[node name="Crosshair" type="TextureRect" parent="PlayerCamera/UI"]
+[node name="Crosshair" type="Control" parent="PlayerCamera/UI"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_0yxml")
+_distance = 15.0
+
+[node name="Crosshair" type="TextureRect" parent="PlayerCamera/UI/Crosshair"]
+layout_mode = 0
 offset_left = -36.0
 offset_top = -36.0
 offset_right = 36.0
 offset_bottom = 36.0
+texture = ExtResource("2_ouxva")
+
+[node name="Crosshair2" type="TextureRect" parent="PlayerCamera/UI/Crosshair"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -36.0
+offset_right = 108.0
+offset_bottom = 36.0
+rotation = 1.5708
+texture = ExtResource("2_ouxva")
+
+[node name="Crosshair3" type="TextureRect" parent="PlayerCamera/UI/Crosshair"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 108.0
+offset_bottom = 108.0
+rotation = 3.14159
+texture = ExtResource("2_ouxva")
+
+[node name="Crosshair4" type="TextureRect" parent="PlayerCamera/UI/Crosshair"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 36.0
+offset_right = 36.0
+offset_bottom = 108.0
+rotation = 4.71239
+texture = ExtResource("2_ouxva")
+
+[node name="HitMarker" type="Control" parent="PlayerCamera/UI/Crosshair"]
+visible = false
+modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_3iv7w")
+
+[node name="Crosshair" type="TextureRect" parent="PlayerCamera/UI/Crosshair/HitMarker"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = -36.0
+offset_right = 42.0
+offset_bottom = 36.0
 texture = ExtResource("2_ouxva")
+
+[node name="Crosshair2" type="TextureRect" parent="PlayerCamera/UI/Crosshair/HitMarker"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -30.0
+offset_right = 108.0
+offset_bottom = 42.0
+rotation = 1.5708
+texture = ExtResource("2_ouxva")
+
+[node name="Crosshair3" type="TextureRect" parent="PlayerCamera/UI/Crosshair/HitMarker"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 36.0
+offset_right = 102.0
+offset_bottom = 108.0
+rotation = 3.14159
+texture = ExtResource("2_ouxva")
+
+[node name="Crosshair4" type="TextureRect" parent="PlayerCamera/UI/Crosshair/HitMarker"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 30.0
+offset_right = 36.0
+offset_bottom = 102.0
+rotation = 4.71239
+texture = ExtResource("2_ouxva")
+
+[node name="Timer" type="Timer" parent="PlayerCamera/UI/Crosshair/HitMarker"]
+wait_time = 0.2
+one_shot = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerCamera/UI"]
 layout_mode = 1
@@ -278,7 +369,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PowerupSelectionPanel" type="Panel" parent="PlayerCamera/UI" node_paths=PackedStringArray("player")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -360,9 +450,28 @@ regen = 1.0
 script = ExtResource("12_0eov8")
 player = NodePath("..")
 
+[node name="LandAudio" type="AudioStreamPlayer" parent="PlayerJump"]
+stream = ExtResource("18_8d5av")
+volume_db = -20.0
+script = ExtResource("39_ea4fx")
+min_pitch = 0.9
+max_pitch = 1.1
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="PlayerJump"]
+stream = ExtResource("20_iblef")
+volume_db = -10.0
+script = ExtResource("39_ea4fx")
+min_pitch = 0.9
+max_pitch = 1.1
+
 [node name="Dash" parent="." node_paths=PackedStringArray("dasher") instance=ExtResource("8_kwvpd")]
 dasher = NodePath("..")
 dash_speed = 15.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash"]
+stream = ExtResource("22_iblef")
+volume_db = -20.0
+script = ExtResource("39_ea4fx")
 
 [node name="Powerups" type="Node3D" parent="."]
 
@@ -390,7 +499,7 @@ libraries = {
 
 [node name="FootstepAudio" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
 stream = ExtResource("15_d61i2")
-volume_db = -35.0
+volume_db = -32.0
 parameters/looping = false
 script = ExtResource("16_yx3jh")
 player = NodePath("..")
@@ -408,8 +517,17 @@ experience = NodePath("../Experience")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OrbPickup"]
 shape = SubResource("SphereShape3D_eedlp")
 
+[node name="ExpGainAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("40_iol0l")
+volume_db = -30.0
+max_polyphony = 3
+script = ExtResource("41_0yxml")
+
+[connection signal="bullet_hit" from="PlayerCamera/Gun" to="PlayerCamera/UI/Crosshair/HitMarker" method="hit"]
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
+[connection signal="fired" from="PlayerCamera/Gun" to="PlayerCamera/UI/Crosshair" method="fire"]
 [connection signal="max_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Ammo" method="_on_gun_max_ammo_changed"]
+[connection signal="timeout" from="PlayerCamera/UI/Crosshair/HitMarker/Timer" to="PlayerCamera/UI/Crosshair/HitMarker" method="_on_timer_timeout"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]
 [connection signal="died" from="Health" to="PlayerCamera/Gun" method="set_process_input"]
 [connection signal="died" from="Health" to="MouseRotation" method="_on_death"]
@@ -418,6 +536,8 @@ shape = SubResource("SphereShape3D_eedlp")
 [connection signal="died" from="Health" to="AnimationPlayer" method="play" binds= ["death"]]
 [connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
 [connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
+[connection signal="dash_ended" from="Dash" to="PlayerCamera" method="_on_dash_dash_ended"]
+[connection signal="dash_started" from="Dash" to="PlayerCamera" method="_on_dash_dash_started"]
 [connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
 [connection signal="level_up" from="Experience" to="." method="_on_experience_level_up"]
 [connection signal="timeout" from="FootstepAudio/Timer" to="FootstepAudio" method="_on_timer_timeout"]

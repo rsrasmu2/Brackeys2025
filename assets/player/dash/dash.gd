@@ -1,6 +1,8 @@
 class_name Dash
 extends Node
 
+signal dash_started
+signal dash_ended
 signal cooldown_changed(cooldown: float)
 
 @export var dasher: Player
@@ -36,6 +38,8 @@ func _input(event: InputEvent) -> void:
 		dash()
 
 func dash() -> void:
+	emit_signal(dash_started.get_name())
+	$AudioStreamPlayer.play()
 	remaining_charges -= 1
 	dasher.current_dash_speed = dash_speed
 	$DashTimer.start()
@@ -51,3 +55,4 @@ func _on_cooldown_timeout() -> void:
 
 func _on_dash_timer_timeout() -> void:
 	dasher.current_dash_speed = 0
+	emit_signal(dash_ended.get_name())

@@ -10,9 +10,9 @@
 [ext_resource type="Script" uid="uid://cwrysv1cwpwav" path="res://assets/enemy/enemy_pillar/pillar_attack.gd" id="4_n7fcf"]
 [ext_resource type="Script" uid="uid://dumdgk7lba3l4" path="res://assets/enemy/enemy_pillar/pillar_spawn.gd" id="6_aj476"]
 [ext_resource type="Script" uid="uid://jgmelc3l8nm4" path="res://assets/enemy/enemy_pillar/ground_detection.gd" id="6_sicnd"]
+[ext_resource type="AudioStream" uid="uid://cenb6t8rgo3tq" path="res://assets/enemy/enemy_pillar/audio/Rock Impact 37.ogg" id="9_hvrbm"]
 [ext_resource type="Script" uid="uid://bvmg3ld141obr" path="res://assets/enemy/enemy_pillar/pillar_death.gd" id="10_2rw61"]
-[ext_resource type="AudioStream" uid="uid://csxlmdathn1ij" path="res://assets/enemy/enemy_pillar/audio/Rock Impact 11.wav" id="12_2rw61"]
-[ext_resource type="AudioStream" uid="uid://ck42se63ug7dq" path="res://assets/enemy/enemy_pillar/audio/Rock Impact 37.wav" id="12_ch78y"]
+[ext_resource type="AudioStream" uid="uid://dxx7n41cl0s5v" path="res://assets/enemy/enemy_pillar/audio/Rock Impact 11.ogg" id="12_r6wwq"]
 [ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="13_ch78y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xmv3r"]
@@ -119,7 +119,7 @@ wait_time = 0.15
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PillarFollow"]
-stream = ExtResource("12_ch78y")
+stream = ExtResource("9_hvrbm")
 volume_db = -15.0
 script = ExtResource("13_ch78y")
 
@@ -148,7 +148,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PillarAttack"]
-stream = ExtResource("12_2rw61")
+stream = ExtResource("12_r6wwq")
 volume_db = -8.0
 script = ExtResource("13_ch78y")
 

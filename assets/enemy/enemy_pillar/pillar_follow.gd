@@ -3,7 +3,7 @@ extends Node3D
 @export var controller: EnemyPillar
 @export var target: EnemyTarget
 
-@export var rotation_rate: float = 200
+@export var rotation_rate: float = 160
 @export var facing_speed: float = 180
 
 var _facing: bool = false

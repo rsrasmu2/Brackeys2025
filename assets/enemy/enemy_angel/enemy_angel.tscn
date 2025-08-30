@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm6r8yjnur5mb"]
+[gd_scene load_steps=19 format=3 uid="uid://cm6r8yjnur5mb"]
 
 [ext_resource type="PackedScene" uid="uid://cr5r7kt1j1ati" path="res://assets/enemy/enemy_base/enemy.tscn" id="1_v2tsu"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="2_ke1of"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" uid="uid://delipb3pkk4cn" path="res://assets/enemy/enemy_angel/angel_spawn.gd" id="5_qbuly"]
 [ext_resource type="Script" uid="uid://bpfhwmfa6q8ns" path="res://assets/enemy/enemy_angel/angel_follow.gd" id="6_4rwrm"]
 [ext_resource type="Script" uid="uid://bcubg6txs3dms" path="res://assets/enemy/enemy_angel/angel_attack.gd" id="7_qfy34"]
+[ext_resource type="AudioStream" uid="uid://dgvjpyees4wx3" path="res://assets/enemy/enemy_angel/audio/Arcane_AttackF1.ogg" id="9_37qml"]
 [ext_resource type="Script" uid="uid://bw06ku8lbh30" path="res://assets/enemy/enemy_angel/angel_death.gd" id="9_yrg8j"]
+[ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="10_7nuoa"]
+[ext_resource type="AudioStream" uid="uid://cscq2utpxuebt" path="res://assets/enemy/enemy_angel/audio/Scrape_Buildup3.ogg" id="12_7nuoa"]
+[ext_resource type="AudioStream" uid="uid://d1hrt5kn8ve24" path="res://assets/enemy/enemy_angel/audio/Fire_AttackF1.wav" id="12_ppf8a"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v2tsu"]
 
@@ -98,7 +102,6 @@ regen = 1.0
 
 [node name="HealthBar" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
-change_visibility = true
 size = Vector2(320, 35)
 
 [node name="Knockback" parent="." index="5" node_paths=PackedStringArray("body") instance=ExtResource("2_ke1of")]
@@ -138,6 +141,8 @@ script = ExtResource("5_qbuly")
 controller = NodePath("..")
 animation_player = NodePath("../AngelModel/AnimationPlayer")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AngelSpawn" index="0"]
+
 [node name="AngelIdle" type="Node3D" parent="." index="8" node_paths=PackedStringArray("controller", "target")]
 script = ExtResource("5_fid57")
 controller = NodePath("..")
@@ -155,15 +160,29 @@ controller = NodePath("..")
 target = NodePath("../EnemyTarget")
 fire_spawn_points = [NodePath("../AngelModel/FireSpawn"), NodePath("../AngelModel/FireSpawn2")]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AngelAttack" index="0"]
+stream = ExtResource("9_37qml")
+max_polyphony = 2
+script = ExtResource("10_7nuoa")
+
 [node name="AngelDeath" type="Node3D" parent="." index="11" node_paths=PackedStringArray("controller", "animation_player", "health_bar")]
 script = ExtResource("9_yrg8j")
 controller = NodePath("..")
 animation_player = NodePath("../DeathAnimation")
 health_bar = NodePath("../HealthBar")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="AngelDeath" index="0"]
+stream = ExtResource("12_ppf8a")
+script = ExtResource("10_7nuoa")
+
 [node name="DeathAnimation" type="AnimationPlayer" parent="." index="12"]
 libraries = {
 &"": SubResource("AnimationLibrary_37qml")
 }
+
+[node name="IdleAudio" type="AudioStreamPlayer3D" parent="." index="13"]
+stream = ExtResource("12_7nuoa")
+volume_db = -10.0
+autoplay = true
 
 [editable path="AngelModel"]

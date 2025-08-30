@@ -23,7 +23,7 @@ func _on_hit(body: Node3D, bullet: Bullet) -> void:
 	for jump: int in range(max_jumps):
 		var collisions := space.intersect_shape(params)
 		for rem: Node in to_remove:
-			collisions.erase(rem)
+			collisions.find_custom(_remove_node.bind(rem))
 		if len(collisions) == 0:
 			return
 		var rand_index := randi() % collisions.size()
@@ -38,3 +38,6 @@ func _on_hit(body: Node3D, bullet: Bullet) -> void:
 			rand_index = randi() % collisions.size()
 			collision = collisions[rand_index]["collider"]
 		break
+
+func _remove_node(collision: Dictionary, to_remove: Node) -> bool:
+	return collision["collider"] == to_remove

@@ -18,6 +18,7 @@ var level: int = 1:
 
 var experience: int = 0:
 	set(value):
+		$"../ExpGainAudio".play_pitched()
 		experience = value
 		while experience >= next_level_exp:
 			experience -= next_level_exp

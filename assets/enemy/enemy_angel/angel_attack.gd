@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 		for spawn_point in fire_spawn_points:
 			spawn_point.look_at(target.target.global_position)
 		$"../AngelModel/AnimationPlayer".play("attack")
+		$AudioStreamPlayer3D.play_pitched()
 		return
 	
 	var max_step := deg_to_rad(rotation_speed) * delta
