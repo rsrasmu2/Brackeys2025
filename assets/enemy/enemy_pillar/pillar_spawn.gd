@@ -2,8 +2,8 @@ extends Node3D
 
 @export var controller: EnemyPillar
 
-var velocity = 16
-var acceleration = -9.8
+var velocity: float = 16
+var acceleration: float = -9.8
 
 func _ready() -> void:
 	set_physics_process(false)

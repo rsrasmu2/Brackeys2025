@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dbscgsfbwy7q0" path="res://assets/environment/Level 2/Level 2.tscn" id="3_j84mu"]
 [ext_resource type="PackedScene" uid="uid://cfy8jbs26lqay" path="res://assets/environment/Level 3/Level 3.tscn" id="4_yti63"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node3D"]
 script = ExtResource("1_lv126")
 levels = Array[PackedScene]([ExtResource("1_xch4i"), ExtResource("3_j84mu"), ExtResource("4_yti63")])
 

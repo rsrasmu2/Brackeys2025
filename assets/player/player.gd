@@ -116,5 +116,5 @@ func select_powerup(powerups: Array[PackedScene]) -> void:
 func display_prompt(text: String) -> void:
 	$PlayerCamera/UI/TeleporterPrompt.text = text
 
-func reset_position():
+func reset_position() -> void:
 	global_position = _last_ground

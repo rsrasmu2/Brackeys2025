@@ -67,7 +67,7 @@ func _on_spawn_timer_timeout() -> void:
 	for enemy_to_spawn: Object in enemies_to_spawn.enemies:
 		var enemy: Node3D = enemy_to_spawn.instantiate()
 		get_tree().root.add_child(enemy)
-		var attempts_remaining = 10
+		var attempts_remaining: int = 10
 		while attempts_remaining > 0:
 			var distance := randf_range(spawn_distance_min, spawn_distance_max)
 			var origin := _player.global_position + Vector3.FORWARD.rotated(Vector3.UP, randf() * 2.0 * PI) * distance

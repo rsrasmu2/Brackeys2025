@@ -78,6 +78,6 @@ func _on_health_died() -> void:
 		var orb := EXP_SCENE.instantiate()
 		orb.init(experience)
 		get_tree().root.add_child(orb)
-		orb.global_transform = global_transform
+		orb.global_position = global_position
 	invulnerable = true
 	state = EnemyState.Dying

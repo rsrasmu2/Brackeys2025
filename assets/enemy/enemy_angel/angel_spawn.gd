@@ -5,7 +5,7 @@ extends Node3D
 
 func enter() -> void:
 	controller.un_invulnerable()
-	var tween = create_tween()
+	var tween := create_tween()
 	tween.tween_property($"../AngelModel", "position:y", 8, 2.0)
 	$"../AngelModel/AnimationPlayer".play("spawn")
 	await $"../AngelModel/AnimationPlayer".animation_finished
