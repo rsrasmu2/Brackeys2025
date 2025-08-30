@@ -6,7 +6,7 @@ var _gravity: float = 0
 @export var THROW_SPEED: float = 10
 
 @export var damage: int = 60
-@export var radius: float = 10
+@export var radius: float = 8
 
 var initial_velocity: Vector3 = Vector3.ZERO
 
@@ -23,6 +23,7 @@ func explode() -> void:
 		var other: Node3D = collision["collider"]
 		if other.has_method("take_damage"):
 			other.take_damage(damage, Vector3.ZERO, self)
+	queue_free()
 
 func _on_body_entered(body: Node3D) -> void:
 	explode()
