@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgwcvrf2xgxlv"
+path="res://.godot/imported/Torch Loop.ogg-4e3d6512713cc64929870ff8e3a0d140.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/environment/Level 2/audio/Torch Loop.ogg"
+dest_files=["res://.godot/imported/Torch Loop.ogg-4e3d6512713cc64929870ff8e3a0d140.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

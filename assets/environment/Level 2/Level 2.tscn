@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=27 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_46jxp"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_7cvne"]
 [ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/material_lava.tres" id="7_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="7_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/music/volcano-loop_00.wav" id="8_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/music/volcano-loop_11.wav" id="9_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/audio/volcano-loop_00.wav" id="8_lf7xx"]
+[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/audio/volcano-loop_11.wav" id="9_wsxtn"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="10_j3q2o"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="13_7718q"]
+[ext_resource type="AudioStream" uid="uid://bgwcvrf2xgxlv" path="res://assets/environment/Level 2/audio/Torch Loop.ogg" id="16_wsxtn"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_roteo")
@@ -271,3 +272,96 @@ transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422,
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04691, 53.5167, -1.80717)
+
+[node name="LavaAudio" type="Node3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.7879, 44.2673, -2.43771)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 6.5
+autoplay = true
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.7175, 44.2673, -5.8607)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 3.45
+autoplay = true
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.642, 44.2673, -18.8555)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 1.75
+autoplay = true
+
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.784, 44.2673, 68.0039)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 3.45
+autoplay = true
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.224, 44.2673, 16.5032)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 1.7
+autoplay = true
+
+[node name="AudioStreamPlayer3D8" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.186, 44.2673, -120.32)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 3.85
+autoplay = true
+
+[node name="AudioStreamPlayer3D9" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6365, 44.2673, -129.928)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 3.9
+autoplay = true
+
+[node name="AudioStreamPlayer3D10" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4725, 44.2673, -224.09)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 4.95
+autoplay = true
+
+[node name="AudioStreamPlayer3D11" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305.658, 44.2673, -154.861)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 14.2
+autoplay = true
+
+[node name="AudioStreamPlayer3D12" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 315.748, 44.2673, 25.3428)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 9.15
+autoplay = true
+
+[node name="AudioStreamPlayer3D13" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 301.757, 44.6685, 117.967)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 10.55
+autoplay = true
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87.8876, 49.3495, 124.44)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 4.45
+autoplay = true
+
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="LavaAudio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.8138, 49.3495, 157.258)
+stream = ExtResource("16_wsxtn")
+volume_db = -5.0
+unit_size = 4.45
+autoplay = true
