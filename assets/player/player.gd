@@ -63,6 +63,8 @@ func _physics_process(delta: float) -> void:
 		_in_air = false
 		gravity_effect = 0
 		velocity.y = 0
+		if not $PlayerJump/LandAudio.playing:
+			$PlayerJump/LandAudio.play_pitched()
 	
 	velocity.x = _target_velocity.x * (1 + current_dash_speed)
 	velocity.y -= gravity_effect * delta
@@ -106,12 +108,12 @@ func _on_experience_level_up(_level: int) -> void:
 			index = randi() % $Experience.level_up_powerups.size()
 		powerups.push_back($Experience.level_up_powerups[index])
 		indices.push_back(index)
-	select_powerup(powerups)
+	select_powerup(powerups, "Level Up")
 
-func select_powerup(powerups: Array[PackedScene]) -> void:
+func select_powerup(powerups: Array[PackedScene], label_text: String) -> void:
 	$PlayerCamera/Gun.reset_firing()
 	get_tree().paused = true
-	$PlayerCamera/UI/PowerupSelectionPanel.show_powerups(powerups)
+	$PlayerCamera/UI/PowerupSelectionPanel.show_powerups(powerups, label_text)
 
 func display_prompt(text: String) -> void:
 	$PlayerCamera/UI/TeleporterPrompt.text = text

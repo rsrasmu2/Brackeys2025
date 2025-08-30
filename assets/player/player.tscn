@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=52 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -22,10 +22,13 @@
 [ext_resource type="AudioStream" uid="uid://dftkvc3ibxmev" path="res://assets/player/audio/footstep_concrete_001.ogg" id="15_d61i2"]
 [ext_resource type="Script" uid="uid://vc8mtki3rrxx" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
 [ext_resource type="Script" uid="uid://dge4ynit4megq" path="res://assets/player/experience.gd" id="17_u5y8p"]
+[ext_resource type="AudioStream" uid="uid://eicg3t1aar51" path="res://assets/player/audio/Footsteps_DirtyGround_Jump_Land_01.ogg" id="18_8d5av"]
 [ext_resource type="PackedScene" uid="uid://b8n63oj5ksfgy" path="res://assets/powerups/bullet_damage_powerup.tscn" id="18_uvut3"]
 [ext_resource type="PackedScene" uid="uid://dr5yq6eeaxiju" path="res://assets/powerups/bullet_knockback_powerup.tscn" id="19_eedlp"]
+[ext_resource type="AudioStream" uid="uid://hvxu2v83x1t8" path="res://assets/player/audio/Footsteps_DirtyGround_Run_01.ogg" id="20_iblef"]
 [ext_resource type="PackedScene" uid="uid://crulthhr8iagk" path="res://assets/powerups/bullet_speed_powerup.tscn" id="20_khrko"]
 [ext_resource type="PackedScene" uid="uid://cmtkom4cj4hm1" path="res://assets/powerups/dash_charges_powerup.tscn" id="21_evyxp"]
+[ext_resource type="AudioStream" uid="uid://cfn0b01gyojor" path="res://assets/player/audio/SWSH_Heavy Slower Whoosh Big Stick 01_GENE CHABAN_NONE.ogg" id="22_iblef"]
 [ext_resource type="PackedScene" uid="uid://tfd2a580ll" path="res://assets/powerups/dash_cooldown_powerup.tscn" id="22_ksgbb"]
 [ext_resource type="PackedScene" uid="uid://dkhe464ncfm3" path="res://assets/powerups/dash_speed_powerup.tscn" id="23_tktwm"]
 [ext_resource type="PackedScene" uid="uid://dxubv6xprfr4k" path="res://assets/powerups/extra_jump_powerup.tscn" id="24_ea4fx"]
@@ -365,7 +368,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PowerupSelectionPanel" type="Panel" parent="PlayerCamera/UI" node_paths=PackedStringArray("player")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -447,9 +449,28 @@ regen = 1.0
 script = ExtResource("12_0eov8")
 player = NodePath("..")
 
+[node name="LandAudio" type="AudioStreamPlayer" parent="PlayerJump"]
+stream = ExtResource("18_8d5av")
+volume_db = -20.0
+script = ExtResource("39_ea4fx")
+min_pitch = 0.9
+max_pitch = 1.1
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="PlayerJump"]
+stream = ExtResource("20_iblef")
+volume_db = -10.0
+script = ExtResource("39_ea4fx")
+min_pitch = 0.9
+max_pitch = 1.1
+
 [node name="Dash" parent="." node_paths=PackedStringArray("dasher") instance=ExtResource("8_kwvpd")]
 dasher = NodePath("..")
 dash_speed = 15.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Dash"]
+stream = ExtResource("22_iblef")
+volume_db = -20.0
+script = ExtResource("39_ea4fx")
 
 [node name="Powerups" type="Node3D" parent="."]
 
@@ -477,7 +498,7 @@ libraries = {
 
 [node name="FootstepAudio" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("player")]
 stream = ExtResource("15_d61i2")
-volume_db = -35.0
+volume_db = -32.0
 parameters/looping = false
 script = ExtResource("16_yx3jh")
 player = NodePath("..")
@@ -514,6 +535,8 @@ script = ExtResource("41_0yxml")
 [connection signal="died" from="Health" to="AnimationPlayer" method="play" binds= ["death"]]
 [connection signal="health_changed" from="Health" to="PlayerCamera/UI/MarginContainer/VBoxContainer/PlayerHealth" method="_on_health_health_changed"]
 [connection signal="cooldown_changed" from="Dash" to="PlayerCamera/UI/MarginContainer/VBoxContainer/DashCooldown" method="_on_dash_cooldown_changed"]
+[connection signal="dash_ended" from="Dash" to="PlayerCamera" method="_on_dash_dash_ended"]
+[connection signal="dash_started" from="Dash" to="PlayerCamera" method="_on_dash_dash_started"]
 [connection signal="exp_changed" from="Experience" to="PlayerCamera/UI/MarginContainer/VBoxContainer/Experience" method="_on_experience_exp_changed"]
 [connection signal="level_up" from="Experience" to="." method="_on_experience_level_up"]
 [connection signal="timeout" from="FootstepAudio/Timer" to="FootstepAudio" method="_on_timer_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfn0b01gyojor"
+path="res://.godot/imported/SWSH_Heavy Slower Whoosh Big Stick 01_GENE CHABAN_NONE.ogg-01d6acaf1882f1864e08b6706d44fc2b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/player/audio/SWSH_Heavy Slower Whoosh Big Stick 01_GENE CHABAN_NONE.ogg"
+dest_files=["res://.godot/imported/SWSH_Heavy Slower Whoosh Big Stick 01_GENE CHABAN_NONE.ogg-01d6acaf1882f1864e08b6706d44fc2b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
