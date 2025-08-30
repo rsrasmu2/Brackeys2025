@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkiopw2spm68u"]
+
+[ext_resource type="Script" uid="uid://ctj6phldnv1td" path="res://assets/environment/Level 2/lava_damage_area.gd" id="1_v2tks"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_niqym"]
+
+[node name="LavaDamageArea" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_v2tks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_niqym")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

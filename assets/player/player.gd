@@ -20,11 +20,20 @@ var is_dashing: bool:
 
 var _delta: float = 0
 var _target_velocity: Vector2
-var _in_air: bool = false
+var _in_air: bool = false:
+	set(value):
+		if _in_air == value:
+			return
+		_in_air = value
+		if _in_air:
+			_last_ground = global_position
+			_last_ground.y += 1
 var _is_firing: bool = false
 
 var gravity_effect: float = 0
 var knockback: Vector3 = Vector3.ZERO
+
+var _last_ground: Vector3
 
 @onready var timer_label: Label = $PlayerCamera/UI/TimerLabel
 
@@ -39,18 +48,21 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
-	if gravity_enabled:
-		if !is_on_floor():
-			_in_air = true
+	if !is_on_floor():
+		_in_air = true
+		if gravity_enabled:
 			if not is_dashing:
 				gravity_effect = GRAVITY
 			else:
 				gravity_effect = 0
 				velocity.y = 0
-		elif _in_air && is_on_floor():
-			_in_air = false
+		else:
 			gravity_effect = 0
 			velocity.y = 0
+	elif _in_air && is_on_floor():
+		_in_air = false
+		gravity_effect = 0
+		velocity.y = 0
 	
 	velocity.x = _target_velocity.x * (1 + current_dash_speed)
 	velocity.y -= gravity_effect * delta
@@ -103,3 +115,6 @@ func select_powerup(powerups: Array[PackedScene]) -> void:
 
 func display_prompt(text: String) -> void:
 	$PlayerCamera/UI/TeleporterPrompt.text = text
+
+func reset_position():
+	global_position = _last_ground

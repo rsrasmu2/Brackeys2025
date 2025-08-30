@@ -8,7 +8,6 @@ kanban-plugin: board
 
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
-- [ ] Spawn/Death animations
 - [ ] Fix Space
 - [ ] Pillars can push you through world
 
@@ -30,6 +29,7 @@ kanban-plugin: board
 
 - [ ] Add Angel of Death enemy
 - [ ] Destroy all spawners to unlock teleporter
+- [ ] Spawn/Death animations
 - [ ] Teleporter wave
 - [ ] Transition levels
 - [ ] Fix Pillar Enemy :(

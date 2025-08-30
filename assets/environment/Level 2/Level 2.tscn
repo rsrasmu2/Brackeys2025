@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_7cvne"]
 [ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/material_lava.tres" id="7_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="7_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://cq1q1dikf26fb" path="res://assets/environment/Level 2/music/volcano-loop_0_small.wav" id="8_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://be4hgxriayw25" path="res://assets/environment/Level 2/music/volcano-loop_1_small.wav" id="9_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/music/volcano-loop_00.wav" id="8_lf7xx"]
+[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/music/volcano-loop_11.wav" id="9_wsxtn"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="10_j3q2o"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="13_7718q"]
 
