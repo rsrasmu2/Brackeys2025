@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsc2wp5snegqx"]
+[gd_scene load_steps=17 format=3 uid="uid://dsc2wp5snegqx"]
 
 [ext_resource type="Script" uid="uid://bj16gs2irfmm7" path="res://assets/Teleporter/teleporter.gd" id="1_klco0"]
 [ext_resource type="PackedScene" uid="uid://gjawgs72y2up" path="res://assets/Teleporter/Teleporter.glb" id="1_t231b"]
-[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_27mgd"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_27mgd"]
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_rcu8r"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="4_02c12"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_18tl8"]
 [ext_resource type="PackedScene" uid="uid://6bml8sfklpnp" path="res://assets/spawner/beacon.tscn" id="7_rcu8r"]
+[ext_resource type="AudioStream" uid="uid://c5ipc4qnfil7p" path="res://assets/Teleporter/audio/Delay_Reveal_1.ogg" id="8_02c12"]
 
 [sub_resource type="Resource" id="Resource_m3mbd"]
 script = ExtResource("2_27mgd")
@@ -105,6 +106,11 @@ skeleton = NodePath("../..")
 [node name="Beacon2" parent="Beacons" instance=ExtResource("7_rcu8r")]
 skeleton = NodePath("../..")
 speed = 1.0
+
+[node name="ActiveAudio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_02c12")
+volume_db = -5.0
+unit_size = 50.0
 
 [connection signal="timeout" from="WaveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

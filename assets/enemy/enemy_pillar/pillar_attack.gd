@@ -5,7 +5,7 @@ extends Area3D
 @export var damage: int = 40
 @export var knockback: float = 20
 @export var rotation_rate: float = 360
-@export var recovery_rate: float = 60
+@export var recovery_rate: float = 80
 @export var facing_speed: float = 180
 
 var _return_angle: float = 0
@@ -68,6 +68,7 @@ func _on_end_detected(_body: Node3D) -> void:
 	set_deferred("monitoring", false)
 	$WaitTimer.start()
 	_returning = true
+	$AudioStreamPlayer3D.play_pitched()
 
 func slerp_forward(weight: float, from: Vector3, to: Vector3) -> void:
 	controller.look_at(controller.global_position + from.slerp(to, weight))

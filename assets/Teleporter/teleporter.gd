@@ -17,6 +17,8 @@ var active: bool = false:
 		active = value
 		$Area3D.monitoring = active
 		$Beacons.visible = active
+		if active:
+			$ActiveAudio.play()
 		set_process_input(active)
 
 var _began: bool = false

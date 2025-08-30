@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2s561k6oqkbv"]
+
+[ext_resource type="Script" uid="uid://c03o3n5qwovd8" path="res://assets/player/melee_attack.gd" id="1_ocjhf"]
+[ext_resource type="AudioStream" uid="uid://bya5mwnmbiucm" path="res://assets/player/audio/Whoosh 4-1.ogg" id="2_ocjhf"]
+[ext_resource type="AudioStream" uid="uid://3ibmkvupbkkj" path="res://assets/player/audio/Punch 2-1.ogg" id="3_du8dt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_op4fd"]
+radius = 1.5
+
+[node name="PlayerMelee" type="Node3D"]
+script = ExtResource("1_ocjhf")
+knockback = 15.0
+
+[node name="Delay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="MeleeAttackArea" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeAttackArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900981, -1.44853)
+shape = SubResource("SphereShape3D_op4fd")
+
+[node name="MeleeWoosh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ocjhf")
+volume_db = -20.0
+
+[node name="MeleeHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_du8dt")
+volume_db = -15.0

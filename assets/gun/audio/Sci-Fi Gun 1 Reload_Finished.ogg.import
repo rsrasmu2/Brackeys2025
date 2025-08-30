@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djmjmt11cg4pj"
+path="res://.godot/imported/Sci-Fi Gun 1 Reload_Finished.ogg-2861913b703b5fded569e1b7e194d5b4.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/gun/audio/Sci-Fi Gun 1 Reload_Finished.ogg"
+dest_files=["res://.godot/imported/Sci-Fi Gun 1 Reload_Finished.ogg-2861913b703b5fded569e1b7e194d5b4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

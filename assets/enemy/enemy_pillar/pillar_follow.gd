@@ -3,7 +3,7 @@ extends Node3D
 @export var controller: EnemyPillar
 @export var target: EnemyTarget
 
-@export var rotation_rate: float = 120
+@export var rotation_rate: float = 200
 @export var facing_speed: float = 180
 
 var _facing: bool = false
@@ -12,6 +12,8 @@ var _facing: bool = false
 
 @onready var _top: Area3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionTop"
 @onready var _bottom: Area3D = $"../MeshOrigin/Enemy_Pillar/EndDetectionBottom"
+
+@onready var _audio: PitchRandomizer3D = $AudioStreamPlayer3D
 
 var _detections: int = 0
 
@@ -51,6 +53,8 @@ func _on_end_top_detected(_body: Node3D) -> void:
 	_bottom.set_deferred("monitoring", true)
 	_facing = true
 	_to_test = _top
+	if not _audio.playing:
+		_audio.play_pitched()
 
 func _on_end_bottom_detected(_body: Node3D) -> void:
 	_detections += 1
@@ -58,6 +62,8 @@ func _on_end_bottom_detected(_body: Node3D) -> void:
 	_bottom.set_deferred("monitoring", false)
 	_facing = true
 	_to_test = _bottom
+	if not _audio.playing:
+		_audio.play_pitched()
 
 func enter() -> void:
 	_detections = 0

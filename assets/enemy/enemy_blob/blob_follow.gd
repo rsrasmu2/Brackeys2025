@@ -10,8 +10,8 @@ extends Node3D
 @export var y_max: float = 7.0
 
 var target_position: Vector3
-var speed: float = 4
-var ground_speed: float = 0.1
+var speed: float = 10
+var ground_speed: float = 0.2
 
 @export var animation_player: AnimationPlayer
 

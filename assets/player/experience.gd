@@ -11,8 +11,10 @@ signal level_up(level: int)
 
 var level: int = 1:
 	set(value):
-		level = value
-		emit_signal(level_up.get_name(), level)
+		if level != value:
+			level = value
+			$LevelUpAudio.play()
+			emit_signal(level_up.get_name(), level)
 
 var experience: int = 0:
 	set(value):

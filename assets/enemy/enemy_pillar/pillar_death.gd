@@ -6,10 +6,6 @@ extends Node3D
 func enter() -> void:
 	$"../CollisionShape3D".disabled = true
 	$"../GroundDetection".monitoring = false
-	$"../MeshOrigin/Enemy_Pillar/EndDetectionTop".monitoring = false
-	$"../MeshOrigin/Enemy_Pillar/EndDetectionBottom".monitoring = false
-	$"../MeshOrigin/Enemy_Pillar/SmashTopPosition/SmashDetection".monitoring = false
-	$"../PillarAttack".monitoring = false
 	health_bar.change_visibility = false
 	health_bar.visible = false
 	$Timer.start()

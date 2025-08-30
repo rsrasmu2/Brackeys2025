@@ -37,6 +37,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 	$ForceField/StaticBody3D/CollisionShape3D.disabled = true
 	if _spawned:
 		return
+	$ActivateAudio.play()
 	_spawned = true
 	var to_spawn := spawn_data[randi() % spawn_data.size()]
 	for enemy_scene: PackedScene in to_spawn.enemies:

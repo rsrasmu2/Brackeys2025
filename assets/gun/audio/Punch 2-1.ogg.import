@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbmmts7wpy8lg"
+path="res://.godot/imported/Punch 2-1.ogg-e2448c73eca5455609823f8c2947379e.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/gun/audio/Punch 2-1.ogg"
+dest_files=["res://.godot/imported/Punch 2-1.ogg-e2448c73eca5455609823f8c2947379e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -78,7 +78,7 @@ knockback = 10.0
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BlobAttack" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0657, 0.623727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11098, 0.499233)
 shape = SubResource("SphereShape3D_5nfcq")
 
 [node name="BlobDying" type="Node3D" parent="." index="12" node_paths=PackedStringArray("controller", "animation_player", "health_bar")]

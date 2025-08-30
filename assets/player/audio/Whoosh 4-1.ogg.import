@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bya5mwnmbiucm"
+path="res://.godot/imported/Whoosh 4-1.ogg-323cf471a8086fb25f55baaea7ba136d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/player/audio/Whoosh 4-1.ogg"
+dest_files=["res://.godot/imported/Whoosh 4-1.ogg-323cf471a8086fb25f55baaea7ba136d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

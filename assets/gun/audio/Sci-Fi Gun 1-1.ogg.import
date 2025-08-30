@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dkpf12ixnykxh"
+path="res://.godot/imported/Sci-Fi Gun 1-1.ogg-91c6f5e5ccc6bf2548afb2e7cb99d602.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/gun/audio/Sci-Fi Gun 1-1.ogg"
+dest_files=["res://.godot/imported/Sci-Fi Gun 1-1.ogg-91c6f5e5ccc6bf2548afb2e7cb99d602.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -16,11 +16,16 @@ enum GunState {
 }
 var _state: GunState = GunState.Idle
 
+@onready var animations: AnimationPlayer = $Animations
+
 const bullet_scene = preload("res://assets/bullet/bullet.tscn")
 @export var cooldown: float = 0.2:
 	set(value):
 		cooldown = value
 		$FireTimer.wait_time = cooldown
+		$FirePlayer.speed_scale = starting_cooldown / cooldown
+
+@onready var starting_cooldown: float = self.cooldown
 
 @export var bullet_speed: float = 60.0
 @export var bullet_damage: int = 30
@@ -101,6 +106,7 @@ func fire() -> void:
 	bullet.init(-bullet_spawner.global_basis.z * bullet_speed, bullet_damage, 0)
 	bullet.connect("hit", _on_bullet_hit)
 	current_ammo -= 1
+	$FirePlayer.play("fire")
 	emit_signal(fired.get_name(), bullet)
 
 func reload() -> void:
@@ -112,11 +118,13 @@ func reload() -> void:
 	_state = GunState.Reloading
 	$Animations.speed_scale = reload_speed_mult
 	$Animations.play("reload")
+	$ReloadBeganAudio.play_pitched()
 	emit_signal(started_reloading.get_name())
 
 func _on_reload_finished() -> void:
 	current_ammo = max_ammo
 	_state = GunState.Idle
+	$ReloadEndedAudio.play_pitched()
 	emit_signal(finished_reloading.get_name())
 	if _fire_held:
 		start_fire()

@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 		controller.state = controller.EnemyState.Following
 
 func enter() -> void:
+	$"../Enemy_Blob/AnimationPlayer".play("idle")
 	$Timer.wait_time = randf_range(_min_delay, _max_delay)
 	$Timer.start()
 	await $Timer.timeout

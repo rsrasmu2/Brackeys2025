@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=45 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -7,19 +7,19 @@
 [ext_resource type="Script" uid="uid://131tkdjps5ux" path="res://assets/player/player_camera.gd" id="2_tb4ck"]
 [ext_resource type="PackedScene" uid="uid://b4xojb6sb1hqf" path="res://assets/gun/gun.tscn" id="2_toylo"]
 [ext_resource type="Script" uid="uid://dmneh2j38qw20" path="res://assets/player/ui/ammo.gd" id="5_tb4ck"]
-[ext_resource type="Script" path="res://assets/player/player_health.gd" id="6_hai6l"]
+[ext_resource type="Script" uid="uid://bxa35uh3w2ebm" path="res://assets/player/player_health.gd" id="6_hai6l"]
 [ext_resource type="Script" uid="uid://b7jlf18wqxeuu" path="res://assets/player/dash_cooldown.gd" id="7_vlpqo"]
 [ext_resource type="PackedScene" uid="uid://bhn4indokfq4u" path="res://assets/player/ui/powerup_ui_element.tscn" id="8_4t7cd"]
 [ext_resource type="Script" uid="uid://rvgxv3xcsa5w" path="res://assets/player/ui/powerup_selection_panel.gd" id="8_apuko"]
-[ext_resource type="Script" path="res://assets/player/ui/experience.gd" id="8_eedlp"]
+[ext_resource type="Script" uid="uid://dvvy8pu8opy5k" path="res://assets/player/ui/experience.gd" id="8_eedlp"]
 [ext_resource type="PackedScene" uid="uid://bajfnk64q8mhi" path="res://assets/player/dash/dash.tscn" id="8_kwvpd"]
 [ext_resource type="PackedScene" uid="uid://dkp5y0u8pd54k" path="res://assets/common/health/health.tscn" id="9_m2mll"]
-[ext_resource type="Script" uid="uid://c03o3n5qwovd8" path="res://assets/player/melee_attack.gd" id="9_op4fd"]
+[ext_resource type="PackedScene" uid="uid://b2s561k6oqkbv" path="res://assets/player/melee/player_melee.tscn" id="11_evyxp"]
 [ext_resource type="Script" uid="uid://bs4jrpmg0ja0w" path="res://assets/player/player_jump.gd" id="12_0eov8"]
 [ext_resource type="PackedScene" uid="uid://qa66w5kam7ti" path="res://assets/common/knockback/knockback.tscn" id="14_g7aau"]
 [ext_resource type="AudioStream" uid="uid://dftkvc3ibxmev" path="res://assets/player/audio/footstep_concrete_001.ogg" id="15_d61i2"]
-[ext_resource type="Script" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
-[ext_resource type="Script" path="res://assets/player/experience.gd" id="17_u5y8p"]
+[ext_resource type="Script" uid="uid://vc8mtki3rrxx" path="res://assets/player/footstep_audio.gd" id="16_yx3jh"]
+[ext_resource type="Script" uid="uid://dge4ynit4megq" path="res://assets/player/experience.gd" id="17_u5y8p"]
 [ext_resource type="PackedScene" uid="uid://b8n63oj5ksfgy" path="res://assets/powerups/bullet_damage_powerup.tscn" id="18_uvut3"]
 [ext_resource type="PackedScene" uid="uid://dr5yq6eeaxiju" path="res://assets/powerups/bullet_knockback_powerup.tscn" id="19_eedlp"]
 [ext_resource type="PackedScene" uid="uid://crulthhr8iagk" path="res://assets/powerups/bullet_speed_powerup.tscn" id="20_khrko"]
@@ -36,12 +36,11 @@
 [ext_resource type="PackedScene" uid="uid://d4m1q4gjjcqp3" path="res://assets/powerups/melee_speed_powerup.tscn" id="31_qyqrj"]
 [ext_resource type="PackedScene" uid="uid://bmnsucck51f1f" path="res://assets/powerups/reload_speed_powerup.tscn" id="32_qtr3g"]
 [ext_resource type="PackedScene" uid="uid://cdhcmvavgclnj" path="res://assets/powerups/pickup_range_powerup.tscn" id="34_evyxp"]
+[ext_resource type="AudioStream" uid="uid://c3yq4obkncifg" path="res://assets/player/audio/Special Collectible 9-1.wav" id="35_tktwm"]
 [ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
+[ext_resource type="Script" uid="uid://dq7v65xnv6mge" path="res://assets/common/audio/pitch_randomizer.gd" id="39_ea4fx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_op4fd"]
-radius = 1.5
 
 [sub_resource type="Animation" id="Animation_vlpqo"]
 length = 0.001
@@ -342,22 +341,8 @@ grow_horizontal = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_hgb4b")
 
-[node name="PlayerMelee" type="Node3D" parent="." node_paths=PackedStringArray("gun")]
-script = ExtResource("9_op4fd")
-knockback = 15.0
+[node name="PlayerMelee" parent="." node_paths=PackedStringArray("gun") instance=ExtResource("11_evyxp")]
 gun = NodePath("../PlayerCamera/Gun")
-
-[node name="Timer" type="Timer" parent="PlayerMelee"]
-wait_time = 0.6
-one_shot = true
-
-[node name="MeleeAttackArea" type="Area3D" parent="PlayerMelee"]
-collision_layer = 16
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMelee/MeleeAttackArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900981, -1.44853)
-shape = SubResource("SphereShape3D_op4fd")
 
 [node name="MouseRotation" type="Node" parent="." node_paths=PackedStringArray("horizontal_rotator", "vertical_rotator")]
 script = ExtResource("1_d6veg")
@@ -389,6 +374,14 @@ body = NodePath("..")
 [node name="Experience" type="Node" parent="."]
 script = ExtResource("17_u5y8p")
 level_up_powerups = Array[PackedScene]([ExtResource("18_uvut3"), ExtResource("19_eedlp"), ExtResource("20_khrko"), ExtResource("21_evyxp"), ExtResource("22_ksgbb"), ExtResource("23_tktwm"), ExtResource("24_ea4fx"), ExtResource("25_iol0l"), ExtResource("26_0yxml"), ExtResource("27_3iv7w"), ExtResource("28_t54tc"), ExtResource("29_8d5av"), ExtResource("30_iblef"), ExtResource("31_qyqrj"), ExtResource("32_qtr3g"), ExtResource("34_evyxp")])
+
+[node name="LevelUpAudio" type="AudioStreamPlayer" parent="Experience"]
+process_mode = 3
+stream = ExtResource("35_tktwm")
+volume_db = -15.0
+script = ExtResource("39_ea4fx")
+min_pitch = 0.85
+max_pitch = 1.15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
