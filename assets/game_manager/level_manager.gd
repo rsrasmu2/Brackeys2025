@@ -39,7 +39,8 @@ func _input(event: InputEvent) -> void:
 		_player.display_prompt("")
 		bgm.fade_bgm()
 		set_process_input(false)
-		await $LevelTransitionTimer
+		$LevelTransitionTimer.start()
+		await $LevelTransitionTimer.timeout
 		emit_signal(level_finished.get_name())
 
 func start_level() -> void:

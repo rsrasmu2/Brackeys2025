@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkryc7dgyb7qh"
+path="res://.godot/imported/Cavern-loop_0_small.wav-874e97a250fdff89ba193b0818ab18ea.sample"
+
+[deps]
+
+source_file="res://assets/environment/Level 1/music/Cavern-loop_0_small.wav"
+dest_files=["res://.godot/imported/Cavern-loop_0_small.wav-874e97a250fdff89ba193b0818ab18ea.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

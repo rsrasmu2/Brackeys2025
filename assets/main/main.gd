@@ -18,6 +18,7 @@ func _ready() -> void:
 	start_level(current_level_index)
 
 func start_level(index: int) -> void:
+	get_tree().paused = true
 	if current_level != null:
 		current_level.queue_free()
 	current_level = levels[index].instantiate()
@@ -27,8 +28,11 @@ func start_level(index: int) -> void:
 func _on_level_loaded() -> void:
 	current_level.level_manager.connect("level_finished", _on_level_finished)
 	_player.global_transform = current_level.player_spawn.global_transform
+	_player.gravity_enabled = true
+	get_tree().paused = false
 
 func _on_level_finished() -> void:
+	_player.gravity_enabled = false
 	current_level_index += 1
 	if current_level_index < levels.size():
 		start_level(current_level_index)

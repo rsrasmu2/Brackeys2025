@@ -7,6 +7,8 @@ const FIRING_MULT: float = 0.7
 
 const GRAVITY: float = 9.8
 
+var gravity_enabled: bool = false
+
 var current_dash_speed: float = 0:
 	set(value):
 		if current_dash_speed != value:
@@ -37,17 +39,18 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
-	if !is_on_floor():
-		_in_air = true
-		if not is_dashing:
-			gravity_effect = GRAVITY
-		else:
+	if gravity_enabled:
+		if !is_on_floor():
+			_in_air = true
+			if not is_dashing:
+				gravity_effect = GRAVITY
+			else:
+				gravity_effect = 0
+				velocity.y = 0
+		elif _in_air && is_on_floor():
+			_in_air = false
 			gravity_effect = 0
 			velocity.y = 0
-	elif _in_air && is_on_floor():
-		_in_air = false
-		gravity_effect = 0
-		velocity.y = 0
 	
 	velocity.x = _target_velocity.x * (1 + current_dash_speed)
 	velocity.y -= gravity_effect * delta

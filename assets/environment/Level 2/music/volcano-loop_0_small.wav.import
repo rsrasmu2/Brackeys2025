@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvhqr8t8equoh"
+path="res://.godot/imported/volcano-loop_0_small.wav-a5432719cc8feab0fc3fe049f6935510.sample"
+
+[deps]
+
+source_file="res://assets/environment/Level 2/music/volcano-loop_0_small.wav"
+dest_files=["res://.godot/imported/volcano-loop_0_small.wav-a5432719cc8feab0fc3fe049f6935510.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

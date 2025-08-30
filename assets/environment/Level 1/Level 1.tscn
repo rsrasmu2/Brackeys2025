@@ -16,9 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="8_2jk75"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="14_6onxq"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="16_6bo4w"]
-[ext_resource type="AudioStream" uid="uid://cxisdflgo80ru" path="res://assets/environment/Level 1/music/Cavern-loop_beginning.wav" id="16_prlg3"]
-[ext_resource type="AudioStream" uid="uid://ckncu0c8qfwye" path="res://assets/environment/Level 1/music/Cavern-loop_0.wav" id="17_rggl3"]
-[ext_resource type="AudioStream" uid="uid://d4h4cpuuedjr2" path="res://assets/environment/Level 1/music/Cavern-loop_1.wav" id="18_gppu0"]
+[ext_resource type="AudioStream" uid="uid://ovgnmirw3shp" path="res://assets/environment/Level 1/music/Cavern-loop_beginning_small.wav" id="17_rggl3"]
+[ext_resource type="AudioStream" uid="uid://dkryc7dgyb7qh" path="res://assets/environment/Level 1/music/Cavern-loop_0_small.wav" id="18_gppu0"]
+[ext_resource type="AudioStream" uid="uid://b2ovh57owapkn" path="res://assets/environment/Level 1/music/Cavern-loop_1_small.wav" id="19_bscqe"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_tjxkh")
@@ -702,6 +702,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9159, -35.2321, 130.415)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.674, -49.138, 14.072)
 
 [node name="BgmPlayer" parent="." instance=ExtResource("16_6bo4w")]
-beginning = ExtResource("16_prlg3")
-base_loop = ExtResource("17_rggl3")
-intensity_1_loop = ExtResource("18_gppu0")
+beginning = ExtResource("17_rggl3")
+base_loop = ExtResource("18_gppu0")
+intensity_1_loop = ExtResource("19_bscqe")
