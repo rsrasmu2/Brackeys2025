@@ -1,9 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=35 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_adsbt"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_op4v3"]
-[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_4kwxg"]
 [ext_resource type="Material" uid="uid://dawkoxgb7ivul" path="res://assets/environment/Level 3/hdri_sky.tres" id="2_ek0wn"]
 [ext_resource type="PackedScene" uid="uid://cdvqk586bhteo" path="res://assets/environment/Level 3/Platform_rectangle.glb" id="2_op4v3"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_4kwxg"]
@@ -63,6 +63,34 @@ ambient_light_source = 3
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Resource" id="Resource_6u0bc"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_7si6j"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_7g1s0"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("5_adsbt")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_2tbgf"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc2d3"]
 size = Vector3(1000, 50, 1000)
 
@@ -112,26 +140,34 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -44, 105)
 
 [node name="SpawnerSpawner3" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186, 15, 0)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner4" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 45, -105)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner5" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 85, -215)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner8" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 125, -185)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 65, -170)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner7" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -125, 120, -310)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("14_227j0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -169, 50, 65)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("14_227j0")]
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubResource("Resource_7si6j"), SubResource("Resource_7g1s0"), SubResource("Resource_2tbgf")])
 
 [node name="Teleporter" parent="." instance=ExtResource("15_mtatn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)

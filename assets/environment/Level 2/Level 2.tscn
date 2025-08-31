@@ -107,6 +107,41 @@ spawn_chance = 0.0
 spawn_mult = 0.0
 metadata/_custom_type_script = "uid://ksdpmq0vtukg"
 
+[sub_resource type="Resource" id="Resource_s456o"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 1.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_mqcvn"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_633yj"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("5_7cvne"), ExtResource("3_5tnw1"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_5fpbf"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("5_7cvne"), ExtResource("5_7cvne"), ExtResource("5_7cvne")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_dkbkr"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_5tnw1")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niqym"]
 transparency = 1
 shading_mode = 0
@@ -351,6 +386,7 @@ spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubRe
 
 [node name="Teleporter" parent="." instance=ExtResource("13_7718q")]
 transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422, 49.0396, -71.2416)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_s456o"), SubResource("Resource_mqcvn"), SubResource("Resource_633yj"), SubResource("Resource_5fpbf"), SubResource("Resource_dkbkr")])
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_bdj47")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04691, 53.5167, -1.80717)
