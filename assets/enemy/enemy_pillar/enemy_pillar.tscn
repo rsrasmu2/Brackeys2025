@@ -16,10 +16,10 @@
 [ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="13_ch78y"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xmv3r"]
-radius = 0.3
+radius = 0.35
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_04hg2"]
-radius = 0.3
+radius = 0.35
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmv3r"]
 

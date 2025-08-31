@@ -56,8 +56,8 @@ func _physics_process(delta: float) -> void:
 			controller.state = controller.EnemyState.Idle
 		return
 	if len(get_overlapping_bodies()) > 1:
-		var angle := deg_to_rad(rotation_rate * 2) * delta
-		controller.rotate_object_local(_mesh.basis.x, angle)
+		var angle_a := deg_to_rad(rotation_rate * 2) * delta
+		controller.rotate_object_local(_mesh.basis.x, angle_a)
 		return
 	var angle := deg_to_rad(rotation_rate) * delta
 	controller.rotate_object_local(-_mesh.basis.x, angle)

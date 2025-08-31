@@ -22,8 +22,6 @@ func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
-	$"../NavigationAgent3D".target_position = target.target.global_position
-	next_position = $"../NavigationAgent3D".get_next_path_position()
 	if _facing:
 		var up_angle: float = _to_test.global_basis.y.signed_angle_to(Vector3.UP, _to_test.global_basis.x)
 		if abs(up_angle) < 0.05:
@@ -51,6 +49,8 @@ func _physics_process(delta: float) -> void:
 		controller.rotate_object_local(-_mesh.basis.x, deg_to_rad(rotation_rate) * delta)
 
 func _on_end_top_detected(_body: Node3D) -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	next_position = $"../NavigationAgent3D".get_next_path_position()
 	_detections += 1
 	_top.set_deferred("monitoring", false)
 	_bottom.set_deferred("monitoring", true)
@@ -60,6 +60,8 @@ func _on_end_top_detected(_body: Node3D) -> void:
 		_audio.play_pitched()
 
 func _on_end_bottom_detected(_body: Node3D) -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	next_position = $"../NavigationAgent3D".get_next_path_position()
 	_detections += 1
 	_top.set_deferred("monitoring", true)
 	_bottom.set_deferred("monitoring", false)
@@ -69,6 +71,8 @@ func _on_end_bottom_detected(_body: Node3D) -> void:
 		_audio.play_pitched()
 
 func enter() -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	next_position = $"../NavigationAgent3D".get_next_path_position()
 	_detections = 0
 	_facing = true
 	set_physics_process(true)
