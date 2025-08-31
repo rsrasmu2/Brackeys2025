@@ -3,10 +3,16 @@ extends Node3D
 @export var damage: int = 5
 @export var radius: float = 3
 
+const EXPLOSION_SCENE := preload("res://assets/common/explosion/explosion.tscn")
+
 func apply(bullet: Bullet) -> void:
 	bullet.connect("hit", _on_hit.bind(bullet))
 
 func _on_hit(_body: Node3D, bullet: Bullet) -> void:
+	var explosion := EXPLOSION_SCENE.instantiate()
+	explosion.init(radius)
+	get_tree().root.add_child(explosion)
+	explosion.global_position = bullet.global_position
 	var space := get_world_3d().direct_space_state
 	var shape := SphereShape3D.new()
 	shape.radius = radius
