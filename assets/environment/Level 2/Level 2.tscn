@@ -61,7 +61,6 @@ glow_enabled = true
 glow_intensity = 0.88
 fog_enabled = true
 fog_light_color = Color(0.356257, 0.31333, 0.27577, 1)
-fog_density = 0.005
 
 [sub_resource type="Gradient" id="Gradient_bqaky"]
 offsets = PackedFloat32Array(0.0518868, 0.731132)
