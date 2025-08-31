@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=41 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_46jxp"]
@@ -81,10 +81,13 @@ detail_sample_max_error = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niqym"]
 transparency = 1
+cull_mode = 2
+shading_mode = 0
 vertex_color_use_as_albedo = true
 vertex_color_is_srgb = true
 albedo_texture = ExtResource("16_wsxtn")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 8
 particles_anim_v_frames = 8
 particles_anim_loop = false
@@ -109,8 +112,7 @@ initial_velocity_max = 2.3
 angular_velocity_min = -50.0
 angular_velocity_max = 50.0
 gravity = Vector3(0, 0, 0)
-scale_min = 6.0
-scale_max = 8.0
+scale_max = 3.0
 color = Color(1, 0.369242, 0.143375, 1)
 color_ramp = SubResource("GradientTexture1D_niqym")
 anim_speed_min = 1.0
@@ -121,6 +123,39 @@ size = Vector2(4, 4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yyw42"]
 size = Vector3(1500, 50, 1500)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bqaky"]
+emission_shape = 3
+emission_box_extents = Vector3(300, 10, 300)
+initial_velocity_min = 3.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -5, 0)
+radial_accel_min = -4.0
+radial_accel_max = 4.0
+scale_max = 3.0
+
+[sub_resource type="Gradient" id="Gradient_bqaky"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0.537011, 0.537011, 0.537011, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yyw42"]
+gradient = SubResource("Gradient_bqaky")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yyw42"]
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_yyw42")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_5r4lw"]
+material = SubResource("StandardMaterial3D_yyw42")
+size = Vector2(0.1, 0.1)
 
 [node name="Environment_Level2" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
 script = ExtResource("1_46jxp")
@@ -573,3 +608,10 @@ script = ExtResource("19_bqaky")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
 shape = SubResource("BoxShape3D_yyw42")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 124, -65)
+amount = 4096
+lifetime = 4.2
+process_material = SubResource("ParticleProcessMaterial_bqaky")
+draw_pass_1 = SubResource("QuadMesh_5r4lw")
