@@ -23,6 +23,10 @@ signal cooldown_changed(cooldown: float)
 	set(value):
 		var new_charges: int = clamp(value, 0, max_charges)
 		remaining_charges = new_charges
+		if remaining_charges > 0:
+			$"../PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/DashCooldown/DashCharges".text = str(remaining_charges)
+		else:
+			$"../PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/DashCooldown/DashCharges".text = ""
 
 func _ready() -> void:
 	$DashTimer.wait_time = dash_duration

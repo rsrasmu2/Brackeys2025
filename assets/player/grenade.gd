@@ -27,7 +27,7 @@ func explode() -> void:
 	params.transform = transform
 	params.collision_mask = 4
 	var collisions := space.intersect_shape(params)
-	var rids = []
+	var rids: Array = []
 	for collision: Dictionary in collisions:
 		if rids.has(collision["rid"]):
 			continue

@@ -46,6 +46,8 @@ func _on_hit(body: Node3D, bullet: Bullet) -> void:
 				previous_position = collision.global_position
 				break
 			collisions.remove_at(rand_index)
+			if collisions.size() == 0:
+				return
 			rand_index = randi() % collisions.size()
 			collision = collisions[rand_index]["collider"]
 

@@ -15,12 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://duaxmey1w7bhw" path="res://assets/environment/Level 3/Platform_rectangle_donut.glb" id="11_h61ey"]
 [ext_resource type="AudioStream" uid="uid://b05t0qeiaxfp1" path="res://assets/environment/Level 3/music/space-loop_000.wav" id="13_6u0bc"]
 [ext_resource type="PackedScene" uid="uid://d4e5qdvu7qbax" path="res://assets/environment/Level 3/Platform_square_donut.glb" id="13_adsbt"]
+[ext_resource type="AudioStream" uid="uid://dqobfiupk5eg8" path="res://assets/environment/Level 3/music/space-loop_drum.wav" id="14_6u0bc"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="14_227j0"]
 [ext_resource type="AudioStream" uid="uid://cfnrcwtvccivr" path="res://assets/environment/Level 3/music/Space-loop_guitar.wav" id="15_6u0bc"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="15_mtatn"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="17_pkkug"]
 [ext_resource type="AudioStream" uid="uid://cf0jgiihr5ep2" path="res://assets/environment/Level 3/music/Space-loop_beginning2_16k.wav" id="18_vc2d3"]
-[ext_resource type="AudioStream" uid="uid://cxb8tps0h1m2p" path="res://assets/environment/Level 3/music/Space-loop_11_16k.wav" id="20_7si6j"]
 [ext_resource type="Script" uid="uid://cprsfrq3ai452" path="res://assets/environment/Level 3/killbox.gd" id="20_mnc8p"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
@@ -152,6 +152,7 @@ spawn_timer_min = 6.0
 spawn_timer_max = 8.0
 teleporter = NodePath("../Teleporter")
 bgm = NodePath("../BgmPlayer")
+_final_level = true
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("1_op4v3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -224.82, 71, -0.0455205)
@@ -216,9 +217,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
 spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_crvkn"), SubResource("Resource_5xtkw"), SubResource("Resource_mi1as"), SubResource("Resource_bcsk5"), SubResource("Resource_vppjk"), SubResource("Resource_75ij2")])
 
 [node name="BgmPlayer" parent="." instance=ExtResource("17_pkkug")]
+volume_db = -12.0
 beginning = ExtResource("18_vc2d3")
 base_loop = ExtResource("13_6u0bc")
-intensity_1_loop = ExtResource("20_7si6j")
+intensity_1_loop = ExtResource("14_6u0bc")
 intensity_2_loop = ExtResource("15_6u0bc")
 
 [node name="Killbox" type="Area3D" parent="."]
@@ -351,7 +353,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -120, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 25)
 
 [node name="Platform_bridge4" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 21, 40)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 40)
 
 [node name="Platform_bridge6" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, -40)
@@ -360,22 +362,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, -40)
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 35, 24, -65)
 
 [node name="Platform_bridge7" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.004, 21, -25.018)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 19, -25.018)
 
 [node name="Platform_bridge5" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 55)
 
 [node name="Platform_bridge9" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 21, 70)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 70)
 
 [node name="Platform_bridge10" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0, 21, 120)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19, 120)
 
 [node name="Platform_bridge11" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, -10, 21, 135)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 19, 135)
 
 [node name="Platform_bridge12" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, 100, 31, -65)
+transform = Transform3D(-4.37114e-08, 2.5411e-21, -1, 0, 1, 2.5411e-21, 1, 1.11075e-28, -4.37114e-08, 100, 29, -65)
 
 [node name="Platform_bridge25" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 40, 79, -80)
@@ -384,13 +386,13 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 40, 79, 
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, 1, 0, 4.37114e-08, 55, 79, -80)
 
 [node name="Platform_bridge13" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-7.54979e-08, -6.60024e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, 7.54979e-08, 115, 31, -65)
+transform = Transform3D(7.54979e-08, 2.11758e-21, 1, 0, 1, -2.11758e-21, -1, 1.59873e-28, 7.54979e-08, 115, 29, -65)
 
 [node name="Platform_bridge14" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, 130.007, 31, -64.99)
+transform = Transform3D(-4.37114e-08, 2.5411e-21, -1, 0, 1, 2.5411e-21, 1, 1.11075e-28, -4.37114e-08, 130.007, 29, -64.99)
 
 [node name="Platform_bridge15" parent="NavigationRegion3D/Platforms" instance=ExtResource("8_kf84u")]
-transform = Transform3D(-7.54979e-08, -6.60024e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, 7.54979e-08, 145, 31, -65)
+transform = Transform3D(7.54979e-08, 2.11758e-21, 1, 0, 1, -2.11758e-21, -1, 1.59873e-28, 7.54979e-08, 145, 29, -65)
 
 [node name="Platform_ramp18" parent="NavigationRegion3D/Platforms" instance=ExtResource("10_mtatn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -197.5, 69, 0)

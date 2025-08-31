@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://4hdasq5m51u7"]
+[gd_scene load_steps=59 format=3 uid="uid://4hdasq5m51u7"]
 
 [ext_resource type="Script" uid="uid://d0djxk6bebcvl" path="res://assets/player/mouse_rotation.gd" id="1_d6veg"]
 [ext_resource type="Script" uid="uid://dmbr33yr2d1ck" path="res://assets/player/player.gd" id="1_v2miy"]
@@ -50,6 +50,103 @@
 [ext_resource type="Script" uid="uid://ctd5ttf7cm6gp" path="res://assets/player/experience_gain_audio.gd" id="46_o3cdd"]
 [ext_resource type="Script" uid="uid://c361crpoy3us" path="res://assets/player/player_grenade.gd" id="47_qyqrj"]
 [ext_resource type="AudioStream" uid="uid://duuodmnoa8ht" path="res://assets/player/audio/experience-coin.ogg" id="49_o3cdd"]
+
+[sub_resource type="Animation" id="Animation_bisil"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Credits:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o3cdd"]
+resource_name = "credits"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.76667, 4.76667),
+"transitions": PackedFloat32Array(1, 1.51572, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -260), Vector2(0, -260)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.36667, 6.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Credits:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.43667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_akwsn"]
+_data = {
+&"RESET": SubResource("Animation_bisil"),
+&"credits": SubResource("Animation_o3cdd")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -336,8 +433,8 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -55.0
-offset_right = 108.0
+offset_top = -101.0
+offset_right = 122.0
 grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_bottom = 8
@@ -351,13 +448,14 @@ layout_mode = 2
 [node name="Ammo" type="Label" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("gun")]
 layout_mode = 2
 theme = ExtResource("5_o3cdd")
+theme_override_font_sizes/font_size = 24
 text = "12 / 12"
 script = ExtResource("5_tb4ck")
 gun = NodePath("../../../../../Gun")
 
 [node name="PlayerHealth" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("health")]
 self_modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 2
 value = 100.0
 show_percentage = false
@@ -365,17 +463,34 @@ script = ExtResource("6_hai6l")
 health = NodePath("../../../../../../Health")
 
 [node name="DashCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer"]
-self_modulate = Color(0.866667, 1, 1, 1)
-custom_minimum_size = Vector2(100, 20)
+self_modulate = Color(0.819608, 1, 1, 1)
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 2
 max_value = 1.0
 value = 1.0
 show_percentage = false
 script = ExtResource("7_vlpqo")
 
+[node name="DashCharges" type="Label" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/DashCooldown"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.225
+offset_top = -5.0
+offset_right = -4.22501
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("5_o3cdd")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Experience" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer" node_paths=PackedStringArray("experience")]
 self_modulate = Color(0, 1, 0, 1)
-custom_minimum_size = Vector2(100, 20)
+custom_minimum_size = Vector2(140, 30)
 layout_mode = 2
 max_value = 1.0
 show_percentage = false
@@ -384,7 +499,7 @@ experience = NodePath("../../../../../../Experience")
 
 [node name="GrenadeCooldown" type="ProgressBar" parent="PlayerCamera/UI/MarginContainer/HBoxContainer" node_paths=PackedStringArray("player_grenade_timer")]
 modulate = Color(0, 1, 1, 1)
-custom_minimum_size = Vector2(10, 68)
+custom_minimum_size = Vector2(30, 98)
 layout_mode = 2
 size_flags_vertical = 8
 value = 100.0
@@ -400,9 +515,11 @@ offset_bottom = 40.0
 
 [node name="PowerupSelectionPanel" type="Panel" parent="PlayerCamera/UI" node_paths=PackedStringArray("player")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_apuko")
@@ -410,9 +527,15 @@ player = NodePath("../../..")
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerCamera/UI/PowerupSelectionPanel"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -302.0
+offset_right = 454.0
+offset_bottom = 302.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_top = 40
@@ -429,7 +552,6 @@ horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerCamera/UI/PowerupSelectionPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 0
@@ -474,7 +596,6 @@ mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
 [node name="TransitionRect" type="ColorRect" parent="PlayerCamera/UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,9 +615,39 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_o3cdd")
 theme_override_font_sizes/font_size = 48
-text = "You got the buscuit!"
+text = "You got the biscuit!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="PlayerCamera/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -10.5
+offset_right = 0.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_o3cdd")
+theme_override_font_sizes/font_size = 32
+text = "Programming:
+Robert Rasmussen
+
+Art:
+Max Williams
+
+Music:
+Dacotah Salamandra"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCamera/UI"]
+libraries = {
+&"": SubResource("AnimationLibrary_akwsn")
+}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -517,6 +668,7 @@ script = ExtResource("2_h6syq")
 target = NodePath("..")
 
 [node name="Health" parent="." instance=ExtResource("9_m2mll")]
+max_health = 1000000
 regen = 1.0
 
 [node name="PlayerJump" type="Node" parent="." node_paths=PackedStringArray("player")]

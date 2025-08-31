@@ -12,6 +12,9 @@ var gravity_enabled: bool = false
 @onready var transition_rect := $PlayerCamera/UI/TransitionRect
 @onready var timer_label := $PlayerCamera/UI/TimerLabel
 @onready var victory_label := $PlayerCamera/UI/Label2
+@onready var credits_player := $PlayerCamera/UI/AnimationPlayer
+
+var shields: Array[ShieldPowerup] = []
 
 var current_dash_speed: float = 0:
 	set(value):
@@ -136,9 +139,9 @@ func reset_position() -> void:
 	velocity.y = 0
 
 func transition_out() -> void:
-	var tween = create_tween()
+	var tween := create_tween()
 	tween.tween_property($PlayerCamera/UI/TransitionRect, "color:a", 1.0, 1.0).set_ease(Tween.EASE_IN)
 
 func transition_in() -> void:
-	var tween = create_tween()
+	var tween := create_tween()
 	tween.tween_property($PlayerCamera/UI/TransitionRect, "color:a", 0.0, 0.6).set_ease(Tween.EASE_IN)

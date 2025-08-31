@@ -29,3 +29,7 @@ func _on_level_finished() -> void:
 		load_level(current_level_index)
 	else:
 		_player.victory_label.visible = true
+		_player.transition_out()
+		$EndGameTimer.start()
+		await $EndGameTimer.timeout
+		_player.credits_player.play("credits")

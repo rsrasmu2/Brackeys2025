@@ -14,3 +14,7 @@ levels = Array[PackedScene]([ExtResource("1_xch4i"), ExtResource("3_j84mu"), Ext
 [node name="Player" parent="." instance=ExtResource("5_yti63")]
 
 [node name="Explosion" parent="." instance=ExtResource("6_xajwi")]
+
+[node name="EndGameTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

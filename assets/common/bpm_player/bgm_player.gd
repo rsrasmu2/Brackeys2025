@@ -3,7 +3,7 @@ extends Node
 
 @export var autoplay: bool = true
 
-@export var volume_db: float = -18
+@export var volume_db: float = -16
 @export var fade_in_time: float = 2.0
 @export var fade_out_time: float = 8.0
 
@@ -17,6 +17,12 @@ const MUTE_VOLUME: float = -80
 var tween: Tween
 
 func _ready() -> void:
+	if not OS.has_feature("web"):
+		$Beginning.playback_type = AudioServer.PlaybackType.PLAYBACK_TYPE_DEFAULT
+		$BaseLoop.playback_type = AudioServer.PlaybackType.PLAYBACK_TYPE_DEFAULT
+		$Level1.playback_type = AudioServer.PlaybackType.PLAYBACK_TYPE_DEFAULT
+		$Level2.playback_type = AudioServer.PlaybackType.PLAYBACK_TYPE_DEFAULT
+	
 	if not autoplay:
 		return
 	

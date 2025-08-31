@@ -33,15 +33,19 @@ script = ExtResource("1_6xipf")
 [node name="Beginning" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_l2wqm")
 volume_db = -20.0
+playback_type = 2
 
 [node name="BaseLoop" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_83q4h")
 volume_db = -20.0
+playback_type = 2
 
 [node name="Level1" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_rm0e1")
 volume_db = -20.0
+playback_type = 2
 
 [node name="Level2" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamWAV_h61ey")
 volume_db = -20.0
+playback_type = 2

@@ -17,6 +17,8 @@ extends Node3D
 
 @onready var _spawners_remaining: int = self.spawners_to_keep
 
+@export var _final_level: bool = false
+
 var _level_finished: bool = false
 
 signal level_finished
@@ -36,7 +38,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("activate"):
 		_player.display_prompt("")
-		bgm.fade_bgm()
+		if not _final_level:
+			bgm.fade_bgm()
 		set_process_input(false)
 		_player.transition_out()
 		$LevelTransitionTimer.start()
