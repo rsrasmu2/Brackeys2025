@@ -91,6 +91,9 @@ func _on_gun_firing_changed(is_firing: bool) -> void:
 func take_damage(amount: int, knockback_amount: Vector3, _source: Node) -> void:
 	$Health.health -= amount
 	$Knockback.add_knockback(knockback_amount)
+	var tween = create_tween()
+	tween.tween_property($PlayerCamera/UI/HurtRect, "color:a", 0.2, 0.05)
+	tween.tween_property($PlayerCamera/UI/HurtRect, "color:a", 0.0, 0.1)
 
 func add_status_effect(effect: Node) -> void:
 	$StatusEffects.add_child(effect)
