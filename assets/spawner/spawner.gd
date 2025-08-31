@@ -59,6 +59,8 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 			enemy.global_position = result["position"]
 			enemy.look_at(_player.global_position, Vector3.UP, true)
 			enemy.spawn()
+		$SpawnStagger.start()
+		await $SpawnStagger.timeout
 
 
 func _on_area_3d_body_exited(_body: Node3D) -> void:

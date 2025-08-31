@@ -10,7 +10,7 @@ extends Node3D
 @export var y_max: float = 7.0
 
 var target_position: Vector3
-var speed: float = 16
+var speed: float = 14
 var ground_speed: float = 0.2
 
 var pathfinding_position: Vector3
@@ -24,10 +24,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	controller.look_at(target.target.global_position, Vector3.UP, true)
 
-func _physics_process(_delta: float) -> void:
-	$"../NavigationAgent3D".target_position = target.target.global_position
-
 func enter() -> void:
+	$Timer.wait_time = randf() * 0.2
+	$Timer.start()
+	await $Timer.timeout
+	if controller.state != controller.EnemyState.Following:
+		return
 	$"../NavigationAgent3D".target_position = target.target.global_position
 	set_physics_process(true)
 	set_process(true)
@@ -42,6 +44,7 @@ func exit() -> void:
 	controller.target_velocity.z = 0
 
 func begin_walk() -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
 	pathfinding_position = $"../NavigationAgent3D".get_next_path_position()
 	var displacement: Vector3 = pathfinding_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed

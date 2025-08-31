@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## Not Started
 
-- [ ] Lava Damage
 - [ ] Scale difficulty over time
 
 
@@ -24,6 +23,7 @@ kanban-plugin: board
 ## Completed
 
 - [ ] Add Angel of Death enemy
+- [ ] Lava Damage
 - [ ] Destroy all spawners to unlock teleporter
 - [ ] Spawn/Death animations
 - [ ] Teleporter wave

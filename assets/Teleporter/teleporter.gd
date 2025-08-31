@@ -83,6 +83,8 @@ func _spawn_enemies() -> void:
 			enemy.global_position = result["position"]
 			enemy.look_at(_player.global_position, Vector3.UP, true)
 			enemy.spawn()
+		$SpawnStagger.start()
+		await $SpawnStagger.timeout
 
 
 func _on_wave_cooldown_timeout() -> void:
