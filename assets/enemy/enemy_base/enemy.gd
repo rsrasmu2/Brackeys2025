@@ -79,5 +79,4 @@ func _on_health_died() -> void:
 		orb.init(experience)
 		get_tree().root.add_child(orb)
 		orb.global_position = global_position
-	invulnerable = true
 	state = EnemyState.Dying

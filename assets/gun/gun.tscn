@@ -86,10 +86,10 @@ tracks/1/path = NodePath("GunMesh:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.68, 0.85, 1.12, 1.39, 1.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.68, 0.85, 1.12, 1.17768, 1.22434, 1.26773, 1.30788, 1.34694, 1.39, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.977384, 0, 0), Vector3(1.07512, 0, 0), Vector3(1.07512, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.5708, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0.977384, 0, 0), Vector3(1.07512, 0, 0), Vector3(1.07512, 0, 0), Vector3(1.5708, 0, 0), Vector3(1.5708, 2.44346, 0), Vector3(1.5708, 4.88692, 0), Vector3(1.5708, 6.28319, 0), Vector3(1.5708, 8.37758, 0), Vector3(1.5708, 10.472, 0), Vector3(1.5708, 12.5664, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ybdq"]

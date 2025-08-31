@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=36 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_6bo4w"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
@@ -15,9 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://bi24jhs15gc30" path="res://assets/environment/Level 1/decoration/Cave_vine.glb" id="7_2r83h"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="8_2jk75"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="14_6onxq"]
+[ext_resource type="Resource" uid="uid://gc6bb2xmqqai" path="res://assets/environment/Level 1/spawner_data/SpawnerData1.tres" id="15_hdv2j"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="16_6bo4w"]
+[ext_resource type="Resource" uid="uid://d2lnn0otm5i5p" path="res://assets/environment/Level 1/spawner_data/SpawnerData2.tres" id="16_n1i2h"]
 [ext_resource type="AudioStream" uid="uid://bujdit5kyvit3" path="res://assets/environment/Level 1/music/CAVERN-loop_beginning2.wav" id="17_rggl3"]
+[ext_resource type="Resource" uid="uid://bbwj0l0dvdnwl" path="res://assets/environment/Level 1/spawner_data/SpawnerData3.tres" id="17_wjav2"]
+[ext_resource type="Resource" uid="uid://dwwf1nbuptjc5" path="res://assets/environment/Level 1/spawner_data/SpawnerData4.tres" id="18_b6xhv"]
 [ext_resource type="AudioStream" uid="uid://c1qxfd4s3dfs6" path="res://assets/environment/Level 1/music/CAVERN-loop_00.wav" id="18_gppu0"]
+[ext_resource type="Resource" uid="uid://neh4k1q43wsc" path="res://assets/environment/Level 1/spawner_data/SpawnerData5.tres" id="19_5qy7f"]
 [ext_resource type="AudioStream" uid="uid://calokhan0x2nv" path="res://assets/environment/Level 1/music/CAVERN-loop_11.wav" id="19_bscqe"]
 [ext_resource type="AudioStream" uid="uid://knirq1r8p7er" path="res://assets/environment/Level 1/music/CAVERN-loop_guitar.wav" id="20_gppu0"]
 [ext_resource type="Script" uid="uid://cprsfrq3ai452" path="res://assets/environment/Level 3/killbox.gd" id="21_bscqe"]
@@ -693,6 +698,7 @@ transform = Transform3D(-3.36936, 0, 3.23494, 0, 4.67092, 0, -3.23494, 0, -3.369
 
 [node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.421, -13.8748, 126.318)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.973, -32.6216, -134.043)
