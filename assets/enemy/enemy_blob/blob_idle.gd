@@ -26,7 +26,7 @@ func enter() -> void:
 	$Timer.wait_time = randf_range(_min_delay, _max_delay)
 	$Timer.start()
 	await $Timer.timeout
-	if controller.state != controller.EnemyState.Dying:
+	if controller.state == controller.EnemyState.Idle:
 		set_process(true)
 
 func exit() -> void:

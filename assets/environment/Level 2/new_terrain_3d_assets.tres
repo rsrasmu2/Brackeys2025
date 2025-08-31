@@ -6,6 +6,7 @@
 
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_7ilsx"]
 name = "Obsidian"
+enabled = false
 scene_file = ExtResource("1_opwv8")
 density = 0.115458
 last_lod = 0
