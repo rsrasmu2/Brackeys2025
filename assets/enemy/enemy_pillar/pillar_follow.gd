@@ -16,15 +16,18 @@ var _facing: bool = false
 @onready var _audio: PitchRandomizer3D = $AudioStreamPlayer3D
 
 var _detections: int = 0
+var next_position: Vector3
 
 func _ready() -> void:
 	set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	next_position = $"../NavigationAgent3D".get_next_path_position()
 	if _facing:
 		var up_angle: float = _to_test.global_basis.y.signed_angle_to(Vector3.UP, _to_test.global_basis.x)
 		if abs(up_angle) < 0.05:
-			var displacement := target.target.global_position - _to_test.global_position
+			var displacement := next_position - _to_test.global_position
 			displacement.y = 0
 			var direction := displacement.normalized()
 			var angle: float = (-_to_test.global_basis.z).signed_angle_to(direction, _to_test.global_basis.y)

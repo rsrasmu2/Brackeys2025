@@ -28,12 +28,14 @@ var _in_air: bool = false:
 		if _in_air:
 			_last_ground = global_position
 			_last_ground.y += 1
+			_last_grounded_velocity = velocity
 var _is_firing: bool = false
 
 var gravity_effect: float = 0
 var knockback: Vector3 = Vector3.ZERO
 
 var _last_ground: Vector3
+var _last_grounded_velocity: Vector3
 
 @onready var timer_label: Label = $PlayerCamera/UI/TimerLabel
 
@@ -119,4 +121,8 @@ func display_prompt(text: String) -> void:
 	$PlayerCamera/UI/TeleporterPrompt.text = text
 
 func reset_position() -> void:
-	global_position = _last_ground
+	var displacement := -_last_grounded_velocity * 0.05
+	displacement.y = 0
+	global_position = _last_ground + displacement
+	global_position.y += 0.5
+	velocity.y = 0

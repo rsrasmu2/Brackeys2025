@@ -25,7 +25,7 @@ func explode() -> void:
 			other.take_damage(damage, Vector3.ZERO, self)
 	queue_free()
 
-func _on_body_entered(body: Node3D) -> void:
+func _on_body_entered(_body: Node3D) -> void:
 	explode()
 
 func _physics_process(delta: float) -> void:

@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var damage: int = 10
-@export var radius: float = 5
+@export var damage: int = 5
+@export var radius: float = 3
 
 func apply(bullet: Bullet) -> void:
 	bullet.connect("hit", _on_hit.bind(bullet))

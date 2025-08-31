@@ -19,7 +19,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if OS.has_feature("web"):
-		var pixel_ratio = JavaScriptBridge.eval("window.devicePixelRatio")
+		var pixel_ratio: float = JavaScriptBridge.eval("window.devicePixelRatio")
 		adjusted_sensitivity = mouse_sensitivity / pixel_ratio
 	else:
 		adjusted_sensitivity = mouse_sensitivity

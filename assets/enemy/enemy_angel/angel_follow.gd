@@ -11,19 +11,23 @@ var speed: float = 6
 
 @onready var _sqr_attack_range: float = attack_range * attack_range
 
+var target_position: Vector3
+
 func _ready() -> void:
 	set_process(false)
 	set_physics_process(false)
 
 func _process(delta: float) -> void:
-	var direction := (target.target.global_position - global_position).normalized()
+	var direction := (target_position - global_position).normalized()
 	var slerped: Vector3 = (-$"../AngelModel".global_basis.z).slerp(direction, delta * rotation_speed)
 	if slerped.length_squared() < 0.3 or slerped.angle_to(Vector3.UP) < 0.1:
 		return
 	$"../AngelModel".look_at($"../AngelModel".global_position + slerped)
 
 func _physics_process(_delta: float) -> void:
-	var displacement: Vector3 = target.target.global_position - global_position
+	$"../NavigationAgent3D".target_position = target.target.global_position
+	target_position = $"../NavigationAgent3D".get_next_path_position()
+	var displacement: Vector3 = target_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 	controller.target_velocity.x = velocity.x
 	controller.target_velocity.z = velocity.y
