@@ -28,6 +28,7 @@ func _physics_process(_delta: float) -> void:
 	$"../NavigationAgent3D".target_position = target.target.global_position
 
 func enter() -> void:
+	$"../NavigationAgent3D".target_position = target.target.global_position
 	set_physics_process(true)
 	set_process(true)
 	animation_player.connect(animation_player.animation_finished.get_name(), _on_animation_finished)
