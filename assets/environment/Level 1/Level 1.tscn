@@ -1,10 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=40 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_6bo4w"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_ykeuu"]
 [ext_resource type="Terrain3DAssets" uid="uid://bnvwa0a6amk01" path="res://assets/environment/Level 1/new_terrain_3d_assets.tres" id="2_llb3a"]
-[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
+[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_tjxkh"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cfjfy34eyp06i" path="res://assets/environment/Level 1/textures/new_terrain_3d_material.tres" id="2_x44cq"]
 [ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="3_6onxq"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_26yi2"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://calokhan0x2nv" path="res://assets/environment/Level 1/music/CAVERN-loop_11.wav" id="19_bscqe"]
 [ext_resource type="AudioStream" uid="uid://knirq1r8p7er" path="res://assets/environment/Level 1/music/CAVERN-loop_guitar.wav" id="20_gppu0"]
 [ext_resource type="Script" uid="uid://cprsfrq3ai452" path="res://assets/environment/Level 3/killbox.gd" id="21_bscqe"]
+[ext_resource type="Texture2D" uid="uid://buucc56nt0yej" path="res://assets/common/explosion/Petal_particle.png" id="27_n1i2h"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_tjxkh")
@@ -88,6 +89,41 @@ agent_max_slope = 60.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bscqe"]
 size = Vector3(500, 50, 500)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wjav2"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 5, 200)
+angle_min = -90.0
+angle_max = 90.0
+spread = 78.582
+initial_velocity_min = 3.0
+initial_velocity_max = 20.0
+angular_velocity_min = -50.5
+angular_velocity_max = 120.0
+gravity = Vector3(0, -9, 0)
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+damping_min = 4.0
+damping_max = 6.0
+scale_max = 3.0
+turbulence_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b6xhv"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("27_n1i2h")
+emission_enabled = true
+emission_texture = ExtResource("27_n1i2h")
+backlight = Color(0.532696, 0.784254, 0.884712, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_5qy7f"]
+material = SubResource("StandardMaterial3D_b6xhv")
+size = Vector2(0.3, 0.3)
 
 [node name="Environment_Level1" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
 script = ExtResource("1_6bo4w")
@@ -736,3 +772,11 @@ script = ExtResource("21_bscqe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
 shape = SubResource("BoxShape3D_bscqe")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35092, 18.523, 14.3019)
+amount = 8000
+lifetime = 20.0
+visibility_aabb = AABB(-260.532, -189.946, -258.504, 539.003, 210.587, 502.815)
+process_material = SubResource("ParticleProcessMaterial_wjav2")
+draw_pass_1 = SubResource("QuadMesh_5qy7f")
