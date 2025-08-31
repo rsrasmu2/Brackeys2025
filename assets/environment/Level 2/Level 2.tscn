@@ -273,6 +273,7 @@ environment = SubResource("Environment_3lvef")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98, 91, -19)
 amount = 5000
 lifetime = 5.0
+visibility_aabb = AABB(-277.272, -127.482, -260.501, 556.749, 147.63, 524.297)
 process_material = SubResource("ParticleProcessMaterial_s456o")
 draw_pass_1 = SubResource("QuadMesh_dkbkr")
 
