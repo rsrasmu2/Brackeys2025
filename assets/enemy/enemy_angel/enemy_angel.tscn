@@ -91,6 +91,7 @@ state_nodes = {
 }
 knockback_node = NodePath("Knockback")
 animation_player = NodePath("AngelModel/AnimationPlayer")
+experience = 50
 
 [node name="GroundCollider" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

@@ -197,6 +197,7 @@ _data = {
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4ug"]
 blend_mode = 1
 shading_mode = 0
+disable_fog = true
 albedo_color = Color(0.365571, 0.889852, 0.800051, 1)
 albedo_texture = ExtResource("3_hw43a")
 billboard_mode = 3
