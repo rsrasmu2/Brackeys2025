@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SpawnData" load_steps=4 format=3 uid="uid://d2lnn0otm5i5p"]
+
+[ext_resource type="PackedScene" uid="uid://c5j1emi08g0ma" path="res://assets/enemy/enemy_blob/variations/cave_blob.tscn" id="1_jtye5"]
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="2_vb53m"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="3_ptvga"]
+
+[resource]
+script = ExtResource("3_ptvga")
+enemies = Array[PackedScene]([ExtResource("1_jtye5"), ExtResource("1_jtye5"), ExtResource("1_jtye5"), ExtResource("1_jtye5"), ExtResource("2_vb53m"), ExtResource("2_vb53m")])
+spawn_chance = 0.0
+spawn_mult = 1.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"

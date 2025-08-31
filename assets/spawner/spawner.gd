@@ -1,7 +1,7 @@
 class_name Spawner
 extends StaticBody3D
 
-@export var spawn_data: Array[SpawnData]
+var spawn_data: Array[SpawnData]
 @export var spawn_distance_min: float = 5.0
 @export var spawn_distance_max: float = 15.0
 
