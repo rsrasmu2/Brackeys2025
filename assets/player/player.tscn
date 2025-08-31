@@ -47,9 +47,9 @@
 [ext_resource type="AudioStream" uid="uid://c3yq4obkncifg" path="res://assets/player/audio/Special Collectible 9-1.wav" id="35_tktwm"]
 [ext_resource type="Script" uid="uid://1dfn0dx1ewrn" path="res://assets/player/orb_pickup.gd" id="36_khrko"]
 [ext_resource type="Script" uid="uid://dq7v65xnv6mge" path="res://assets/common/audio/pitch_randomizer.gd" id="39_ea4fx"]
-[ext_resource type="AudioStream" uid="uid://cmxn0qfuwcgtt" path="res://assets/player/audio/Retro PickUp Coin 04.ogg" id="40_iol0l"]
-[ext_resource type="Script" uid="uid://nifs6rg4yn7w" path="res://assets/common/audio/pitch_randomizer_3d.gd" id="41_0yxml"]
+[ext_resource type="Script" uid="uid://ctd5ttf7cm6gp" path="res://assets/player/experience_gain_audio.gd" id="46_o3cdd"]
 [ext_resource type="Script" uid="uid://c361crpoy3us" path="res://assets/player/player_grenade.gd" id="47_qyqrj"]
+[ext_resource type="AudioStream" uid="uid://duuodmnoa8ht" path="res://assets/player/audio/experience-coin.ogg" id="49_o3cdd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hgb4b"]
 
@@ -515,6 +515,15 @@ body = NodePath("..")
 script = ExtResource("17_u5y8p")
 level_up_powerups = Array[PackedScene]([ExtResource("18_uvut3"), ExtResource("19_eedlp"), ExtResource("20_khrko"), ExtResource("21_evyxp"), ExtResource("22_ksgbb"), ExtResource("23_tktwm"), ExtResource("24_ea4fx"), ExtResource("25_iol0l"), ExtResource("26_0yxml"), ExtResource("27_3iv7w"), ExtResource("28_t54tc"), ExtResource("29_8d5av"), ExtResource("30_iblef"), ExtResource("31_qyqrj"), ExtResource("32_qtr3g"), ExtResource("34_evyxp")])
 
+[node name="ExperienceGainAudio" type="AudioStreamPlayer" parent="Experience" node_paths=PackedStringArray("experience")]
+process_mode = 3
+stream = ExtResource("49_o3cdd")
+volume_db = -15.0
+script = ExtResource("46_o3cdd")
+experience = NodePath("..")
+min_pitch = 0.5
+max_pitch = 2.0
+
 [node name="LevelUpAudio" type="AudioStreamPlayer" parent="Experience"]
 process_mode = 3
 stream = ExtResource("35_tktwm")
@@ -547,12 +556,6 @@ experience = NodePath("../Experience")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OrbPickup"]
 shape = SubResource("SphereShape3D_eedlp")
-
-[node name="ExpGainAudio" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("40_iol0l")
-volume_db = -30.0
-max_polyphony = 3
-script = ExtResource("41_0yxml")
 
 [connection signal="bullet_hit" from="PlayerCamera/Gun" to="PlayerCamera/UI/Crosshair/HitMarker" method="hit"]
 [connection signal="current_ammo_changed" from="PlayerCamera/Gun" to="PlayerCamera/UI/MarginContainer/HBoxContainer/VBoxContainer/Ammo" method="_on_gun_current_ammo_changed"]
