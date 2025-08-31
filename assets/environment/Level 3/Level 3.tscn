@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cfy8jbs26lqay"]
+[gd_scene load_steps=41 format=3 uid="uid://cfy8jbs26lqay"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_adsbt"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_jgoy7"]
@@ -91,6 +91,48 @@ spawn_chance = 0.0
 spawn_mult = 0.0
 metadata/_custom_type_script = "uid://ksdpmq0vtukg"
 
+[sub_resource type="Resource" id="Resource_crvkn"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_5xtkw"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_mi1as"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("5_adsbt")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_bcsk5"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_vppjk"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("5_adsbt"), ExtResource("5_adsbt"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_75ij2"]
+script = ExtResource("2_4kwxg")
+enemies = Array[PackedScene]([ExtResource("5_adsbt"), ExtResource("3_4kwxg"), ExtResource("3_4kwxg"), ExtResource("3_h61ey"), ExtResource("3_h61ey"), ExtResource("3_h61ey")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_vc2d3"]
 size = Vector3(1000, 50, 1000)
 
@@ -171,6 +213,7 @@ spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_6u0bc"), SubRe
 
 [node name="Teleporter" parent="." instance=ExtResource("15_mtatn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
+spawn_data = Array[ExtResource("2_4kwxg")]([SubResource("Resource_crvkn"), SubResource("Resource_5xtkw"), SubResource("Resource_mi1as"), SubResource("Resource_bcsk5"), SubResource("Resource_vppjk"), SubResource("Resource_75ij2")])
 
 [node name="BgmPlayer" parent="." instance=ExtResource("17_pkkug")]
 beginning = ExtResource("18_vc2d3")
