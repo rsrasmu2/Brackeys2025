@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpeceg08wwn2n"]
+[gd_scene load_steps=31 format=3 uid="uid://bpeceg08wwn2n"]
 
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_6bo4w"]
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_tjxkh"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://bujdit5kyvit3" path="res://assets/environment/Level 1/music/CAVERN-loop_beginning2.wav" id="17_rggl3"]
 [ext_resource type="AudioStream" uid="uid://c1qxfd4s3dfs6" path="res://assets/environment/Level 1/music/CAVERN-loop_00.wav" id="18_gppu0"]
 [ext_resource type="AudioStream" uid="uid://calokhan0x2nv" path="res://assets/environment/Level 1/music/CAVERN-loop_11.wav" id="19_bscqe"]
+[ext_resource type="AudioStream" uid="uid://knirq1r8p7er" path="res://assets/environment/Level 1/music/CAVERN-loop_guitar.wav" id="20_gppu0"]
+[ext_resource type="Script" uid="uid://cprsfrq3ai452" path="res://assets/environment/Level 3/killbox.gd" id="21_bscqe"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_tjxkh")
@@ -79,6 +81,9 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Arr
 agent_max_climb = 0.5
 agent_max_slope = 60.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bscqe"]
+size = Vector3(500, 50, 500)
+
 [node name="Environment_Level1" type="Node3D" node_paths=PackedStringArray("level_manager", "player_spawn")]
 script = ExtResource("1_6bo4w")
 level_manager = NodePath("LevelManager")
@@ -86,6 +91,9 @@ player_spawn = NodePath("PlayerSpawn")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter", "bgm") instance=ExtResource("1_tjxkh")]
 spawns = Array[ExtResource("2_tjxkh")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_6bo4w")])
+spawn_distance_min = 10.0
+spawn_timer_min = 10.0
+spawn_timer_max = 12.0
 teleporter = NodePath("../Spawners/Teleporter")
 bgm = NodePath("../BgmPlayer")
 
@@ -708,3 +716,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.674, -49.138, 14.072)
 beginning = ExtResource("17_rggl3")
 base_loop = ExtResource("18_gppu0")
 intensity_1_loop = ExtResource("19_bscqe")
+intensity_2_loop = ExtResource("20_gppu0")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -72.3221, 0)
+script = ExtResource("21_bscqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -25, 0)
+shape = SubResource("BoxShape3D_bscqe")

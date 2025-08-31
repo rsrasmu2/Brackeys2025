@@ -69,7 +69,6 @@ spawn_data = Array[ExtResource("2_27mgd")]([SubResource("Resource_m3mbd"), SubRe
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.80043, 0)
 light_color = Color(0.670642, 0.893085, 0.890729, 1)
 light_energy = 11.035
-shadow_enabled = true
 omni_range = 38.3033
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -79,7 +78,7 @@ shape = SubResource("ConcavePolygonShape3D_vk07j")
 one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 90.0
 one_shot = true
 
 [node name="Area3D" type="Area3D" parent="."]

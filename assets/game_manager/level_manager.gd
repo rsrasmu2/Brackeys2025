@@ -1,4 +1,3 @@
-
 class_name LevelManager
 extends Node3D
 
@@ -104,10 +103,11 @@ func _on_teleporter_completed() -> void:
 	set_process_input(true)
 
 func _on_spawner_destroyed() -> void:
-	bgm.set_intensity(0)
 	_spawners_remaining -= 1
 	if _spawners_remaining == 0:
 		teleporter.active = true
+	else:
+		bgm.set_intensity(0)
 
 func _on_spawner_entered() -> void:
 	bgm.set_intensity(1)

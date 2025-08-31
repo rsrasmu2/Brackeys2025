@@ -1,21 +1,23 @@
-[gd_scene load_steps=32 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=34 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_46jxp"]
 [ext_resource type="PackedScene" uid="uid://vm7sx4dc1oxe" path="res://assets/player/player_spawn.tscn" id="1_bdj47"]
 [ext_resource type="Terrain3DMaterial" uid="uid://cuol02y274fmn" path="res://assets/environment/Level 2/new_terrain_3d_material.tres" id="1_w1egl"]
 [ext_resource type="Terrain3DAssets" uid="uid://ba62silxu8xlu" path="res://assets/environment/Level 2/new_terrain_3d_assets.tres" id="2_bdj47"]
-[ext_resource type="Script" path="res://assets/game_manager/spawn_data.gd" id="2_roteo"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_roteo"]
 [ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="3_5tnw1"]
 [ext_resource type="PackedScene" uid="uid://i40e8cctvc4h" path="res://assets/enemy/enemy_blob/variations/lava_blob.tscn" id="3_7718q"]
 [ext_resource type="PackedScene" uid="uid://cm6r8yjnur5mb" path="res://assets/enemy/enemy_angel/enemy_angel.tscn" id="5_7cvne"]
 [ext_resource type="Material" uid="uid://bwiq3wogh54mw" path="res://assets/environment/Level 2/textures/material_lava.tres" id="7_j1wc1"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="7_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/music/volcano-loop_00.wav" id="8_lf7xx"]
-[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/music/volcano-loop_11.wav" id="9_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://blv0p375u3egk" path="res://assets/environment/Level 2/audio/volcano-loop_00.wav" id="8_lf7xx"]
+[ext_resource type="AudioStream" uid="uid://c6yslxp8q20oj" path="res://assets/environment/Level 2/audio/volcano-loop_11.wav" id="9_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://b73tdqpnnfgi2" path="res://assets/environment/Level 2/audio/volcano-loop_guitar.wav" id="10_gakve"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="10_j3q2o"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="13_7718q"]
 [ext_resource type="Texture2D" uid="uid://b6np17i27k30a" path="res://assets/environment/Level 2/textures/smoke/T_smoke_flipbook.png" id="16_wsxtn"]
+[ext_resource type="AudioStream" uid="uid://bgwcvrf2xgxlv" path="res://assets/environment/Level 2/audio/Torch Loop.ogg" id="17_niqym"]
 
 [sub_resource type="Resource" id="Resource_26yi2"]
 script = ExtResource("2_roteo")
@@ -129,6 +131,7 @@ bgm = NodePath("../BgmPlayer")
 [node name="BgmPlayer" parent="." instance=ExtResource("7_lf7xx")]
 base_loop = ExtResource("8_lf7xx")
 intensity_1_loop = ExtResource("9_wsxtn")
+intensity_2_loop = ExtResource("10_gakve")
 
 [node name="Lighting" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 266.506, 63.496, -170.43)
@@ -326,6 +329,10 @@ randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_gakve")
 draw_pass_1 = SubResource("QuadMesh_bqaky")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Particle_Effects/VFX_Smoke_1"]
+stream = ExtResource("17_niqym")
+volume_db = -10.0
 
 [node name="VFX_Smoke_20" type="GPUParticles3D" parent="Particle_Effects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 47, -44)

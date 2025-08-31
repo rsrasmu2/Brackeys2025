@@ -121,7 +121,7 @@ func display_prompt(text: String) -> void:
 	$PlayerCamera/UI/TeleporterPrompt.text = text
 
 func reset_position() -> void:
-	var displacement = -_last_grounded_velocity * 0.05
+	var displacement := -_last_grounded_velocity * 0.05
 	displacement.y = 0
 	global_position = _last_ground + displacement
 	global_position.y += 0.5
