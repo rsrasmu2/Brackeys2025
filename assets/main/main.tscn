@@ -8,7 +8,6 @@
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_lv126")
-start_from_level = 2
 levels = Array[PackedScene]([ExtResource("1_xch4i"), ExtResource("3_j84mu"), ExtResource("4_yti63")])
 
 [node name="Label" type="Label" parent="."]

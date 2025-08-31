@@ -13,13 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://0xscaj7vmigb" path="res://assets/environment/Level 3/Platform_square_small.glb" id="9_227j0"]
 [ext_resource type="PackedScene" uid="uid://fldjeerkan62" path="res://assets/environment/Level 3/Platform_ramp.glb" id="10_mtatn"]
 [ext_resource type="PackedScene" uid="uid://duaxmey1w7bhw" path="res://assets/environment/Level 3/Platform_rectangle_donut.glb" id="11_h61ey"]
+[ext_resource type="AudioStream" uid="uid://b05t0qeiaxfp1" path="res://assets/environment/Level 3/music/space-loop_000.wav" id="13_6u0bc"]
 [ext_resource type="PackedScene" uid="uid://d4e5qdvu7qbax" path="res://assets/environment/Level 3/Platform_square_donut.glb" id="13_adsbt"]
 [ext_resource type="PackedScene" uid="uid://drplbfisq6nnh" path="res://assets/spawner/spawner_spawner.tscn" id="14_227j0"]
 [ext_resource type="AudioStream" uid="uid://cfnrcwtvccivr" path="res://assets/environment/Level 3/music/Space-loop_guitar.wav" id="15_6u0bc"]
 [ext_resource type="PackedScene" uid="uid://dsc2wp5snegqx" path="res://assets/Teleporter/teleporter.tscn" id="15_mtatn"]
 [ext_resource type="PackedScene" uid="uid://b85328utho11q" path="res://assets/common/bpm_player/bgm_player.tscn" id="17_pkkug"]
 [ext_resource type="AudioStream" uid="uid://cf0jgiihr5ep2" path="res://assets/environment/Level 3/music/Space-loop_beginning2_16k.wav" id="18_vc2d3"]
-[ext_resource type="AudioStream" uid="uid://c10gg8cvbfxh2" path="res://assets/environment/Level 3/music/Space-loop_00_16k.wav" id="19_6u0bc"]
 [ext_resource type="AudioStream" uid="uid://cxb8tps0h1m2p" path="res://assets/environment/Level 3/music/Space-loop_11_16k.wav" id="20_7si6j"]
 [ext_resource type="Script" uid="uid://cprsfrq3ai452" path="res://assets/environment/Level 3/killbox.gd" id="20_mnc8p"]
 
@@ -136,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 16, 0)
 
 [node name="BgmPlayer" parent="." instance=ExtResource("17_pkkug")]
 beginning = ExtResource("18_vc2d3")
-base_loop = ExtResource("19_6u0bc")
+base_loop = ExtResource("13_6u0bc")
 intensity_1_loop = ExtResource("20_7si6j")
 intensity_2_loop = ExtResource("15_6u0bc")
 

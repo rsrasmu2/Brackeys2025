@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://bpa6imggrwcg2"]
+[gd_scene load_steps=30 format=3 uid="uid://bpa6imggrwcg2"]
 
 [ext_resource type="Shader" uid="uid://ko83m4ilrqkw" path="res://assets/common/explosion/explosion_streaks.tres" id="1_635p8"]
+[ext_resource type="Script" uid="uid://y2y02rf04ti0" path="res://assets/common/explosion/explosion.gd" id="1_gvsdd"]
 [ext_resource type="Material" uid="uid://djkcg178h4n2i" path="res://assets/common/explosion/material_explosion.tres" id="2_gvsdd"]
 [ext_resource type="Texture2D" uid="uid://cg0dfutxtqbe3" path="res://assets/common/explosion/T_vfx_hit122.jpg" id="3_hw43a"]
 
@@ -84,13 +85,64 @@ alpha_curve = SubResource("CurveTexture_72w5s")
 radius = 0.2
 height = 0.4
 
+[sub_resource type="Animation" id="Animation_tenym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Explosion/VFX_Explosion_Streaks:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion/VFX_Explosion_Clouds:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explosion/OmniLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explosion/Flare:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_jjt4j"]
 resource_name = "VFX_explosion"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VFX_Explosion/VFX_Explosion_Streaks:emitting")
+tracks/0/path = NodePath("Explosion/VFX_Explosion_Streaks:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +154,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VFX_Explosion/VFX_Explosion_Clouds:emitting")
+tracks/1/path = NodePath("Explosion/VFX_Explosion_Clouds:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -114,7 +166,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VFX_Explosion/OmniLight3D:light_energy")
+tracks/2/path = NodePath("Explosion/OmniLight3D:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -123,44 +175,17 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0, 20.0, 0.0]
 }
-
-[sub_resource type="Animation" id="Animation_tenym"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VFX_Explosion/VFX_Explosion_Streaks:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Explosion/Flare:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VFX_Explosion/VFX_Explosion_Clouds:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("VFX_Explosion/OmniLight3D:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20.0]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpv3h"]
@@ -175,30 +200,30 @@ shading_mode = 0
 albedo_color = Color(0.365571, 0.889852, 0.800051, 1)
 albedo_texture = ExtResource("3_hw43a")
 billboard_mode = 3
+billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id="Curve_vl6bk"]
+[sub_resource type="Curve" id="Curve_635p8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_c0v88"]
-curve = SubResource("Curve_vl6bk")
+[sub_resource type="CurveTexture" id="CurveTexture_gvsdd"]
+curve = SubResource("Curve_635p8")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ugqsk"]
 gravity = Vector3(0, 0, 0)
-scale_min = 8.0
-scale_max = 8.0
-scale_curve = SubResource("CurveTexture_c0v88")
+scale_min = 3.5
+scale_max = 3.5
+scale_curve = SubResource("CurveTexture_gvsdd")
 
 [sub_resource type="QuadMesh" id="QuadMesh_oriaf"]
 
-[node name="Explosion" type="Node2D"]
+[node name="Explosion" type="Node3D"]
+script = ExtResource("1_gvsdd")
 
-[node name="VFX_Explosion" type="Node3D" parent="."]
-
-[node name="VFX_Explosion_Streaks" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="VFX_Explosion_Streaks" type="GPUParticles3D" parent="."]
 material_override = SubResource("ShaderMaterial_200pp")
 emitting = false
 lifetime = 0.4
@@ -209,7 +234,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_ym2qw")
 draw_pass_1 = SubResource("QuadMesh_6dgmw")
 
-[node name="VFX_Explosion_Clouds" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="VFX_Explosion_Clouds" type="GPUParticles3D" parent="."]
 material_override = ExtResource("2_gvsdd")
 emitting = false
 amount = 3
@@ -222,21 +247,24 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_moupm")
 draw_pass_1 = SubResource("SphereMesh_csvng")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="VFX_Explosion"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_qpv3h")
 }
+autoplay = "VFX_explosion"
 
-[node name="OmniLight3D" type="OmniLight3D" parent="VFX_Explosion"]
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
 light_color = Color(0.531595, 0.860784, 0.850327, 1)
 light_energy = 20.0
 omni_range = 9.56
 
-[node name="Flare" type="GPUParticles3D" parent="VFX_Explosion"]
+[node name="Flare" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_fb4ug")
+emitting = false
 amount = 1
 lifetime = 0.5
+one_shot = true
 explosiveness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_ugqsk")
