@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dbscgsfbwy7q0"]
+[gd_scene load_steps=45 format=3 uid="uid://dbscgsfbwy7q0"]
 
 [ext_resource type="PackedScene" uid="uid://dngprbb1vvdir" path="res://assets/game_manager/level_manager.tscn" id="1_3lvef"]
 [ext_resource type="Script" uid="uid://cdr4egi47rd6x" path="res://assets/environment/level.gd" id="1_46jxp"]
@@ -78,6 +78,34 @@ agent_height = 2.5
 agent_max_climb = 0.5
 agent_max_slope = 60.0
 detail_sample_max_error = 0.5
+
+[sub_resource type="Resource" id="Resource_bqaky"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_yyw42"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_5r4lw"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("5_7cvne"), ExtResource("3_5tnw1"), ExtResource("3_5tnw1"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
+
+[sub_resource type="Resource" id="Resource_teih0"]
+script = ExtResource("2_roteo")
+enemies = Array[PackedScene]([ExtResource("5_7cvne"), ExtResource("5_7cvne"), ExtResource("5_7cvne"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q"), ExtResource("3_7718q")])
+spawn_chance = 0.0
+spawn_mult = 0.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_niqym"]
 transparency = 1
@@ -333,21 +361,27 @@ metadata/_edit_lock_ = true
 
 [node name="SpawnerSpawner" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 290.188, 52.0972, -34.0152)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.0757, 70.2417, 111.943)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="SpawnerSpawner3" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0948, 53.4052, -103.822)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="SpawnerSpawner4" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.15, 60.5786, 145.1)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="SpawnerSpawner5" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.238, 50.338, -124.936)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("10_j3q2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.7602, 57.5279, -178.918)
+spawn_data = Array[ExtResource("2_roteo")]([SubResource("Resource_bqaky"), SubResource("Resource_yyw42"), SubResource("Resource_5r4lw"), SubResource("Resource_teih0")])
 
 [node name="Teleporter" parent="." instance=ExtResource("13_7718q")]
 transform = Transform3D(1, -0.000907571, 0, 0.000907571, 1, 0, 0, 0, 1, 105.422, 49.0396, -71.2416)

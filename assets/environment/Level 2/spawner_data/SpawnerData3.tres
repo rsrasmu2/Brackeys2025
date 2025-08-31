@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpawnData" load_steps=3 format=3 uid="uid://cxsqkwrcyav1l"]
+
+[ext_resource type="PackedScene" uid="uid://blrh806e5yssb" path="res://assets/enemy/enemy_pillar/enemy_pillar.tscn" id="1_ia4fv"]
+[ext_resource type="Script" uid="uid://ksdpmq0vtukg" path="res://assets/game_manager/spawn_data.gd" id="2_6ddnf"]
+
+[resource]
+script = ExtResource("2_6ddnf")
+enemies = Array[PackedScene]([ExtResource("1_ia4fv"), ExtResource("1_ia4fv"), ExtResource("1_ia4fv"), ExtResource("1_ia4fv")])
+spawn_chance = 0.0
+spawn_mult = 1.0
+metadata/_custom_type_script = "uid://ksdpmq0vtukg"

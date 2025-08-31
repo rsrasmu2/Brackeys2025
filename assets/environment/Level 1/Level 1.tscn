@@ -702,18 +702,23 @@ spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource
 
 [node name="SpawnerSpawner2" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.973, -32.6216, -134.043)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="SpawnerSpawner3" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.7589, -33.8947, -137.199)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="SpawnerSpawner5" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.79, -18.245, 136.277)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="SpawnerSpawner6" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.24, -34.1256, -12.5186)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="SpawnerSpawner7" parent="Spawners" instance=ExtResource("8_2jk75")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.9159, -35.2321, 130.415)
+spawn_data = Array[ExtResource("2_tjxkh")]([ExtResource("15_hdv2j"), ExtResource("16_n1i2h"), ExtResource("17_wjav2"), ExtResource("18_b6xhv"), ExtResource("19_5qy7f")])
 
 [node name="Teleporter" parent="Spawners" instance=ExtResource("14_6onxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.674, -49.138, 14.072)
