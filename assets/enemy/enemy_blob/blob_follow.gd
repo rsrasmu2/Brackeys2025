@@ -10,7 +10,7 @@ extends Node3D
 @export var y_max: float = 7.0
 
 var target_position: Vector3
-var speed: float = 10
+var speed: float = 16
 var ground_speed: float = 0.2
 
 var pathfinding_position: Vector3

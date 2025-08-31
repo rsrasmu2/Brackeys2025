@@ -3,7 +3,7 @@ extends Node3D
 @export var target: EnemyTarget
 @export var controller: Enemy
 
-var speed: float = 6
+var speed: float = 7
 
 @export var attack_range: float = 40
 @export var animation_player: AnimationPlayer

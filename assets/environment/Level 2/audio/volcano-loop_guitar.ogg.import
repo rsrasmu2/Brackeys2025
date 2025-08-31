@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b44iiwyx4qk2l"
+path="res://.godot/imported/volcano-loop_guitar.ogg-aa4b1dbe907301a99918fcddc4d89efb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/environment/Level 2/audio/volcano-loop_guitar.ogg"
+dest_files=["res://.godot/imported/volcano-loop_guitar.ogg-aa4b1dbe907301a99918fcddc4d89efb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

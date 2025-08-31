@@ -8,11 +8,6 @@ kanban-plugin: board
 
 - [ ] Lava Damage
 - [ ] Scale difficulty over time
-- [ ] Pillars can push you through world
-- [ ] Spawner Blobs
-- [ ] Death is funky
-- [ ] Add Arc effect
-- [ ] Add Explosion effect
 
 
 ## In Progress
@@ -32,6 +27,11 @@ kanban-plugin: board
 - [ ] Destroy all spawners to unlock teleporter
 - [ ] Spawn/Death animations
 - [ ] Teleporter wave
+- [ ] Spawner Blobs
+- [ ] Death is funky
+- [ ] Add Arc effect
+- [ ] Pillars can push you through world
+- [ ] Add Explosion effect
 - [ ] Transition levels
 - [ ] Add Level up
 - [ ] Fix Pillar Enemy :(

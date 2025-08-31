@@ -2,7 +2,7 @@ class_name PlayerMovement
 extends Node
 
 @export var target: Player 
-@export var speed: float = 5
+@export var speed: float = 7
 
 func _process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_forward", "move_backward").normalized()
