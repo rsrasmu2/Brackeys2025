@@ -111,6 +111,10 @@ stream = ExtResource("8_02c12")
 volume_db = -5.0
 unit_size = 50.0
 
+[node name="SpawnStagger" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="WaveCooldown" to="." method="_on_wave_cooldown_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

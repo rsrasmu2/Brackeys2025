@@ -77,6 +77,10 @@ collision_knockback = 5.0
 hurtbox = NodePath("../BlobAttack")
 animation_player = NodePath("../Enemy_Blob/AnimationPlayer")
 
+[node name="Timer" type="Timer" parent="BlobFollow" index="0"]
+wait_time = 0.2
+one_shot = true
+
 [node name="BlobJump" type="Node3D" parent="." index="9"]
 
 [node name="BlobAttack" type="Area3D" parent="." index="10" node_paths=PackedStringArray("controller", "target", "animation_player")]

@@ -81,6 +81,8 @@ func _on_spawn_timer_timeout() -> void:
 				enemy.look_at(_player.global_position, Vector3.UP, true)
 				enemy.spawn()
 				attempts_remaining -= 1
+		$StaggerTimer.start()
+		await $SpawnTimer.timeout
 	spawn_timer_multiplier = enemies_to_spawn.spawn_mult
 	start_spawn_timer()
 
