@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://xqblsbwphupc"]
+[gd_scene load_steps=7 format=3 uid="uid://xqblsbwphupc"]
 
 [ext_resource type="Script" uid="uid://dlb7m2crr4a0f" path="res://assets/powerups/shield_powerup.gd" id="1_30fxp"]
 
@@ -13,6 +13,17 @@ albedo_color = Color(0.0313726, 0.266667, 1, 0.172549)
 material = SubResource("StandardMaterial3D_eg57f")
 size = Vector3(0.5, 0.5, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30fxp"]
+albedo_color = Color(0.223529, 0.788235, 0.737255, 1)
+emission_enabled = true
+emission = Color(0.225341, 0.78698, 0.738933, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ptijy"]
+material = SubResource("StandardMaterial3D_30fxp")
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.15
+
 [node name="ShieldPowerup" type="AnimatableBody3D"]
 collision_layer = 2
 collision_mask = 4
@@ -25,3 +36,19 @@ shape = SubResource("BoxShape3D_ptijy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -1)
 mesh = SubResource("BoxMesh_54du6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.250319, 0.94942, -1)
+mesh = SubResource("CylinderMesh_ptijy")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.249957, 0.94942, -1)
+mesh = SubResource("CylinderMesh_ptijy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.250319, 1.44939, -1)
+mesh = SubResource("CylinderMesh_ptijy")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.249957, 1.44939, -1)
+mesh = SubResource("CylinderMesh_ptijy")
