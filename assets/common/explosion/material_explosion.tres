@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://djkcg178h4n2i"]
+
+[ext_resource type="Shader" uid="uid://67eqyn40rrq5" path="res://assets/common/explosion/effect_explosion.tres" id="1_u3ijy"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u3ijy")
+shader_parameter/Speed = 0.2
+shader_parameter/Cloud_Displacement = 0.2
+shader_parameter/Explosion_Color = Color(0.1976, 0.36632, 0.76, 1)
