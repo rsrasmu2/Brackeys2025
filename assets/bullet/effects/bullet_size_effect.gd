@@ -1,6 +1,6 @@
 extends Node
 
-@export var mult: float = 5.0
+@export var mult: float = 4.0
 
 func apply(bullet: Bullet) -> void:
 	bullet.get_node("MeshInstance3D").scale *= mult

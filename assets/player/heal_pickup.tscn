@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c63eiq88lrvmd"]
+
+[ext_resource type="Script" uid="uid://bn74mwsetvfyd" path="res://assets/player/heal_pickup.gd" id="1_offr1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bs7vs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpvij"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0.466667, 1, 0.466667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g54c7"]
+material = SubResource("StandardMaterial3D_hpvij")
+size = Vector3(0.2, 0.8, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2dy5"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0.466667, 1, 0.466667, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0gat"]
+material = SubResource("StandardMaterial3D_s2dy5")
+size = Vector3(0.8, 0.2, 0.2)
+
+[node name="HealPickup" type="Area3D"]
+collision_layer = 32
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_offr1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15364, 0)
+shape = SubResource("SphereShape3D_bs7vs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15364, 0)
+mesh = SubResource("BoxMesh_g54c7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15364, 0)
+mesh = SubResource("BoxMesh_p0gat")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.466667, 1, 0.466667, 1)
+light_energy = 2.0

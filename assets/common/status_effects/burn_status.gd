@@ -1,7 +1,7 @@
 extends Node
 
-@export var damage: int = 2
-@export var ticks: int = 20
+@export var damage: int = 20
+@export var ticks: int = 8
 
 var _target: Node
 

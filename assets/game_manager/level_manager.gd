@@ -38,6 +38,7 @@ func _input(event: InputEvent) -> void:
 		_player.display_prompt("")
 		bgm.fade_bgm()
 		set_process_input(false)
+		_player.transition_out()
 		$LevelTransitionTimer.start()
 		await $LevelTransitionTimer.timeout
 		emit_signal(level_finished.get_name())
@@ -56,6 +57,7 @@ func start_level() -> void:
 		spawners.remove_at(index)
 	for spawner: Node in spawners:
 		spawner.remove()
+	_player.transition_in()
 
 func start_spawn_timer() -> void:
 	$SpawnTimer.wait_time = randf_range(spawn_timer_min, spawn_timer_max) * spawn_timer_multiplier
@@ -88,8 +90,9 @@ func _on_spawn_timer_timeout() -> void:
 
 func _destroy_enemies() -> void:
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
-		enemy.drop_exp = false
-		enemy.get_node("Health").health = 0
+		if is_instance_valid(enemy):
+			enemy.drop_exp = false
+			enemy.get_node("Health").health = 0
 
 func _on_teleporter_activated() -> void:
 	bgm.set_intensity(2)

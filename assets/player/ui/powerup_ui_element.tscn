@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhn4indokfq4u"]
+[gd_scene load_steps=3 format=3 uid="uid://bhn4indokfq4u"]
 
 [ext_resource type="Script" uid="uid://dn8qtrl6yf1r5" path="res://assets/player/ui/powerup_ui_element.gd" id="1_sjtvo"]
+[ext_resource type="Theme" uid="uid://d4gmsidc73q8c" path="res://assets/fonts/Font.tres" id="2_fnhqp"]
 
 [node name="PowerupUIElement" type="Panel"]
 custom_minimum_size = Vector2(300, 0)
@@ -25,12 +26,15 @@ theme_override_constants/separation = 12
 
 [node name="PowerupName" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_fnhqp")
+theme_override_font_sizes/font_size = 24
 text = "POWERUP NAME"
 horizontal_alignment = 1
 
 [node name="PowerupDescription" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("2_fnhqp")
 text = "POWERUP DESCRIPTION
 LINE 2
 LINE 3"
@@ -40,6 +44,7 @@ autowrap_mode = 3
 process_mode = 3
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("2_fnhqp")
 text = "Select"
 
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

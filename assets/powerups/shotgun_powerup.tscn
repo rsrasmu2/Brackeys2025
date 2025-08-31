@@ -4,7 +4,3 @@
 
 [node name="ShotgunPowerup" type="Node"]
 script = ExtResource("1_y4quh")
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true

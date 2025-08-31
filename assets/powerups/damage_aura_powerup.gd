@@ -1,9 +1,9 @@
 extends Area3D
 
 const NAME: String = "Damage Aura"
-const DESCRIPTION: String = "Every three seconds, deal damage to all nearby enemies."
+const DESCRIPTION: String = "Every three seconds, deal 50 damage to all nearby enemies."
 
-@export var damage: float = 20
+@export var damage: float = 50
 @export var cooldown: float = 3
 
 func _ready() -> void:

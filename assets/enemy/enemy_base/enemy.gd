@@ -21,6 +21,8 @@ var drop_exp: bool = true
 var _target_states: Array = []
 
 const EXP_SCENE := preload("res://assets/experience/exp_pickup.tscn")
+const HEAL_SCENE := preload("res://assets/player/heal_pickup.tscn")
+const HEAL_DROP_CHANCE: float = 0.1
 
 enum EnemyState { Spawning, Idle, Following, Jumping, Attacking, Dying }
 @onready var state: EnemyState = EnemyState.Spawning:
@@ -79,4 +81,8 @@ func _on_health_died() -> void:
 		orb.init(experience)
 		get_tree().root.add_child(orb)
 		orb.global_position = global_position
+	if randf() < HEAL_DROP_CHANCE:
+		var heal := HEAL_SCENE.instantiate()
+		get_tree().root.add_child(heal)
+		heal.global_position = global_position
 	state = EnemyState.Dying

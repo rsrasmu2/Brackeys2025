@@ -3,8 +3,8 @@ extends AnimatableBody3D
 const NAME: String = "Shield"
 const DESCRIPTION: String = "You gain a shield that rotates around you, preventing damage and knocking back enemies that hit it."
 
-@export var speed_degrees: float = 2
-@export var retaliatory_knockback: float = 5
+@export var speed_degrees: float = 3
+@export var retaliatory_knockback: float = 8
 
 func _physics_process(delta: float) -> void:
 	rotate_y(speed_degrees * delta)

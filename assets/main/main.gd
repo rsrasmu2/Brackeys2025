@@ -28,4 +28,4 @@ func _on_level_finished() -> void:
 	if current_level_index < levels.size():
 		load_level(current_level_index)
 	else:
-		$Label.visible = true
+		_player.victory_label.visible = true

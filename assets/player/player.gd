@@ -9,6 +9,10 @@ const GRAVITY: float = 9.8
 
 var gravity_enabled: bool = false
 
+@onready var transition_rect := $PlayerCamera/UI/TransitionRect
+@onready var timer_label := $PlayerCamera/UI/TimerLabel
+@onready var victory_label := $PlayerCamera/UI/Label2
+
 var current_dash_speed: float = 0:
 	set(value):
 		if current_dash_speed != value:
@@ -37,7 +41,8 @@ var knockback: Vector3 = Vector3.ZERO
 var _last_ground: Vector3
 var _last_grounded_velocity: Vector3
 
-@onready var timer_label: Label = $PlayerCamera/UI/TimerLabel
+func _ready() -> void:
+	transition_in()
 
 func _process(delta: float) -> void:
 	_delta = delta
@@ -129,3 +134,11 @@ func reset_position() -> void:
 	global_position = _last_ground + displacement
 	global_position.y += 0.5
 	velocity.y = 0
+
+func transition_out() -> void:
+	var tween = create_tween()
+	tween.tween_property($PlayerCamera/UI/TransitionRect, "color:a", 1.0, 1.0).set_ease(Tween.EASE_IN)
+
+func transition_in() -> void:
+	var tween = create_tween()
+	tween.tween_property($PlayerCamera/UI/TransitionRect, "color:a", 0.0, 0.6).set_ease(Tween.EASE_IN)

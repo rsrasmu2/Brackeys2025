@@ -6,7 +6,7 @@ var _gravity: float = 0
 @export var THROW_SPEED: float = 10
 
 @export var damage: int = 60
-@export var radius: float = 8
+@export var radius: float = 12
 
 @export var knockback: float = 4.0
 
@@ -27,7 +27,11 @@ func explode() -> void:
 	params.transform = transform
 	params.collision_mask = 4
 	var collisions := space.intersect_shape(params)
+	var rids = []
 	for collision: Dictionary in collisions:
+		if rids.has(collision["rid"]):
+			continue
+		rids.push_back(collision["rid"])
 		var other: Node3D = collision["collider"]
 		if other.has_method("take_damage"):
 			var direction := global_position.direction_to(other.global_position)

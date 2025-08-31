@@ -13,7 +13,7 @@ radius = 0.1
 height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nfqwe"]
-radius = 0.2
+radius = 0.4
 
 [node name="Grenade" type="Area3D"]
 collision_layer = 0

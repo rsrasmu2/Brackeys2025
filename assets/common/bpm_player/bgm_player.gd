@@ -3,7 +3,7 @@ extends Node
 
 @export var autoplay: bool = true
 
-@export var volume_db: float = -20
+@export var volume_db: float = -18
 @export var fade_in_time: float = 2.0
 @export var fade_out_time: float = 8.0
 

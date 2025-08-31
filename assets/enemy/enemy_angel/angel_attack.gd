@@ -49,7 +49,7 @@ func fired() -> void:
 		var laser := LASER_SCENE.instantiate()
 		get_tree().root.add_child(laser)
 		laser.global_transform = spawn_point.global_transform
-		laser.init(50, damage, controller)
+		laser.init(65, damage, controller)
 
 func _on_animation_finished(anim_name: String) -> void:
 	match anim_name:
