@@ -13,7 +13,6 @@ var target_position: Vector3
 var speed: float = 10
 var ground_speed: float = 0.2
 
-var _has_next: bool = false
 var pathfinding_position: Vector3
 
 @export var animation_player: AnimationPlayer
@@ -23,16 +22,10 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(_delta: float) -> void:
-	if not _has_next:
-		return
-	if abs(controller.global_position.y - pathfinding_position.y) < 0.1:
-		return
-	controller.look_at(pathfinding_position, Vector3.UP, true)
+	controller.look_at(target.target.global_position, Vector3.UP, true)
 
 func _physics_process(_delta: float) -> void:
 	$"../NavigationAgent3D".target_position = target.target.global_position
-	pathfinding_position = $"../NavigationAgent3D".get_next_path_position()
-	_has_next = pathfinding_position.distance_squared_to(controller.global_position) > 0.4
 
 func enter() -> void:
 	set_physics_process(true)
@@ -48,6 +41,7 @@ func exit() -> void:
 	controller.target_velocity.z = 0
 
 func begin_walk() -> void:
+	pathfinding_position = $"../NavigationAgent3D".get_next_path_position()
 	var displacement: Vector3 = pathfinding_position - global_position
 	var velocity: Vector2 = Vector2(displacement.x, displacement.z).normalized() * speed
 	controller.target_velocity.x = velocity.x

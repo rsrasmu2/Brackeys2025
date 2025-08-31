@@ -7,5 +7,5 @@ extends AudioStreamPlayer
 @export var max_pitch: float = 1.3
 
 func play_pitched() -> void:
-	pitch_scale = lerp(min_pitch, max_pitch, experience.experience / experience.next_level_exp)
+	pitch_scale = lerp(min_pitch, max_pitch, float(experience.experience) / float(experience.next_level_exp))
 	play()

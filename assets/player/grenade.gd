@@ -30,7 +30,7 @@ func explode() -> void:
 	for collision: Dictionary in collisions:
 		var other: Node3D = collision["collider"]
 		if other.has_method("take_damage"):
-			var direction = global_position.direction_to(other.global_position)
+			var direction := global_position.direction_to(other.global_position)
 			other.take_damage(damage, direction * knockback, self)
 	queue_free()
 
