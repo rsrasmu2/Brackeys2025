@@ -78,6 +78,8 @@ player_spawn = NodePath("PlayerSpawn")
 
 [node name="LevelManager" parent="." node_paths=PackedStringArray("teleporter", "bgm") instance=ExtResource("1_jgoy7")]
 spawns = Array[ExtResource("2_4kwxg")]([SubResource("Resource_26yi2"), SubResource("Resource_6hq74"), SubResource("Resource_6onxq"), SubResource("Resource_2ixkr")])
+spawn_timer_min = 6.0
+spawn_timer_max = 8.0
 teleporter = NodePath("../Teleporter")
 bgm = NodePath("../BgmPlayer")
 

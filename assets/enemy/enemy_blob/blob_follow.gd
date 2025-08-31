@@ -22,7 +22,7 @@ func _ready() -> void:
 	set_process(false)
 
 func _process(_delta: float) -> void:
-	if controller.global_position.distance_squared_to(pathfinding_position) < 0.2:
+	if controller.global_position.distance_squared_to(pathfinding_position) < 0.2 or controller.global_position.y == pathfinding_position.y:
 		return
 	controller.look_at(pathfinding_position, Vector3.UP, true)
 
