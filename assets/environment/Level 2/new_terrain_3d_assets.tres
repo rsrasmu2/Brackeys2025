@@ -1,22 +1,14 @@
 [gd_resource type="Terrain3DAssets" load_steps=6 format=3 uid="uid://ba62silxu8xlu"]
 
+[ext_resource type="PackedScene" uid="uid://c7snjm87l8g3f" path="res://assets/environment/Level 2/decoration/Obsidian.glb" id="1_opwv8"]
 [ext_resource type="Texture2D" uid="uid://cu3enya1ft6r" path="res://assets/environment/Level 2/textures/obsidian_ground_basecolor.png" id="2_opwv8"]
 [ext_resource type="Texture2D" uid="uid://dkhmicl3yisb" path="res://assets/environment/Level 2/textures/packed_normal_roughness.png" id="3_psq23"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgfkq"]
-transparency = 4
-cull_mode = 2
-vertex_color_use_as_albedo = true
-backlight_enabled = true
-backlight = Color(0.5, 0.5, 0.5, 1)
-distance_fade_mode = 1
-distance_fade_min_distance = 128.0
-distance_fade_max_distance = 96.0
-
 [sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_7ilsx"]
-generated_type = 1
-height_offset = 0.5
-material_override = SubResource("StandardMaterial3D_rgfkq")
+name = "Obsidian"
+enabled = false
+scene_file = ExtResource("1_opwv8")
+density = 0.115458
 last_lod = 0
 last_shadow_lod = 0
 lod0_range = 128.0
